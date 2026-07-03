@@ -1,0 +1,122 @@
+[
+  {
+    "id": "vivencia-1",
+    "categoria": "Bootcamps",
+    "titulo": "Bootcamp de paneles solares",
+    "descripcion": "Experiencia intensiva donde estudiantes diseñan, conectan y prueban un sistema fotovoltaico funcional.",
+    "año": 2026,
+    "media": "assets/images/vivencia/bootcamps.jpg",
+    "mediaType": "image",
+    "enlace": "",
+    "etiquetas": [
+      "Energía",
+      "Sustentabilidad",
+      "Proyectos"
+    ]
+  },
+  {
+    "id": "vivencia-2",
+    "categoria": "Certificaciones",
+    "titulo": "Certificación en manufactura digital",
+    "descripcion": "Ruta práctica para fortalecer competencias en herramientas de simulación, automatización y manufactura avanzada.",
+    "año": 2026,
+    "media": "assets/images/vivencia/certificaciones.jpg",
+    "mediaType": "image",
+    "enlace": "",
+    "etiquetas": [
+      "Industria 4.0",
+      "Automatización",
+      "Competencias"
+    ]
+  },
+  {
+    "id": "vivencia-3",
+    "categoria": "Arte y cultura",
+    "titulo": "Muestra de arte y tecnología",
+    "descripcion": "Espacio donde estudiantes combinan creatividad, narrativa visual y prototipos interactivos para comunicar ideas.",
+    "año": 2025,
+    "media": "assets/images/vivencia/arte-cultura.jpg",
+    "mediaType": "image",
+    "enlace": "",
+    "etiquetas": [
+      "Creatividad",
+      "Tecnología",
+      "Comunidad"
+    ]
+  },
+  {
+    "id": "vivencia-4",
+    "categoria": "Deportes",
+    "titulo": "Torneo representativo Santa Fe",
+    "descripcion": "Actividades deportivas que impulsan disciplina, bienestar, colaboración y sentido de pertenencia en el campus.",
+    "año": 2025,
+    "media": "assets/images/vivencia/deportes.jpg",
+    "mediaType": "image",
+    "enlace": "",
+    "etiquetas": [
+      "Bienestar",
+      "Equipo",
+      "Campus"
+    ]
+  },
+  {
+    "id": "vivencia-5",
+    "categoria": "Premios",
+    "titulo": "Premio a innovación estudiantil",
+    "descripcion": "Reconocimiento a proyectos de estudiantes que destacan por impacto, claridad técnica y potencial de implementación.",
+    "año": 2026,
+    "media": "assets/images/vivencia/premios.jpg",
+    "mediaType": "image",
+    "enlace": "",
+    "etiquetas": [
+      "Innovación",
+      "Impacto",
+      "Reconocimiento"
+    ]
+  },
+  {
+    "id": "vivencia-6",
+    "categoria": "Grupo estudiantil",
+    "titulo": "Comunidad estudiantil de ingeniería",
+    "descripcion": "Encuentros y proyectos liderados por estudiantes para aprender entre pares, organizar actividades y conectar generaciones.",
+    "año": 2026,
+    "media": "assets/images/vivencia/grupo-estudiantil.jpg",
+    "mediaType": "image",
+    "enlace": "",
+    "etiquetas": [
+      "Liderazgo",
+      "Colaboración",
+      "Mentoría"
+    ]
+  },
+  {
+    "id": "vivencia-7",
+    "categoria": "Escudería",
+    "titulo": "Escudería de movilidad eléctrica",
+    "descripcion": "Equipo multidisciplinario que diseña, prueba y mejora soluciones de movilidad con enfoque técnico y competitivo.",
+    "año": 2025,
+    "media": "assets/images/vivencia/escuderia.jpg",
+    "mediaType": "image",
+    "enlace": "",
+    "etiquetas": [
+      "Movilidad",
+      "Diseño",
+      "Competencia"
+    ]
+  },
+  {
+    "id": "vivencia-8",
+    "categoria": "Biblioteca",
+    "titulo": "Biblioteca como laboratorio de ideas",
+    "descripcion": "Sesiones de investigación, consulta y trabajo colaborativo para convertir información en propuestas sólidas.",
+    "año": 2026,
+    "media": "assets/images/vivencia/biblioteca.jpg",
+    "mediaType": "image",
+    "enlace": "",
+    "etiquetas": [
+      "Investigación",
+      "Aprendizaje",
+      "Recursos"
+    ]
+  }
+]

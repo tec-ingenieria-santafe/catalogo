@@ -9,6 +9,7 @@ const dataFiles = {
   universidades: "data/universidades.json",
   exatecs: "data/exatecs.json",
   catalyst: "data/catalyst.json",
+  vivencia: "data/vivencia.json",
 };
 
 const sectionMeta = {
@@ -32,10 +33,15 @@ const sectionMeta = {
     title: "¿Por qué estudiar esta carrera en Santa Fe?",
     short: "Laboratorios, ubicación, CATALYST, comunidad y ventajas específicas del campus.",
   },
+  vivencia: {
+    title: "Vivencia",
+    short: "Conoce experiencias que complementan la formación de los estudiantes dentro y fuera del aula.",
+  },
 };
 
 let siteData = null;
 let adminState = null;
+let pendingUniversityMap = null;
 
 function escapeHTML(value) {
   return String(value ?? "").replace(/[&<>"']/g, (char) => {
@@ -87,6 +93,9 @@ function sectionImageKey(slug) {
 
 function sectionImageFor(career, slug) {
   const key = sectionImageKey(slug);
+  if (slug === "vivencia") {
+    return career.sectionImages?.vivencia || "assets/images/vivencia/bootcamps.jpg";
+  }
   return career.sectionImages?.[key] || career.sectionImages?.[slug] || career.coverImage || career.imagenCover || career.imagen;
 }
 
@@ -124,6 +133,137 @@ function countryFlagEmoji(country) {
     suiza: "🇨🇭",
   };
   return flags[normalizeCountryName(country)] ?? "";
+}
+
+function numericValue(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? number : 0;
+}
+
+function semesterRank(value) {
+  const match = String(value ?? "").match(/\d+/);
+  return match ? Number(match[0]) : 0;
+}
+
+function yearValue(item) {
+  return numericValue(item["año"] ?? item.anio ?? item.ano);
+}
+
+function generationRank(value) {
+  const matches = String(value ?? "").match(/\d{4}/g);
+  if (!matches?.length) return 0;
+  return Number(matches[matches.length - 1]);
+}
+
+function normalizedText(value) {
+  return String(value ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
+function uniqueOptions(items, mapper, sorter = null) {
+  const options = [];
+  const seen = new Set();
+  items.forEach((item) => {
+    const value = mapper(item);
+    if (value === undefined || value === null || value === "") return;
+    const key = String(value);
+    if (seen.has(key)) return;
+    seen.add(key);
+    options.push(key);
+  });
+  return sorter ? options.sort(sorter) : options;
+}
+
+function numberOptionSort(a, b) {
+  return numericValue(a) - numericValue(b);
+}
+
+function semesterOptionSort(a, b) {
+  return semesterRank(a) - semesterRank(b);
+}
+
+function renderListingControls({ filters = [], resultLabel = "registros", singularLabel = "registro" }) {
+  return `
+    <div class="listing-tools" data-result-label="${escapeAttr(resultLabel)}" data-result-singular="${escapeAttr(singularLabel)}">
+      <div class="listing-controls">
+        ${filters.map(renderFilterSelect).join("")}
+        <label class="listing-label">
+          Ordenar por
+          <select class="listing-select" data-sort-control>
+            <option value="recent">Más recientes</option>
+            <option value="oldest">Más antiguos</option>
+            <option value="alpha">Alfabético (A-Z)</option>
+          </select>
+        </label>
+      </div>
+      <p class="result-counter" data-result-counter></p>
+    </div>
+  `;
+}
+
+function renderFilterSelect(filter) {
+  return `
+    <label class="listing-label">
+      ${escapeHTML(filter.label)}
+      <select class="listing-select" data-filter="${escapeAttr(filter.id)}">
+        <option value="__all__">Todos</option>
+        ${filter.options.map((option) => `<option value="${escapeAttr(option)}">${escapeHTML(option)}</option>`).join("")}
+      </select>
+    </label>
+  `;
+}
+
+function attachListingControls() {
+  document.querySelectorAll("[data-listing-region]").forEach((region) => {
+    region.querySelectorAll("[data-filter], [data-sort-control]").forEach((control) => {
+      control.addEventListener("change", () => applyListingControls(region));
+    });
+    applyListingControls(region);
+  });
+}
+
+function applyListingControls(region) {
+  const grid = region.querySelector("[data-listing-grid]");
+  if (!grid) return;
+  const cards = [...grid.querySelectorAll("[data-filterable-card]")];
+  const filters = [...region.querySelectorAll("[data-filter]")];
+  const sortMode = region.querySelector("[data-sort-control]")?.value ?? "recent";
+
+  cards
+    .sort((a, b) => compareFilterableCards(a, b, sortMode))
+    .forEach((card) => grid.append(card));
+
+  let visibleCount = 0;
+  cards.forEach((card) => {
+    const isVisible = filters.every((filter) => {
+      if (filter.value === "__all__") return true;
+      return card.dataset[filter.dataset.filter] === filter.value;
+    });
+    card.hidden = !isVisible;
+    if (isVisible) visibleCount += 1;
+  });
+
+  const counter = region.querySelector("[data-result-counter]");
+  if (!counter) return;
+  const labelSource = region.querySelector("[data-result-label]");
+  const label = visibleCount === 1 ? labelSource?.dataset.resultSingular ?? "registro" : labelSource?.dataset.resultLabel ?? "registros";
+  counter.textContent = visibleCount
+    ? `Mostrando ${visibleCount} ${label}`
+    : "No hay registros que coincidan con los filtros seleccionados.";
+}
+
+function compareFilterableCards(a, b, sortMode) {
+  if (sortMode === "alpha") {
+    return (a.dataset.title ?? "").localeCompare(b.dataset.title ?? "", "es", { sensitivity: "base" });
+  }
+  const aDate = numericValue(a.dataset.dateSort);
+  const bDate = numericValue(b.dataset.dateSort);
+  const direction = sortMode === "oldest" ? 1 : -1;
+  const dateResult = (aDate - bDate) * direction;
+  if (dateResult !== 0) return dateResult;
+  return (a.dataset.title ?? "").localeCompare(b.dataset.title ?? "", "es", { sensitivity: "base" });
 }
 
 function youtubeEmbedUrl(value) {
@@ -284,13 +424,105 @@ function renderCareerHub(career) {
 }
 
 function renderSectionLink(career, section, index) {
+  const href = section.slug === "vivencia" ? `#vivencia/${career.id}` : `#programa/${career.id}/${section.slug}`;
   return `
-    <a class="info-panel section-link-card" href="#programa/${career.id}/${section.slug}">
+    <a class="info-panel section-link-card" href="${href}">
       <div class="section-card-media media-crop-${index + 1}" ${mediaStyle(sectionImageFor(career, section.slug))}></div>
       <h2><span class="section-dot" aria-hidden="true"></span>${escapeHTML(section.title)}</h2>
       <p>${escapeHTML(section.short)}</p>
       <span class="text-link">Abrir sección</span>
     </a>
+  `;
+}
+
+function renderVivenciaPage(fromCareer = null) {
+  const experiences = siteData.vivencia ?? [];
+  const theme = {
+    tipo: "vivencia",
+    nombre: "Vivencia",
+    colorPrincipal: "#0055a6",
+    colorSecundario: "#00a3c7",
+    degradado: "linear-gradient(135deg, rgba(0, 85, 166, 0.96), rgba(0, 163, 199, 0.88))",
+    coverImage: "assets/images/vivencia/bootcamps.jpg",
+    tagline: "Experiencias generales del campus que complementan la vida académica, profesional y comunitaria.",
+  };
+
+  app.innerHTML = `
+    <div class="theme-scope" style="${styleVars(theme)}">
+      ${renderDetailHero(theme, "VIVENCIA - SANTA FE", theme.tagline)}
+      <section class="detail-shell" data-listing-region>
+        ${renderListingControls({
+          filters: [
+            {
+              id: "category",
+              label: "Categoría",
+              options: uniqueOptions(experiences, (experience) => experience.categoria),
+            },
+          ],
+          resultLabel: "experiencias",
+          singularLabel: "experiencia",
+        })}
+        <div class="content-grid project-grid" data-listing-grid>
+          ${experiences.map((experience, index) => renderVivenciaCard(experience, index)).join("")}
+        </div>
+        ${renderVivenciaNav(fromCareer)}
+      </section>
+    </div>
+  `;
+  attachListingControls();
+}
+
+function renderVivenciaCard(experience, index) {
+  const embedUrl = youtubeEmbedUrl(experience.media);
+  const showVideo = experience.mediaType === "video" && embedUrl;
+  const media = showVideo
+    ? `
+      <div class="video-frame project-media">
+        <iframe
+          src="${escapeAttr(embedUrl)}"
+          title="Vivencia: ${escapeAttr(experience.titulo)}"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    `
+    : `<div class="image-tile project-media media-crop-${(index % 5) + 1}" ${mediaStyle(experience.media)}></div>`;
+
+  return `
+    <article
+      class="feature-card project-card"
+      data-filterable-card
+      data-category="${escapeAttr(experience.categoria)}"
+      data-date-sort="${yearValue(experience)}"
+      data-title="${escapeAttr(experience.titulo)}">
+      ${media}
+      <div class="feature-body">
+        <p class="mini-label">${escapeHTML(experience.categoria)}</p>
+        <h2>${escapeHTML(experience.titulo)}</h2>
+        <p>${escapeHTML(experience.descripcion)}</p>
+        <div class="tag-row">
+          ${(experience.etiquetas ?? []).map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}
+        </div>
+        <dl class="meta-list">
+          <div><dt>Año</dt><dd>${escapeHTML(experience["año"] ?? experience.ano ?? "")}</dd></div>
+          ${
+            experience.enlace
+              ? `<div><dt>Enlace</dt><dd><a class="text-link" href="${escapeAttr(experience.enlace)}" target="_blank" rel="noreferrer">Abrir recurso</a></dd></div>`
+              : ""
+          }
+        </dl>
+      </div>
+    </article>
+  `;
+}
+
+function renderVivenciaNav(fromCareer) {
+  return `
+    <nav class="page-nav" aria-label="Navegación de Vivencia">
+      ${fromCareer ? `<a class="button ghost" href="#programa/${fromCareer.id}">Volver a la carrera</a>` : ""}
+      <a class="button secondary" href="#inicio">Volver al catálogo principal</a>
+    </nav>
   `;
 }
 
@@ -311,7 +543,7 @@ function renderDetailHero(career, eyebrow, copy, sectionTitle = "") {
   `;
 }
 
-function renderSubpage(career, slug) {
+function renderSubpage(career, slug, pathParts = []) {
   const section = sectionMeta[slug];
   if (!section || !career.seccionesDisponibles.includes(slug)) {
     renderCareerHub(career);
@@ -329,19 +561,36 @@ function renderSubpage(career, slug) {
   app.innerHTML = `
     <div class="theme-scope" style="${styleVars(career)}">
       ${renderDetailHero(career, "Vista de carrera", section.short, section.title)}
-      ${renderers[slug](career)}
+      ${renderers[slug](career, pathParts)}
     </div>
   `;
+  attachListingControls();
+  initializePendingUniversityMap();
 }
 
 function renderProjectsPage(career) {
   const projects = byCareer(siteData.proyectos, career.id);
   return `
-    <section class="detail-shell">
-      <div class="content-grid project-grid">
+    <section class="detail-shell" data-listing-region>
+      ${renderListingControls({
+        filters: [
+          {
+            id: "year",
+            label: "Año",
+            options: uniqueOptions(projects, (project) => project["año"], numberOptionSort),
+          },
+          {
+            id: "semester",
+            label: "Semestre",
+            options: uniqueOptions(projects, (project) => project.semestre, semesterOptionSort),
+          },
+        ],
+        resultLabel: "proyectos",
+        singularLabel: "proyecto",
+      })}
+      <div class="content-grid project-grid" data-listing-grid>
         ${projects.map((project, index) => renderProject(project, index, career)).join("")}
       </div>
-      ${renderEmptyState(projects, "proyectos")}
       ${renderPageNav(career)}
     </section>
   `;
@@ -364,7 +613,13 @@ function renderProject(project, index, career) {
     : `<div class="image-tile project-media media-crop-${(index % 5) + 1}" ${mediaStyle(project.thumbnail)}></div>`;
 
   return `
-    <article class="feature-card project-card">
+    <article
+      class="feature-card project-card"
+      data-filterable-card
+      data-year="${escapeAttr(project["año"])}"
+      data-semester="${escapeAttr(project.semestre)}"
+      data-date-sort="${(yearValue(project) * 100) + semesterRank(project.semestre)}"
+      data-title="${escapeAttr(project.titulo)}">
       ${media}
       <div class="feature-body">
         <p class="mini-label">${escapeHTML(project.año)} - ${escapeHTML(project.semestre)}</p>
@@ -418,17 +673,241 @@ function renderPartner(partner, index) {
   `;
 }
 
-function renderUniversitiesPage(career) {
+function renderUniversitiesPage(career, pathParts = []) {
   const universities = byCareer(siteData.universidades, career.id);
+  const grouped = groupUniversitiesByCountryAndCity(universities);
+  const countries = Object.keys(grouped).sort((a, b) => a.localeCompare(b, "es"));
+  const selectedCountry = decodeHashPart(pathParts[0]);
+  const selectedCity = decodeHashPart(pathParts[1]);
+  const hasSelectedCountry = Boolean(selectedCountry && grouped[selectedCountry]);
+  const hasSelectedCity = Boolean(hasSelectedCountry && selectedCity && grouped[selectedCountry][selectedCity]);
+
+  if (!universities.length) {
+    pendingUniversityMap = null;
+    return `
+      <section class="detail-shell">
+        ${renderEmptyState(universities, "universidades")}
+        ${renderPageNav(career)}
+      </section>
+    `;
+  }
+
+  pendingUniversityMap = { career, countries, grouped };
+  const selectedUniversities = hasSelectedCity ? grouped[selectedCountry][selectedCity] : [];
   return `
     <section class="detail-shell">
-      <div class="content-grid university-grid">
-        ${universities.map((university, index) => renderUniversity(university, index)).join("")}
+      ${renderUniversityFlowHeader("Mapa de países", "Explora convenios internacionales por país y ciudad.")}
+      <div class="university-map-card">
+        <div class="university-map-column">
+          ${renderWorldMap(career, countries, grouped)}
+        </div>
+        ${renderCountryInfoPanel(career, hasSelectedCountry ? selectedCountry : "", hasSelectedCity ? selectedCity : "", grouped)}
       </div>
-      ${renderEmptyState(universities, "universidades")}
+      ${
+        hasSelectedCity
+          ? `
+            <div class="university-action-row">
+              <a class="button ghost compact-button" href="#programa/${career.id}/universidades/${encodeHashPart(selectedCountry)}">Volver a ciudades</a>
+              <a class="button ghost compact-button" href="#programa/${career.id}/universidades">Volver al mapa</a>
+            </div>
+            <div class="content-grid university-grid">
+              ${selectedUniversities.map((university, index) => renderUniversity(university, index)).join("")}
+            </div>
+          `
+          : ""
+      }
       ${renderPageNav(career)}
     </section>
   `;
+}
+
+function groupUniversitiesByCountryAndCity(universities) {
+  return universities.reduce((groups, university) => {
+    const country = university.pais || "Sin país";
+    const city = university.ciudad || "Sin ciudad";
+    groups[country] ??= {};
+    groups[country][city] ??= [];
+    groups[country][city].push(university);
+    return groups;
+  }, {});
+}
+
+function encodeHashPart(value) {
+  return encodeURIComponent(String(value ?? ""));
+}
+
+function decodeHashPart(value) {
+  if (!value) return "";
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+
+function renderUniversityFlowHeader(title, copy) {
+  return `
+    <div class="university-flow-heading">
+      <p class="mini-label">Universidades extranjeras</p>
+      <h2>${escapeHTML(title)}</h2>
+      <p>${escapeHTML(copy)}</p>
+    </div>
+  `;
+}
+
+function renderWorldMap(career, countries, grouped) {
+  return `
+    <div class="world-map-panel">
+      <div id="university-world-map" class="world-map" aria-label="Mapa mundial con países disponibles">
+        <div class="map-loading">Cargando mapa mundial...</div>
+      </div>
+      <div class="map-country-list" aria-label="Lista de países disponibles">
+        ${countries.map((country) => renderCountryListButton(career, country, grouped[country])).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function renderCountryInfoPanel(career, selectedCountry, selectedCity, grouped) {
+  if (!selectedCountry || !grouped[selectedCountry]) {
+    return `
+      <aside class="map-info-panel">
+        <p class="mini-label">Mapa de países</p>
+        <h2>Selecciona un país resaltado para ver sus ciudades disponibles.</h2>
+        <p>Los países con convenios para esta carrera aparecen destacados con el color principal del programa.</p>
+      </aside>
+    `;
+  }
+
+  const cities = grouped[selectedCountry];
+  const cityCount = Object.keys(cities).length;
+  const universityCount = Object.values(cities).reduce((total, items) => total + items.length, 0);
+  const flag = countryFlagEmoji(selectedCountry);
+  return `
+    <aside class="map-info-panel">
+      <div class="country-panel-heading">
+        ${flag ? `<span class="country-flag" aria-hidden="true">${escapeHTML(flag)}</span>` : ""}
+        <div>
+          <p class="mini-label">País seleccionado</p>
+          <h2>${escapeHTML(selectedCountry)}</h2>
+        </div>
+      </div>
+      <p class="country-summary">${cityCount} ciudad${cityCount === 1 ? "" : "es"} disponible${cityCount === 1 ? "" : "s"} · ${universityCount} universidad${universityCount === 1 ? "" : "es"}</p>
+      <p>Selecciona una ciudad:</p>
+      <div class="city-list">
+        ${Object.keys(cities)
+          .sort((a, b) => a.localeCompare(b, "es"))
+          .map((city) => renderCityOption(career, selectedCountry, city, cities[city].length, city === selectedCity))
+          .join("")}
+      </div>
+      <a class="button ghost compact-button" href="#programa/${career.id}/universidades">Volver al mapa</a>
+    </aside>
+  `;
+}
+
+function renderCountryListButton(career, country, cities) {
+  const cityCount = Object.keys(cities).length;
+  return `
+    <a class="country-list-button" href="#programa/${career.id}/universidades/${encodeHashPart(country)}">
+      <span>${escapeHTML(country)}</span>
+      <small>${cityCount} ciudad${cityCount === 1 ? "" : "es"}</small>
+    </a>
+  `;
+}
+
+function renderCityOption(career, country, city, count, isActive = false) {
+  return `
+    <a class="city-choice ${isActive ? "is-active" : ""}" href="#programa/${career.id}/universidades/${encodeHashPart(country)}/${encodeHashPart(city)}">
+      <span>${escapeHTML(city)}</span>
+      <small>${count} universidad${count === 1 ? "" : "es"}</small>
+    </a>
+  `;
+}
+
+function countryIsoCode(country) {
+  const codes = {
+    alemania: "DE",
+    australia: "AU",
+    canada: "CA",
+    china: "CN",
+    "corea del sur": "KR",
+    dinamarca: "DK",
+    espana: "ES",
+    "estados unidos": "US",
+    francia: "FR",
+    italia: "IT",
+    japon: "JP",
+    "paises bajos": "NL",
+    "reino unido": "GB",
+    singapur: "SG",
+    suiza: "CH",
+  };
+  return codes[normalizeCountryName(country)] ?? "";
+}
+
+function initializePendingUniversityMap() {
+  if (!pendingUniversityMap) return;
+  const mapElement = document.querySelector("#university-world-map");
+  if (!mapElement) return;
+
+  const { career, countries, grouped } = pendingUniversityMap;
+  const countryByCode = countries.reduce((lookup, country) => {
+    const code = countryIsoCode(country);
+    if (code) lookup[code] = country;
+    return lookup;
+  }, {});
+  const highlightedCodes = Object.keys(countryByCode);
+  const accent = getComputedStyle(document.querySelector(".theme-scope")).getPropertyValue("--accent").trim() || "#0055a6";
+
+  if (typeof jsVectorMap !== "function" || !highlightedCodes.length) {
+    mapElement.innerHTML = `<div class="map-loading">No se pudo cargar el mapa interactivo. Usa la lista de países disponibles.</div>`;
+    return;
+  }
+
+  mapElement.innerHTML = "";
+  new jsVectorMap({
+    selector: "#university-world-map",
+    map: "world",
+    zoomButtons: true,
+    zoomOnScroll: false,
+    selectedRegions: highlightedCodes,
+    regionStyle: {
+      initial: {
+        fill: "#dbe3ea",
+        stroke: "#ffffff",
+        strokeWidth: 0.45,
+      },
+      hover: {
+        fill: "#c8d2dc",
+        cursor: "default",
+      },
+      selected: {
+        fill: accent,
+      },
+      selectedHover: {
+        fill: accent,
+        cursor: "pointer",
+      },
+    },
+    onRegionTooltipShow(event, tooltip, code) {
+      const country = countryByCode[code];
+      if (!country) {
+        event.preventDefault();
+        return;
+      }
+      const cities = Object.keys(grouped[country]).length;
+      const universities = Object.values(grouped[country]).reduce((total, items) => total + items.length, 0);
+      tooltip.text(`${country}: ${cities} ciudad${cities === 1 ? "" : "es"} · ${universities} universidad${universities === 1 ? "" : "es"}`);
+    },
+    onRegionClick(event, code) {
+      const country = countryByCode[code];
+      if (!country) {
+        event.preventDefault();
+        return;
+      }
+      window.location.hash = `#programa/${career.id}/universidades/${encodeHashPart(country)}`;
+    },
+  });
 }
 
 function renderUniversity(university, index) {
@@ -454,11 +933,21 @@ function renderUniversity(university, index) {
 function renderExatecsPage(career) {
   const profiles = byCareer(siteData.exatecs, career.id);
   return `
-    <section class="detail-shell">
-      <div class="content-grid exatec-grid">
+    <section class="detail-shell" data-listing-region>
+      ${renderListingControls({
+        filters: [
+          {
+            id: "generation",
+            label: "Generación",
+            options: uniqueOptions(profiles, (profile) => profile.generacion, (a, b) => generationRank(a) - generationRank(b)),
+          },
+        ],
+        resultLabel: "EXATECs",
+        singularLabel: "EXATEC",
+      })}
+      <div class="content-grid exatec-grid" data-listing-grid>
         ${profiles.map((profile, index) => renderExatec(profile, index)).join("")}
       </div>
-      ${renderEmptyState(profiles, "EXATECs")}
       ${renderPageNav(career)}
     </section>
   `;
@@ -466,7 +955,12 @@ function renderExatecsPage(career) {
 
 function renderExatec(profile, index) {
   return `
-    <article class="feature-card exatec-card">
+    <article
+      class="feature-card exatec-card"
+      data-filterable-card
+      data-generation="${escapeAttr(profile.generacion)}"
+      data-date-sort="${generationRank(profile.generacion)}"
+      data-title="${escapeAttr(profile.nombre)}">
       <div class="profile-photo media-crop-${(index % 5) + 1}" ${mediaStyle(profile.foto)} aria-label="Foto de ejemplo"></div>
       <div class="feature-body">
         <p class="mini-label">${escapeHTML(profile.generacion)}</p>
@@ -608,11 +1102,21 @@ function renderCatalystActivitiesPage(program) {
         "Actividades, encuentros y experiencias que conectan estudiantes con retos, mentores y comunidad.",
         "Actividades y comunidad",
       )}
-      <section class="detail-shell">
-        <div class="content-grid activity-grid">
+      <section class="detail-shell" data-listing-region>
+        ${renderListingControls({
+          filters: [
+            {
+              id: "cycle",
+              label: "Año / Generación",
+              options: uniqueOptions(activities, catalystActivityCycle, (a, b) => generationRank(a) - generationRank(b)),
+            },
+          ],
+          resultLabel: "actividades CATALYST",
+          singularLabel: "actividad CATALYST",
+        })}
+        <div class="content-grid activity-grid" data-listing-grid>
           ${activities.map((activity, index) => renderCatalystActivity(activity, index)).join("")}
         </div>
-        ${renderEmptyState(activities, "actividades de CATALYST")}
         <nav class="page-nav" aria-label="Navegación de CATALYST">
           <a class="button ghost" href="#programa/catalyst">Volver a CATALYST</a>
           <a class="button secondary" href="#inicio">Volver al catálogo principal</a>
@@ -620,10 +1124,15 @@ function renderCatalystActivitiesPage(program) {
       </section>
     </div>
   `;
+  attachListingControls();
+}
+
+function catalystActivityCycle(activity) {
+  return [activity.anio, activity.generacion].filter(Boolean).join(" · ");
 }
 
 function renderCatalystActivity(activity, index) {
-  const label = `${activity.anio} · ${activity.generacion}`;
+  const label = catalystActivityCycle(activity);
   const media =
     activity.tipoMedia === "video"
       ? `
@@ -644,7 +1153,12 @@ function renderCatalystActivity(activity, index) {
       `;
 
   return `
-    <article class="feature-card activity-card">
+    <article
+      class="feature-card activity-card"
+      data-filterable-card
+      data-cycle="${escapeAttr(label)}"
+      data-date-sort="${generationRank(label)}"
+      data-title="${escapeAttr(activity.titulo)}">
       ${media}
       <div class="feature-body">
         <p class="mini-label">${escapeHTML(label)}</p>
@@ -664,6 +1178,7 @@ const adminResources = [
   { key: "universidades", label: "Universidades extranjeras", filename: "universidades.json", type: "array" },
   { key: "exatecs", label: "EXATECs", filename: "exatecs.json", type: "array" },
   { key: "catalystActivities", label: "Actividades CATALYST", filename: "catalyst.json", type: "array" },
+  { key: "vivencia", label: "Vivencia", filename: "vivencia.json", type: "array" },
 ];
 
 const adminNewItemValue = "__new__";
@@ -693,6 +1208,10 @@ const adminIdRules = {
     fixedPrefix: "catalyst",
     segment: "actividad",
     required: ["id", "titulo", "anio", "generacion"],
+  },
+  vivencia: {
+    base: "vivencia-",
+    required: ["id", "categoria", "titulo", "año"],
   },
 };
 
@@ -753,8 +1272,8 @@ function nextAdminId(key, item = {}) {
   const rule = adminIdRules[key];
   if (!rule) return item.id || `${key}-${Date.now()}`;
   const prefix = rule.prefixField ? item[rule.prefixField] : rule.fixedPrefix;
-  if (!prefix) return "";
-  const base = `${prefix}-${rule.segment}-`;
+  const base = rule.base || `${prefix}-${rule.segment}-`;
+  if (!rule.base && !prefix) return "";
   const data = getAdminData(key);
   const max = data.reduce((highest, current) => {
     const id = String(current.id ?? "");
@@ -1032,6 +1551,17 @@ const adminBlankTemplates = {
     tipoMedia: "imagen",
     lugarOContexto: "",
   },
+  vivencia: {
+    id: "",
+    categoria: "Bootcamps",
+    titulo: "",
+    descripcion: "",
+    "año": new Date().getFullYear(),
+    media: "",
+    mediaType: "image",
+    enlace: "",
+    etiquetas: [],
+  },
 };
 
 function createBlankFromTemplate(template, key) {
@@ -1174,8 +1704,16 @@ function route() {
     return;
   }
 
+  if (hash.startsWith("#vivencia")) {
+    const [, fromCareerId] = hash.replace("#", "").split("/");
+    const fromCareer = siteData.carreras.find((item) => item.id === fromCareerId && item.tipo === "career") ?? null;
+    renderVivenciaPage(fromCareer);
+    resetScroll();
+    return;
+  }
+
   if (hash.startsWith("#programa/")) {
-    const [, programId, sectionSlug] = hash.replace("#", "").split("/");
+    const [, programId, sectionSlug, ...sectionPath] = hash.replace("#", "").split("/");
     const program = siteData.carreras.find((item) => item.id === programId);
     if (program?.tipo === "catalyst") {
       if (sectionSlug === "comunidad") {
@@ -1188,7 +1726,7 @@ function route() {
       return;
     }
     if (program && sectionSlug) {
-      renderSubpage(program, sectionSlug);
+      renderSubpage(program, sectionSlug, sectionPath);
       resetScroll();
       return;
     }

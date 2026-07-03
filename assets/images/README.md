@@ -10,6 +10,7 @@ Esta carpeta centraliza las imagenes editables del sitio. Para cambiar una image
 - `universidades/`: imagenes de universidades o campus internacionales.
 - `exatecs/`: fotos de perfiles EXATEC.
 - `catalyst/`: imagenes de actividades CATALYST.
+- `vivencia/`: imagenes de experiencias generales del campus.
 
 ## Tamaños recomendados
 
@@ -19,6 +20,7 @@ Esta carpeta centraliza las imagenes editables del sitio. Para cambiar una image
 - Universidades: 1400 x 900 px, horizontal.
 - EXATECs: 900 x 900 px, cuadrada.
 - CATALYST actividades: 1200 x 800 px, horizontal.
+- Vivencia: 1600 x 1000 px, horizontal.
 
 ## Imagenes por carrera
 
@@ -60,6 +62,19 @@ CATALYST tambien tiene su propia carpeta:
 - `carreras/catalyst/actividades.jpg`: ficha Actividades y comunidad.
 - `carreras/catalyst/testimonios.jpg`: ficha Testimonios de estudiantes.
 - `carreras/catalyst/comunidad.jpg`: imagen de comunidad CATALYST.
+
+## Imagenes de Vivencia
+
+La pagina global de Vivencia usa imagenes dentro de `vivencia/`:
+
+- `vivencia/bootcamps.jpg`: Bootcamps.
+- `vivencia/certificaciones.jpg`: Certificaciones.
+- `vivencia/arte-cultura.jpg`: Arte y cultura.
+- `vivencia/deportes.jpg`: Deportes.
+- `vivencia/premios.jpg`: Premios.
+- `vivencia/grupo-estudiantil.jpg`: Grupo estudiantil.
+- `vivencia/escuderia.jpg`: Escuderia.
+- `vivencia/biblioteca.jpg`: Biblioteca.
 
 ## Formato recomendado
 

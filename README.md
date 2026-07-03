@@ -46,6 +46,16 @@ No abras `index.html` directamente como archivo local, porque el navegador puede
 
 Todas las rutas son relativas para funcionar tanto en local como desde la subruta `/catalogo/`.
 
+## Librerias externas
+
+El mapa interactivo de `Universidades extranjeras` usa `jsVectorMap`. La libreria esta incluida localmente en:
+
+- `assets/vendor/jsvectormap/jsvectormap.min.css`
+- `assets/vendor/jsvectormap/jsvectormap.min.js`
+- `assets/vendor/jsvectormap/world.js`
+
+No requiere backend ni API Key y funciona con rutas relativas en local y GitHub Pages.
+
 ## Actualizar JSON
 
 Los datos editables estan en:
@@ -57,6 +67,7 @@ Los datos editables estan en:
 - `data/universidades.json`
 - `data/exatecs.json`
 - `data/catalyst.json`
+- `data/vivencia.json`
 
 Edita estos archivos con UTF-8 y conserva JSON valido.
 
@@ -80,6 +91,8 @@ El admin es estatico: no escribe directamente en archivos JSON. El flujo correct
 4. Descargar el JSON actualizado.
 5. Reemplazar manualmente el archivo correspondiente dentro de `data`.
 6. Subir el cambio a GitHub.
+
+El panel permite editar proyectos, socios formadores, universidades extranjeras, EXATECs, actividades CATALYST y Vivencia.
 
 ## Reemplazar imagenes
 
