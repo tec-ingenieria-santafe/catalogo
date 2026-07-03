@@ -1,0 +1,74 @@
+[
+  {
+    "id": "nexa-mobility-mecanica",
+    "carreraId": "mecanica",
+    "nombre": "Nexa Mobility Lab",
+    "logo": "NM",
+    "descripcion": "Colabora con retos de movilidad, prototipos de prueba y mentoría para equipos estudiantiles.",
+    "tipoInteraccion": "Reto semestral + mentoría técnica",
+    "imagenOVideo": "assets/images/socios/socio-001.jpg"
+  },
+  {
+    "id": "distrito-mecatronica",
+    "carreraId": "mecatronica",
+    "nombre": "Biogrip",
+    "logo": "BG",
+    "descripcion": "BioGrip es una startup mexicana que desarrolla prótesis biónicas avanzadas y dispositivos de rehabilitación impulsados por inteligencia artificial. En colaboración con la carrera, los estudiantes pueden participar en proyectos de investigación aplicada, como sistemas de rehabilitación robótica para pacientes con prótesis completa de brazo.",
+    "tipoInteraccion": "Desarrollo de prototipos",
+    "imagenOVideo": "assets/images/socios/socio-001.jpg"
+  },
+  {
+    "id": "horizonte-industrial",
+    "carreraId": "industrial",
+    "nombre": "Horizonte Industrial",
+    "logo": "HI",
+    "descripcion": "Comparte casos de mejora operativa, visitas guiadas y retroalimentación ejecutiva.",
+    "tipoInteraccion": "Caso aplicado + panel con líderes",
+    "imagenOVideo": "assets/images/socios/socio-001.jpg"
+  },
+  {
+    "id": "urbis-civil",
+    "carreraId": "civil",
+    "nombre": "Urbis Infraestructura",
+    "logo": "UI",
+    "descripcion": "Aporta casos de movilidad, estructuras y planeación urbana para proyectos de aula.",
+    "tipoInteraccion": "Visita técnica + reto de diseño",
+    "imagenOVideo": "assets/images/socios/socio-001.jpg"
+  },
+  {
+    "id": "verde-sustentable",
+    "carreraId": "desarrollo-sustentable",
+    "nombre": "Verde Circular",
+    "logo": "VC",
+    "descripcion": "Acompaña diagnósticos de sostenibilidad, energía y economía circular.",
+    "tipoInteraccion": "Mentoría + validación de impacto",
+    "imagenOVideo": "assets/images/socios/socio-001.jpg"
+  },
+  {
+    "id": "asteria-innovacion",
+    "carreraId": "innovacion-desarrollo",
+    "nombre": "Asteria Labs",
+    "logo": "AL",
+    "descripcion": "Facilita retos de producto, validación de mercado y prototipado con usuarios.",
+    "tipoInteraccion": "Reto de producto + feedback de usuarios",
+    "imagenOVideo": "assets/images/socios/socio-001.jpg"
+  },
+  {
+    "id": "vector-computacionales",
+    "carreraId": "computacionales",
+    "nombre": "Vector Digital",
+    "logo": "VD",
+    "descripcion": "Comparte retos de software, datos, ciberseguridad e inteligencia artificial.",
+    "tipoInteraccion": "Hackathon + revisión técnica",
+    "imagenOVideo": "assets/images/socios/socio-001.jpg"
+  },
+  {
+    "id": "bright-transformacion",
+    "carreraId": "transformacion-digital",
+    "nombre": "Bright Systems",
+    "logo": "BS",
+    "descripcion": "Conecta a estudiantes con proyectos de automatización y estrategia digital.",
+    "tipoInteraccion": "Consultoría aplicada + demo ejecutivo",
+    "imagenOVideo": "assets/images/socios/socio-001.jpg"
+  }
+]

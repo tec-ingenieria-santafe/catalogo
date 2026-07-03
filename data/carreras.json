@@ -1,0 +1,310 @@
+[
+  {
+    "id": "mecanica",
+    "tipo": "career",
+    "nombre": "Ingeniería Mecánica",
+    "subtitulo": "",
+    "bachelor": "",
+    "esParaTi": "Si te interesa diseñar sistemas físicos, optimizar energía y crear soluciones que convierten ideas en movimiento.",
+    "porQueSantaFe": "Laboratorios cercanos a retos urbanos, movilidad, manufactura avanzada y colaboración con empresas del poniente de la ciudad.",
+    "tagline": "Diseña, prueba y mejora sistemas mecánicos con una mirada práctica hacia manufactura, energía y tecnología aplicada.",
+    "colorPrincipal": "#0055a6",
+    "colorSecundario": "#00a3c7",
+    "degradado": "linear-gradient(135deg, rgba(0, 85, 166, 0.96), rgba(0, 163, 199, 0.88))",
+    "imagen": "assets/images/carreras/mecanica/cover.jpg",
+    "highlights": [
+      "Diseño mecánico",
+      "Energía",
+      "Manufactura avanzada"
+    ],
+    "seccionesDisponibles": [
+      "proyectos",
+      "socios",
+      "universidades",
+      "exatecs",
+      "santa-fe"
+    ],
+    "coverImage": "assets/images/carreras/mecanica/cover.jpg",
+    "sectionImages": {
+      "proyectos": "assets/images/carreras/mecanica/proyectos.jpg",
+      "socios": "assets/images/carreras/mecanica/socios.jpg",
+      "universidades": "assets/images/carreras/mecanica/universidades.jpg",
+      "exatecs": "assets/images/carreras/mecanica/exatecs.jpg",
+      "santaFe": "assets/images/carreras/mecanica/santafe.jpg"
+    }
+  },
+  {
+    "id": "mecatronica",
+    "tipo": "career",
+    "nombre": "Ingeniería Mecatrónica",
+    "subtitulo": "Bachelor in Mechatronics",
+    "bachelor": "Bachelor in Mechatronics",
+    "esParaTi": "Si disfrutas unir electrónica, programación, control y diseño mecánico para construir sistemas inteligentes.",
+    "porQueSantaFe": "El campus conecta prototipado, robótica, automatización y retos con industrias que buscan talento multidisciplinario.",
+    "tagline": "Integra hardware, software y control para crear soluciones automatizadas con impacto real en industria y servicios.",
+    "colorPrincipal": "#008f91",
+    "colorSecundario": "#2f9b72",
+    "degradado": "linear-gradient(135deg, rgba(0, 143, 145, 0.96), rgba(47, 155, 114, 0.88))",
+    "imagen": "assets/images/carreras/mecatronica/cover.jpg",
+    "highlights": [
+      "Robótica",
+      "Automatización",
+      "Sistemas inteligentes"
+    ],
+    "seccionesDisponibles": [
+      "proyectos",
+      "socios",
+      "universidades",
+      "exatecs",
+      "santa-fe"
+    ],
+    "coverImage": "assets/images/carreras/mecatronica/cover.jpg",
+    "sectionImages": {
+      "proyectos": "assets/images/carreras/mecatronica/proyectos.jpg",
+      "socios": "assets/images/carreras/mecatronica/socios.jpg",
+      "universidades": "assets/images/carreras/mecatronica/universidades.jpg",
+      "exatecs": "assets/images/carreras/mecatronica/exatecs.jpg",
+      "santaFe": "assets/images/carreras/mecatronica/santafe.jpg"
+    }
+  },
+  {
+    "id": "industrial",
+    "tipo": "career",
+    "nombre": "Ingeniería Industrial y de Sistemas",
+    "subtitulo": "Bachelor in Industrial Engineering",
+    "bachelor": "Bachelor in Industrial Engineering",
+    "esParaTi": "Si te atrae mejorar procesos, tomar decisiones con datos y diseñar operaciones más eficientes y humanas.",
+    "porQueSantaFe": "La zona ofrece un entorno natural para proyectos con logística, servicios financieros, retail, salud y consultoría.",
+    "tagline": "Transforma operaciones complejas en sistemas medibles, eficientes y centrados en las personas.",
+    "colorPrincipal": "#2f9b72",
+    "colorSecundario": "#86b83d",
+    "degradado": "linear-gradient(135deg, rgba(47, 155, 114, 0.96), rgba(134, 184, 61, 0.88))",
+    "imagen": "assets/images/carreras/industrial/cover.jpg",
+    "highlights": [
+      "Optimización",
+      "Analítica",
+      "Operaciones"
+    ],
+    "seccionesDisponibles": [
+      "proyectos",
+      "socios",
+      "universidades",
+      "exatecs",
+      "santa-fe"
+    ],
+    "coverImage": "assets/images/carreras/industrial/cover.jpg",
+    "sectionImages": {
+      "proyectos": "assets/images/carreras/industrial/proyectos.jpg",
+      "socios": "assets/images/carreras/industrial/socios.jpg",
+      "universidades": "assets/images/carreras/industrial/universidades.jpg",
+      "exatecs": "assets/images/carreras/industrial/exatecs.jpg",
+      "santaFe": "assets/images/carreras/industrial/santafe.jpg"
+    }
+  },
+  {
+    "id": "civil",
+    "tipo": "career",
+    "nombre": "Ingeniería Civil",
+    "subtitulo": "",
+    "bachelor": "",
+    "esParaTi": "Si quieres imaginar, calcular y construir infraestructura segura, sostenible y útil para la vida diaria.",
+    "porQueSantaFe": "Un entorno urbano vertical y dinámico permite estudiar movilidad, estructuras, agua, geotecnia y desarrollo inmobiliario.",
+    "tagline": "Construye soluciones de infraestructura para ciudades más resilientes, conectadas y sostenibles.",
+    "colorPrincipal": "#c9871e",
+    "colorSecundario": "#d85b4c",
+    "degradado": "linear-gradient(135deg, rgba(201, 135, 30, 0.96), rgba(216, 91, 76, 0.88))",
+    "imagen": "assets/images/carreras/civil/cover.jpg",
+    "highlights": [
+      "Estructuras",
+      "Movilidad",
+      "Infraestructura"
+    ],
+    "seccionesDisponibles": [
+      "proyectos",
+      "socios",
+      "universidades",
+      "exatecs",
+      "santa-fe"
+    ],
+    "coverImage": "assets/images/carreras/civil/cover.jpg",
+    "sectionImages": {
+      "proyectos": "assets/images/carreras/civil/proyectos.jpg",
+      "socios": "assets/images/carreras/civil/socios.jpg",
+      "universidades": "assets/images/carreras/civil/universidades.jpg",
+      "exatecs": "assets/images/carreras/civil/exatecs.jpg",
+      "santaFe": "assets/images/carreras/civil/santafe.jpg"
+    }
+  },
+  {
+    "id": "desarrollo-sustentable",
+    "tipo": "career",
+    "nombre": "Ingeniería en Desarrollo Sustentable",
+    "subtitulo": "",
+    "bachelor": "",
+    "esParaTi": "Si buscas resolver problemas ambientales combinando ingeniería, economía circular, energía y gestión del cambio.",
+    "porQueSantaFe": "El campus facilita proyectos con edificios, comunidades, empresas y sistemas urbanos que requieren transición sostenible.",
+    "tagline": "Convierte retos ambientales en proyectos técnicamente sólidos, viables y alineados a impacto social.",
+    "colorPrincipal": "#4a9d4f",
+    "colorSecundario": "#00a37a",
+    "degradado": "linear-gradient(135deg, rgba(74, 157, 79, 0.96), rgba(0, 163, 122, 0.88))",
+    "imagen": "assets/images/carreras/sustentable/cover.jpg",
+    "highlights": [
+      "Energía limpia",
+      "Circularidad",
+      "Impacto ambiental"
+    ],
+    "seccionesDisponibles": [
+      "proyectos",
+      "socios",
+      "universidades",
+      "exatecs",
+      "santa-fe"
+    ],
+    "coverImage": "assets/images/carreras/sustentable/cover.jpg",
+    "sectionImages": {
+      "proyectos": "assets/images/carreras/sustentable/proyectos.jpg",
+      "socios": "assets/images/carreras/sustentable/socios.jpg",
+      "universidades": "assets/images/carreras/sustentable/universidades.jpg",
+      "exatecs": "assets/images/carreras/sustentable/exatecs.jpg",
+      "santaFe": "assets/images/carreras/sustentable/santafe.jpg"
+    }
+  },
+  {
+    "id": "innovacion-desarrollo",
+    "tipo": "career",
+    "nombre": "Ingeniería en Innovación y Desarrollo",
+    "subtitulo": "",
+    "bachelor": "",
+    "esParaTi": "Si te gusta crear productos, validar ideas, coordinar equipos y llevar tecnología del concepto al mercado.",
+    "porQueSantaFe": "La cercanía con corporativos, startups y ecosistemas de innovación abre retos para experimentar con usuarios reales.",
+    "tagline": "Lidera el ciclo completo de innovación: descubrimiento, prototipado, validación y lanzamiento.",
+    "colorPrincipal": "#d85b4c",
+    "colorSecundario": "#c9871e",
+    "degradado": "linear-gradient(135deg, rgba(216, 91, 76, 0.96), rgba(201, 135, 30, 0.88))",
+    "imagen": "assets/images/carreras/innovacion/cover.jpg",
+    "highlights": [
+      "Producto",
+      "Emprendimiento",
+      "Diseño estratégico"
+    ],
+    "seccionesDisponibles": [
+      "proyectos",
+      "socios",
+      "universidades",
+      "exatecs",
+      "santa-fe"
+    ],
+    "coverImage": "assets/images/carreras/innovacion/cover.jpg",
+    "sectionImages": {
+      "proyectos": "assets/images/carreras/innovacion/proyectos.jpg",
+      "socios": "assets/images/carreras/innovacion/socios.jpg",
+      "universidades": "assets/images/carreras/innovacion/universidades.jpg",
+      "exatecs": "assets/images/carreras/innovacion/exatecs.jpg",
+      "santaFe": "assets/images/carreras/innovacion/santafe.jpg"
+    }
+  },
+  {
+    "id": "computacionales",
+    "tipo": "career",
+    "nombre": "Ingeniería en Tecnologías Computacionales",
+    "subtitulo": "",
+    "bachelor": "",
+    "esParaTi": "Si quieres crear software, sistemas digitales, inteligencia artificial y plataformas que escalan.",
+    "porQueSantaFe": "El campus se vincula con retos de datos, ciberseguridad, fintech, educación digital y servicios tecnológicos.",
+    "tagline": "Construye software robusto y soluciones computacionales para organizaciones que viven de la información.",
+    "colorPrincipal": "#6a5acd",
+    "colorSecundario": "#0f7b88",
+    "degradado": "linear-gradient(135deg, rgba(106, 90, 205, 0.96), rgba(15, 123, 136, 0.88))",
+    "imagen": "assets/images/carreras/computacionales/cover.jpg",
+    "highlights": [
+      "Software",
+      "IA",
+      "Ciberseguridad"
+    ],
+    "seccionesDisponibles": [
+      "proyectos",
+      "socios",
+      "universidades",
+      "exatecs",
+      "santa-fe"
+    ],
+    "coverImage": "assets/images/carreras/computacionales/cover.jpg",
+    "sectionImages": {
+      "proyectos": "assets/images/carreras/computacionales/proyectos.jpg",
+      "socios": "assets/images/carreras/computacionales/socios.jpg",
+      "universidades": "assets/images/carreras/computacionales/universidades.jpg",
+      "exatecs": "assets/images/carreras/computacionales/exatecs.jpg",
+      "santaFe": "assets/images/carreras/computacionales/santafe.jpg"
+    }
+  },
+  {
+    "id": "transformacion-digital",
+    "tipo": "career",
+    "nombre": "Ingeniería en Transformación Digital de Negocios",
+    "subtitulo": "",
+    "bachelor": "",
+    "esParaTi": "Si te interesa traducir tecnología en modelos de negocio, automatización, datos y experiencia de usuario.",
+    "porQueSantaFe": "La ubicación favorece proyectos con empresas que digitalizan operaciones, canales comerciales y toma de decisiones.",
+    "tagline": "Une ingeniería, negocio y datos para acelerar transformación digital con criterio estratégico.",
+    "colorPrincipal": "#0f7b88",
+    "colorSecundario": "#0055a6",
+    "degradado": "linear-gradient(135deg, rgba(15, 123, 136, 0.96), rgba(0, 85, 166, 0.88))",
+    "imagen": "assets/images/carreras/transformacion-digital/cover.jpg",
+    "highlights": [
+      "Negocio digital",
+      "Datos",
+      "Automatización"
+    ],
+    "seccionesDisponibles": [
+      "proyectos",
+      "socios",
+      "universidades",
+      "exatecs",
+      "santa-fe"
+    ],
+    "coverImage": "assets/images/carreras/transformacion-digital/cover.jpg",
+    "sectionImages": {
+      "proyectos": "assets/images/carreras/transformacion-digital/proyectos.jpg",
+      "socios": "assets/images/carreras/transformacion-digital/socios.jpg",
+      "universidades": "assets/images/carreras/transformacion-digital/universidades.jpg",
+      "exatecs": "assets/images/carreras/transformacion-digital/exatecs.jpg",
+      "santaFe": "assets/images/carreras/transformacion-digital/santafe.jpg"
+    }
+  },
+  {
+    "id": "catalyst",
+    "tipo": "catalyst",
+    "nombre": "CATALYST",
+    "subtitulo": "Programa especial",
+    "bachelor": "",
+    "esParaTi": "",
+    "porQueSantaFe": "",
+    "queEs": "Un programa de experiencias retadoras para estudiantes que quieren acelerar proyectos, habilidades y comunidad desde etapas tempranas.",
+    "tagline": "Un espacio para conectar talento, retos reales y experiencias formativas de alto impacto.",
+    "colorPrincipal": "#111827",
+    "colorSecundario": "#00a3c7",
+    "degradado": "linear-gradient(135deg, rgba(17, 24, 39, 0.98), rgba(0, 163, 199, 0.86))",
+    "imagen": "assets/images/carreras/catalyst/cover.jpg",
+    "highlights": [
+      "Retos",
+      "Mentoría",
+      "Comunidad"
+    ],
+    "seccionesDisponibles": [
+      "que-es",
+      "experiencias",
+      "beneficios",
+      "comunidad",
+      "testimonios"
+    ],
+    "coverImage": "assets/images/carreras/catalyst/cover.jpg",
+    "sectionImages": {
+      "proyectos": "assets/images/carreras/catalyst/proyectos.jpg",
+      "que-es": "assets/images/carreras/catalyst/proyectos.jpg",
+      "experiencias": "assets/images/carreras/catalyst/actividades.jpg",
+      "comunidad": "assets/images/carreras/catalyst/comunidad.jpg",
+      "testimonios": "assets/images/carreras/catalyst/testimonios.jpg"
+    }
+  }
+]
+

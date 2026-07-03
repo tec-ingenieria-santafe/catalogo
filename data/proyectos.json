@@ -1,0 +1,208 @@
+[
+  {
+    "id": "mecanica-proyecto-1",
+    "carreraId": "mecanica",
+    "titulo": "Banco de pruebas para energía regenerativa",
+    "descripcion": "Prototipo para medir eficiencia de un sistema mecánico de recuperación de energía.",
+    "año": 2026,
+    "semestre": "4to semestre",
+    "alumnos": ["Ana Ruiz", "Emilio Vargas", "Camila Soto"],
+    "thumbnail": "assets/images/proyectos/proyecto-001.jpg",
+    "youtubeUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "tecnologias": ["CAD", "Sensores", "Manufactura"],
+    "socioFormador": "Nexa Mobility Lab"
+  },
+  {
+    "id": "mecanica-proyecto-2",
+    "carreraId": "mecanica",
+    "titulo": "Sistema modular de ventilación eficiente",
+    "descripcion": "Solución mecánica para optimizar flujo de aire en espacios académicos.",
+    "año": 2025,
+    "semestre": "6to semestre",
+    "alumnos": ["Luis Medina", "Regina Torres"],
+    "thumbnail": "assets/images/proyectos/proyecto-002.jpg",
+    "youtubeUrl": "https://www.youtube.com/embed/ysz5S6PUM-U",
+    "tecnologias": ["CFD", "Prototipado", "Energía"]
+  },
+  {
+    "id": "mecatronica-proyecto-1",
+    "carreraId": "mecatronica",
+    "titulo": "Braille Refreshable Tactile Display",
+    "descripcion": "Dispositivo táctil refrescable que convierte texto en patrones Braille para apoyar la lectura de personas con discapacidad visual.",
+    "año": 2026,
+    "semestre": "8vo semestre",
+    "alumnos": [
+    "Andrea Benítez Moreno",
+    "Josué Albíter Benítez",
+    "Carlos Cristiani Rullán"
+  ],
+  "thumbnail": "assets/images/proyectos/braille-refreshable-tactile-display.jpg",
+    "youtubeUrl": "https://www.youtube.com/embed/ScMzIvxBSi4",
+    "tecnologias": [
+    "Braille",
+    "Actuadores",
+    "Diseño mecatrónico",
+    "Electrónica",
+    "Interfaz táctil"
+  ],
+    "socioFormador": "FOAL - Fundación ONCE América Latina"
+  },
+  {
+    "id": "mecatronica-proyecto-2",
+    "carreraId": "mecatronica",
+    "titulo": "Estación didáctica de automatización",
+    "descripcion": "Celda de control para simular procesos industriales con actuadores y tableros de monitoreo.",
+    "año": 2025,
+    "semestre": "7mo semestre",
+    "alumnos": ["Paola Nieto", "Mateo Garza"],
+    "thumbnail": "assets/images/proyectos/proyecto-002.jpg",
+    "youtubeUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "tecnologias": ["PLC", "Control", "IoT"]
+  },
+  {
+    "id": "industrial-proyecto-1",
+    "carreraId": "industrial",
+    "titulo": "Modelo de optimización para rutas internas",
+    "descripcion": "Análisis de flujos y simulación para reducir tiempos de traslado entre laboratorios.",
+    "año": 2026,
+    "semestre": "4to semestre",
+    "alumnos": ["Valeria Mora", "Andrés Rivas"],
+    "thumbnail": "assets/images/proyectos/proyecto-001.jpg",
+    "youtubeUrl": "https://www.youtube.com/embed/ysz5S6PUM-U",
+    "tecnologias": ["Simulación", "Python", "Lean"],
+    "socioFormador": "Horizonte Industrial"
+  },
+  {
+    "id": "industrial-proyecto-2",
+    "carreraId": "industrial",
+    "titulo": "Simulación de fila inteligente para servicios",
+    "descripcion": "Modelo de eventos discretos para balancear atención, capacidad y experiencia de usuarios.",
+    "año": 2025,
+    "semestre": "6to semestre",
+    "alumnos": ["Carolina Vega", "Mateo Ibarra"],
+    "thumbnail": "assets/images/proyectos/proyecto-002.jpg",
+    "youtubeUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "tecnologias": ["Simulación", "Datos", "Experiencia"]
+  },
+  {
+    "id": "civil-proyecto-1",
+    "carreraId": "civil",
+    "titulo": "Microinfraestructura para captación pluvial",
+    "descripcion": "Diseño de intervención urbana para recolección, filtrado y uso de agua en campus.",
+    "año": 2026,
+    "semestre": "5to semestre",
+    "alumnos": ["Daniela Vega", "Jorge Ríos"],
+    "thumbnail": "assets/images/proyectos/proyecto-001.jpg",
+    "youtubeUrl": "https://www.youtube.com/embed/ScMzIvxBSi4",
+    "tecnologias": ["Hidráulica", "BIM", "Sostenibilidad"]
+  },
+  {
+    "id": "civil-proyecto-2",
+    "carreraId": "civil",
+    "titulo": "Modelo estructural para espacios flexibles",
+    "descripcion": "Propuesta de estructura ligera para habilitar aulas temporales y zonas de trabajo colaborativo.",
+    "año": 2025,
+    "semestre": "7mo semestre",
+    "alumnos": ["Iván Romero", "Claudia Ortega"],
+    "thumbnail": "assets/images/proyectos/proyecto-002.jpg",
+    "youtubeUrl": "https://www.youtube.com/embed/ysz5S6PUM-U",
+    "tecnologias": ["Estructuras", "BIM", "Materiales"]
+  },
+  {
+    "id": "desarrollo-sustentable-proyecto-1",
+    "carreraId": "desarrollo-sustentable",
+    "titulo": "Diagnóstico de economía circular en campus",
+    "descripcion": "Mapeo de residuos, hábitos y oportunidades para rediseñar ciclos de materiales.",
+    "año": 2026,
+    "semestre": "4to semestre",
+    "alumnos": ["Natalia Ponce", "Ricardo Salas"],
+    "thumbnail": "assets/images/proyectos/proyecto-001.jpg",
+    "youtubeUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "tecnologias": ["LCA", "Datos", "Circularidad"]
+  },
+  {
+    "id": "desarrollo-sustentable-proyecto-2",
+    "carreraId": "desarrollo-sustentable",
+    "titulo": "Mapa de energía limpia para edificios",
+    "descripcion": "Evaluación de consumo, horarios y oportunidades para integrar sistemas renovables.",
+    "año": 2025,
+    "semestre": "6to semestre",
+    "alumnos": ["Andrea Molina", "Pablo Santillán"],
+    "thumbnail": "assets/images/proyectos/proyecto-002.jpg",
+    "youtubeUrl": "https://www.youtube.com/embed/ScMzIvxBSi4",
+    "tecnologias": ["Energía", "Sostenibilidad", "Visualización"]
+  },
+  {
+    "id": "innovacion-desarrollo-proyecto-1",
+    "carreraId": "innovacion-desarrollo",
+    "titulo": "Producto mínimo viable para bienestar estudiantil",
+    "descripcion": "Validación de una solución digital-física con entrevistas, prototipo y prueba piloto.",
+    "año": 2026,
+    "semestre": "4to semestre",
+    "alumnos": ["Fernanda León", "Iván Cortés"],
+    "thumbnail": "assets/images/proyectos/proyecto-001.jpg",
+    "youtubeUrl": "https://www.youtube.com/embed/ysz5S6PUM-U",
+    "tecnologias": ["Design Thinking", "UX", "Prototipado"]
+  },
+  {
+    "id": "innovacion-desarrollo-proyecto-2",
+    "carreraId": "innovacion-desarrollo",
+    "titulo": "Kit de validación rápida para productos",
+    "descripcion": "Herramienta para priorizar hipótesis, diseñar pruebas y documentar aprendizaje con usuarios.",
+    "año": 2025,
+    "semestre": "5to semestre",
+    "alumnos": ["Rodrigo Ávila", "Jimena Paz"],
+    "thumbnail": "assets/images/proyectos/proyecto-002.jpg",
+    "youtubeUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "tecnologias": ["Producto", "Investigación", "Prototipado"]
+  },
+  {
+    "id": "computacionales-proyecto-1",
+    "carreraId": "computacionales",
+    "titulo": "Panel de IA para análisis de proyectos",
+    "descripcion": "Aplicación web que clasifica evidencias de proyectos estudiantiles y genera resúmenes.",
+    "año": 2026,
+    "semestre": "4to semestre",
+    "alumnos": ["Lucía Méndez", "Tomás Aguilar"],
+    "thumbnail": "assets/images/proyectos/proyecto-001.jpg",
+    "youtubeUrl": "https://www.youtube.com/embed/ScMzIvxBSi4",
+    "tecnologias": ["React", "IA", "APIs"]
+  },
+  {
+    "id": "computacionales-proyecto-2",
+    "carreraId": "computacionales",
+    "titulo": "Monitor de ciberseguridad para laboratorios",
+    "descripcion": "Sistema de alertas y visualización para registrar eventos de red en un entorno académico.",
+    "año": 2025,
+    "semestre": "7mo semestre",
+    "alumnos": ["Daniel Kim", "Paula Santos"],
+    "thumbnail": "assets/images/proyectos/proyecto-002.jpg",
+    "youtubeUrl": "https://www.youtube.com/embed/ysz5S6PUM-U",
+    "tecnologias": ["Ciberseguridad", "Node", "Dashboards"]
+  },
+  {
+    "id": "transformacion-digital-proyecto-1",
+    "carreraId": "transformacion-digital",
+    "titulo": "Dashboard para experiencia de servicios",
+    "descripcion": "Modelo de indicadores para visualizar procesos, satisfacción y oportunidades de automatización.",
+    "año": 2026,
+    "semestre": "4to semestre",
+    "alumnos": ["Mariana Solís", "Hugo Navarro"],
+    "thumbnail": "assets/images/proyectos/proyecto-001.jpg",
+    "youtubeUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "tecnologias": ["BI", "Automatización", "Procesos"]
+  },
+  {
+    "id": "transformacion-digital-proyecto-2",
+    "carreraId": "transformacion-digital",
+    "titulo": "Automatización de onboarding estudiantil",
+    "descripcion": "Flujo digital para mapear tareas, reducir fricción y medir desempeño de servicios.",
+    "año": 2025,
+    "semestre": "6to semestre",
+    "alumnos": ["Elena Franco", "Samuel Pardo"],
+    "thumbnail": "assets/images/proyectos/proyecto-002.jpg",
+    "youtubeUrl": "https://www.youtube.com/embed/ScMzIvxBSi4",
+    "tecnologias": ["Automatización", "CRM", "Datos"]
+  }
+]
+

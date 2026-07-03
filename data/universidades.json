@@ -1,0 +1,83 @@
+[
+  {
+    "id": "th-beispiel-mecanica",
+    "carreraId": "mecanica",
+    "nombre": "Technische Hochschule Beispiel",
+    "pais": "Alemania",
+    "ciudad": "Múnich",
+    "descripcion": "Intercambio con enfoque en laboratorios aplicados, manufactura avanzada y sostenibilidad.",
+    "areasRelacionadas": ["Diseño mecánico", "Investigación aplicada", "Manufactura"],
+    "imagen": "assets/images/universidades/universidad-001.jpg"
+  },
+  {
+    "id": "north-valley-mecatronica",
+    "carreraId": "mecatronica",
+    "nombre": "North Valley Institute",
+    "pais": "Canadá",
+    "ciudad": "Vancouver",
+    "descripcion": "Cursos de robótica, sistemas inteligentes y proyectos con profesores visitantes.",
+    "areasRelacionadas": ["Robótica", "Control", "Sistemas inteligentes"],
+    "imagen": "assets/images/universidades/universidad-001.jpg"
+  },
+  {
+    "id": "universite-horizon-industrial",
+    "carreraId": "industrial",
+    "nombre": "Université Horizon",
+    "pais": "Francia",
+    "ciudad": "Lyon",
+    "descripcion": "Ruta internacional para analítica, innovación operativa y sistemas de servicio.",
+    "areasRelacionadas": ["Optimización", "Analítica", "Operaciones"],
+    "imagen": "assets/images/universidades/universidad-001.jpg"
+  },
+  {
+    "id": "urban-tech-civil",
+    "carreraId": "civil",
+    "nombre": "Urban Tech University",
+    "pais": "Países Bajos",
+    "ciudad": "Delft",
+    "descripcion": "Especialidad en infraestructura urbana, agua, movilidad y resiliencia.",
+    "areasRelacionadas": ["Estructuras", "Agua", "Movilidad"],
+    "imagen": "assets/images/universidades/universidad-001.jpg"
+  },
+  {
+    "id": "green-futures-sustentable",
+    "carreraId": "desarrollo-sustentable",
+    "nombre": "Green Futures College",
+    "pais": "Dinamarca",
+    "ciudad": "Copenhague",
+    "descripcion": "Experiencia de intercambio enfocada en energía limpia y ciudades sostenibles.",
+    "areasRelacionadas": ["Energía limpia", "Circularidad", "Impacto ambiental"],
+    "imagen": "assets/images/universidades/universidad-001.jpg"
+  },
+  {
+    "id": "product-school-innovacion",
+    "carreraId": "innovacion-desarrollo",
+    "nombre": "Product Design School",
+    "pais": "España",
+    "ciudad": "Barcelona",
+    "descripcion": "Cursos de innovación, diseño estratégico y lanzamiento de productos.",
+    "areasRelacionadas": ["Producto", "Emprendimiento", "Diseño estratégico"],
+    "imagen": "assets/images/universidades/universidad-001.jpg"
+  },
+  {
+    "id": "pacific-computing",
+    "carreraId": "computacionales",
+    "nombre": "Pacific Computing Institute",
+    "pais": "Estados Unidos",
+    "ciudad": "Seattle",
+    "descripcion": "Cursos de software, IA aplicada y arquitectura de plataformas.",
+    "areasRelacionadas": ["Software", "IA", "Ciberseguridad"],
+    "imagen": "assets/images/universidades/universidad-001.jpg"
+  },
+  {
+    "id": "digital-business-transformacion",
+    "carreraId": "transformacion-digital",
+    "nombre": "Digital Business University",
+    "pais": "Singapur",
+    "ciudad": "Singapur",
+    "descripcion": "Ruta para estudiar negocios digitales, datos y automatización de procesos.",
+    "areasRelacionadas": ["Negocio digital", "Datos", "Automatización"],
+    "imagen": "assets/images/universidades/universidad-001.jpg"
+  }
+]
+

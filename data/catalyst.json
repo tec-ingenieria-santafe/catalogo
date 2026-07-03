@@ -1,0 +1,99 @@
+{
+  "programaId": "catalyst",
+  "secciones": [
+    {
+      "id": "que-es",
+      "titulo": "¿Qué es CATALYST?",
+      "descripcion": "Una puerta de entrada a experiencias retadoras, comunidad y proyectos con impacto desde etapas tempranas.",
+      "items": [
+        {
+          "titulo": "Modelo flexible",
+          "descripcion": "Experiencias intensivas para explorar retos reales con acompañamiento académico y mentoría."
+        },
+        {
+          "titulo": "Puente formativo",
+          "descripcion": "Conecta estudiantes, docentes, empresas y comunidad en proyectos de aprendizaje activo."
+        }
+      ]
+    },
+    {
+      "id": "experiencias",
+      "titulo": "Proyectos y experiencias",
+      "descripcion": "Retos, demostraciones y espacios para convertir ideas en prototipos defendibles.",
+      "items": [
+        {
+          "titulo": "Sprint de innovación",
+          "descripcion": "Equipos multidisciplinarios prototipan soluciones para movilidad, salud, datos o sostenibilidad."
+        },
+        {
+          "titulo": "Demo Day",
+          "descripcion": "Presentación de avances ante mentores, profesores y posibles aliados formadores."
+        }
+      ]
+    },
+    {
+      "id": "comunidad",
+      "titulo": "Actividades y comunidad",
+      "descripcion": "Encuentros, laboratorios abiertos y experiencias que conectan estudiantes con mentores y retos reales.",
+      "ruta": "#programa/catalyst/comunidad",
+      "items": [
+        {
+          "titulo": "Labs abiertos",
+          "descripcion": "Sesiones para probar herramientas, idear y recibir retroalimentación rápida."
+        },
+        {
+          "titulo": "Charlas con industria",
+          "descripcion": "Conversaciones con líderes de tecnología, innovación y transformación organizacional."
+        }
+      ]
+    },
+    {
+      "id": "testimonios",
+      "titulo": "Testimonios de estudiantes",
+      "descripcion": "Historias breves de estudiantes que encontraron equipo, mentoría y dirección para sus ideas.",
+      "items": [
+        {
+          "titulo": "Andrea, 3er semestre",
+          "descripcion": "Me ayudó a aterrizar una idea técnica en un proyecto que podía explicar y defender."
+        },
+        {
+          "titulo": "Mateo, 5to semestre",
+          "descripcion": "Encontré equipo, mentoría y un reto que conectaba con lo que quiero hacer profesionalmente."
+        }
+      ]
+    }
+  ],
+  "actividades": [
+    {
+      "id": "catalyst-lab-abierto-2025",
+      "titulo": "Lab abierto de prototipado",
+      "descripcion": "Sesión práctica para transformar ideas iniciales en prototipos rápidos con retroalimentación de mentores.",
+      "anio": "2025 - 2026",
+      "generacion": "1era generación",
+      "imagenOVideo": "assets/images/catalyst/actividad-001.jpg",
+      "tipoMedia": "imagen",
+      "lugarOContexto": "Laboratorio de innovación, Campus Santa Fe"
+    },
+    {
+      "id": "catalyst-demo-day-2025",
+      "titulo": "Demo Day CATALYST",
+      "descripcion": "Presentación de proyectos ante estudiantes, profesores y aliados para practicar narrativa, impacto y viabilidad.",
+      "anio": "2025 - 2026",
+      "generacion": "1era generación",
+      "imagenOVideo": "https://www.youtube.com/embed/ysz5S6PUM-U",
+      "tipoMedia": "video",
+      "lugarOContexto": "Auditorio de experiencias formativas"
+    },
+    {
+      "id": "catalyst-charla-industria-2025",
+      "titulo": "Conversatorio con industria",
+      "descripcion": "Encuentro con líderes de tecnología e innovación para explorar retos actuales y rutas de participación estudiantil.",
+      "anio": "2025 - 2026",
+      "generacion": "1era generación",
+      "imagenOVideo": "assets/images/catalyst/actividad-001.jpg",
+      "tipoMedia": "imagen",
+      "lugarOContexto": "Sesión con socios formadores"
+    }
+  ]
+}
+

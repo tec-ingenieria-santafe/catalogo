@@ -1,0 +1,29 @@
+{
+  "tituloSitio": "Descubre tu futuro en Ingeniería",
+  "subtitulo": "Tecnológico de Monterrey · Campus Santa Fe",
+  "textoBienvenida": "Catálogo de Ingeniería Campus Santa Fe",
+  "descripcion": "Explora carreras, proyectos de estudiantes, socios formadores y experiencias internacionales que conectan la ingeniería con retos reales.",
+  "logos": {
+    "escuelaIngenieriaCiencias": "assets/logos/escuela-ingenieria-ciencias.png",
+    "hechoEnSantaFe": "assets/logos/hecho-en-santa-fe.png"
+  },
+  "footer": {
+    "texto": "Datos de ejemplo para prototipo de catálogo académico.",
+    "institucion": "Tecnológico de Monterrey · Escuela de Ingeniería y Ciencias",
+    "campus": "Campus Santa Fe"
+  },
+  "redesSociales": [
+    {
+      "nombre": "Instagram",
+      "url": "https://www.instagram.com/tecsantafe/"
+    },
+    {
+      "nombre": "LinkedIn",
+      "url": "https://www.linkedin.com/school/tecnologico-de-monterrey/"
+    },
+    {
+      "nombre": "Sitio Tec",
+      "url": "https://tec.mx/"
+    }
+  ]
+}

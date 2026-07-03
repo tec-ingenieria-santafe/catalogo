@@ -1,0 +1,99 @@
+[
+  {
+    "id": "mariana-mecanica",
+    "carreraId": "mecanica",
+    "nombre": "Mariana López",
+    "generacion": "Generación 2018",
+    "carreraCursada": "Ingeniería Mecánica",
+    "puestoActual": "Líder de Ingeniería de Producto",
+    "empresa": "Asteria Labs",
+    "descripcion": "Dirige equipos que convierten prototipos mecánicos en soluciones escalables.",
+    "foto": "assets/images/exatecs/exatec-001.jpg",
+    "linkedinUrl": "https://www.linkedin.com/"
+  },
+  {
+    "id": "diego-mecatronica",
+    "carreraId": "mecatronica",
+    "nombre": "Diego Fernández",
+    "generacion": "Generación 2020",
+    "carreraCursada": "Ingeniería Mecatrónica",
+    "puestoActual": "Product Manager Técnico",
+    "empresa": "Vector Digital",
+    "descripcion": "Conecta hardware, software y estrategia para lanzar productos automatizados.",
+    "foto": "assets/images/exatecs/exatec-001.jpg",
+    "linkedinUrl": "https://www.linkedin.com/"
+  },
+  {
+    "id": "sofia-industrial",
+    "carreraId": "industrial",
+    "nombre": "Sofía Herrera",
+    "generacion": "Generación 2016",
+    "carreraCursada": "Ingeniería Industrial y de Sistemas",
+    "puestoActual": "Consultora Senior",
+    "empresa": "Bright Systems",
+    "descripcion": "Acompaña a organizaciones en transformación, mejora continua y adopción tecnológica.",
+    "foto": "assets/images/exatecs/exatec-001.jpg",
+    "linkedinUrl": "https://www.linkedin.com/"
+  },
+  {
+    "id": "andrea-civil",
+    "carreraId": "civil",
+    "nombre": "Andrea Salgado",
+    "generacion": "Generación 2017",
+    "carreraCursada": "Ingeniería Civil",
+    "puestoActual": "Coordinadora de Proyectos Urbanos",
+    "empresa": "Urbis Infraestructura",
+    "descripcion": "Lidera proyectos de infraestructura resiliente y movilidad urbana.",
+    "foto": "assets/images/exatecs/exatec-001.jpg",
+    "linkedinUrl": "https://www.linkedin.com/"
+  },
+  {
+    "id": "natalia-sustentable",
+    "carreraId": "desarrollo-sustentable",
+    "nombre": "Natalia Ponce",
+    "generacion": "Generación 2019",
+    "carreraCursada": "Ingeniería en Desarrollo Sustentable",
+    "puestoActual": "Especialista en Impacto Ambiental",
+    "empresa": "Verde Circular",
+    "descripcion": "Diseña estrategias de sostenibilidad, economía circular y medición de impacto.",
+    "foto": "assets/images/exatecs/exatec-001.jpg",
+    "linkedinUrl": "https://www.linkedin.com/"
+  },
+  {
+    "id": "fernanda-innovacion",
+    "carreraId": "innovacion-desarrollo",
+    "nombre": "Fernanda León",
+    "generacion": "Generación 2021",
+    "carreraCursada": "Ingeniería en Innovación y Desarrollo",
+    "puestoActual": "Innovation Lead",
+    "empresa": "Nexa Mobility Lab",
+    "descripcion": "Lidera validación de ideas, diseño de servicios y lanzamientos de producto.",
+    "foto": "assets/images/exatecs/exatec-001.jpg",
+    "linkedinUrl": "https://www.linkedin.com/"
+  },
+  {
+    "id": "lucia-computacionales",
+    "carreraId": "computacionales",
+    "nombre": "Lucía Méndez",
+    "generacion": "Generación 2022",
+    "carreraCursada": "Ingeniería en Tecnologías Computacionales",
+    "puestoActual": "Software Engineer",
+    "empresa": "Pacific Computing Institute",
+    "descripcion": "Construye plataformas de IA aplicada para educación, datos y colaboración.",
+    "foto": "assets/images/exatecs/exatec-001.jpg",
+    "linkedinUrl": "https://www.linkedin.com/"
+  },
+  {
+    "id": "mariana-transformacion",
+    "carreraId": "transformacion-digital",
+    "nombre": "Mariana Solís",
+    "generacion": "Generación 2020",
+    "carreraCursada": "Ingeniería en Transformación Digital de Negocios",
+    "puestoActual": "Digital Transformation Consultant",
+    "empresa": "Digital Business University",
+    "descripcion": "Diseña rutas de automatización, datos y experiencia para organizaciones de servicios.",
+    "foto": "assets/images/exatecs/exatec-001.jpg",
+    "linkedinUrl": "https://www.linkedin.com/"
+  }
+]
+
