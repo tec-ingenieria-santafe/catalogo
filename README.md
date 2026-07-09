@@ -48,7 +48,7 @@ Todas las rutas son relativas para funcionar tanto en local como desde la subrut
 
 ## Librerias externas
 
-El mapa interactivo de `Universidades extranjeras` usa `jsVectorMap`. La libreria esta incluida localmente en:
+El mapa interactivo de `Experiencias en el extranjero` usa `jsVectorMap`. La libreria esta incluida localmente en:
 
 - `assets/vendor/jsvectormap/jsvectormap.min.css`
 - `assets/vendor/jsvectormap/jsvectormap.min.js`
@@ -92,7 +92,7 @@ El admin es estatico: no escribe directamente en archivos JSON. El flujo correct
 5. Reemplazar manualmente el archivo correspondiente dentro de `data`.
 6. Subir el cambio a GitHub.
 
-El panel permite editar proyectos, socios formadores, universidades extranjeras, EXATECs, actividades CATALYST y Vivencia.
+El panel permite editar proyectos, socios formadores, experiencias en el extranjero, Empleabilidad, actividades CATALYST y Vivencia.
 
 ## Reemplazar imagenes
 

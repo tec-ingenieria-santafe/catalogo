@@ -22,12 +22,12 @@ const sectionMeta = {
     short: "Empresas e instituciones que colaboran con retos, mentoría y experiencias.",
   },
   universidades: {
-    title: "Universidades extranjeras",
-    short: "Convenios internacionales y rutas de intercambio relacionadas con la carrera.",
+    title: "Experiencias en el extranjero",
+    short: "Experiencias internacionales por país y ciudad relacionadas con la carrera.",
   },
   exatecs: {
-    title: "EXATECs destacados",
-    short: "Perfiles de egresados que conectan la formación en Santa Fe con la industria.",
+    title: "Empleabilidad",
+    short: "Perfiles profesionales, prácticas y trayectorias vinculadas a la carrera.",
   },
   "santa-fe": {
     title: "¿Por qué estudiar esta carrera en Santa Fe?",
@@ -42,6 +42,7 @@ const sectionMeta = {
 let siteData = null;
 let adminState = null;
 let pendingUniversityMap = null;
+let activeUniversityMap = null;
 
 function escapeHTML(value) {
   return String(value ?? "").replace(/[&<>"']/g, (char) => {
@@ -64,6 +65,10 @@ function fullName(career) {
   if (career?.tipo === "catalyst") return career.nombre;
   if (!career?.subtitulo) return career?.nombre ?? "";
   return `${career.nombre} (${career.subtitulo})`;
+}
+
+function careerShortName(career) {
+  return String(career?.nombreCorto || career?.nombre || "").replace(/\s*\([^)]*\)\s*/g, "").trim();
 }
 
 function heroTitleClass(title) {
@@ -103,6 +108,18 @@ function mediaStyle(path) {
   return path ? `style="--media-image: url('${escapeAttr(assetUrl(path))}')"` : "";
 }
 
+function validMediaPath(path) {
+  if (path === undefined || path === null) return "";
+  const value = String(path).trim();
+  if (!value || /^(null|undefined)$/i.test(value)) return "";
+  return value.replace(/^["']|["']$/g, "").trim();
+}
+
+function hasContent(value) {
+  if (Array.isArray(value)) return value.some((item) => hasContent(item));
+  return value !== undefined && value !== null && String(value).trim() !== "";
+}
+
 function assetUrl(path) {
   if (!path || /^(https?:|data:|blob:)/i.test(path)) return path;
   return new URL(path, document.baseURI).href;
@@ -120,19 +137,231 @@ function countryFlagEmoji(country) {
   const flags = {
     alemania: "🇩🇪",
     australia: "🇦🇺",
+    austria: "🇦🇹",
     canada: "🇨🇦",
     china: "🇨🇳",
     "corea del sur": "🇰🇷",
+    dinamarca: "🇩🇰",
     espana: "🇪🇸",
     "estados unidos": "🇺🇸",
     francia: "🇫🇷",
     italia: "🇮🇹",
     japon: "🇯🇵",
     "paises bajos": "🇳🇱",
+    portugal: "🇵🇹",
+    irlanda: "🇮🇪",
     "reino unido": "🇬🇧",
+    singapur: "🇸🇬",
+    suecia: "🇸🇪",
     suiza: "🇨🇭",
   };
   return flags[normalizeCountryName(country)] ?? "";
+}
+
+const adminCountries = [
+  "Afganistán",
+  "Albania",
+  "Alemania",
+  "Andorra",
+  "Angola",
+  "Antigua y Barbuda",
+  "Arabia Saudita",
+  "Argelia",
+  "Argentina",
+  "Armenia",
+  "Australia",
+  "Austria",
+  "Azerbaiyán",
+  "Bahamas",
+  "Bangladés",
+  "Barbados",
+  "Baréin",
+  "Bélgica",
+  "Belice",
+  "Benín",
+  "Bielorrusia",
+  "Birmania",
+  "Bolivia",
+  "Bosnia y Herzegovina",
+  "Botsuana",
+  "Brasil",
+  "Brunéi",
+  "Bulgaria",
+  "Burkina Faso",
+  "Burundi",
+  "Bután",
+  "Cabo Verde",
+  "Camboya",
+  "Camerún",
+  "Canadá",
+  "Catar",
+  "Chad",
+  "Chile",
+  "China",
+  "Chipre",
+  "Ciudad del Vaticano",
+  "Colombia",
+  "Comoras",
+  "Corea del Norte",
+  "Corea del Sur",
+  "Costa de Marfil",
+  "Costa Rica",
+  "Croacia",
+  "Cuba",
+  "Dinamarca",
+  "Dominica",
+  "Ecuador",
+  "Egipto",
+  "El Salvador",
+  "Emiratos Árabes Unidos",
+  "Eritrea",
+  "Eslovaquia",
+  "Eslovenia",
+  "España",
+  "Estados Unidos",
+  "Estonia",
+  "Etiopía",
+  "Filipinas",
+  "Finlandia",
+  "Fiyi",
+  "Francia",
+  "Gabón",
+  "Gambia",
+  "Georgia",
+  "Ghana",
+  "Granada",
+  "Grecia",
+  "Guatemala",
+  "Guyana",
+  "Guinea",
+  "Guinea-Bisáu",
+  "Guinea Ecuatorial",
+  "Haití",
+  "Honduras",
+  "Hungría",
+  "India",
+  "Indonesia",
+  "Irak",
+  "Irán",
+  "Irlanda",
+  "Islandia",
+  "Islas Marshall",
+  "Islas Salomón",
+  "Israel",
+  "Italia",
+  "Jamaica",
+  "Japón",
+  "Jordania",
+  "Kazajistán",
+  "Kenia",
+  "Kirguistán",
+  "Kiribati",
+  "Kosovo",
+  "Kuwait",
+  "Laos",
+  "Lesoto",
+  "Letonia",
+  "Líbano",
+  "Liberia",
+  "Libia",
+  "Liechtenstein",
+  "Lituania",
+  "Luxemburgo",
+  "Macedonia del Norte",
+  "Madagascar",
+  "Malasia",
+  "Malaui",
+  "Maldivas",
+  "Malí",
+  "Malta",
+  "Marruecos",
+  "Mauricio",
+  "Mauritania",
+  "México",
+  "Micronesia",
+  "Moldavia",
+  "Mónaco",
+  "Mongolia",
+  "Montenegro",
+  "Mozambique",
+  "Namibia",
+  "Nauru",
+  "Nepal",
+  "Nicaragua",
+  "Níger",
+  "Nigeria",
+  "Noruega",
+  "Nueva Zelanda",
+  "Omán",
+  "Países Bajos",
+  "Pakistán",
+  "Palaos",
+  "Palestina",
+  "Panamá",
+  "Papúa Nueva Guinea",
+  "Paraguay",
+  "Perú",
+  "Polonia",
+  "Portugal",
+  "Reino Unido",
+  "República Centroafricana",
+  "República Checa",
+  "República Democrática del Congo",
+  "República del Congo",
+  "República Dominicana",
+  "Ruanda",
+  "Rumania",
+  "Rusia",
+  "Samoa",
+  "San Cristóbal y Nieves",
+  "San Marino",
+  "San Vicente y las Granadinas",
+  "Santa Lucía",
+  "Santo Tomé y Príncipe",
+  "Senegal",
+  "Serbia",
+  "Seychelles",
+  "Sierra Leona",
+  "Singapur",
+  "Siria",
+  "Somalia",
+  "Sri Lanka",
+  "Suazilandia",
+  "Sudáfrica",
+  "Sudán",
+  "Sudán del Sur",
+  "Suecia",
+  "Suiza",
+  "Surinam",
+  "Tailandia",
+  "Taiwán",
+  "Tanzania",
+  "Tayikistán",
+  "Timor Oriental",
+  "Togo",
+  "Tonga",
+  "Trinidad y Tobago",
+  "Túnez",
+  "Turkmenistán",
+  "Turquía",
+  "Tuvalu",
+  "Ucrania",
+  "Uganda",
+  "Uruguay",
+  "Uzbekistán",
+  "Vanuatu",
+  "Venezuela",
+  "Vietnam",
+  "Yemen",
+  "Yibuti",
+  "Zambia",
+  "Zimbabue",
+];
+
+function canonicalAdminCountryName(value) {
+  const normalized = normalizeCountryName(value);
+  if (!normalized) return "";
+  return adminCountries.find((country) => normalizeCountryName(country) === normalized) || "";
 }
 
 function numericValue(value) {
@@ -413,7 +642,7 @@ function renderCareerHub(career) {
 
   app.innerHTML = `
     <div class="theme-scope" style="${styleVars(career)}">
-      ${renderDetailHero(career, "INGENIERÍA - SANTA FE", "Explora proyectos, aliados, movilidad internacional, comunidad EXATEC y ventajas del campus.")}
+      ${renderDetailHero(career, "INGENIERÍA - SANTA FE", "Explora proyectos, aliados, movilidad internacional, empleabilidad y ventajas del campus.")}
       <section class="detail-shell career-sections-shell">
         <div class="section-grid clickable-grid">
           ${availableSections.map((section, index) => renderSectionLink(career, section, index)).join("")}
@@ -449,7 +678,7 @@ function renderVivenciaPage(fromCareer = null) {
 
   app.innerHTML = `
     <div class="theme-scope" style="${styleVars(theme)}">
-      ${renderDetailHero(theme, "VIVENCIA - SANTA FE", theme.tagline)}
+      ${renderDetailHero(theme, fromCareer ? careerShortName(fromCareer) : "VIVENCIA - SANTA FE", theme.tagline)}
       <section class="detail-shell" data-listing-region>
         ${renderListingControls({
           filters: [
@@ -560,11 +789,13 @@ function renderSubpage(career, slug, pathParts = []) {
 
   app.innerHTML = `
     <div class="theme-scope" style="${styleVars(career)}">
-      ${renderDetailHero(career, "Vista de carrera", section.short, section.title)}
+      ${renderDetailHero(career, careerShortName(career), section.short, section.title)}
       ${renderers[slug](career, pathParts)}
     </div>
   `;
   attachListingControls();
+  attachUniversityNavigation();
+  validateUniversityMedia();
   initializePendingUniversityMap();
 }
 
@@ -686,7 +917,7 @@ function renderUniversitiesPage(career, pathParts = []) {
     pendingUniversityMap = null;
     return `
       <section class="detail-shell">
-        ${renderEmptyState(universities, "universidades")}
+        ${renderEmptyState(universities, "experiencias en el extranjero")}
         ${renderPageNav(career)}
       </section>
     `;
@@ -696,7 +927,7 @@ function renderUniversitiesPage(career, pathParts = []) {
   const selectedUniversities = hasSelectedCity ? grouped[selectedCountry][selectedCity] : [];
   return `
     <section class="detail-shell">
-      ${renderUniversityFlowHeader("Mapa de países", "Explora convenios internacionales por país y ciudad.")}
+      ${renderUniversityFlowHeader("Mapa de países", "Explora experiencias internacionales por país y ciudad.")}
       <div class="university-map-card">
         <div class="university-map-column">
           ${renderWorldMap(career, countries, grouped)}
@@ -707,10 +938,10 @@ function renderUniversitiesPage(career, pathParts = []) {
         hasSelectedCity
           ? `
             <div class="university-action-row">
-              <a class="button ghost compact-button" href="#programa/${career.id}/universidades/${encodeHashPart(selectedCountry)}">Volver a ciudades</a>
-              <a class="button ghost compact-button" href="#programa/${career.id}/universidades">Volver al mapa</a>
+              <a class="button ghost compact-button" href="${universityHash(career, selectedCountry)}" data-university-nav data-career-id="${escapeAttr(career.id)}" data-country="${escapeAttr(selectedCountry)}">Volver a ciudades</a>
+              <a class="button ghost compact-button" href="${universityHash(career)}" data-university-nav data-career-id="${escapeAttr(career.id)}">Volver al mapa</a>
             </div>
-            <div class="content-grid university-grid">
+            <div class="content-grid university-grid" id="city-experience-results" data-city-experience-results>
               ${selectedUniversities.map((university, index) => renderUniversity(university, index)).join("")}
             </div>
           `
@@ -748,7 +979,7 @@ function decodeHashPart(value) {
 function renderUniversityFlowHeader(title, copy) {
   return `
     <div class="university-flow-heading">
-      <p class="mini-label">Universidades extranjeras</p>
+      <p class="mini-label">Experiencias en el extranjero</p>
       <h2>${escapeHTML(title)}</h2>
       <p>${escapeHTML(copy)}</p>
     </div>
@@ -774,7 +1005,7 @@ function renderCountryInfoPanel(career, selectedCountry, selectedCity, grouped) 
       <aside class="map-info-panel">
         <p class="mini-label">Mapa de países</p>
         <h2>Selecciona un país resaltado para ver sus ciudades disponibles.</h2>
-        <p>Los países con convenios para esta carrera aparecen destacados con el color principal del programa.</p>
+        <p>Los países con experiencias para esta carrera aparecen destacados con el color principal del programa.</p>
       </aside>
     `;
   }
@@ -792,7 +1023,7 @@ function renderCountryInfoPanel(career, selectedCountry, selectedCity, grouped) 
           <h2>${escapeHTML(selectedCountry)}</h2>
         </div>
       </div>
-      <p class="country-summary">${cityCount} ciudad${cityCount === 1 ? "" : "es"} disponible${cityCount === 1 ? "" : "s"} · ${universityCount} universidad${universityCount === 1 ? "" : "es"}</p>
+      <p class="country-summary">${cityCount} ciudad${cityCount === 1 ? "" : "es"} disponible${cityCount === 1 ? "" : "s"} · ${universityCount} experiencia${universityCount === 1 ? "" : "s"}</p>
       <p>Selecciona una ciudad:</p>
       <div class="city-list">
         ${Object.keys(cities)
@@ -800,7 +1031,7 @@ function renderCountryInfoPanel(career, selectedCountry, selectedCity, grouped) 
           .map((city) => renderCityOption(career, selectedCountry, city, cities[city].length, city === selectedCity))
           .join("")}
       </div>
-      <a class="button ghost compact-button" href="#programa/${career.id}/universidades">Volver al mapa</a>
+      <a class="button ghost compact-button" href="${universityHash(career)}" data-university-nav data-career-id="${escapeAttr(career.id)}">Volver al mapa</a>
     </aside>
   `;
 }
@@ -808,7 +1039,7 @@ function renderCountryInfoPanel(career, selectedCountry, selectedCity, grouped) 
 function renderCountryListButton(career, country, cities) {
   const cityCount = Object.keys(cities).length;
   return `
-    <a class="country-list-button" href="#programa/${career.id}/universidades/${encodeHashPart(country)}">
+    <a class="country-list-button" href="${universityHash(career, country)}" data-university-nav data-career-id="${escapeAttr(career.id)}" data-country="${escapeAttr(country)}">
       <span>${escapeHTML(country)}</span>
       <small>${cityCount} ciudad${cityCount === 1 ? "" : "es"}</small>
     </a>
@@ -817,17 +1048,53 @@ function renderCountryListButton(career, country, cities) {
 
 function renderCityOption(career, country, city, count, isActive = false) {
   return `
-    <a class="city-choice ${isActive ? "is-active" : ""}" href="#programa/${career.id}/universidades/${encodeHashPart(country)}/${encodeHashPart(city)}">
+    <a class="city-choice ${isActive ? "is-active" : ""}" href="${universityHash(career, country, city)}" data-university-nav data-career-id="${escapeAttr(career.id)}" data-country="${escapeAttr(country)}" data-city="${escapeAttr(city)}">
       <span>${escapeHTML(city)}</span>
-      <small>${count} universidad${count === 1 ? "" : "es"}</small>
+      <small>${count} experiencia${count === 1 ? "" : "s"}</small>
     </a>
   `;
+}
+
+function universityHash(career, country = "", city = "") {
+  const parts = [`#programa/${career.id}/universidades`];
+  if (country) parts.push(encodeHashPart(country));
+  if (city) parts.push(encodeHashPart(city));
+  return parts.join("/");
+}
+
+function attachUniversityNavigation() {
+  document.querySelectorAll("[data-university-nav]").forEach((control) => {
+    control.addEventListener("click", (event) => {
+      event.preventDefault();
+      const career = siteData.carreras.find((item) => item.id === control.dataset.careerId);
+      if (!career) return;
+      navigateUniversityView(career, control.dataset.country || "", control.dataset.city || "");
+    });
+  });
+}
+
+function navigateUniversityView(career, country = "", city = "") {
+  const scrollY = window.scrollY;
+  const hash = universityHash(career, country, city);
+  history.pushState(null, "", hash);
+  renderSubpage(career, "universidades", [country, city].filter(Boolean).map(encodeHashPart));
+  requestAnimationFrame(() => {
+    if (city) {
+      document.querySelector("[data-city-experience-results]")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      return;
+    }
+    window.scrollTo({ top: scrollY, behavior: "auto" });
+  });
 }
 
 function countryIsoCode(country) {
   const codes = {
     alemania: "DE",
     australia: "AU",
+    austria: "AT",
     canada: "CA",
     china: "CN",
     "corea del sur": "KR",
@@ -838,11 +1105,36 @@ function countryIsoCode(country) {
     italia: "IT",
     japon: "JP",
     "paises bajos": "NL",
+    portugal: "PT",
+    irlanda: "IE",
     "reino unido": "GB",
     singapur: "SG",
+    suecia: "SE",
     suiza: "CH",
   };
   return codes[normalizeCountryName(country)] ?? "";
+}
+
+function hideMapTooltips() {
+  document.querySelectorAll(".jvm-tooltip").forEach((tooltip) => {
+    tooltip.classList.remove("active");
+  });
+}
+
+function removeOrphanMapTooltips() {
+  document.querySelectorAll(".jvm-tooltip").forEach((tooltip) => tooltip.remove());
+}
+
+function destroyActiveUniversityMap() {
+  if (!activeUniversityMap) return;
+  hideMapTooltips();
+  try {
+    activeUniversityMap.destroy();
+  } catch (error) {
+    console.warn("No se pudo destruir el mapa anterior.", error);
+  }
+  activeUniversityMap = null;
+  removeOrphanMapTooltips();
 }
 
 function initializePendingUniversityMap() {
@@ -859,13 +1151,15 @@ function initializePendingUniversityMap() {
   const highlightedCodes = Object.keys(countryByCode);
   const accent = getComputedStyle(document.querySelector(".theme-scope")).getPropertyValue("--accent").trim() || "#0055a6";
 
+  destroyActiveUniversityMap();
+
   if (typeof jsVectorMap !== "function" || !highlightedCodes.length) {
     mapElement.innerHTML = `<div class="map-loading">No se pudo cargar el mapa interactivo. Usa la lista de países disponibles.</div>`;
     return;
   }
 
   mapElement.innerHTML = "";
-  new jsVectorMap({
+  activeUniversityMap = new jsVectorMap({
     selector: "#university-world-map",
     map: "world",
     zoomButtons: true,
@@ -897,37 +1191,69 @@ function initializePendingUniversityMap() {
       }
       const cities = Object.keys(grouped[country]).length;
       const universities = Object.values(grouped[country]).reduce((total, items) => total + items.length, 0);
-      tooltip.text(`${country}: ${cities} ciudad${cities === 1 ? "" : "es"} · ${universities} universidad${universities === 1 ? "" : "es"}`);
+      tooltip.text(`${country}: ${cities} ciudad${cities === 1 ? "" : "es"} · ${universities} experiencia${universities === 1 ? "" : "s"}`);
     },
     onRegionClick(event, code) {
+      hideMapTooltips();
       const country = countryByCode[code];
       if (!country) {
         event.preventDefault();
         return;
       }
-      window.location.hash = `#programa/${career.id}/universidades/${encodeHashPart(country)}`;
+      navigateUniversityView(career, country);
     },
   });
+  mapElement.addEventListener("mouseleave", hideMapTooltips);
 }
 
 function renderUniversity(university, index) {
   const countryLabel = [countryFlagEmoji(university.pais), university.pais].filter(Boolean).join(" ");
   const overlayLabel = [countryLabel, university.ciudad].filter(Boolean).join(" · ");
+  const media = renderUniversityMedia(university, overlayLabel, index);
+  const tags = Array.isArray(university.areasRelacionadas) ? university.areasRelacionadas.filter(hasContent) : [];
+  const experienceMeta = [
+    hasContent(university.alumno) ? `<div><dt>Alumno</dt><dd>${escapeHTML(university.alumno)}</dd></div>` : "",
+    hasContent(university.tipoExperiencia) ? `<div><dt>Tipo de experiencia</dt><dd>${escapeHTML(university.tipoExperiencia)}</dd></div>` : "",
+    hasContent(university["año"]) ? `<div><dt>Año</dt><dd>${escapeHTML(university["año"])}</dd></div>` : "",
+  ].filter(Boolean).join("");
   return `
     <article class="feature-card university-card">
-      <div class="image-tile wide-tile media-crop-${(index % 5) + 3}" ${mediaStyle(university.imagen)}>
-        <span class="location-badge">${escapeHTML(overlayLabel)}</span>
-      </div>
+      ${media}
       <div class="feature-body">
         <p class="mini-label">${escapeHTML(university.ciudad)}, ${escapeHTML(university.pais)}</p>
         <h2>${escapeHTML(university.nombre)}</h2>
-        <p>${escapeHTML(university.descripcion)}</p>
-        <div class="tag-row">
-          ${university.areasRelacionadas.map((area) => `<span class="tag">${escapeHTML(area)}</span>`).join("")}
-        </div>
+        ${hasContent(university.descripcion) ? `<p>${escapeHTML(university.descripcion)}</p>` : ""}
+        ${experienceMeta ? `<dl class="meta-list">${experienceMeta}</dl>` : ""}
+        ${tags.length ? `<div class="tag-row">${tags.map((area) => `<span class="tag">${escapeHTML(area)}</span>`).join("")}</div>` : ""}
       </div>
     </article>
   `;
+}
+
+function renderUniversityMedia(university, overlayLabel, index) {
+  const imagePath = validMediaPath(university.imagen);
+  if (!imagePath) return "";
+  return `
+    <div
+      class="image-tile wide-tile media-crop-${(index % 5) + 3}"
+      ${mediaStyle(imagePath)}
+      data-validate-image="${escapeAttr(assetUrl(imagePath))}">
+      <span class="location-badge">${escapeHTML(overlayLabel)}</span>
+    </div>
+  `;
+}
+
+function validateUniversityMedia() {
+  document.querySelectorAll("[data-validate-image]").forEach((tile) => {
+    const imageUrl = tile.dataset.validateImage;
+    if (!imageUrl) {
+      tile.remove();
+      return;
+    }
+    const image = new Image();
+    image.onerror = () => tile.remove();
+    image.src = imageUrl;
+  });
 }
 
 function renderExatecsPage(career) {
@@ -942,8 +1268,8 @@ function renderExatecsPage(career) {
             options: uniqueOptions(profiles, (profile) => profile.generacion, (a, b) => generationRank(a) - generationRank(b)),
           },
         ],
-        resultLabel: "EXATECs",
-        singularLabel: "EXATEC",
+        resultLabel: "perfiles de empleabilidad",
+        singularLabel: "perfil de empleabilidad",
       })}
       <div class="content-grid exatec-grid" data-listing-grid>
         ${profiles.map((profile, index) => renderExatec(profile, index)).join("")}
@@ -954,6 +1280,13 @@ function renderExatecsPage(career) {
 }
 
 function renderExatec(profile, index) {
+  const photo = validMediaPath(profile.foto);
+  const role = [profile.puestoActual, profile.empresa].filter(hasContent).join(" · ");
+  const description = hasContent(profile.descripcion) ? `<p>${escapeHTML(profile.descripcion)}</p>` : "";
+  const linkedin = hasContent(profile.linkedinUrl)
+    ? `<a class="button ghost compact-button" href="${escapeAttr(profile.linkedinUrl)}" target="_blank" rel="noreferrer">LinkedIn</a>`
+    : "";
+
   return `
     <article
       class="feature-card exatec-card"
@@ -961,16 +1294,17 @@ function renderExatec(profile, index) {
       data-generation="${escapeAttr(profile.generacion)}"
       data-date-sort="${generationRank(profile.generacion)}"
       data-title="${escapeAttr(profile.nombre)}">
-      <div class="profile-photo media-crop-${(index % 5) + 1}" ${mediaStyle(profile.foto)} aria-label="Foto de ejemplo"></div>
+      ${photo ? `
+        <div class="profile-photo">
+          <img src="${escapeAttr(assetUrl(photo))}" alt="Foto de ${escapeAttr(profile.nombre)}" />
+        </div>
+      ` : ""}
       <div class="feature-body">
-        <p class="mini-label">${escapeHTML(profile.generacion)}</p>
+        ${hasContent(profile.generacion) ? `<p class="mini-label">${escapeHTML(profile.generacion)}</p>` : ""}
         <h2>${escapeHTML(profile.nombre)}</h2>
-        <p class="role-line">${escapeHTML(profile.puestoActual)} · ${escapeHTML(profile.empresa)}</p>
-        <p>${escapeHTML(profile.descripcion)}</p>
-        <dl class="meta-list">
-          <div><dt>Carrera cursada</dt><dd>${escapeHTML(profile.carreraCursada)}</dd></div>
-        </dl>
-        <a class="button ghost compact-button" href="${escapeAttr(profile.linkedinUrl)}" target="_blank" rel="noreferrer">LinkedIn</a>
+        ${role ? `<p class="role-line">${escapeHTML(role)}</p>` : ""}
+        ${description}
+        ${linkedin}
       </div>
     </article>
   `;
@@ -1175,8 +1509,8 @@ function renderCatalystActivity(activity, index) {
 const adminResources = [
   { key: "proyectos", label: "Proyectos", filename: "proyectos.json", type: "array" },
   { key: "socios", label: "Socios formadores", filename: "socios.json", type: "array" },
-  { key: "universidades", label: "Universidades extranjeras", filename: "universidades.json", type: "array" },
-  { key: "exatecs", label: "EXATECs", filename: "exatecs.json", type: "array" },
+  { key: "universidades", label: "Experiencias en el extranjero", filename: "universidades.json", type: "array" },
+  { key: "exatecs", label: "Empleabilidad", filename: "exatecs.json", type: "array" },
   { key: "catalystActivities", label: "Actividades CATALYST", filename: "catalyst.json", type: "array" },
   { key: "vivencia", label: "Vivencia", filename: "vivencia.json", type: "array" },
 ];
@@ -1197,12 +1531,12 @@ const adminIdRules = {
   universidades: {
     prefixField: "carreraId",
     segment: "universidad",
-    required: ["carreraId", "id", "nombre", "pais"],
+    required: ["carreraId", "id", "nombre", "pais", "año"],
   },
   exatecs: {
     prefixField: "carreraId",
     segment: "exatec",
-    required: ["carreraId", "id", "nombre", "generacion", "carreraCursada"],
+    required: ["carreraId", "id", "nombre"],
   },
   catalystActivities: {
     fixedPrefix: "catalyst",
@@ -1287,11 +1621,31 @@ function nextAdminId(key, item = {}) {
 function orderedAdminEntries(object, key, prefix) {
   const entries = Object.entries(object);
   if (prefix) return entries;
-  const preferred = isCareerScopedAdminKey(key) ? ["carreraId", "id"] : ["id"];
+  const preferred = key === "universidades"
+    ? ["carreraId", "id", "pais", "ciudad", "nombre", "alumno", "tipoExperiencia", "año"]
+    : isCareerScopedAdminKey(key) ? ["carreraId", "id"] : ["id"];
   return [
     ...preferred.filter((field) => Object.hasOwn(object, field)).map((field) => [field, object[field]]),
     ...entries.filter(([field]) => !preferred.includes(field)),
   ];
+}
+
+function adminFieldLabel(field, key) {
+  const labels = {
+    id: "Id",
+    carreraId: "Carrera Id",
+    nombre: key === "universidades" ? "Universidad" : "Nombre",
+    alumno: "Alumno",
+    pais: "País",
+    ciudad: "Ciudad",
+    tipoExperiencia: "Tipo de experiencia",
+    año: "Año",
+    anio: "Año",
+    titulo: "Título",
+    descripcion: "Descripción",
+    generacion: "Generación",
+  };
+  return labels[field] ?? field.replace(/([A-Z])/g, " $1").replace(/^./, (char) => char.toUpperCase());
 }
 
 function renderAdminDashboard() {
@@ -1425,6 +1779,15 @@ function renderAdminForm(key, selectedValue = null) {
     };
     field.addEventListener("input", syncField);
     field.addEventListener("change", syncField);
+    if (field.dataset.kind === "country") {
+      field.addEventListener("blur", () => {
+        if (!field.value.trim() || canonicalAdminCountryName(field.value)) return;
+        field.value = target.pais || "";
+        field.classList.toggle("field-error", !field.value);
+        showAdminMessage("Selecciona un país válido de la lista de autocompletado.", "error");
+        updateAdminOutput(key);
+      });
+    }
   });
   updateAdminOutput(key);
 }
@@ -1433,10 +1796,22 @@ function renderAdminFields(object, prefix = "", key = "", isNew = false) {
   return orderedAdminEntries(object, key, prefix)
     .map(([field, value]) => {
       const path = prefix ? `${prefix}.${field}` : field;
-      const label = field.replace(/([A-Z])/g, " $1").replace(/^./, (char) => char.toUpperCase());
+      const label = adminFieldLabel(field, key);
 
       if (!prefix && field === "carreraId" && isCareerScopedAdminKey(key)) {
         return "";
+      }
+
+      if (!prefix && key === "universidades" && field === "pais") {
+        return `
+          <label class="admin-label">
+            ${escapeHTML(label)}
+            <input class="admin-control" list="admin-country-options" data-path="${escapeAttr(path)}" data-kind="country" value="${escapeAttr(value)}" autocomplete="off" />
+            <datalist id="admin-country-options">
+              ${adminCountries.map((country) => `<option value="${escapeAttr(country)}"></option>`).join("")}
+            </datalist>
+          </label>
+        `;
       }
 
       if (Array.isArray(value)) {
@@ -1460,9 +1835,10 @@ function renderAdminFields(object, prefix = "", key = "", isNew = false) {
 
       const isLong = String(value ?? "").length > 90 || /descripcion|texto|tagline|bienvenida/i.test(field);
       const readonly = !prefix && field === "id" && isNew && adminIdRules[key] ? " readonly" : "";
+      const numberAttrs = typeof value === "number" ? " min=\"1000\" max=\"9999\" step=\"1\"" : "";
       const control = isLong
         ? `<textarea class="admin-control" data-path="${escapeAttr(path)}" data-kind="string"${readonly}>${escapeHTML(value)}</textarea>`
-        : `<input class="admin-control" data-path="${escapeAttr(path)}" data-kind="${typeof value === "number" ? "number" : "string"}" value="${escapeAttr(value)}"${readonly} />`;
+        : `<input class="admin-control" type="${typeof value === "number" ? "number" : "text"}" data-path="${escapeAttr(path)}" data-kind="${typeof value === "number" ? "number" : "string"}" value="${escapeAttr(value)}"${readonly}${numberAttrs} />`;
       return `<label class="admin-label">${escapeHTML(label)}${control}</label>`;
     })
     .join("");
@@ -1473,6 +1849,16 @@ function applyAdminForm(target, form) {
     const kind = field.dataset.kind;
     let value = field.value;
     if (kind === "number") value = Number(value);
+    if (kind === "country") {
+      const canonicalCountry = canonicalAdminCountryName(value);
+      if (String(value).trim() && !canonicalCountry) {
+        field.classList.add("field-error");
+        return;
+      }
+      field.classList.remove("field-error");
+      value = canonicalCountry;
+      field.value = value;
+    }
     if (kind === "array") value = value.split("\n").map((item) => item.trim()).filter(Boolean);
     if (kind === "json") {
       try {
@@ -1522,9 +1908,12 @@ const adminBlankTemplates = {
   universidades: {
     carreraId: "",
     id: "",
-    nombre: "",
     pais: "",
     ciudad: "",
+    nombre: "",
+    alumno: "",
+    tipoExperiencia: "",
+    año: new Date().getFullYear(),
     descripcion: "",
     areasRelacionadas: [],
     imagen: "",
@@ -1534,7 +1923,6 @@ const adminBlankTemplates = {
     id: "",
     nombre: "",
     generacion: "",
-    carreraCursada: "",
     puestoActual: "",
     empresa: "",
     descripcion: "",
@@ -1597,8 +1985,8 @@ function adminRequiredLabel(field) {
     titulo: "Título",
     nombre: "Nombre",
     pais: "País",
+    tipoExperiencia: "Tipo de experiencia",
     generacion: "Generación",
-    carreraCursada: "Carrera cursada",
     año: "Año",
     anio: "Año",
     semestre: "Semestre",
@@ -1613,6 +2001,12 @@ function validateAdminItem(key, item) {
     if (typeof value === "number") return !Number.isFinite(value) || value <= 0;
     return String(value ?? "").trim() === "";
   });
+  if (key === "universidades" && item.pais && !canonicalAdminCountryName(item.pais) && !missing.includes("pais")) {
+    missing.push("pais");
+  }
+  if (key === "universidades" && !/^\d{4}$/.test(String(item["año"] ?? "")) && !missing.includes("año")) {
+    missing.push("año");
+  }
   return missing;
 }
 
@@ -1697,6 +2091,9 @@ function downloadAdminJson(key) {
 
 function route() {
   const hash = window.location.hash || "#inicio";
+  if (!hash.includes("/universidades")) {
+    destroyActiveUniversityMap();
+  }
 
   if (hash === "#admin") {
     renderAdminDashboard();
@@ -1758,6 +2155,7 @@ async function init() {
     renderFooter();
     route();
     window.addEventListener("hashchange", route);
+    window.addEventListener("popstate", route);
   } catch (error) {
     renderLoadError(error);
   }

@@ -7,8 +7,8 @@ Esta carpeta centraliza las imagenes editables del sitio. Para cambiar una image
 - `carreras/`: imagenes cover y secciones organizadas por programa.
 - `proyectos/`: thumbnails o fotos de proyectos estudiantiles.
 - `socios/`: fotos o imagenes de interaccion con socios formadores.
-- `universidades/`: imagenes de universidades o campus internacionales.
-- `exatecs/`: fotos de perfiles EXATEC.
+- `universidades/`: imagenes de experiencias en el extranjero, universidades o campus internacionales.
+- `exatecs/`: fotos de perfiles de Empleabilidad.
 - `catalyst/`: imagenes de actividades CATALYST.
 - `vivencia/`: imagenes de experiencias generales del campus.
 
@@ -17,8 +17,8 @@ Esta carpeta centraliza las imagenes editables del sitio. Para cambiar una image
 - Carreras cover y secciones: 1600 x 1000 px, horizontal.
 - Proyectos: 1200 x 800 px, horizontal.
 - Socios formadores: 1200 x 800 px, horizontal.
-- Universidades: 1400 x 900 px, horizontal.
-- EXATECs: 900 x 900 px, cuadrada.
+- Experiencias en el extranjero: 1400 x 900 px, horizontal.
+- Empleabilidad: 900 x 900 px, cuadrada.
 - CATALYST actividades: 1200 x 800 px, horizontal.
 - Vivencia: 1600 x 1000 px, horizontal.
 
@@ -29,8 +29,8 @@ Cada carrera tiene su propia carpeta dentro de `carreras/`. Esa carpeta contiene
 - `cover.jpg`: hero/banner y tarjeta principal de la carrera.
 - `proyectos.jpg`: ficha Proyectos de estudiantes.
 - `socios.jpg`: ficha Socios formadores.
-- `universidades.jpg`: ficha Universidades extranjeras.
-- `exatecs.jpg`: ficha EXATECs destacados.
+- `universidades.jpg`: ficha Experiencias en el extranjero.
+- `exatecs.jpg`: ficha Empleabilidad.
 - `santafe.jpg`: ficha Por que estudiar esta carrera en Santa Fe.
 
 Carpetas de carreras:
