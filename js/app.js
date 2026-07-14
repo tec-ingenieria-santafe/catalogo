@@ -23,11 +23,11 @@ const sectionMeta = {
   },
   universidades: {
     title: "Experiencias en el extranjero",
-    short: "Experiencias internacionales por país y ciudad relacionadas con la carrera.",
+    short: "Experiencias internacionales en universidades, ciudades y países alrededor del mundo.",
   },
   exatecs: {
     title: "Empleabilidad",
-    short: "Perfiles profesionales, prácticas y trayectorias vinculadas a la carrera.",
+    short: "Conoce perfiles de estudiantes y EXATECs, sus prácticas y trayectorias profesionales vinculadas a la carrera.",
   },
   "santa-fe": {
     title: "¿Por qué estudiar esta carrera en Santa Fe?",
@@ -35,7 +35,7 @@ const sectionMeta = {
   },
   vivencia: {
     title: "Vivencia",
-    short: "Conoce experiencias que complementan la formación de los estudiantes dentro y fuera del aula.",
+    short: "Descubre grupos estudiantiles, escuderías, actividades y experiencias que complementan tu formación dentro y fuera de clases.",
   },
 };
 
@@ -71,6 +71,14 @@ function careerShortName(career) {
   return String(career?.nombreCorto || career?.nombre || "").replace(/\s*\([^)]*\)\s*/g, "").trim();
 }
 
+function mainCatalogPrograms() {
+  return siteData.carreras.filter((program) => program.tipo === "catalyst" || program.catalogGroup !== "otras");
+}
+
+function otherCatalogCareers() {
+  return siteData.carreras.filter((program) => program.tipo === "career" && program.catalogGroup === "otras");
+}
+
 function heroTitleClass(title) {
   const length = title.length;
   if (length >= 56) return "hero-title hero-title-xlong";
@@ -104,8 +112,8 @@ function sectionImageFor(career, slug) {
   return career.sectionImages?.[key] || career.sectionImages?.[slug] || career.coverImage || career.imagenCover || career.imagen;
 }
 
-function mediaStyle(path) {
-  return path ? `style="--media-image: url('${escapeAttr(assetUrl(path))}')"` : "";
+function mediaStyle(path, options = {}) {
+  return path ? `style="--media-image: url('${escapeAttr(assetUrl(path, options))}')"` : "";
 }
 
 function validMediaPath(path) {
@@ -120,9 +128,18 @@ function hasContent(value) {
   return value !== undefined && value !== null && String(value).trim() !== "";
 }
 
-function assetUrl(path) {
+function assetVersion() {
+  return String(siteData?.site?.assetsVersion || siteData?.site?.assetVersion || "").trim();
+}
+
+function assetUrl(path, options = {}) {
   if (!path || /^(https?:|data:|blob:)/i.test(path)) return path;
-  return new URL(path, document.baseURI).href;
+  const url = new URL(path, document.baseURI);
+  if (options.version) {
+    const version = assetVersion();
+    if (version) url.searchParams.set("v", version);
+  }
+  return url.href;
 }
 
 function normalizeCountryName(country) {
@@ -133,29 +150,217 @@ function normalizeCountryName(country) {
     .toLowerCase();
 }
 
-function countryFlagEmoji(country) {
-  const flags = {
-    alemania: "🇩🇪",
-    australia: "🇦🇺",
-    austria: "🇦🇹",
-    canada: "🇨🇦",
-    china: "🇨🇳",
-    "corea del sur": "🇰🇷",
-    dinamarca: "🇩🇰",
-    espana: "🇪🇸",
-    "estados unidos": "🇺🇸",
-    francia: "🇫🇷",
-    italia: "🇮🇹",
-    japon: "🇯🇵",
-    "paises bajos": "🇳🇱",
-    portugal: "🇵🇹",
-    irlanda: "🇮🇪",
-    "reino unido": "🇬🇧",
-    singapur: "🇸🇬",
-    suecia: "🇸🇪",
-    suiza: "🇨🇭",
-  };
-  return flags[normalizeCountryName(country)] ?? "";
+const countryIsoCodes = {
+  afganistan: "af",
+  albania: "al",
+  alemania: "de",
+  andorra: "ad",
+  angola: "ao",
+  "antigua y barbuda": "ag",
+  "arabia saudita": "sa",
+  argelia: "dz",
+  argentina: "ar",
+  armenia: "am",
+  australia: "au",
+  austria: "at",
+  azerbaiyan: "az",
+  bahamas: "bs",
+  banglades: "bd",
+  barbados: "bb",
+  barein: "bh",
+  belgica: "be",
+  belice: "bz",
+  benin: "bj",
+  bielorrusia: "by",
+  birmania: "mm",
+  bolivia: "bo",
+  "bosnia y herzegovina": "ba",
+  botsuana: "bw",
+  brasil: "br",
+  brunei: "bn",
+  bulgaria: "bg",
+  "burkina faso": "bf",
+  burundi: "bi",
+  butan: "bt",
+  "cabo verde": "cv",
+  camboya: "kh",
+  camerun: "cm",
+  canada: "ca",
+  catar: "qa",
+  chad: "td",
+  chile: "cl",
+  china: "cn",
+  chipre: "cy",
+  "ciudad del vaticano": "va",
+  colombia: "co",
+  comoras: "km",
+  "corea del norte": "kp",
+  "corea del sur": "kr",
+  "costa de marfil": "ci",
+  "costa rica": "cr",
+  croacia: "hr",
+  cuba: "cu",
+  dinamarca: "dk",
+  dominica: "dm",
+  ecuador: "ec",
+  egipto: "eg",
+  "el salvador": "sv",
+  "emiratos arabes unidos": "ae",
+  eritrea: "er",
+  eslovaquia: "sk",
+  eslovenia: "si",
+  espana: "es",
+  "estados unidos": "us",
+  estonia: "ee",
+  etiopia: "et",
+  filipinas: "ph",
+  finlandia: "fi",
+  fiyi: "fj",
+  francia: "fr",
+  gabon: "ga",
+  gambia: "gm",
+  georgia: "ge",
+  ghana: "gh",
+  granada: "gd",
+  grecia: "gr",
+  guatemala: "gt",
+  guyana: "gy",
+  guinea: "gn",
+  "guinea-bisau": "gw",
+  "guinea ecuatorial": "gq",
+  haiti: "ht",
+  honduras: "hn",
+  hungria: "hu",
+  india: "in",
+  indonesia: "id",
+  irak: "iq",
+  iran: "ir",
+  irlanda: "ie",
+  islandia: "is",
+  "islas marshall": "mh",
+  "islas salomon": "sb",
+  israel: "il",
+  italia: "it",
+  jamaica: "jm",
+  japon: "jp",
+  jordania: "jo",
+  kazajistan: "kz",
+  kenia: "ke",
+  kirguistan: "kg",
+  kiribati: "ki",
+  kosovo: "xk",
+  kuwait: "kw",
+  laos: "la",
+  lesoto: "ls",
+  letonia: "lv",
+  libano: "lb",
+  liberia: "lr",
+  libia: "ly",
+  liechtenstein: "li",
+  lituania: "lt",
+  luxemburgo: "lu",
+  "macedonia del norte": "mk",
+  madagascar: "mg",
+  malasia: "my",
+  malaui: "mw",
+  maldivas: "mv",
+  mali: "ml",
+  malta: "mt",
+  marruecos: "ma",
+  mauricio: "mu",
+  mauritania: "mr",
+  mexico: "mx",
+  micronesia: "fm",
+  moldavia: "md",
+  monaco: "mc",
+  mongolia: "mn",
+  montenegro: "me",
+  mozambique: "mz",
+  namibia: "na",
+  nauru: "nr",
+  nepal: "np",
+  nicaragua: "ni",
+  niger: "ne",
+  nigeria: "ng",
+  noruega: "no",
+  "nueva zelanda": "nz",
+  oman: "om",
+  "paises bajos": "nl",
+  pakistan: "pk",
+  palaos: "pw",
+  palestina: "ps",
+  panama: "pa",
+  "papua nueva guinea": "pg",
+  paraguay: "py",
+  peru: "pe",
+  polonia: "pl",
+  portugal: "pt",
+  "reino unido": "gb",
+  "republica centroafricana": "cf",
+  "republica checa": "cz",
+  "republica democratica del congo": "cd",
+  "republica del congo": "cg",
+  "republica dominicana": "do",
+  ruanda: "rw",
+  rumania: "ro",
+  rusia: "ru",
+  samoa: "ws",
+  "san cristobal y nieves": "kn",
+  "san marino": "sm",
+  "san vicente y las granadinas": "vc",
+  "santa lucia": "lc",
+  "santo tome y principe": "st",
+  senegal: "sn",
+  serbia: "rs",
+  seychelles: "sc",
+  "sierra leona": "sl",
+  singapur: "sg",
+  siria: "sy",
+  somalia: "so",
+  "sri lanka": "lk",
+  suazilandia: "sz",
+  sudafrica: "za",
+  sudan: "sd",
+  "sudan del sur": "ss",
+  suecia: "se",
+  suiza: "ch",
+  surinam: "sr",
+  tailandia: "th",
+  taiwan: "tw",
+  tanzania: "tz",
+  tayikistan: "tj",
+  "timor oriental": "tl",
+  togo: "tg",
+  tonga: "to",
+  "trinidad y tobago": "tt",
+  tunez: "tn",
+  turkmenistan: "tm",
+  turquia: "tr",
+  tuvalu: "tv",
+  ucrania: "ua",
+  uganda: "ug",
+  uruguay: "uy",
+  uzbekistan: "uz",
+  vanuatu: "vu",
+  venezuela: "ve",
+  vietnam: "vn",
+  yemen: "ye",
+  yibuti: "dj",
+  zambia: "zm",
+  zimbabue: "zw",
+};
+
+function countryIsoCode(country) {
+  return countryIsoCodes[normalizeCountryName(country)] ?? "";
+}
+
+function renderCountryFlag(country, className = "") {
+  const code = countryIsoCode(country);
+  if (!code) return "";
+  const src = assetUrl(`assets/flags/4x3/${code}.svg`);
+  const label = `Bandera de ${country}`;
+  const classes = ["country-flag", className].filter(Boolean).join(" ");
+  return `<img src="${escapeAttr(src)}" alt="${escapeAttr(label)}" class="${escapeAttr(classes)}" loading="lazy" onerror="console.warn('No se pudo cargar una bandera SVG local:', this.alt); this.hidden = true;" />`;
 }
 
 const adminCountries = [
@@ -519,6 +724,43 @@ function youtubeEmbedUrl(value) {
   }
 }
 
+function vimeoEmbedUrl(value) {
+  if (!value || typeof value !== "string") return "";
+  try {
+    const url = new URL(value.trim());
+    const host = url.hostname.replace(/^www\./, "");
+    if (host === "player.vimeo.com" && url.pathname.startsWith("/video/")) {
+      const id = url.pathname.split("/").filter(Boolean)[1] || "";
+      return /^\d+$/.test(id) ? `https://player.vimeo.com/video/${id}` : "";
+    }
+    if (!host.endsWith("vimeo.com")) return "";
+    const id = url.pathname.split("/").filter(Boolean).find((part) => /^\d+$/.test(part)) || "";
+    return id ? `https://player.vimeo.com/video/${id}` : "";
+  } catch {
+    return "";
+  }
+}
+
+function vivenciaVideoEmbedUrl(experience) {
+  const candidates = [experience.videoUrl, experience.video, experience.youtubeUrl, experience.media];
+  const attempted = candidates.map(validMediaPath).filter(Boolean);
+  for (const candidate of attempted) {
+    const embedUrl = youtubeEmbedUrl(candidate) || vimeoEmbedUrl(candidate);
+    if (embedUrl) return embedUrl;
+  }
+  if (hasContent(experience.videoUrl) || hasContent(experience.video) || hasContent(experience.youtubeUrl)) {
+    console.warn("Vivencia: enlace de video no compatible, se usará imagen o solo texto.", experience.id || experience.titulo);
+  }
+  return "";
+}
+
+function vivenciaImagePath(experience) {
+  const media = validMediaPath(experience.media || experience.imagen);
+  if (!media) return "";
+  if (youtubeEmbedUrl(media) || vimeoEmbedUrl(media)) return "";
+  return media;
+}
+
 function byCareer(collection, careerId) {
   return collection.filter((item) => item.carreraId === careerId);
 }
@@ -564,11 +806,13 @@ function renderLoadError(error) {
 function renderFooter() {
   if (!siteFooter || !siteData?.site) return;
   const { footer, redesSociales } = siteData.site;
+  const footerText = hasContent(footer.texto) ? `<p>${escapeHTML(footer.texto)}</p>` : "";
+  const institutionLine = [footer.institucion, footer.campus].filter(hasContent).join(" · ");
   siteFooter.innerHTML = `
     <div class="footer-inner">
       <div>
-        <p>${escapeHTML(footer.texto)}</p>
-        <small>${escapeHTML(footer.institucion)} · ${escapeHTML(footer.campus)}</small>
+        ${footerText}
+        <small>${escapeHTML(institutionLine)}</small>
       </div>
       <nav class="footer-links" aria-label="Redes sociales">
         ${redesSociales
@@ -581,9 +825,16 @@ function renderFooter() {
 
 function renderHome() {
   const site = siteData.site;
-  const programs = siteData.carreras;
+  const programs = mainCatalogPrograms();
+  const heroImage = site.heroImage ?? {};
   app.innerHTML = `
     <section class="hero">
+      <img
+        class="hero-image"
+        src="${escapeAttr(heroImage.src || "assets/images/hero/santafe-ranking-hero-2400.jpg")}"
+        ${heroImage.srcset ? `srcset="${escapeAttr(heroImage.srcset)}" sizes="100vw"` : ""}
+        alt="${escapeAttr(heroImage.alt || "")}"
+      />
       <div class="hero-content">
         <p class="eyebrow">${escapeHTML(site.subtitulo)}</p>
         <p class="welcome-line">${escapeHTML(site.textoBienvenida)}</p>
@@ -608,6 +859,7 @@ function renderHome() {
       </div>
       <div class="program-grid">
         ${programs.map(renderProgramCard).join("")}
+        ${renderOtherProgramsEntry()}
       </div>
     </section>
   `;
@@ -616,8 +868,17 @@ function renderHome() {
 function renderProgramCard(program) {
   const isCatalyst = program.tipo === "catalyst";
   const actionText = isCatalyst ? "Explorar programa" : "Explorar carrera";
+  const catalystRequirements =
+    isCatalyst && Array.isArray(program.requisitos) && program.requisitos.length
+      ? `<div class="card-requirements">
+          <strong>Requisitos</strong>
+          <ul>
+            ${program.requisitos.map((requirement) => `<li>${escapeHTML(requirement)}</li>`).join("")}
+          </ul>
+        </div>`
+      : "";
   const body = isCatalyst
-    ? `<div><strong>¿Qué es?</strong>${escapeHTML(program.queEs)}</div>`
+    ? `<div><strong>¿Qué es?</strong>${escapeHTML(program.queEs)}</div>${catalystRequirements}`
     : `<div><strong>¿Es para ti?</strong>${escapeHTML(program.esParaTi)}</div>
        <div><strong>¿Por qué Santa Fe?</strong>${escapeHTML(program.porQueSantaFe)}</div>`;
 
@@ -635,6 +896,45 @@ function renderProgramCard(program) {
   `;
 }
 
+function renderOtherProgramsEntry() {
+  if (!otherCatalogCareers().length) return "";
+  return `
+    <a class="other-program-entry" href="#otras" aria-label="Ver otras carreras">
+      <span>Otras</span>
+    </a>
+  `;
+}
+
+function renderOtherProgramsPage() {
+  const careers = otherCatalogCareers();
+  app.innerHTML = `
+    <section class="catalog-section other-programs-page">
+      <div class="section-heading catalog-heading">
+        <div>
+          <p class="eyebrow">Catálogo secundario</p>
+          <h1>Otras</h1>
+        </div>
+        <a class="button secondary" href="#catalogo">Volver al catálogo principal</a>
+      </div>
+      <div class="other-career-grid">
+        ${careers.map(renderOtherCareerCard).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderOtherCareerCard(career) {
+  return `
+    <a class="other-career-card" href="#programa/${career.id}" aria-label="Explorar ${escapeAttr(career.nombre)}">
+      <h2>${escapeHTML(fullName(career))}</h2>
+      <div class="tag-row">
+        ${career.highlights.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}
+      </div>
+      <p>${escapeHTML(career.tagline || career.porQueSantaFe || "")}</p>
+    </a>
+  `;
+}
+
 function renderCareerHub(career) {
   const availableSections = career.seccionesDisponibles
     .map((slug) => ({ slug, ...sectionMeta[slug] }))
@@ -644,22 +944,20 @@ function renderCareerHub(career) {
     <div class="theme-scope" style="${styleVars(career)}">
       ${renderDetailHero(career, "INGENIERÍA - SANTA FE", "Explora proyectos, aliados, movilidad internacional, empleabilidad y ventajas del campus.")}
       <section class="detail-shell career-sections-shell">
-        <div class="section-grid clickable-grid">
-          ${availableSections.map((section, index) => renderSectionLink(career, section, index)).join("")}
+        <div class="section-grid section-nav-grid clickable-grid">
+          ${availableSections.map((section) => renderSectionLink(career, section)).join("")}
         </div>
       </section>
     </div>
   `;
 }
 
-function renderSectionLink(career, section, index) {
+function renderSectionLink(career, section) {
   const href = section.slug === "vivencia" ? `#vivencia/${career.id}` : `#programa/${career.id}/${section.slug}`;
   return `
     <a class="info-panel section-link-card" href="${href}">
-      <div class="section-card-media media-crop-${index + 1}" ${mediaStyle(sectionImageFor(career, section.slug))}></div>
       <h2><span class="section-dot" aria-hidden="true"></span>${escapeHTML(section.title)}</h2>
       <p>${escapeHTML(section.short)}</p>
-      <span class="text-link">Abrir sección</span>
     </a>
   `;
 }
@@ -702,9 +1000,9 @@ function renderVivenciaPage(fromCareer = null) {
 }
 
 function renderVivenciaCard(experience, index) {
-  const embedUrl = youtubeEmbedUrl(experience.media);
-  const showVideo = experience.mediaType === "video" && embedUrl;
-  const media = showVideo
+  const embedUrl = vivenciaVideoEmbedUrl(experience);
+  const imagePath = vivenciaImagePath(experience);
+  const media = embedUrl
     ? `
       <div class="video-frame project-media">
         <iframe
@@ -716,7 +1014,13 @@ function renderVivenciaCard(experience, index) {
         </iframe>
       </div>
     `
-    : `<div class="image-tile project-media media-crop-${(index % 5) + 1}" ${mediaStyle(experience.media)}></div>`;
+    : imagePath
+      ? `
+        <div class="image-tile project-media media-crop-${(index % 5) + 1}" ${mediaStyle(imagePath, { version: true })}>
+          <img src="${escapeAttr(assetUrl(imagePath, { version: true }))}" alt="" loading="lazy" style="display: none" onerror="this.closest('.project-media')?.remove()" />
+        </div>
+      `
+      : "";
 
   return `
     <article
@@ -755,14 +1059,16 @@ function renderVivenciaNav(fromCareer) {
   `;
 }
 
-function renderDetailHero(career, eyebrow, copy, sectionTitle = "") {
-  const title = sectionTitle || fullName(career);
+function renderDetailHero(career, eyebrow, copy, sectionTitle = "", options = {}) {
+  const title = sectionTitle || (career?.tipo === "career" ? careerShortName(career) : fullName(career));
+  const primaryBackHref = options.primaryBackHref || "#inicio";
+  const primaryBackLabel = options.primaryBackLabel || "\u2190 Cat\u00e1logo";
   return `
     <section class="detail-hero">
       <div class="detail-hero-inner">
         <div class="breadcrumb-row">
-          <a class="back-link" href="#inicio">← Catálogo</a>
-          ${career.tipo === "career" && sectionTitle ? `<a class="back-link" href="#programa/${career.id}">← Carrera</a>` : ""}
+          <a class="back-link" href="${escapeAttr(primaryBackHref)}">${escapeHTML(primaryBackLabel)}</a>
+          ${career.tipo === "career" && sectionTitle ? `<a class="back-link" href="#programa/${career.id}">\u2190 Carrera</a>` : ""}
         </div>
         <p class="eyebrow">${escapeHTML(eyebrow)}</p>
         <h1 class="${heroTitleClass(title)}">${escapeHTML(title)}</h1>
@@ -829,6 +1135,7 @@ function renderProjectsPage(career) {
 
 function renderProject(project, index, career) {
   const embedUrl = youtubeEmbedUrl(project.youtubeUrl);
+  const thumbnail = validMediaPath(project.thumbnail);
   const media = embedUrl
     ? `
       <div class="video-frame project-media">
@@ -841,7 +1148,9 @@ function renderProject(project, index, career) {
         </iframe>
       </div>
     `
-    : `<div class="image-tile project-media media-crop-${(index % 5) + 1}" ${mediaStyle(project.thumbnail)}></div>`;
+    : thumbnail
+      ? `<div class="image-tile project-media media-crop-${(index % 5) + 1}" ${mediaStyle(thumbnail)}></div>`
+      : "";
 
   return `
     <article
@@ -882,25 +1191,54 @@ function renderPartnersPage(career) {
 }
 
 function renderPartner(partner, index) {
-  const logoIsImage = /\.(png|jpg|jpeg|webp|svg)$/i.test(partner.logo);
+  const logo = validMediaPath(partner.logo);
+  const logoIsImage = /\.(png|jpg|jpeg|webp|svg)$/i.test(logo);
+  const interactionTypes = partnerInteractionTypes(partner);
+  const media = renderPartnerMedia(partner.imagenOVideo, index);
   return `
     <article class="feature-card partner-card">
       <div class="logo-row">
         ${
           logoIsImage
-            ? `<div class="logo-tile image-logo" ${mediaStyle(partner.logo)}></div>`
-            : `<div class="logo-tile">${escapeHTML(partner.logo)}</div>`
+            ? `<div class="logo-tile image-logo"><img src="${escapeAttr(assetUrl(logo))}" alt="Logo de ${escapeAttr(partner.nombre)}" /></div>`
+            : hasContent(partner.logo) ? `<div class="logo-tile">${escapeHTML(partner.logo)}</div>` : ""
         }
-        <div>
+        <div class="partner-heading-content">
           <h2>${escapeHTML(partner.nombre)}</h2>
-          <p class="mini-label">${escapeHTML(partner.tipoInteraccion)}</p>
         </div>
       </div>
-      <p>${escapeHTML(partner.descripcion)}</p>
-      <div class="image-tile media-crop-${(index % 5) + 2}" ${mediaStyle(partner.imagenOVideo)}>
-        <span>Interacción con estudiantes</span>
-      </div>
+      ${interactionTypes.length ? `<div class="tag-row partner-tags">${interactionTypes.map((type) => `<span class="tag">${escapeHTML(type)}</span>`).join("")}</div>` : ""}
+      ${hasContent(partner.descripcion) ? `<p>${escapeHTML(partner.descripcion)}</p>` : ""}
+      ${media}
     </article>
+  `;
+}
+
+function partnerInteractionTypes(partner) {
+  if (Array.isArray(partner.tiposInteraccion)) {
+    return partner.tiposInteraccion.map((item) => String(item).trim()).filter(Boolean);
+  }
+  return hasContent(partner.tipoInteraccion) ? [String(partner.tipoInteraccion).trim()] : [];
+}
+
+function renderPartnerMedia(mediaPath, index) {
+  const media = validMediaPath(mediaPath);
+  if (!media) return "";
+  const embedUrl = youtubeEmbedUrl(media);
+  if (embedUrl) {
+    return `
+      <div class="video-frame project-media partner-media">
+        <iframe src="${escapeAttr(embedUrl)}" title="Interacción con estudiantes" allowfullscreen></iframe>
+      </div>
+    `;
+  }
+  return `
+    <div
+      class="image-tile media-crop-${(index % 5) + 2}"
+      ${mediaStyle(media)}
+      data-validate-image="${escapeAttr(assetUrl(media))}">
+      <span>Interacción con estudiantes</span>
+    </div>
   `;
 }
 
@@ -929,7 +1267,7 @@ function renderUniversitiesPage(career, pathParts = []) {
     <section class="detail-shell">
       ${renderUniversityFlowHeader("Mapa de países", "Explora experiencias internacionales por país y ciudad.")}
       <div class="university-map-card">
-        <div class="university-map-column">
+        <div class="university-map-column" data-university-map-column>
           ${renderWorldMap(career, countries, grouped)}
         </div>
         ${renderCountryInfoPanel(career, hasSelectedCountry ? selectedCountry : "", hasSelectedCity ? selectedCity : "", grouped)}
@@ -1002,7 +1340,7 @@ function renderWorldMap(career, countries, grouped) {
 function renderCountryInfoPanel(career, selectedCountry, selectedCity, grouped) {
   if (!selectedCountry || !grouped[selectedCountry]) {
     return `
-      <aside class="map-info-panel">
+      <aside class="map-info-panel" data-country-info-panel>
         <p class="mini-label">Mapa de países</p>
         <h2>Selecciona un país resaltado para ver sus ciudades disponibles.</h2>
         <p>Los países con experiencias para esta carrera aparecen destacados con el color principal del programa.</p>
@@ -1013,11 +1351,11 @@ function renderCountryInfoPanel(career, selectedCountry, selectedCity, grouped) 
   const cities = grouped[selectedCountry];
   const cityCount = Object.keys(cities).length;
   const universityCount = Object.values(cities).reduce((total, items) => total + items.length, 0);
-  const flag = countryFlagEmoji(selectedCountry);
+  const flag = renderCountryFlag(selectedCountry);
   return `
-    <aside class="map-info-panel">
+    <aside class="map-info-panel" data-country-info-panel>
       <div class="country-panel-heading">
-        ${flag ? `<span class="country-flag" aria-hidden="true">${escapeHTML(flag)}</span>` : ""}
+        ${flag ? `<span class="country-flag-wrapper">${flag}</span>` : ""}
         <div>
           <p class="mini-label">País seleccionado</p>
           <h2>${escapeHTML(selectedCountry)}</h2>
@@ -1086,33 +1424,29 @@ function navigateUniversityView(career, country = "", city = "") {
       });
       return;
     }
+    if (country && scrollCountryInfoIfStacked()) return;
     window.scrollTo({ top: scrollY, behavior: "auto" });
   });
 }
 
-function countryIsoCode(country) {
-  const codes = {
-    alemania: "DE",
-    australia: "AU",
-    austria: "AT",
-    canada: "CA",
-    china: "CN",
-    "corea del sur": "KR",
-    dinamarca: "DK",
-    espana: "ES",
-    "estados unidos": "US",
-    francia: "FR",
-    italia: "IT",
-    japon: "JP",
-    "paises bajos": "NL",
-    portugal: "PT",
-    irlanda: "IE",
-    "reino unido": "GB",
-    singapur: "SG",
-    suecia: "SE",
-    suiza: "CH",
-  };
-  return codes[normalizeCountryName(country)] ?? "";
+function scrollCountryInfoIfStacked() {
+  const mapColumn = document.querySelector("[data-university-map-column]");
+  const countryPanel = document.querySelector("[data-country-info-panel]");
+  if (!mapColumn || !countryPanel) return false;
+
+  const mapRect = mapColumn.getBoundingClientRect();
+  const panelRect = countryPanel.getBoundingClientRect();
+  const panelIsBelowMap = panelRect.top >= mapRect.bottom - 2;
+  if (!panelIsBelowMap) return false;
+
+  const headerHeight = document.querySelector(".site-header")?.getBoundingClientRect().height ?? 80;
+  const scrollOffset = headerHeight + 22;
+  const targetTop = countryPanel.getBoundingClientRect().top + window.scrollY - scrollOffset;
+  window.scrollTo({
+    top: Math.max(targetTop, 0),
+    behavior: "smooth",
+  });
+  return true;
 }
 
 function hideMapTooltips() {
@@ -1144,7 +1478,7 @@ function initializePendingUniversityMap() {
 
   const { career, countries, grouped } = pendingUniversityMap;
   const countryByCode = countries.reduce((lookup, country) => {
-    const code = countryIsoCode(country);
+    const code = countryIsoCode(country).toUpperCase();
     if (code) lookup[code] = country;
     return lookup;
   }, {});
@@ -1207,8 +1541,7 @@ function initializePendingUniversityMap() {
 }
 
 function renderUniversity(university, index) {
-  const countryLabel = [countryFlagEmoji(university.pais), university.pais].filter(Boolean).join(" ");
-  const overlayLabel = [countryLabel, university.ciudad].filter(Boolean).join(" · ");
+  const overlayLabel = renderLocationBadge(university.pais, university.ciudad);
   const media = renderUniversityMedia(university, overlayLabel, index);
   const tags = Array.isArray(university.areasRelacionadas) ? university.areasRelacionadas.filter(hasContent) : [];
   const experienceMeta = [
@@ -1233,25 +1566,41 @@ function renderUniversity(university, index) {
 function renderUniversityMedia(university, overlayLabel, index) {
   const imagePath = validMediaPath(university.imagen);
   if (!imagePath) return "";
+  const imageUrl = assetUrl(imagePath, { version: true });
   return `
     <div
       class="image-tile wide-tile media-crop-${(index % 5) + 3}"
-      ${mediaStyle(imagePath)}
-      data-validate-image="${escapeAttr(assetUrl(imagePath))}">
-      <span class="location-badge">${escapeHTML(overlayLabel)}</span>
+      data-validate-image="${escapeAttr(imageUrl)}">
+      <img class="university-media-image" src="${escapeAttr(imageUrl)}" alt="Imagen de ${escapeAttr(university.nombre)}" loading="lazy" />
+      ${overlayLabel}
     </div>
+  `;
+}
+
+function renderLocationBadge(country, city) {
+  const label = [country, city].filter(Boolean).join(" · ");
+  return `
+    <span class="location-badge experience-location-overlay">
+      ${renderCountryFlag(country, "experience-location-flag")}
+      <span>${escapeHTML(label)}</span>
+    </span>
   `;
 }
 
 function validateUniversityMedia() {
   document.querySelectorAll("[data-validate-image]").forEach((tile) => {
     const imageUrl = tile.dataset.validateImage;
+    const renderedImage = tile.querySelector("img");
+    const removeTile = () => tile.remove();
     if (!imageUrl) {
       tile.remove();
       return;
     }
+    if (renderedImage) {
+      renderedImage.addEventListener("error", removeTile, { once: true });
+    }
     const image = new Image();
-    image.onerror = () => tile.remove();
+    image.onerror = removeTile;
     image.src = imageUrl;
   });
 }
@@ -1280,11 +1629,27 @@ function renderExatecsPage(career) {
 }
 
 function renderExatec(profile, index) {
-  const photo = validMediaPath(profile.foto);
-  const role = [profile.puestoActual, profile.empresa].filter(hasContent).join(" · ");
+  const photo = profilePhotoPath(profile);
+  const companyLogo = validMediaPath(profile.logoEmpresa);
   const description = hasContent(profile.descripcion) ? `<p>${escapeHTML(profile.descripcion)}</p>` : "";
   const linkedin = hasContent(profile.linkedinUrl)
-    ? `<a class="button ghost compact-button" href="${escapeAttr(profile.linkedinUrl)}" target="_blank" rel="noreferrer">LinkedIn</a>`
+    ? `
+      <div class="linkedin-button-wrapper">
+        <a class="button ghost compact-button linkedin-button" href="${escapeAttr(profile.linkedinUrl)}" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    `
+    : "";
+  const company = hasContent(profile.empresa)
+    ? `
+      <div class="employability-company">
+        ${companyLogo ? `
+          <div class="employability-company-logo">
+            <img src="${escapeAttr(assetUrl(companyLogo))}" alt="Logo de ${escapeAttr(profile.empresa)}" onerror="this.closest('.employability-company-logo')?.remove()" />
+          </div>
+        ` : ""}
+        <span>${escapeHTML(profile.empresa)}</span>
+      </div>
+    `
     : "";
 
   return `
@@ -1294,31 +1659,60 @@ function renderExatec(profile, index) {
       data-generation="${escapeAttr(profile.generacion)}"
       data-date-sort="${generationRank(profile.generacion)}"
       data-title="${escapeAttr(profile.nombre)}">
-      ${photo ? `
-        <div class="profile-photo">
-          <img src="${escapeAttr(assetUrl(photo))}" alt="Foto de ${escapeAttr(profile.nombre)}" />
+      <div class="employability-profile ${!photo ? "has-no-photo" : ""}">
+        ${photo ? `
+          <div class="profile-photo employability-photo">
+            <img src="${escapeAttr(assetUrl(photo))}" alt="Foto de ${escapeAttr(profile.nombre)}" onerror="this.closest('.profile-photo')?.remove()" />
+          </div>
+        ` : ""}
+        <div class="employability-profile-info">
+          ${hasContent(profile.generacion) ? `<p class="mini-label">${escapeHTML(profile.generacion)}</p>` : ""}
+          <h2>${escapeHTML(profile.nombre)}</h2>
+          ${hasContent(profile.puestoActual) ? `<p class="role-line">${escapeHTML(profile.puestoActual)}</p>` : ""}
+          ${company}
         </div>
-      ` : ""}
-      <div class="feature-body">
-        ${hasContent(profile.generacion) ? `<p class="mini-label">${escapeHTML(profile.generacion)}</p>` : ""}
-        <h2>${escapeHTML(profile.nombre)}</h2>
-        ${role ? `<p class="role-line">${escapeHTML(role)}</p>` : ""}
-        ${description}
-        ${linkedin}
       </div>
+      ${description}
+      ${linkedin}
     </article>
   `;
 }
 
+function profilePhotoPath(profile) {
+  return validMediaPath(profile.fotoAlumno || profile.foto || "");
+}
+
 function renderSantaFePage(career) {
-  const advantages = [
-    ["Laboratorios", `Espacios para probar, medir y documentar soluciones vinculadas a ${career.highlights[0].toLowerCase()}.`],
-    ["Ubicación", "Santa Fe conecta el aula con corporativos, startups, movilidad urbana y retos de ciudad."],
-    ["Proyectos", "Retos integradores, semanas intensivas y experiencias con socios formadores durante el semestre."],
-    ["Comunidad", "Equipos multidisciplinarios, profesores cercanos y actividades que impulsan colaboración entre carreras."],
-    ["CATALYST", "Experiencias para acelerar ideas, formar comunidad y conectar estudiantes con mentoría temprana."],
-    ["Ventaja campus", career.porQueSantaFe],
-  ];
+  const santaFeImage = sectionImageFor(career, "santa-fe");
+  const excelAdvantages = Array.isArray(career.santaFeFichas) ? career.santaFeFichas.filter((item) => hasContent(item?.titulo)) : [];
+  const advantages = excelAdvantages.length
+    ? excelAdvantages
+    : [
+        {
+          titulo: "Laboratorios",
+          descripcion: `Espacios para probar, medir y documentar soluciones vinculadas a ${career.highlights[0].toLowerCase()}.`,
+        },
+        {
+          titulo: "Ubicación",
+          descripcion: "Santa Fe conecta el aula con corporativos, startups, movilidad urbana y retos de ciudad.",
+        },
+        {
+          titulo: "Proyectos",
+          descripcion: "Retos integradores, semanas intensivas y experiencias con socios formadores durante el semestre.",
+        },
+        {
+          titulo: "Comunidad",
+          descripcion: "Equipos multidisciplinarios, profesores cercanos y actividades que impulsan colaboración entre carreras.",
+        },
+        {
+          titulo: "CATALYST",
+          descripcion: "Experiencias para acelerar ideas, formar comunidad y conectar estudiantes con mentoría temprana.",
+        },
+        {
+          titulo: "Ventaja campus",
+          descripcion: career.porQueSantaFe,
+        },
+      ];
 
   return `
     <section class="detail-shell">
@@ -1326,18 +1720,17 @@ function renderSantaFePage(career) {
         <div>
           <p class="mini-label">Campus Santa Fe</p>
           <h2>${escapeHTML(fullName(career))} en un entorno conectado con la ciudad</h2>
-          <p>Una experiencia visual y práctica donde la ubicación, los laboratorios, los aliados y la comunidad amplifican lo que sucede dentro del aula.</p>
+          <p>Una ubicación estratégica, espacios de prototipado, laboratorios especializados y la cercanía con empresas hacen de Campus Santa Fe un entorno donde la ingeniería se aprende mediante experiencias y retos reales.</p>
         </div>
-        <div class="campus-photo"></div>
+        <div class="campus-photo" ${mediaStyle(santaFeImage, { version: true })}></div>
       </div>
       <div class="advantage-grid">
         ${advantages
           .map(
-            ([title, copy]) => `
+            (item) => `
               <article class="advantage-card">
-                <span class="section-dot" aria-hidden="true"></span>
-                <h3>${escapeHTML(title)}</h3>
-                <p>${escapeHTML(copy)}</p>
+                <h3><span class="section-dot" aria-hidden="true"></span>${escapeHTML(item.titulo)}</h3>
+                ${hasContent(item.descripcion) ? `<p>${escapeHTML(item.descripcion)}</p>` : ""}
               </article>
             `,
           )
@@ -1372,85 +1765,98 @@ function renderCatalystDetail(program) {
     <div class="theme-scope" style="${styleVars(program)}">
       ${renderDetailHero(program, "PROGRAMA DE ALTO RENDIMIENTO", program.tagline)}
       <section class="detail-shell">
-        <div class="section-grid">
-          ${siteData.catalyst.secciones.map((section, index) => renderCatalystPanel(program, section, index)).join("")}
+        <div class="section-grid section-nav-grid">
+          ${siteData.catalyst.secciones.map((section) => renderCatalystPanel(section)).join("")}
         </div>
       </section>
     </div>
   `;
 }
 
-function renderCatalystPanel(program, section, index) {
-  const sectionImage = sectionImageFor(program, section.id) || sectionImageFor(program, ["proyectos", "socios", "santa-fe", "exatecs"][index] || "proyectos");
+function renderCatalystPanel(section) {
+  const body = renderCatalystPanelBody(section);
   if (section.ruta) {
     return `
       <a class="info-panel section-link-card catalyst-panel-link" href="${escapeAttr(section.ruta)}">
-        <div class="section-card-media media-crop-4" ${mediaStyle(sectionImage)}></div>
         <h2><span class="section-dot" aria-hidden="true"></span>${escapeHTML(section.titulo)}</h2>
-        <p>${escapeHTML(section.descripcion)}</p>
-        <ul class="item-list">
-          ${section.items
-            .map(
-              (item) => `
-                <li>
-                  <strong>${escapeHTML(item.titulo)}</strong>
-                  ${escapeHTML(item.descripcion)}
-                </li>
-              `,
-            )
-            .join("")}
-        </ul>
-        <span class="text-link">Ver actividades</span>
+        ${body}
       </a>
     `;
   }
 
   return `
     <article class="info-panel">
-      <div class="section-card-media media-crop-${(index % 5) + 1}" ${mediaStyle(sectionImage)}></div>
       <h2><span class="section-dot" aria-hidden="true"></span>${escapeHTML(section.titulo)}</h2>
-      ${section.descripcion ? `<p>${escapeHTML(section.descripcion)}</p>` : ""}
-      <ul class="item-list">
-        ${section.items
-          .map(
-            (item) => `
-              <li>
-                <strong>${escapeHTML(item.titulo)}</strong>
-                ${escapeHTML(item.descripcion)}
-              </li>
-            `,
-          )
-          .join("")}
-      </ul>
+      ${body}
     </article>
   `;
 }
 
-function renderCatalystActivitiesPage(program) {
-  const activities = siteData.catalyst.actividades ?? [];
+function renderCatalystPanelBody(section) {
+  if (Array.isArray(section.bullets) && section.bullets.length) {
+    return `
+      <ul class="catalyst-panel-bullets">
+        ${section.bullets.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}
+      </ul>
+    `;
+  }
+  return section.descripcion ? `<p>${escapeHTML(section.descripcion)}</p>` : "";
+}
+
+function catalystDetailsFor(category) {
+  const details = Array.isArray(siteData.catalyst.detalles) ? siteData.catalyst.detalles : [];
+  if (details.length) return details.filter((item) => item.categoria === category);
+  if (category === "actividades") return siteData.catalyst.actividades ?? [];
+  return [];
+}
+
+function catalystSectionById(category) {
+  return siteData.catalyst.secciones.find((section) => section.id === category) ?? null;
+}
+
+function renderCatalystCategoryPage(program, category) {
+  const section = catalystSectionById(category);
+  if (!section || section.id === "que-es") {
+    renderCatalystDetail(program);
+    return;
+  }
+  const items = catalystDetailsFor(category);
+  const showActivityControls = false;
+  const compactItems = items.filter((item) => !catalystHasMedia(item));
+  const mediaItems = items.filter((item) => catalystHasMedia(item));
+  const renderCatalystGrid = (gridItems, modifier) => gridItems.length
+    ? `<div class="content-grid activity-grid ${modifier}" ${showActivityControls ? "data-listing-grid" : ""}>
+        ${gridItems.map((item, index) => renderCatalystDetailCard(item, category, index, showActivityControls)).join("")}
+      </div>`
+    : "";
   app.innerHTML = `
     <div class="theme-scope" style="${styleVars(program)}">
       ${renderDetailHero(
         program,
-        "Comunidad CATALYST",
-        "Actividades, encuentros y experiencias que conectan estudiantes con retos, mentores y comunidad.",
-        "Actividades y comunidad",
+        section.titulo,
+        section.descripcion,
+        "CATALYST",
+        { primaryBackHref: "#programa/catalyst", primaryBackLabel: "\u2190 CATALYST" },
       )}
       <section class="detail-shell" data-listing-region>
-        ${renderListingControls({
-          filters: [
-            {
-              id: "cycle",
-              label: "Año / Generación",
-              options: uniqueOptions(activities, catalystActivityCycle, (a, b) => generationRank(a) - generationRank(b)),
-            },
-          ],
-          resultLabel: "actividades CATALYST",
-          singularLabel: "actividad CATALYST",
-        })}
-        <div class="content-grid activity-grid" data-listing-grid>
-          ${activities.map((activity, index) => renderCatalystActivity(activity, index)).join("")}
-        </div>
+        ${
+          showActivityControls
+            ? renderListingControls({
+                filters: [
+                  {
+                    id: "cycle",
+                    label: "Año / Generación",
+                    options: uniqueOptions(items, catalystActivityCycle, (a, b) => generationRank(a) - generationRank(b)),
+                  },
+                ],
+                resultLabel: "actividades CATALYST",
+                singularLabel: "actividad CATALYST",
+              })
+            : ""
+        }
+        ${renderCatalystGrid(compactItems, "activity-grid--compact")}
+        ${renderCatalystGrid(mediaItems, "activity-grid--media")}
+        ${renderEmptyState(items, section.titulo.toLowerCase())}
         <nav class="page-nav" aria-label="Navegación de CATALYST">
           <a class="button ghost" href="#programa/catalyst">Volver a CATALYST</a>
           <a class="button secondary" href="#inicio">Volver al catálogo principal</a>
@@ -1458,52 +1864,141 @@ function renderCatalystActivitiesPage(program) {
       </section>
     </div>
   `;
-  attachListingControls();
+  if (showActivityControls) attachListingControls();
 }
 
 function catalystActivityCycle(activity) {
   return [activity.anio, activity.generacion].filter(Boolean).join(" · ");
 }
 
-function renderCatalystActivity(activity, index) {
-  const label = catalystActivityCycle(activity);
-  const media =
-    activity.tipoMedia === "video"
-      ? `
-        <div class="video-frame">
-          <iframe
-            src="${escapeAttr(activity.imagenOVideo)}"
-            title="Video de ejemplo: ${escapeAttr(activity.titulo)}"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        </div>
-      `
-      : `
-        <div class="image-tile media-crop-${(index % 5) + 1}" ${mediaStyle(activity.imagenOVideo)}>
-          <span>${escapeHTML(activity.lugarOContexto)}</span>
-        </div>
-      `;
+function normalizeTags(value) {
+  const raw = Array.isArray(value)
+    ? value
+    : typeof value === "string"
+      ? value.replace(/,/g, "\n").split(/\r?\n/)
+      : [];
+  const seen = new Set();
+  return raw
+    .map((item) => String(item ?? "").trim())
+    .filter(Boolean)
+    .filter((item) => {
+      const key = item.toLocaleLowerCase("es");
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+}
 
+function catalystMedia(item, index) {
+  const legacyMedia = validMediaPath(item.imagenOVideo || item.media || item.multimedia || item.recurso || item.urlMedia);
+  const videoSource = validMediaPath(item.video || item.videoUrl || item.youtubeUrl);
+  const mediaLooksVideo = youtubeEmbedUrl(legacyMedia) || vimeoEmbedUrl(legacyMedia);
+  const mediaType = String(item.tipoMedia || item.mediaType || item.tipoMultimedia || item.media_type || "").trim().toLowerCase();
+  const mediaCandidate = videoSource || (mediaType === "video" || mediaLooksVideo ? legacyMedia : "");
+  const video = youtubeEmbedUrl(mediaCandidate) || vimeoEmbedUrl(mediaCandidate);
+  if (video) {
+    return `
+      <div class="video-frame">
+        <iframe
+          src="${escapeAttr(video)}"
+          title="Video: ${escapeAttr(item.titulo || item.nombre || "CATALYST") }"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    `;
+  }
+  if (mediaCandidate) {
+    console.warn("CATALYST: enlace de video no compatible, se usará imagen o solo texto.", item.id || item.titulo);
+  }
+  const image = validMediaPath(item.imagen || item.foto || (mediaType !== "video" && !mediaLooksVideo ? legacyMedia : ""));
+  if (!image || youtubeEmbedUrl(image) || vimeoEmbedUrl(image)) return "";
+  return `
+    <div class="image-tile media-crop-${(index % 5) + 1}" ${mediaStyle(image)}>
+    </div>
+  `;
+}
+
+function catalystHasMedia(item) {
+  const legacyMedia = validMediaPath(item.imagenOVideo || item.media || item.multimedia || item.recurso || item.urlMedia);
+  const videoSource = validMediaPath(item.video || item.videoUrl || item.youtubeUrl);
+  const mediaLooksVideo = youtubeEmbedUrl(legacyMedia) || vimeoEmbedUrl(legacyMedia);
+  const mediaType = String(item.tipoMedia || item.mediaType || item.tipoMultimedia || item.media_type || "").trim().toLowerCase();
+  const mediaCandidate = videoSource || (mediaType === "video" || mediaLooksVideo ? legacyMedia : "");
+  if (youtubeEmbedUrl(mediaCandidate) || vimeoEmbedUrl(mediaCandidate)) return true;
+  const image = validMediaPath(item.imagen || item.foto || (mediaType !== "video" && !mediaLooksVideo ? legacyMedia : ""));
+  return Boolean(image && !youtubeEmbedUrl(image) && !vimeoEmbedUrl(image));
+}
+
+function renderCatalystBody(body) {
+  if (!hasContent(body)) return "";
+  const lines = String(body).split(/\r?\n/);
+  const blocks = [];
+  let listItems = [];
+  const flushList = () => {
+    if (!listItems.length) return;
+    blocks.push(`<ul class="catalyst-detail-list">${listItems.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul>`);
+    listItems = [];
+  };
+
+  lines.forEach((line) => {
+    const trimmed = line.trim();
+    if (!trimmed) {
+      flushList();
+      return;
+    }
+    const bullet = trimmed.match(/^[*-]\s+(.+)$/);
+    if (bullet) {
+      listItems.push(bullet[1].trim());
+      return;
+    }
+    flushList();
+    blocks.push(`<p>${escapeHTML(trimmed)}</p>`);
+  });
+  flushList();
+  return blocks.join("");
+}
+
+function renderCatalystDetailCard(item, category, index, filterable = false) {
+  const title = item.titulo || item.nombre || "";
+  const label = sectionLabelForCatalyst(category);
+  const body = item.descripcion || item.testimonio || "";
+  const year = hasContent(item["a\u00f1o"] ?? item.anio ?? item.ano) ? String(item["a\u00f1o"] ?? item.anio ?? item.ano).trim() : "";
+  const media = catalystMedia(item, index);
+  const tags = category === "actividades" ? normalizeTags(item.etiquetas) : [];
+  const mediaClass = media ? "activity-card--with-media" : "activity-card--compact";
   return `
     <article
-      class="feature-card activity-card"
-      data-filterable-card
+      class="feature-card activity-card ${mediaClass}"
+      ${filterable ? "data-filterable-card" : ""}
       data-cycle="${escapeAttr(label)}"
       data-date-sort="${generationRank(label)}"
-      data-title="${escapeAttr(activity.titulo)}">
+      data-title="${escapeAttr(title || body || item.id || "CATALYST")}">
       ${media}
       <div class="feature-body">
-        <p class="mini-label">${escapeHTML(label)}</p>
-        <h2>${escapeHTML(activity.titulo)}</h2>
-        <p>${escapeHTML(activity.descripcion)}</p>
-        <dl class="meta-list">
-          <div><dt>Lugar o contexto</dt><dd>${escapeHTML(activity.lugarOContexto)}</dd></div>
-        </dl>
+        ${year ? `<p class="mini-label">${escapeHTML(year)}</p>` : ""}
+        ${title ? `<h2>${escapeHTML(title)}</h2>` : ""}
+        ${
+          tags.length
+            ? `<div class="tag-row catalyst-activity-tags">
+                ${tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}
+              </div>`
+            : ""
+        }
+        ${renderCatalystBody(body)}
       </div>
     </article>
   `;
+}
+
+function sectionLabelForCatalyst(category) {
+  const labels = {
+    comunidad: "Comunidad motivada",
+    actividades: "Actividades opcionales",
+    testimonios: "Testimonios de estudiantes",
+  };
+  return labels[category] ?? "CATALYST";
 }
 
 const adminResources = [
@@ -1511,11 +2006,22 @@ const adminResources = [
   { key: "socios", label: "Socios formadores", filename: "socios.json", type: "array" },
   { key: "universidades", label: "Experiencias en el extranjero", filename: "universidades.json", type: "array" },
   { key: "exatecs", label: "Empleabilidad", filename: "exatecs.json", type: "array" },
-  { key: "catalystActivities", label: "Actividades CATALYST", filename: "catalyst.json", type: "array" },
+  { key: "catalystDetails", label: "Contenido CATALYST", filename: "catalyst.json", type: "array" },
   { key: "vivencia", label: "Vivencia", filename: "vivencia.json", type: "array" },
 ];
 
 const adminNewItemValue = "__new__";
+
+const vivenciaCategories = [
+  "Biblioteca",
+  "Escudería",
+  "Grupo estudiantil",
+  "Premios",
+  "Deportes",
+  "Arte y cultura",
+  "Certificaciones",
+  "Bootcamps",
+];
 
 const adminIdRules = {
   proyectos: {
@@ -1538,10 +2044,10 @@ const adminIdRules = {
     segment: "exatec",
     required: ["carreraId", "id", "nombre"],
   },
-  catalystActivities: {
+  catalystDetails: {
     fixedPrefix: "catalyst",
-    segment: "actividad",
-    required: ["id", "titulo", "anio", "generacion"],
+    segment: "detalle",
+    required: ["id", "categoria"],
   },
   vivencia: {
     base: "vivencia-",
@@ -1554,13 +2060,31 @@ function cloneData(value) {
 }
 
 function getAdminData(key) {
-  if (key === "catalystActivities") return adminState.catalyst.actividades;
+  if (key === "catalystDetails") return adminState.catalyst.detalles;
   return adminState[key];
 }
 
 function getAdminDownloadData(key) {
-  if (key === "catalystActivities") return adminState.catalyst;
+  if (key === "catalystDetails") return adminState.catalyst;
+  if (key === "vivencia") return adminState.vivencia.map(cleanVivenciaRecord);
   return getAdminData(key);
+}
+
+function cleanVivenciaRecord(record) {
+  const item = cloneData(record);
+  migrateLegacyVivenciaMedia(item);
+  delete item.mediaType;
+  if (!Object.hasOwn(item, "videoUrl")) item.videoUrl = "";
+  return item;
+}
+
+function migrateLegacyVivenciaMedia(item) {
+  const media = validMediaPath(item.media);
+  if (!media || hasContent(item.videoUrl)) return;
+  if (youtubeEmbedUrl(media) || vimeoEmbedUrl(media)) {
+    item.videoUrl = media;
+    item.media = "";
+  }
 }
 
 function getAdminConfig(key) {
@@ -1623,6 +2147,12 @@ function orderedAdminEntries(object, key, prefix) {
   if (prefix) return entries;
   const preferred = key === "universidades"
     ? ["carreraId", "id", "pais", "ciudad", "nombre", "alumno", "tipoExperiencia", "año"]
+    : key === "exatecs"
+      ? ["carreraId", "id", "fotoAlumno", "logoEmpresa", "nombre", "generacion", "puestoActual", "empresa", "descripcion", "linkedinUrl"]
+    : key === "vivencia"
+      ? ["id", "categoria", "titulo", "descripcion", "año", "media", "videoUrl", "enlace", "etiquetas"]
+    : key === "catalystDetails"
+      ? ["id", "categoria", "titulo", "año", "etiquetas", "descripcion", "imagen", "video"]
     : isCareerScopedAdminKey(key) ? ["carreraId", "id"] : ["id"];
   return [
     ...preferred.filter((field) => Object.hasOwn(object, field)).map((field) => [field, object[field]]),
@@ -1633,19 +2163,110 @@ function orderedAdminEntries(object, key, prefix) {
 function adminFieldLabel(field, key) {
   const labels = {
     id: "Id",
+    categoria: "Categoría",
     carreraId: "Carrera Id",
     nombre: key === "universidades" ? "Universidad" : "Nombre",
     alumno: "Alumno",
     pais: "País",
     ciudad: "Ciudad",
     tipoExperiencia: "Tipo de experiencia",
+    tipoInteraccion: "Tipos de interacción",
+    tiposInteraccion: "Tipos de interacción",
     año: "Año",
     anio: "Año",
     titulo: "Título",
     descripcion: "Descripción",
     generacion: "Generación",
+    fotoAlumno: "Foto del alumno",
+    logoEmpresa: "Logo de la empresa",
+    foto: "Foto del alumno",
+    media: key === "vivencia" ? "Imagen" : "Media",
+    videoUrl: "Enlace de video",
+    video: "Enlace de video",
   };
   return labels[field] ?? field.replace(/([A-Z])/g, " $1").replace(/^./, (char) => char.toUpperCase());
+}
+
+function normalizeAdminItem(key, item) {
+  if (!item) return;
+  if (key === "socios") {
+    if (!Array.isArray(item.tiposInteraccion)) {
+      item.tiposInteraccion = hasContent(item.tipoInteraccion) ? [String(item.tipoInteraccion).trim()] : [];
+    }
+    delete item.tipoInteraccion;
+  }
+  if (key === "exatecs") {
+    if (!hasContent(item.fotoAlumno) && hasContent(item.foto)) {
+      item.fotoAlumno = item.foto;
+    }
+    delete item.foto;
+    if (!Object.hasOwn(item, "logoEmpresa")) {
+      item.logoEmpresa = "";
+    }
+  }
+  if (key === "vivencia") {
+    migrateLegacyVivenciaMedia(item);
+    if (!Object.hasOwn(item, "videoUrl")) {
+      item.videoUrl = "";
+    }
+    delete item.mediaType;
+  }
+  if (key === "catalystDetails") {
+    normalizeCatalystDetailItem(item);
+  }
+}
+
+function normalizeCatalystDetailItem(item) {
+  const legacyMedia = validMediaPath(item.imagenOVideo || item.media || item.multimedia || item.recurso || item.urlMedia);
+  const legacyType = String(item.tipoMedia || item.mediaType || item.tipoMultimedia || item.media_type || "").trim().toLowerCase();
+  const legacyVideo = validMediaPath(item.videoUrl || item.youtubeUrl);
+  if (!hasContent(item.descripcion) && hasContent(item.testimonio)) {
+    item.descripcion = item.testimonio;
+  }
+  if (!hasContent(item.imagen) && hasContent(item.foto)) {
+    item.imagen = item.foto;
+  }
+  if (!hasContent(item.video) && legacyVideo) {
+    item.video = legacyVideo;
+  }
+  if (!hasContent(item["año"]) && hasContent(item.anio)) {
+    item["año"] = item.anio;
+  }
+  if (legacyMedia && !hasContent(item.imagen) && !hasContent(item.video)) {
+    const isVideo = legacyType === "video" || youtubeEmbedUrl(legacyMedia) || vimeoEmbedUrl(legacyMedia);
+    if (isVideo) item.video = legacyMedia;
+    else item.imagen = legacyMedia;
+  }
+  item.etiquetas = item.categoria === "actividades" ? normalizeTags(item.etiquetas) : [];
+  [
+    "destacado",
+    "textoDestacado",
+    "highlight",
+    "featuredText",
+    "tipoMedia",
+    "mediaType",
+    "tipoMultimedia",
+    "media_type",
+    "imagenOVideo",
+    "media",
+    "multimedia",
+    "recurso",
+    "urlMedia",
+    "foto",
+    "videoUrl",
+    "youtubeUrl",
+    "testimonio",
+    "proyectoOExperiencia",
+    "lugarOContexto",
+    "anio",
+    "generacion",
+    "carrera",
+    "nombre",
+    "enlace",
+  ].forEach((field) => delete item[field]);
+  if (!Object.hasOwn(item, "imagen")) item.imagen = "";
+  if (!Object.hasOwn(item, "video")) item.video = "";
+  if (!Object.hasOwn(item, "año")) item["año"] = "";
 }
 
 function renderAdminDashboard() {
@@ -1756,7 +2377,7 @@ function renderAdminForm(key, selectedValue = null) {
   const selected = isArray ? select?.value || adminNewItemValue : null;
   const isNew = isArray && selected === adminNewItemValue;
   const index = isArray && !isNew ? Number(selected || 0) : null;
-  const target = isArray ? (isNew ? createBlankFromTemplate(data[0], key) : data[index]) : data;
+  const target = isArray ? (isNew ? createBlankFromTemplate(adminBlankTemplates[key] ?? data[0], key) : data[index]) : data;
   const form = document.querySelector("#admin-form");
 
   if (!target) {
@@ -1765,15 +2386,19 @@ function renderAdminForm(key, selectedValue = null) {
     return;
   }
 
+  normalizeAdminItem(key, target);
   prepareAdminNewItem(target, key, isNew);
   form.innerHTML = renderAdminFields(target, "", key, isNew);
   form.querySelectorAll("[data-path]").forEach((field) => {
     const syncField = () => {
-      applyAdminForm(target, form);
+      applyAdminForm(target, form, key);
       if (isNew) {
         refreshGeneratedAdminId(key, target, form);
       } else {
         refreshAdminItemLabel(key);
+      }
+      if (key === "catalystDetails" && field.dataset.path === "categoria") {
+        toggleCatalystAdminFields(form, target);
       }
       updateAdminOutput(key);
     };
@@ -1802,6 +2427,33 @@ function renderAdminFields(object, prefix = "", key = "", isNew = false) {
         return "";
       }
 
+      if (!prefix && key === "catalystDetails" && field === "categoria") {
+        const categories = [
+          ["comunidad", "Comunidad motivada"],
+          ["actividades", "Actividades opcionales"],
+          ["testimonios", "Testimonios de estudiantes"],
+        ];
+        return `
+          <label class="admin-label">
+            ${escapeHTML(label)}
+            <select class="admin-control" data-path="${escapeAttr(path)}" data-kind="string">
+              ${categories.map(([categoryValue, categoryLabel]) => `<option value="${escapeAttr(categoryValue)}" ${value === categoryValue ? "selected" : ""}>${escapeHTML(categoryLabel)}</option>`).join("")}
+            </select>
+          </label>
+        `;
+      }
+
+      if (!prefix && key === "vivencia" && field === "categoria") {
+        return `
+          <label class="admin-label">
+            ${escapeHTML(label)}
+            <select class="admin-control" data-path="${escapeAttr(path)}" data-kind="string">
+              ${vivenciaCategories.map((category) => `<option value="${escapeAttr(category)}" ${value === category ? "selected" : ""}>${escapeHTML(category)}</option>`).join("")}
+            </select>
+          </label>
+        `;
+      }
+
       if (!prefix && key === "universidades" && field === "pais") {
         return `
           <label class="admin-label">
@@ -1814,11 +2466,26 @@ function renderAdminFields(object, prefix = "", key = "", isNew = false) {
         `;
       }
 
+      if (!prefix && key === "catalystDetails" && field === "etiquetas") {
+        const hidden = object.categoria !== "actividades" ? " hidden" : "";
+        return `
+          <label class="admin-label" data-catalyst-tags-field${hidden}>
+            ${escapeHTML(label)}
+            <small class="admin-help">Escribe una etiqueta por línea.</small>
+            <textarea class="admin-control" data-path="${escapeAttr(path)}" data-kind="array">${escapeHTML(normalizeTags(value).join("\n"))}</textarea>
+          </label>
+        `;
+      }
+
       if (Array.isArray(value)) {
         const isPrimitiveArray = value.every((item) => typeof item !== "object");
+        const helpText = key === "socios" && field === "tiposInteraccion"
+          ? `<small class="admin-help">Escribe un tipo de interacción por línea.</small>`
+          : "";
         return `
           <label class="admin-label">
             ${escapeHTML(label)}
+            ${helpText}
             <textarea class="admin-control" data-path="${escapeAttr(path)}" data-kind="${isPrimitiveArray ? "array" : "json"}">${escapeHTML(isPrimitiveArray ? value.join("\n") : JSON.stringify(value, null, 2))}</textarea>
           </label>
         `;
@@ -1844,7 +2511,7 @@ function renderAdminFields(object, prefix = "", key = "", isNew = false) {
     .join("");
 }
 
-function applyAdminForm(target, form) {
+function applyAdminForm(target, form, key = "") {
   form.querySelectorAll("[data-path]").forEach((field) => {
     const kind = field.dataset.kind;
     let value = field.value;
@@ -1871,6 +2538,13 @@ function applyAdminForm(target, form) {
     }
     setPathValue(target, field.dataset.path, value);
   });
+  if (key) normalizeAdminItem(key, target);
+}
+
+function toggleCatalystAdminFields(form, target) {
+  const tagField = form.querySelector("[data-catalyst-tags-field]");
+  if (!tagField) return;
+  tagField.hidden = target.categoria !== "actividades";
 }
 
 function setPathValue(target, path, value) {
@@ -1902,7 +2576,7 @@ const adminBlankTemplates = {
     nombre: "",
     logo: "",
     descripcion: "",
-    tipoInteraccion: "",
+    tiposInteraccion: [],
     imagenOVideo: "",
   },
   universidades: {
@@ -1921,23 +2595,24 @@ const adminBlankTemplates = {
   exatecs: {
     carreraId: "",
     id: "",
+    fotoAlumno: "",
+    logoEmpresa: "",
     nombre: "",
     generacion: "",
     puestoActual: "",
     empresa: "",
     descripcion: "",
-    foto: "",
     linkedinUrl: "",
   },
-  catalystActivities: {
+  catalystDetails: {
     id: "",
+    categoria: "comunidad",
     titulo: "",
+    "año": "",
+    etiquetas: [],
     descripcion: "",
-    anio: "2025 - 2026",
-    generacion: "",
-    imagenOVideo: "",
-    tipoMedia: "imagen",
-    lugarOContexto: "",
+    imagen: "",
+    video: "",
   },
   vivencia: {
     id: "",
@@ -1946,7 +2621,7 @@ const adminBlankTemplates = {
     descripcion: "",
     "año": new Date().getFullYear(),
     media: "",
-    mediaType: "image",
+    videoUrl: "",
     enlace: "",
     etiquetas: [],
   },
@@ -1982,6 +2657,7 @@ function adminRequiredLabel(field) {
   const labels = {
     carreraId: "Carrera Id",
     id: "Id",
+    categoria: "Categoría",
     titulo: "Título",
     nombre: "Nombre",
     pais: "País",
@@ -2028,9 +2704,10 @@ function addAdminItem(key) {
   }
 
   const form = document.querySelector("#admin-form");
-  const item = createBlankFromTemplate(data[0], key);
+  const item = createBlankFromTemplate(adminBlankTemplates[key] ?? data[0], key);
   prepareAdminNewItem(item, key, true);
-  applyAdminForm(item, form);
+  normalizeAdminItem(key, item);
+  applyAdminForm(item, form, key);
   refreshGeneratedAdminId(key, item, form);
 
   const missing = validateAdminItem(key, item);
@@ -2101,6 +2778,12 @@ function route() {
     return;
   }
 
+  if (hash === "#otras") {
+    renderOtherProgramsPage();
+    resetScroll();
+    return;
+  }
+
   if (hash.startsWith("#vivencia")) {
     const [, fromCareerId] = hash.replace("#", "").split("/");
     const fromCareer = siteData.carreras.find((item) => item.id === fromCareerId && item.tipo === "career") ?? null;
@@ -2113,8 +2796,8 @@ function route() {
     const [, programId, sectionSlug, ...sectionPath] = hash.replace("#", "").split("/");
     const program = siteData.carreras.find((item) => item.id === programId);
     if (program?.tipo === "catalyst") {
-      if (sectionSlug === "comunidad") {
-        renderCatalystActivitiesPage(program);
+      if (["comunidad", "actividades", "testimonios"].includes(sectionSlug)) {
+        renderCatalystCategoryPage(program, sectionSlug);
         resetScroll();
         return;
       }

@@ -5,17 +5,17 @@
     "nombre": "Ingeniería Mecánica",
     "subtitulo": "",
     "bachelor": "",
-    "esParaTi": "Si te interesa diseñar sistemas físicos, optimizar energía y crear soluciones que convierten ideas en movimiento.",
-    "porQueSantaFe": "Laboratorios cercanos a retos urbanos, movilidad, manufactura avanzada y colaboración con empresas del poniente de la ciudad.",
+    "esParaTi": "Si te interesa la manufactura avanzada, utilizar herramientas de simulación y explorar nuevos materiales para diseñar mecanismos, productos y soluciones.",
+    "porQueSantaFe": "Laboratorios para diseño y prototipado, proyectos de energías renovables y vinculación con empresas de manufactura, automotrices y desarrollo tecnológico.",
     "tagline": "Diseña, prueba y mejora sistemas mecánicos con una mirada práctica hacia manufactura, energía y tecnología aplicada.",
     "colorPrincipal": "#0055a6",
     "colorSecundario": "#00a3c7",
     "degradado": "linear-gradient(135deg, rgba(0, 85, 166, 0.96), rgba(0, 163, 199, 0.88))",
     "imagen": "assets/images/carreras/mecanica/cover.jpg",
     "highlights": [
-      "Diseño mecánico",
-      "Energía",
-      "Manufactura avanzada"
+      "Turbomaquinaria",
+      "Materiales avanzados",
+      "Diseño mecánico"
     ],
     "seccionesDisponibles": [
       "proyectos",
@@ -32,7 +32,29 @@
       "universidades": "assets/images/carreras/mecanica/universidades.jpg",
       "exatecs": "assets/images/carreras/mecanica/exatecs.jpg",
       "santaFe": "assets/images/carreras/mecanica/santafe.jpg"
-    }
+    },
+    "santaFeFichas": [
+      {
+        "titulo": "Ubicación",
+        "descripcion": "Estudiar en Santa Fe te conecta con uno de los principales centros empresariales y tecnológicos de la Ciudad de México. La cercanía con empresas y socios formadores facilita la participación en proyectos, visitas, prácticas, mentorías y experiencias vinculadas con retos reales de la industria."
+      },
+      {
+        "titulo": "Colaboración con la industria",
+        "descripcion": "Trabaja en proyectos desarrollados junto con socios formadores y conoce de cerca las necesidades reales de las empresas. También podrás acceder a certificaciones, cursos de capacitación, actividades de networking y oportunidades profesionales desde que estás estudiando la carrera."
+      },
+      {
+        "titulo": "Comunidad",
+        "descripcion": "Forma parte de una comunidad activa integrada por grupos estudiantiles, escuderías y equipos multidisciplinarios. Podrás colaborar con estudiantes de distintas carreras, compartir intereses y participar en proyectos, competencias y actividades que complementan tu formación."
+      },
+      {
+        "titulo": "Manufactura",
+        "descripcion": "Convierte tus ideas en prototipos utilizando impresión 3D, corte láser, maquinado, herramientas para madera y metal, electrónica y otros recursos de fabricación. Estos espacios están disponibles tanto para proyectos de tus cursos como para iniciativas personales y extracurriculares."
+      },
+      {
+        "titulo": "CATALYST",
+        "descripcion": "Campus Santa Fe es uno de los pocos campus que cuentan con CATALYST, un programa diseñado para impulsar a estudiantes de alto rendimiento desde sus primeros semestres. Podrás acceder a una comunidad académica, proyectos avanzados y oportunidades en emprendimiento, investigación, industria y liderazgo."
+      }
+    ]
   },
   {
     "id": "mecatronica",
@@ -40,8 +62,8 @@
     "nombre": "Ingeniería Mecatrónica",
     "subtitulo": "Bachelor in Mechatronics",
     "bachelor": "Bachelor in Mechatronics",
-    "esParaTi": "Si disfrutas unir electrónica, programación, control y diseño mecánico para construir sistemas inteligentes.",
-    "porQueSantaFe": "El campus conecta prototipado, robótica, automatización y retos con industrias que buscan talento multidisciplinario.",
+    "esParaTi": "Si quieres integrar mecánica, electrónica, control y programación para crear robots, máquinas automatizadas, dispositivos inteligentes y nuevas soluciones tecnológicas.",
+    "porQueSantaFe": "Espacios de prototipado, proyectos interdisciplinarios y colaboración con empresas que trabajan en automatización, manufactura, electrónica y tecnologías emergentes.",
     "tagline": "Integra hardware, software y control para crear soluciones automatizadas con impacto real en industria y servicios.",
     "colorPrincipal": "#008f91",
     "colorSecundario": "#2f9b72",
@@ -67,7 +89,37 @@
       "universidades": "assets/images/carreras/mecatronica/universidades.jpg",
       "exatecs": "assets/images/carreras/mecatronica/exatecs.jpg",
       "santaFe": "assets/images/carreras/mecatronica/santafe.jpg"
-    }
+    },
+    "santaFeFichas": [
+      {
+        "titulo": "Bachelor",
+        "descripcion": "Tu plan de estudios en inglés te prepara para colaborar en entornos internacionales y acceder a oportunidades académicas y profesionales globales. Campus Santa Fe es uno de los pocos campus que ofrecen esta modalidad."
+      },
+      {
+        "titulo": "Laboratorios",
+        "descripcion": "Aprende en uno de los laboratorios de automatización industrial mejor equipados del país, reconocido por Siemens y equipado con tecnología de marcas líderes como Siemens (Alemania), Allen-Bradley (Estados Unidos), Schneider Electric (Francia) y Mitsubishi (Japón)."
+      },
+      {
+        "titulo": "Ubicación",
+        "descripcion": "Estudiar en Santa Fe te conecta con uno de los principales centros empresariales y tecnológicos de la Ciudad de México. La cercanía con empresas y socios formadores facilita la participación en proyectos, visitas, prácticas, mentorías y experiencias vinculadas con retos reales de la industria."
+      },
+      {
+        "titulo": "Colaboración con la industria",
+        "descripcion": "Trabaja en proyectos desarrollados junto con socios formadores y conoce de cerca las necesidades reales de las empresas. También podrás acceder a certificaciones, cursos de capacitación, actividades de networking y oportunidades profesionales desde que estás estudiando la carrera."
+      },
+      {
+        "titulo": "Comunidad",
+        "descripcion": "Forma parte de una comunidad activa integrada por grupos estudiantiles, escuderías y equipos multidisciplinarios. Podrás colaborar con estudiantes de distintas carreras, compartir intereses y participar en proyectos, competencias y actividades que complementan tu formación."
+      },
+      {
+        "titulo": "Manufactura",
+        "descripcion": "Convierte tus ideas en prototipos utilizando impresión 3D, corte láser, maquinado, herramientas para madera y metal, electrónica y otros recursos de fabricación. Estos espacios están disponibles tanto para proyectos de tus cursos como para iniciativas personales y extracurriculares."
+      },
+      {
+        "titulo": "CATALYST",
+        "descripcion": "Campus Santa Fe es uno de los pocos campus que cuentan con CATALYST, un programa diseñado para impulsar a estudiantes de alto rendimiento desde sus primeros semestres. Podrás acceder a una comunidad académica, proyectos avanzados y oportunidades en emprendimiento, investigación, industria y liderazgo."
+      }
+    ]
   },
   {
     "id": "industrial",
@@ -75,8 +127,8 @@
     "nombre": "Ingeniería Industrial y de Sistemas",
     "subtitulo": "Bachelor in Industrial Engineering",
     "bachelor": "Bachelor in Industrial Engineering",
-    "esParaTi": "Si te atrae mejorar procesos, tomar decisiones con datos y diseñar operaciones más eficientes y humanas.",
-    "porQueSantaFe": "La zona ofrece un entorno natural para proyectos con logística, servicios financieros, retail, salud y consultoría.",
+    "esParaTi": "Si disfrutas mejorar procesos, analizar información y coordinar personas, tecnología y recursos para que las organizaciones funcionen de manera más eficiente.",
+    "porQueSantaFe": "Cercanía a corporativos y organizaciones de múltiples sectores, donde podrás abordar retos reales de operaciones, logística, calidad y toma de decisiones.",
     "tagline": "Transforma operaciones complejas en sistemas medibles, eficientes y centrados en las personas.",
     "colorPrincipal": "#2f9b72",
     "colorSecundario": "#86b83d",
@@ -84,8 +136,8 @@
     "imagen": "assets/images/carreras/industrial/cover.jpg",
     "highlights": [
       "Optimización",
-      "Analítica",
-      "Operaciones"
+      "Analítica de datos",
+      "Cadena de valor"
     ],
     "seccionesDisponibles": [
       "proyectos",
@@ -102,7 +154,29 @@
       "universidades": "assets/images/carreras/industrial/universidades.jpg",
       "exatecs": "assets/images/carreras/industrial/exatecs.jpg",
       "santaFe": "assets/images/carreras/industrial/santafe.jpg"
-    }
+    },
+    "santaFeFichas": [
+      {
+        "titulo": "Bachelor",
+        "descripcion": "Tu plan de estudios en inglés te prepara para colaborar en entornos internacionales y acceder a oportunidades académicas y profesionales globales. Campus Santa Fe es uno de los pocos campus que ofrecen esta modalidad."
+      },
+      {
+        "titulo": "Ubicación",
+        "descripcion": "Estudiar en Santa Fe te conecta con uno de los principales centros empresariales y tecnológicos de la Ciudad de México. La cercanía con empresas y socios formadores facilita la participación en proyectos, visitas, prácticas, mentorías y experiencias vinculadas con retos reales de la industria."
+      },
+      {
+        "titulo": "Colaboración con la industria",
+        "descripcion": "Trabaja en proyectos desarrollados junto con socios formadores y conoce de cerca las necesidades reales de las empresas. También podrás acceder a certificaciones, cursos de capacitación, actividades de networking y oportunidades profesionales desde que estás estudiando la carrera."
+      },
+      {
+        "titulo": "Comunidad",
+        "descripcion": "Forma parte de una comunidad activa integrada por grupos estudiantiles, escuderías y equipos multidisciplinarios. Podrás colaborar con estudiantes de distintas carreras, compartir intereses y participar en proyectos, competencias y actividades que complementan tu formación."
+      },
+      {
+        "titulo": "CATALYST",
+        "descripcion": "Campus Santa Fe es uno de los pocos campus que cuentan con CATALYST, un programa diseñado para impulsar a estudiantes de alto rendimiento desde sus primeros semestres. Podrás acceder a una comunidad académica, proyectos avanzados y oportunidades en emprendimiento, investigación, industria y liderazgo."
+      }
+    ]
   },
   {
     "id": "civil",
@@ -110,8 +184,8 @@
     "nombre": "Ingeniería Civil",
     "subtitulo": "",
     "bachelor": "",
-    "esParaTi": "Si quieres imaginar, calcular y construir infraestructura segura, sostenible y útil para la vida diaria.",
-    "porQueSantaFe": "Un entorno urbano vertical y dinámico permite estudiar movilidad, estructuras, agua, geotecnia y desarrollo inmobiliario.",
+    "esParaTi": "Si te interesa diseñar infraestructura, resolver retos urbanos, hidráulicos y viales, y crear espacios sismorresistentes y sostenibles para las comunidades del futuro.",
+    "porQueSantaFe": "Un entorno urbano ideal para analizar movilidad, edificaciones e infraestructura, con cercanía a desarrolladoras, constructoras y proyectos de transformación de la ciudad.",
     "tagline": "Construye soluciones de infraestructura para ciudades más resilientes, conectadas y sostenibles.",
     "colorPrincipal": "#c9871e",
     "colorSecundario": "#d85b4c",
@@ -119,8 +193,8 @@
     "imagen": "assets/images/carreras/civil/cover.jpg",
     "highlights": [
       "Estructuras",
-      "Movilidad",
-      "Infraestructura"
+      "Construcción",
+      "Ciudades sostenibles"
     ],
     "seccionesDisponibles": [
       "proyectos",
@@ -137,7 +211,33 @@
       "universidades": "assets/images/carreras/civil/universidades.jpg",
       "exatecs": "assets/images/carreras/civil/exatecs.jpg",
       "santaFe": "assets/images/carreras/civil/santafe.jpg"
-    }
+    },
+    "santaFeFichas": [
+      {
+        "titulo": "Laboratorios",
+        "descripcion": ""
+      },
+      {
+        "titulo": "Ubicación",
+        "descripcion": "Estudiar en Santa Fe te conecta con uno de los principales centros empresariales y tecnológicos de la Ciudad de México. La cercanía con empresas y socios formadores facilita la participación en proyectos, visitas, prácticas, mentorías y experiencias vinculadas con retos reales de la industria."
+      },
+      {
+        "titulo": "Colaboración con la industria",
+        "descripcion": "Trabaja en proyectos desarrollados junto con socios formadores y conoce de cerca las necesidades reales de las empresas. También podrás acceder a certificaciones, cursos de capacitación, actividades de networking y oportunidades profesionales desde que estás estudiando la carrera."
+      },
+      {
+        "titulo": "Comunidad",
+        "descripcion": "Forma parte de una comunidad activa integrada por grupos estudiantiles, escuderías y equipos multidisciplinarios. Podrás colaborar con estudiantes de distintas carreras, compartir intereses y participar en proyectos, competencias y actividades que complementan tu formación."
+      },
+      {
+        "titulo": "Manufactura",
+        "descripcion": "Convierte tus ideas en prototipos utilizando impresión 3D, corte láser, maquinado, herramientas para madera y metal, electrónica y otros recursos de fabricación. Estos espacios están disponibles tanto para proyectos de tus cursos como para iniciativas personales y extracurriculares."
+      },
+      {
+        "titulo": "CATALYST",
+        "descripcion": "Campus Santa Fe es uno de los pocos campus que cuentan con CATALYST, un programa diseñado para impulsar a estudiantes de alto rendimiento desde sus primeros semestres. Podrás acceder a una comunidad académica, proyectos avanzados y oportunidades en emprendimiento, investigación, industria y liderazgo."
+      }
+    ]
   },
   {
     "id": "desarrollo-sustentable",
@@ -145,17 +245,17 @@
     "nombre": "Ingeniería en Desarrollo Sustentable",
     "subtitulo": "",
     "bachelor": "",
-    "esParaTi": "Si buscas resolver problemas ambientales combinando ingeniería, economía circular, energía y gestión del cambio.",
-    "porQueSantaFe": "El campus facilita proyectos con edificios, comunidades, empresas y sistemas urbanos que requieren transición sostenible.",
+    "esParaTi": "Si quieres utilizar la ingeniería para enfrentar retos ambientales y desarrollar soluciones responsables en energía, agua, materiales, ciudades y procesos productivos.",
+    "porQueSantaFe": "Un laboratorio urbano para trabajar en eficiencia energética, movilidad, gestión de recursos y sustentabilidad junto con empresas, comunidades e instituciones.",
     "tagline": "Convierte retos ambientales en proyectos técnicamente sólidos, viables y alineados a impacto social.",
     "colorPrincipal": "#4a9d4f",
     "colorSecundario": "#00a37a",
     "degradado": "linear-gradient(135deg, rgba(74, 157, 79, 0.96), rgba(0, 163, 122, 0.88))",
     "imagen": "assets/images/carreras/sustentable/cover.jpg",
     "highlights": [
-      "Energía limpia",
-      "Circularidad",
-      "Impacto ambiental"
+      "Energías renovables",
+      "Economía circular",
+      "Sustentabilidad corporativa"
     ],
     "seccionesDisponibles": [
       "proyectos",
@@ -172,25 +272,48 @@
       "universidades": "assets/images/carreras/sustentable/universidades.jpg",
       "exatecs": "assets/images/carreras/sustentable/exatecs.jpg",
       "santaFe": "assets/images/carreras/sustentable/santafe.jpg"
-    }
+    },
+    "santaFeFichas": [
+      {
+        "titulo": "Ubicación",
+        "descripcion": "Estudiar en Santa Fe te conecta con uno de los principales centros empresariales y tecnológicos de la Ciudad de México. La cercanía con empresas y socios formadores facilita la participación en proyectos, visitas, prácticas, mentorías y experiencias vinculadas con retos reales de la industria."
+      },
+      {
+        "titulo": "Colaboración con la industria",
+        "descripcion": "Trabaja en proyectos desarrollados junto con socios formadores y conoce de cerca las necesidades reales de las empresas. También podrás acceder a certificaciones, cursos de capacitación, actividades de networking y oportunidades profesionales desde que estás estudiando la carrera."
+      },
+      {
+        "titulo": "Comunidad",
+        "descripcion": "Forma parte de una comunidad activa integrada por grupos estudiantiles, escuderías y equipos multidisciplinarios. Podrás colaborar con estudiantes de distintas carreras, compartir intereses y participar en proyectos, competencias y actividades que complementan tu formación."
+      },
+      {
+        "titulo": "Manufactura",
+        "descripcion": "Convierte tus ideas en prototipos utilizando impresión 3D, corte láser, maquinado, herramientas para madera y metal, electrónica y otros recursos de fabricación. Estos espacios están disponibles tanto para proyectos de tus cursos como para iniciativas personales y extracurriculares."
+      },
+      {
+        "titulo": "CATALYST",
+        "descripcion": "Campus Santa Fe es uno de los pocos campus que cuentan con CATALYST, un programa diseñado para impulsar a estudiantes de alto rendimiento desde sus primeros semestres. Podrás acceder a una comunidad académica, proyectos avanzados y oportunidades en emprendimiento, investigación, industria y liderazgo."
+      }
+    ]
   },
   {
-    "id": "innovacion-desarrollo",
+    "id": "financial-engineering",
     "tipo": "career",
-    "nombre": "Ingeniería en Innovación y Desarrollo",
+    "nombre": "Bachelor in Financial Engineering",
+    "nombreCorto": "Financial Engineering",
     "subtitulo": "",
-    "bachelor": "",
-    "esParaTi": "Si te gusta crear productos, validar ideas, coordinar equipos y llevar tecnología del concepto al mercado.",
-    "porQueSantaFe": "La cercanía con corporativos, startups y ecosistemas de innovación abre retos para experimentar con usuarios reales.",
-    "tagline": "Lidera el ciclo completo de innovación: descubrimiento, prototipado, validación y lanzamiento.",
+    "bachelor": "Bachelor in Financial Engineering",
+    "esParaTi": "Si disfrutas las matemáticas, la programación y las finanzas, y quieres utilizarlas para analizar mercados, administrar riesgos y diseñar soluciones financieras.",
+    "porQueSantaFe": "Un entorno empresarial y financiero cercano a corporativos, bancos, consultoras y empresas fintech donde podrás aplicar análisis cuantitativo y tecnología.",
+    "tagline": "Contenido de ejemplo — sustituir. Integra ingeniería, finanzas, analítica y tecnología para resolver problemas financieros complejos.",
     "colorPrincipal": "#d85b4c",
     "colorSecundario": "#c9871e",
     "degradado": "linear-gradient(135deg, rgba(216, 91, 76, 0.96), rgba(201, 135, 30, 0.88))",
-    "imagen": "assets/images/carreras/innovacion/cover.jpg",
+    "imagen": "assets/images/carreras/financial-engineering/cover.jpg",
     "highlights": [
-      "Producto",
-      "Emprendimiento",
-      "Diseño estratégico"
+      "Finanzas cuantitativas",
+      "Optimización",
+      "Gestión de riesgos"
     ],
     "seccionesDisponibles": [
       "proyectos",
@@ -200,14 +323,84 @@
       "santa-fe",
       "vivencia"
     ],
-    "coverImage": "assets/images/carreras/innovacion/cover.jpg",
+    "coverImage": "assets/images/carreras/financial-engineering/cover.jpg",
     "sectionImages": {
-      "proyectos": "assets/images/carreras/innovacion/proyectos.jpg",
-      "socios": "assets/images/carreras/innovacion/socios.jpg",
-      "universidades": "assets/images/carreras/innovacion/universidades.jpg",
-      "exatecs": "assets/images/carreras/innovacion/exatecs.jpg",
-      "santaFe": "assets/images/carreras/innovacion/santafe.jpg"
-    }
+      "santaFe": "assets/images/carreras/financial-engineering/santafe.jpg"
+    },
+    "santaFeFichas": [
+      {
+        "titulo": "Bachelor",
+        "descripcion": "Tu plan de estudios en inglés te prepara para colaborar en entornos internacionales y acceder a oportunidades académicas y profesionales globales. Campus Santa Fe es uno de los pocos campus que ofrecen esta modalidad."
+      },
+      {
+        "titulo": "Hub de Ciberseguridad - Cisco",
+        "descripcion": "Desarrolla habilidades prácticas en ciberseguridad mediante el Hub de Ciberseguridad Cisco, un espacio especializado para aprender sobre redes, protección de sistemas, detección de amenazas y respuesta ante incidentes con tecnologías utilizadas en la industria. Esta infraestructura fortalece tu preparación para enfrentar retos reales de seguridad digital."
+      },
+      {
+        "titulo": "Ubicación",
+        "descripcion": "Estudiar en Santa Fe te conecta con uno de los principales centros empresariales y tecnológicos de la Ciudad de México. La cercanía con empresas y socios formadores facilita la participación en proyectos, visitas, prácticas, mentorías y experiencias vinculadas con retos reales de la industria."
+      },
+      {
+        "titulo": "Colaboración con la industria",
+        "descripcion": "Trabaja en proyectos desarrollados junto con socios formadores y conoce de cerca las necesidades reales de las empresas. También podrás acceder a certificaciones, cursos de capacitación, actividades de networking y oportunidades profesionales desde que estás estudiando la carrera."
+      },
+      {
+        "titulo": "Comunidad",
+        "descripcion": "Forma parte de una comunidad activa integrada por grupos estudiantiles, escuderías y equipos multidisciplinarios. Podrás colaborar con estudiantes de distintas carreras, compartir intereses y participar en proyectos, competencias y actividades que complementan tu formación."
+      }
+    ]
+  },
+  {
+    "id": "ai-data-science",
+    "tipo": "career",
+    "nombre": "Bachelor in Artificial Intelligence and Data Science Engineering",
+    "nombreCorto": "Artificial Intelligence and Data Science Engineering",
+    "subtitulo": "",
+    "bachelor": "Bachelor in Artificial Intelligence and Data Science Engineering",
+    "esParaTi": "Si quieres transformar grandes cantidades de datos en conocimiento y crear sistemas inteligentes capaces de aprender, predecir y apoyar decisiones.",
+    "porQueSantaFe": "Proyectos interdisciplinarios y vinculación con organizaciones que aplican inteligencia artificial, analítica y automatización en sectores tecnológicos, financieros, empresariales y sociales.",
+    "tagline": "Contenido de ejemplo — sustituir. Diseña soluciones de inteligencia artificial y ciencia de datos con impacto tecnológico y humano.",
+    "colorPrincipal": "#7A3E9D",
+    "colorSecundario": "#C04DA7",
+    "degradado": "linear-gradient(135deg, rgba(122, 62, 157, 0.96), rgba(192, 77, 167, 0.88))",
+    "imagen": "assets/images/hero/santafe-ranking-hero-1600.jpg",
+    "highlights": [
+      "Inteligencia artificial",
+      "Ciencia de datos",
+      "Modelos predictivos"
+    ],
+    "seccionesDisponibles": [
+      "proyectos",
+      "socios",
+      "universidades",
+      "exatecs",
+      "santa-fe",
+      "vivencia"
+    ],
+    "coverImage": "assets/images/hero/santafe-ranking-hero-1600.jpg",
+    "sectionImages": {},
+    "santaFeFichas": [
+      {
+        "titulo": "Bachelor",
+        "descripcion": "Tu plan de estudios en inglés te prepara para colaborar en entornos internacionales y acceder a oportunidades académicas y profesionales globales. Campus Santa Fe es uno de los pocos campus que ofrecen esta modalidad."
+      },
+      {
+        "titulo": "Hub de Ciberseguridad - Cisco",
+        "descripcion": "Desarrolla habilidades prácticas en ciberseguridad mediante el Hub de Ciberseguridad Cisco, un espacio especializado para aprender sobre redes, protección de sistemas, detección de amenazas y respuesta ante incidentes con tecnologías utilizadas en la industria. Esta infraestructura fortalece tu preparación para enfrentar retos reales de seguridad digital."
+      },
+      {
+        "titulo": "Ubicación",
+        "descripcion": "Estudiar en Santa Fe te conecta con uno de los principales centros empresariales y tecnológicos de la Ciudad de México. La cercanía con empresas y socios formadores facilita la participación en proyectos, visitas, prácticas, mentorías y experiencias vinculadas con retos reales de la industria."
+      },
+      {
+        "titulo": "Colaboración con la industria",
+        "descripcion": "Trabaja en proyectos desarrollados junto con socios formadores y conoce de cerca las necesidades reales de las empresas. También podrás acceder a certificaciones, cursos de capacitación, actividades de networking y oportunidades profesionales desde que estás estudiando la carrera."
+      },
+      {
+        "titulo": "Comunidad",
+        "descripcion": "Forma parte de una comunidad activa integrada por grupos estudiantiles, escuderías y equipos multidisciplinarios. Podrás colaborar con estudiantes de distintas carreras, compartir intereses y participar en proyectos, competencias y actividades que complementan tu formación."
+      }
+    ]
   },
   {
     "id": "computacionales",
@@ -215,16 +408,16 @@
     "nombre": "Ingeniería en Tecnologías Computacionales",
     "subtitulo": "",
     "bachelor": "",
-    "esParaTi": "Si quieres crear software, sistemas digitales, inteligencia artificial y plataformas que escalan.",
-    "porQueSantaFe": "El campus se vincula con retos de datos, ciberseguridad, fintech, educación digital y servicios tecnológicos.",
+    "esParaTi": "Si quieres crear software, plataformas y sistemas digitales capaces de resolver problemas complejos y transformar la forma en que vivimos y trabajamos.",
+    "porQueSantaFe": "Proyectos vinculados con empresas tecnológicas y oportunidades para aplicar programación, computación en la nube, datos, inteligencia artificial y ciberseguridad en retos reales.",
     "tagline": "Construye software robusto y soluciones computacionales para organizaciones que viven de la información.",
     "colorPrincipal": "#6a5acd",
     "colorSecundario": "#0f7b88",
     "degradado": "linear-gradient(135deg, rgba(106, 90, 205, 0.96), rgba(15, 123, 136, 0.88))",
     "imagen": "assets/images/carreras/computacionales/cover.jpg",
     "highlights": [
-      "Software",
-      "IA",
+      "Desarrollo de software",
+      "Inteligencia artificial",
       "Ciberseguridad"
     ],
     "seccionesDisponibles": [
@@ -242,7 +435,61 @@
       "universidades": "assets/images/carreras/computacionales/universidades.jpg",
       "exatecs": "assets/images/carreras/computacionales/exatecs.jpg",
       "santaFe": "assets/images/carreras/computacionales/santafe.jpg"
-    }
+    },
+    "santaFeFichas": [
+      {
+        "titulo": "Hub de Ciberseguridad - Cisco",
+        "descripcion": "Desarrolla habilidades prácticas en ciberseguridad mediante el Hub de Ciberseguridad Cisco, un espacio especializado para aprender sobre redes, protección de sistemas, detección de amenazas y respuesta ante incidentes con tecnologías utilizadas en la industria. Esta infraestructura fortalece tu preparación para enfrentar retos reales de seguridad digital."
+      },
+      {
+        "titulo": "Ubicación",
+        "descripcion": "Estudiar en Santa Fe te conecta con uno de los principales centros empresariales y tecnológicos de la Ciudad de México. La cercanía con empresas y socios formadores facilita la participación en proyectos, visitas, prácticas, mentorías y experiencias vinculadas con retos reales de la industria."
+      },
+      {
+        "titulo": "Colaboración con la industria",
+        "descripcion": "Trabaja en proyectos desarrollados junto con socios formadores y conoce de cerca las necesidades reales de las empresas. También podrás acceder a certificaciones, cursos de capacitación, actividades de networking y oportunidades profesionales desde que estás estudiando la carrera."
+      },
+      {
+        "titulo": "Comunidad",
+        "descripcion": "Forma parte de una comunidad activa integrada por grupos estudiantiles, escuderías y equipos multidisciplinarios. Podrás colaborar con estudiantes de distintas carreras, compartir intereses y participar en proyectos, competencias y actividades que complementan tu formación."
+      }
+    ]
+  },
+  {
+    "id": "innovacion-desarrollo",
+    "tipo": "career",
+    "nombre": "Ingeniería en Innovación y Desarrollo",
+    "subtitulo": "",
+    "bachelor": "",
+    "esParaTi": "Si te gusta detectar oportunidades, diseñar soluciones y transformar ideas en productos, servicios o emprendimientos con impacto tecnológico y social.",
+    "porQueSantaFe": "Un entorno cercano a empresas, emprendedores y organizaciones donde podrás desarrollar prototipos, validar ideas y resolver retos con equipos multidisciplinarios.",
+    "tagline": "Lidera el ciclo completo de innovación: descubrimiento, prototipado, validación y lanzamiento.",
+    "colorPrincipal": "#6f5f4f",
+    "colorSecundario": "#9a7b4f",
+    "degradado": "linear-gradient(135deg, rgba(111, 95, 79, 0.96), rgba(154, 123, 79, 0.88))",
+    "imagen": "assets/images/carreras/innovacion/cover.jpg",
+    "highlights": [
+      "Diseño de productos",
+      "Emprendimiento",
+      "Innovación tecnológica"
+    ],
+    "seccionesDisponibles": [
+      "proyectos",
+      "socios",
+      "universidades",
+      "exatecs",
+      "santa-fe",
+      "vivencia"
+    ],
+    "coverImage": "assets/images/carreras/innovacion/cover.jpg",
+    "sectionImages": {
+      "proyectos": "assets/images/carreras/innovacion/proyectos.jpg",
+      "socios": "assets/images/carreras/innovacion/socios.jpg",
+      "universidades": "assets/images/carreras/innovacion/universidades.jpg",
+      "exatecs": "assets/images/carreras/innovacion/exatecs.jpg",
+      "santaFe": "assets/images/carreras/innovacion/santafe.jpg"
+    },
+    "catalogGroup": "otras"
   },
   {
     "id": "transformacion-digital",
@@ -250,17 +497,17 @@
     "nombre": "Ingeniería en Transformación Digital de Negocios",
     "subtitulo": "",
     "bachelor": "",
-    "esParaTi": "Si te interesa traducir tecnología en modelos de negocio, automatización, datos y experiencia de usuario.",
-    "porQueSantaFe": "La ubicación favorece proyectos con empresas que digitalizan operaciones, canales comerciales y toma de decisiones.",
+    "esParaTi": "Si te interesa conectar tecnología y negocios para rediseñar procesos, mejorar decisiones y liderar la transformación digital de las organizaciones.",
+    "porQueSantaFe": "Cercanía a corporativos, consultoras, empresas tecnológicas y organizaciones que enfrentan retos reales de innovación, automatización y evolución digital.",
     "tagline": "Une ingeniería, negocio y datos para acelerar transformación digital con criterio estratégico.",
     "colorPrincipal": "#0f7b88",
     "colorSecundario": "#0055a6",
     "degradado": "linear-gradient(135deg, rgba(15, 123, 136, 0.96), rgba(0, 85, 166, 0.88))",
     "imagen": "assets/images/carreras/transformacion-digital/cover.jpg",
     "highlights": [
-      "Negocio digital",
-      "Datos",
-      "Automatización"
+      "Estrategia digital",
+      "Analítica de negocios",
+      "Innovación empresarial"
     ],
     "seccionesDisponibles": [
       "proyectos",
@@ -277,7 +524,8 @@
       "universidades": "assets/images/carreras/transformacion-digital/universidades.jpg",
       "exatecs": "assets/images/carreras/transformacion-digital/exatecs.jpg",
       "santaFe": "assets/images/carreras/transformacion-digital/santafe.jpg"
-    }
+    },
+    "catalogGroup": "otras"
   },
   {
     "id": "catalyst",
@@ -287,16 +535,19 @@
     "bachelor": "",
     "esParaTi": "",
     "porQueSantaFe": "",
-    "queEs": "Un programa de experiencias retadoras para estudiantes que quieren acelerar proyectos, habilidades y comunidad desde etapas tempranas.",
+    "queEs": "CATALYST es una comunidad para estudiantes de alto rendimiento que quieren ir más allá desde el inicio de su carrera. Además, ofrece actividades opcionales de mentoría y oportunidades para desarrollar proyectos de emprendimiento, investigación o vinculación con la industria.",
     "tagline": "Un espacio para conectar talento, retos reales y experiencias formativas de alto impacto.",
     "colorPrincipal": "#111827",
     "colorSecundario": "#00a3c7",
     "degradado": "linear-gradient(135deg, rgba(17, 24, 39, 0.98), rgba(0, 163, 199, 0.86))",
     "imagen": "assets/images/carreras/catalyst/cover.jpg",
     "highlights": [
-      "Retos",
+      "Comunidad",
       "Mentoría",
-      "Comunidad"
+      "Emprendimiento",
+      "Proyectos",
+      "Investigación",
+      "Vinculación"
     ],
     "seccionesDisponibles": [
       "que-es",
@@ -312,6 +563,11 @@
       "experiencias": "assets/images/carreras/catalyst/actividades.jpg",
       "comunidad": "assets/images/carreras/catalyst/comunidad.jpg",
       "testimonios": "assets/images/carreras/catalyst/testimonios.jpg"
-    }
+    },
+    "requisitos": [
+      "Promedio de ingreso de 90 o superior.",
+      "Examen de admisión de 1360 puntos o superior.",
+      "Presentar tu solicitud con tu carta de motivos una vez que estés inscrito."
+    ]
   }
 ]

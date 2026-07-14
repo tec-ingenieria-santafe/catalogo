@@ -5,17 +5,22 @@
     "nombre": "Nexa Mobility Lab",
     "logo": "NM",
     "descripcion": "Colabora con retos de movilidad, prototipos de prueba y mentoría para equipos estudiantiles.",
-    "tipoInteraccion": "Reto semestral + mentoría técnica",
-    "imagenOVideo": "assets/images/socios/socio-001.jpg"
+    "imagenOVideo": "assets/images/socios/socio-001.jpg",
+    "tiposInteraccion": [
+      "Reto semestral",
+      "mentoría técnica"
+    ]
   },
   {
     "id": "distrito-mecatronica",
     "carreraId": "mecatronica",
     "nombre": "Biogrip",
-    "logo": "BG",
+    "logo": "assets/images/socios/biogrip.jpg",
     "descripcion": "BioGrip es una startup mexicana que desarrolla prótesis biónicas avanzadas y dispositivos de rehabilitación impulsados por inteligencia artificial. En colaboración con la carrera, los estudiantes pueden participar en proyectos de investigación aplicada, como sistemas de rehabilitación robótica para pacientes con prótesis completa de brazo.",
-    "tipoInteraccion": "Desarrollo de prototipos",
-    "imagenOVideo": "assets/images/socios/socio-001.jpg"
+    "imagenOVideo": "",
+    "tiposInteraccion": [
+      "Desarrollo de prototipos"
+    ]
   },
   {
     "id": "horizonte-industrial",
@@ -23,8 +28,11 @@
     "nombre": "Horizonte Industrial",
     "logo": "HI",
     "descripcion": "Comparte casos de mejora operativa, visitas guiadas y retroalimentación ejecutiva.",
-    "tipoInteraccion": "Caso aplicado + panel con líderes",
-    "imagenOVideo": "assets/images/socios/socio-001.jpg"
+    "imagenOVideo": "assets/images/socios/socio-001.jpg",
+    "tiposInteraccion": [
+      "Caso aplicado",
+      "panel con líderes"
+    ]
   },
   {
     "id": "urbis-civil",
@@ -32,8 +40,11 @@
     "nombre": "Urbis Infraestructura",
     "logo": "UI",
     "descripcion": "Aporta casos de movilidad, estructuras y planeación urbana para proyectos de aula.",
-    "tipoInteraccion": "Visita técnica + reto de diseño",
-    "imagenOVideo": "assets/images/socios/socio-001.jpg"
+    "imagenOVideo": "assets/images/socios/socio-001.jpg",
+    "tiposInteraccion": [
+      "Visita técnica",
+      "reto de diseño"
+    ]
   },
   {
     "id": "verde-sustentable",
@@ -41,8 +52,11 @@
     "nombre": "Verde Circular",
     "logo": "VC",
     "descripcion": "Acompaña diagnósticos de sostenibilidad, energía y economía circular.",
-    "tipoInteraccion": "Mentoría + validación de impacto",
-    "imagenOVideo": "assets/images/socios/socio-001.jpg"
+    "imagenOVideo": "assets/images/socios/socio-001.jpg",
+    "tiposInteraccion": [
+      "Mentoría",
+      "validación de impacto"
+    ]
   },
   {
     "id": "asteria-innovacion",
@@ -50,8 +64,11 @@
     "nombre": "Asteria Labs",
     "logo": "AL",
     "descripcion": "Facilita retos de producto, validación de mercado y prototipado con usuarios.",
-    "tipoInteraccion": "Reto de producto + feedback de usuarios",
-    "imagenOVideo": "assets/images/socios/socio-001.jpg"
+    "imagenOVideo": "assets/images/socios/socio-001.jpg",
+    "tiposInteraccion": [
+      "Reto de producto",
+      "feedback de usuarios"
+    ]
   },
   {
     "id": "vector-computacionales",
@@ -59,8 +76,11 @@
     "nombre": "Vector Digital",
     "logo": "VD",
     "descripcion": "Comparte retos de software, datos, ciberseguridad e inteligencia artificial.",
-    "tipoInteraccion": "Hackathon + revisión técnica",
-    "imagenOVideo": "assets/images/socios/socio-001.jpg"
+    "imagenOVideo": "assets/images/socios/socio-001.jpg",
+    "tiposInteraccion": [
+      "Hackathon",
+      "revisión técnica"
+    ]
   },
   {
     "id": "bright-transformacion",
@@ -68,7 +88,187 @@
     "nombre": "Bright Systems",
     "logo": "BS",
     "descripcion": "Conecta a estudiantes con proyectos de automatización y estrategia digital.",
-    "tipoInteraccion": "Consultoría aplicada + demo ejecutivo",
-    "imagenOVideo": "assets/images/socios/socio-001.jpg"
+    "imagenOVideo": "assets/images/socios/socio-001.jpg",
+    "tiposInteraccion": [
+      "Consultoría aplicada",
+      "demo ejecutivo"
+    ]
+  },
+  {
+    "id": "mecatronica-socio-1",
+    "carreraId": "mecatronica",
+    "nombre": "Rockwell Automation",
+    "logo": "assets/images/socios/Rockwell.jpg",
+    "descripcion": "Rockwell Automation es líder mundial en automatización industrial y transformación digital. Con sede en Milwaukee, Wisconsin, la compañía desarrolla tecnologías para hacer la manufactura más productiva y sustentable mediante sus marcas insignia Allen-Bradley (hardware) y Rockwell Software.",
+    "imagenOVideo": "",
+    "tiposInteraccion": [
+      "Laboratorio de automatización",
+      "PLCs",
+      "Proyectos"
+    ]
+  },
+  {
+    "id": "mecatronica-socio-2",
+    "carreraId": "mecatronica",
+    "nombre": "Schneider Electric",
+    "logo": "assets/images/socios/SchneiderElectric.jpg",
+    "descripcion": "Schneider Electric es una empresa global de tecnología industrial y gestión de energía. Fundada en Francia en 1836, se especializa en electrificación, automatización y digitalización. Sus soluciones abarcan desde la domótica para el hogar hasta la gestión inteligente de centros de datos e infraestructuras resilientes.",
+    "imagenOVideo": "",
+    "tiposInteraccion": [
+      "Laboratorio de Automatización",
+      "PLCs",
+      "Certificaciones"
+    ]
+  },
+  {
+    "id": "mecatronica-socio-3",
+    "carreraId": "mecatronica",
+    "nombre": "FESTO",
+    "logo": "assets/images/socios/festo.jpg",
+    "descripcion": "Festo es una empresa familiar alemana líder a nivel mundial en tecnología de automatización industrial (neumática y eléctrica) y formación técnica. Fundada en 1925, opera en más de 60 países y atiende a más de 300.000 clientes en sectores como el automotriz, farmacéutico y de energía verde.",
+    "imagenOVideo": "",
+    "tiposInteraccion": [
+      "Laboratorio de automatización",
+      "Actuadores",
+      "Válvulas"
+    ]
+  },
+  {
+    "id": "mecatronica-socio-4",
+    "carreraId": "mecatronica",
+    "nombre": "SIEMENS",
+    "logo": "assets/images/socios/siemens.jpg",
+    "descripcion": "Siemens AG es una compañía tecnológica alemana líder mundial en ingeniería eléctrica, automatización e infraestructura. Enfocada en la digitalización, industria, movilidad y atención médica, la empresa une los mundos físico y digital para transformar sectores clave de la economía global.",
+    "imagenOVideo": "",
+    "tiposInteraccion": [
+      "Laboratorio de automatización",
+      "Software",
+      "PLCs",
+      "Certificaciones"
+    ]
+  },
+  {
+    "id": "mecatronica-socio-5",
+    "carreraId": "mecatronica",
+    "nombre": "Mitsubishi Electric",
+    "logo": "assets/images/socios/mitsubishielectric.jpg",
+    "descripcion": "Fundada en 1921, Mitsubishi Electric es una corporación multinacional japonesa líder en la fabricación de equipos eléctricos y electrónicos. Forma parte del Grupo Mitsubishi y destaca por sus soluciones de vanguardia en automatización industrial, climatización, sistemas de construcción, componentes automotrices y tecnología aeroespacial.",
+    "imagenOVideo": "",
+    "tiposInteraccion": [
+      "Proyectos",
+      "PLCs",
+      "Laboratorio de automatización",
+      "Software"
+    ]
+  },
+  {
+    "id": "mecatronica-socio-6",
+    "carreraId": "mecatronica",
+    "nombre": "Mitsubishi Motors",
+    "logo": "assets/images/socios/mitsubishimotors.jpg",
+    "descripcion": "Mitsubishi Motors es un importante fabricante automotriz japonés, fundado en 1970 tras escindirse de Mitsubishi Heavy Industries. Integrada a la Alianza Renault-Nissan-Mitsubishi desde 2016, la empresa se especializa en el desarrollo de SUVs, tecnología híbrida enchufable y vehículos comerciales.",
+    "imagenOVideo": "",
+    "tiposInteraccion": [
+      "Proyectos"
+    ]
+  },
+  {
+    "id": "mecatronica-socio-7",
+    "carreraId": "mecatronica",
+    "nombre": "Fortinet",
+    "logo": "assets/images/socios/fortinet.jpg",
+    "descripcion": "Fortinet es una corporación global de ciberseguridad. Destaca como líder en protección de redes empresariales mediante su plataforma Security Fabric, la cual unifica firewalls de próxima generación (NGFW), SD-WAN y herramientas impulsadas por inteligencia artificial para detectar y bloquear amenazas en tiempo real.",
+    "imagenOVideo": "",
+    "tiposInteraccion": [
+      "Proyectos"
+    ]
+  },
+  {
+    "id": "mecatronica-socio-8",
+    "carreraId": "mecatronica",
+    "nombre": "Madrax Automation",
+    "logo": "assets/images/socios/madrax.jpg",
+    "descripcion": "Madrax Automation (oficialmente Madrax Green Automation) es una empresa 100% mexicana con 18 años de experiencia. Se especializa en el diseño, desarrollo e integración de soluciones tecnológicas para la automatización, seguridad electrónica y eficiencia energética.",
+    "imagenOVideo": "",
+    "tiposInteraccion": [
+      "Proyectos"
+    ]
+  },
+  {
+    "id": "mecatronica-socio-9",
+    "carreraId": "mecatronica",
+    "nombre": "Multion (MATLAB)",
+    "logo": "assets/images/socios/matlab.jpg",
+    "descripcion": "MultiON Consulting (MultiON) es una empresa mexicana fundada en 1989, líder en la comercialización, soporte técnico y capacitación de software y hardware científico en México y Latinoamérica. Es el distribuidor autorizado oficial de MathWorks (creadores de MATLAB y Simulink) en la región, proveyendo soluciones para el ámbito académico, industrial y gubernamental.",
+    "imagenOVideo": "",
+    "tiposInteraccion": [
+      "Software"
+    ]
+  },
+  {
+    "id": "mecatronica-socio-10",
+    "carreraId": "mecatronica",
+    "nombre": "CENACE",
+    "logo": "assets/images/socios/cenace.jpg",
+    "descripcion": "El CENACE (Centro Nacional de Control de Energía) es un organismo público descentralizado del Gobierno de México encargado de operar el Sistema Eléctrico Nacional y el Mercado Eléctrico Mayorista, garantizando el suministro continuo de electricidad con imparcialidad, eficiencia y seguridad.",
+    "imagenOVideo": "",
+    "tiposInteraccion": [
+      "Proyectos"
+    ]
+  },
+  {
+    "id": "mecatronica-socio-11",
+    "carreraId": "mecatronica",
+    "nombre": "DOW",
+    "logo": "assets/images/socios/dow.jpg",
+    "descripcion": "Dow (The Dow Chemical Company) es una de las empresas de ciencia de materiales más grandes del mundo. Fundada en 1897 y con sede en Michigan, EE. UU., desarrolla y produce soluciones en plásticos, productos químicos industriales y materiales avanzados para sectores clave como el empaque, infraestructura, movilidad y cuidado personal.",
+    "imagenOVideo": "",
+    "tiposInteraccion": [
+      "Proyectos"
+    ]
+  },
+  {
+    "id": "mecatronica-socio-12",
+    "carreraId": "mecatronica",
+    "nombre": "Qualcomm",
+    "logo": "assets/images/socios/qualcomm.jpg",
+    "descripcion": "Qualcomm es una corporación multinacional estadounidense, con sede en San Diego, California, líder mundial en el desarrollo y comercialización de tecnologías de comunicación inalámbrica, semiconductores y computación inteligente. Es la empresa pionera y motor principal detrás de la evolución de las redes móviles, desde el 1G hasta el 5G, proporcionando la infraestructura tecnológica fundamental para la industria global de las telecomunicaciones.",
+    "imagenOVideo": "",
+    "tiposInteraccion": [
+      "Proyectos"
+    ]
+  },
+  {
+    "id": "mecatronica-socio-13",
+    "carreraId": "mecatronica",
+    "nombre": "XPENG",
+    "logo": "assets/images/socios/xpeng.jpg",
+    "descripcion": "XPENG (Xiaopeng Motors) es una empresa tecnológica china fundada en 2014 que diseña y fabrica vehículos eléctricos inteligentes (Smart EVs). Su objetivo principal es transformar la movilidad mediante la inteligencia artificial, el software de conducción autónoma y la integración de internet, compitiendo globalmente como una alternativa de nueva energía.",
+    "imagenOVideo": "",
+    "tiposInteraccion": [
+      "Proyectos"
+    ]
+  },
+  {
+    "id": "financial-engineering-socio-1",
+    "carreraId": "financial-engineering",
+    "nombre": "Socio formador de ejemplo",
+    "logo": "",
+    "descripcion": "Contenido de ejemplo - sustituir. Registro temporal para capturar una colaboración futura.",
+    "tiposInteraccion": [
+      "Contenido temporal"
+    ],
+    "imagenOVideo": ""
+  },
+  {
+    "id": "ai-data-science-socio-1",
+    "carreraId": "ai-data-science",
+    "nombre": "Socio formador de ejemplo",
+    "logo": "",
+    "descripcion": "Contenido de ejemplo - sustituir. Registro temporal para capturar una colaboración futura.",
+    "tiposInteraccion": [
+      "Contenido temporal"
+    ],
+    "imagenOVideo": ""
   }
 ]

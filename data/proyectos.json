@@ -309,5 +309,39 @@
       "CRM",
       "Datos"
     ]
+  },
+  {
+    "id": "financial-engineering-proyecto-1",
+    "carreraId": "financial-engineering",
+    "titulo": "Proyecto de ejemplo — sustituir contenido",
+    "descripcion": "Contenido de ejemplo — sustituir. Proyecto temporal para documentar una solución de ingeniería financiera.",
+    "semestre": "4to semestre",
+    "alumnos": [
+      "Alumno de ejemplo"
+    ],
+    "thumbnail": "",
+    "youtubeUrl": "",
+    "tecnologias": [
+      "Contenido temporal"
+    ],
+    "socioFormador": "",
+    "año": 2026
+  },
+  {
+    "id": "ai-data-science-proyecto-1",
+    "carreraId": "ai-data-science",
+    "titulo": "Proyecto de ejemplo — sustituir contenido",
+    "descripcion": "Contenido de ejemplo — sustituir. Proyecto temporal para documentar una solución de inteligencia artificial y datos.",
+    "semestre": "4to semestre",
+    "alumnos": [
+      "Alumno de ejemplo"
+    ],
+    "thumbnail": "",
+    "youtubeUrl": "",
+    "tecnologias": [
+      "Contenido temporal"
+    ],
+    "socioFormador": "",
+    "año": 2026
   }
 ]

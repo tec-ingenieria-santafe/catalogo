@@ -4,96 +4,228 @@
     {
       "id": "que-es",
       "titulo": "¿Qué es CATALYST?",
-      "descripcion": "Una puerta de entrada a experiencias retadoras, comunidad y proyectos con impacto desde etapas tempranas.",
-      "items": [
-        {
-          "titulo": "Modelo flexible",
-          "descripcion": "Experiencias intensivas para explorar retos reales con acompañamiento académico y mentoría."
-        },
-        {
-          "titulo": "Puente formativo",
-          "descripcion": "Conecta estudiantes, docentes, empresas y comunidad en proyectos de aprendizaje activo."
-        }
-      ]
-    },
-    {
-      "id": "experiencias",
-      "titulo": "Proyectos y experiencias",
-      "descripcion": "Retos, demostraciones y espacios para convertir ideas en prototipos defendibles.",
-      "items": [
-        {
-          "titulo": "Sprint de innovación",
-          "descripcion": "Equipos multidisciplinarios prototipan soluciones para movilidad, salud, datos o sostenibilidad."
-        },
-        {
-          "titulo": "Demo Day",
-          "descripcion": "Presentación de avances ante mentores, profesores y posibles aliados formadores."
-        }
+      "descripcion": "Es una comunidad para estudiantes de alto rendimiento que inician su carrera en Ingeniería y quieren ir más allá desde sus primeros semestres. Además, ofrece actividades opcionales de mentoría y oportunidades para desarrollar proyectos de emprendimiento, investigación o vinculación con la industria.",
+      "items": [],
+      "bullets": [
+        "Es una comunidad para estudiantes de alto rendimiento que inician su carrera en Ingeniería y quieren ir más allá desde sus primeros semestres.",
+        "Además, ofrece actividades opcionales de mentoría y oportunidades para desarrollar proyectos de emprendimiento, investigación o vinculación con la industria."
       ]
     },
     {
       "id": "comunidad",
-      "titulo": "Actividades y comunidad",
-      "descripcion": "Encuentros, laboratorios abiertos y experiencias que conectan estudiantes con mentores y retos reales.",
+      "titulo": "Comunidad motivada",
+      "descripcion": "El programa está dirigido a estudiantes destacados, quienes pueden aplicar para cursar sus materias junto con compañeros igualmente comprometidos, favoreciendo clases más fluidas y equipos de trabajo colaborativos. El plan de estudios es el mismo que el de los demás estudiantes de Ingeniería.",
       "ruta": "#programa/catalyst/comunidad",
-      "items": [
-        {
-          "titulo": "Labs abiertos",
-          "descripcion": "Sesiones para probar herramientas, idear y recibir retroalimentación rápida."
-        },
-        {
-          "titulo": "Charlas con industria",
-          "descripcion": "Conversaciones con líderes de tecnología, innovación y transformación organizacional."
-        }
+      "items": [],
+      "bullets": [
+        "El programa está dirigido a estudiantes destacados, quienes pueden aplicar para cursar sus materias junto con compañeros igualmente comprometidos, favoreciendo clases más fluidas y equipos de trabajo colaborativos.",
+        "El plan de estudios es el mismo que el de los demás estudiantes de Ingeniería."
+      ]
+    },
+    {
+      "id": "actividades",
+      "titulo": "Actividades opcionales",
+      "descripcion": "Participa en actividades exclusivas de mentoría, talleres, visitas, conferencias y experiencias vinculadas con emprendimiento, investigación, industria y liderazgo. Tú decides cuáles aprovechar de acuerdo con tus intereses y proyectos.",
+      "ruta": "#programa/catalyst/actividades",
+      "items": [],
+      "bullets": [
+        "Participa en actividades exclusivas de mentoría, talleres, visitas, conferencias y experiencias vinculadas con emprendimiento, investigación, industria y liderazgo.",
+        "Tú decides cuáles aprovechar de acuerdo con tus intereses y proyectos."
       ]
     },
     {
       "id": "testimonios",
       "titulo": "Testimonios de estudiantes",
-      "descripcion": "Historias breves de estudiantes que encontraron equipo, mentoría y dirección para sus ideas.",
-      "items": [
-        {
-          "titulo": "Andrea, 3er semestre",
-          "descripcion": "Me ayudó a aterrizar una idea técnica en un proyecto que podía explicar y defender."
-        },
-        {
-          "titulo": "Mateo, 5to semestre",
-          "descripcion": "Encontré equipo, mentoría y un reto que conectaba con lo que quiero hacer profesionalmente."
-        }
+      "descripcion": "Conoce las experiencias de estudiantes que ya formaron parte del programa y descubre cómo CATALYST fortaleció su comunidad, sus proyectos y su trayectoria universitaria desde los primeros semestres.",
+      "ruta": "#programa/catalyst/testimonios",
+      "items": [],
+      "bullets": [
+        "Conoce las experiencias de estudiantes que ya formaron parte del programa y descubre cómo CATALYST fortaleció su comunidad, sus proyectos y su trayectoria universitaria desde los primeros semestres."
       ]
     }
   ],
-  "actividades": [
+  "detalles": [
     {
-      "id": "catalyst-lab-abierto-2025",
-      "titulo": "Lab abierto de prototipado",
-      "descripcion": "Sesión práctica para transformar ideas iniciales en prototipos rápidos con retroalimentación de mentores.",
-      "anio": "2025 - 2026",
-      "generacion": "1era generación",
-      "imagenOVideo": "assets/images/catalyst/actividad-001.jpg",
-      "tipoMedia": "imagen",
-      "lugarOContexto": "Laboratorio de innovación, Campus Santa Fe"
+      "id": "catalyst-comunidad-1",
+      "categoria": "comunidad",
+      "titulo": "Comunidad de aprendizaje",
+      "descripcion": "CATALYST está inspirado en los programas del MIT (Concurse, Terrascope, ESG, Design Plus) que son comunidades de aprendizaje de primer año que comparten intereses.",
+      "imagen": "",
+      "video": "",
+      "año": ""
     },
     {
-      "id": "catalyst-demo-day-2025",
-      "titulo": "Demo Day CATALYST",
-      "descripcion": "Presentación de proyectos ante estudiantes, profesores y aliados para practicar narrativa, impacto y viabilidad.",
-      "anio": "2025 - 2026",
-      "generacion": "1era generación",
-      "imagenOVideo": "https://www.youtube.com/embed/ysz5S6PUM-U",
-      "tipoMedia": "video",
-      "lugarOContexto": "Auditorio de experiencias formativas"
+      "id": "catalyst-comunidad-2",
+      "categoria": "comunidad",
+      "titulo": "Perfil de alumn@s invitados",
+      "descripcion": "Alumn@s de la entrada de Ingeniería que han destacado en su trayectoria académica.",
+      "imagen": "",
+      "video": "",
+      "año": ""
     },
     {
-      "id": "catalyst-charla-industria-2025",
-      "titulo": "Conversatorio con industria",
-      "descripcion": "Encuentro con líderes de tecnología e innovación para explorar retos actuales y rutas de participación estudiantil.",
-      "anio": "2025 - 2026",
-      "generacion": "1era generación",
-      "imagenOVideo": "assets/images/catalyst/actividad-001.jpg",
-      "tipoMedia": "imagen",
-      "lugarOContexto": "Sesión con socios formadores"
+      "id": "catalyst-comunidad-3",
+      "categoria": "comunidad",
+      "titulo": "Requisitos",
+      "descripcion": "* Promedio de ingreso de 90 o superior.\n* Examen de admisión de 1360 puntos o superior.\n* Presentar tu solicitud con tu carta de motivos una vez que estés inscrito.",
+      "imagen": "",
+      "video": "",
+      "año": ""
+    },
+    {
+      "id": "catalyst-comunidad-4",
+      "categoria": "comunidad",
+      "titulo": "Plan de estudios",
+      "descripcion": "El plan de estudios, número de actividades, reto y nivel de dificultad de exámenes no cambia.\nLa diferencia la hacen los estudiantes que forman parte del grupo.",
+      "imagen": "",
+      "video": "",
+      "año": ""
+    },
+    {
+      "id": "catalyst-comunidad-5",
+      "categoria": "comunidad",
+      "titulo": "2 Grupos",
+      "descripcion": "* Inglés\n* Español",
+      "imagen": "",
+      "video": "",
+      "año": ""
+    },
+    {
+      "id": "catalyst-comunidad-6",
+      "categoria": "comunidad",
+      "titulo": "Proyecto Bomba de Agua",
+      "descripcion": "Proyecto colaborativo en el que los estudiantes aplicaron conocimientos de diseño, física y construcción de prototipos para desarrollar una bomba de agua funcional para comunidades de bajos recursos.",
+      "imagen": "assets/images/catalyst/bomba.jpg",
+      "video": "",
+      "año": "2025"
+    },
+    {
+      "id": "catalyst-comunidad-7",
+      "categoria": "comunidad",
+      "titulo": "Proyecto Horno Solar",
+      "descripcion": "Los estudiantes diseñaron, construyeron y probaron prototipos de hornos solares para explorar el aprovechamiento de la energía térmica. Uno de los equipos se encuentra en proceso de publicar un artículo científico sobre su diseño y los resultados obtenidos.",
+      "imagen": "assets/images/catalyst/horno.jpg",
+      "video": "",
+      "año": "2025"
+    },
+    {
+      "id": "catalyst-actividades-1",
+      "categoria": "actividades",
+      "titulo": "Convivencias entre estudiantes, profesores y directores",
+      "descripcion": "Espacios para fortalecer la comunidad CATALYST y facilitar la convivencia entre estudiantes, profesores y directores. Estas actividades permiten conocerse fuera de clases, compartir experiencias y crear relaciones de confianza que favorecen la colaboración y el acompañamiento durante la carrera.",
+      "imagen": "assets/images/catalyst/convivio.jpg",
+      "video": "",
+      "año": "2025",
+      "etiquetas": []
+    },
+    {
+      "id": "catalyst-actividades-2",
+      "categoria": "actividades",
+      "titulo": "Bootcamp de cerveza",
+      "descripcion": "Experiencia práctica en la que los estudiantes conocieron las etapas del proceso de elaboración de cerveza y aplicaron conceptos de química, energía, instrumentación y control de procesos. El bootcamp incluyó todo el proceso desde la elección de ingredientes hasta el diseño de la botella.",
+      "imagen": "assets/images/catalyst/bootcamp_cerveza.jpeg",
+      "video": "",
+      "año": "2025",
+      "etiquetas": [
+        "Emprendimiento",
+        "Investigación"
+      ]
+    },
+    {
+      "id": "catalyst-actividades-3",
+      "categoria": "actividades",
+      "titulo": "Club de lectura de artículos científicos (Participación de Nvidia)",
+      "descripcion": "Sesión para aprender a leer, analizar y discutir artículos científicos sobre IA. La participación de la Dra. Brenda Olivas (Solution Architect de NVIDIA) permitió acercar a los estudiantes a la investigación, la inteligencia artificial y las tendencias actuales de la industria tecnológica.",
+      "imagen": "assets/images/catalyst/nvidia_clubLectura.jpg",
+      "video": "",
+      "año": "2025",
+      "etiquetas": [
+        "Investigación",
+        "Industria"
+      ]
+    },
+    {
+      "id": "catalyst-actividades-4",
+      "categoria": "actividades",
+      "titulo": "Visita a la planta de Schneider Electric",
+      "descripcion": "Visita para conocer de cerca procesos, tecnologías y soluciones utilizadas en automatización, gestión de energía y manufactura. También Schneider Electric dio a conocer sus procesos para contratación, trabajos de medio tiempo y prácticas profesionales.",
+      "imagen": "assets/images/catalyst/visita_schneider.jpg",
+      "video": "",
+      "año": "2025",
+      "etiquetas": [
+        "Industria"
+      ]
+    },
+    {
+      "id": "catalyst-actividades-5",
+      "categoria": "actividades",
+      "titulo": "Viaje a campus Monterrey",
+      "descripcion": "Experiencia de integración y aprendizaje en la que los estudiantes conocieron a los grupos CATALYST y QUANTUM de Campus Monterrey.",
+      "imagen": "assets/images/catalyst/viaje_hackathon.jpg",
+      "video": "",
+      "año": "2026",
+      "etiquetas": [
+        "Liderazgo"
+      ]
+    },
+    {
+      "id": "catalyst-actividades-6",
+      "categoria": "actividades",
+      "titulo": "Hackathon John Deere",
+      "descripcion": "Reto intensivo de innovación en el que los estudiantes trabajaron en equipos para proponer soluciones a una problemática planteada por John Deere.",
+      "imagen": "assets/images/catalyst/premio_hackathon.jpg",
+      "video": "",
+      "año": "2026",
+      "etiquetas": [
+        "Emprendimiento",
+        "Investigación",
+        "Industria"
+      ]
+    },
+    {
+      "id": "catalyst-testimonios-1",
+      "categoria": "testimonios",
+      "titulo": "",
+      "descripcion": "“SPARK me proporcionó situaciones que me retaron a dar lo mejor de mí pero más importante me permitió rodearme de personas las cuales me permitieron seguir adelante con los proyectos”",
+      "imagen": "",
+      "video": "",
+      "año": "2025-2026"
+    },
+    {
+      "id": "catalyst-testimonios-2",
+      "categoria": "testimonios",
+      "titulo": "",
+      "descripcion": "“A mí de spark me gustaron las oportunidades que se dieron gracias a que estuvimos rodeados de compañeros que nos impulsaban y estaban interesados en dar un poco más  y llegar a mejores resultados”",
+      "imagen": "",
+      "video": "",
+      "año": "2025-2026"
+    },
+    {
+      "id": "catalyst-testimonios-3",
+      "categoria": "testimonios",
+      "titulo": "",
+      "descripcion": "“Me gusta mucho lo fluidas que son las clases, sin tantas preguntas o preguntas que verdaderamente importan. Me gustaron los retos y los temas que pudimos llegar a ver además de lo que todos ven”",
+      "imagen": "",
+      "video": "",
+      "año": "2025-2026"
+    },
+    {
+      "id": "catalyst-testimonios-4",
+      "categoria": "testimonios",
+      "titulo": "",
+      "descripcion": "“Lo que a mí más me gustó en lo personal fue que a lo largo del semestre pudimos tener esa sensación de cercanía con los profesores y no ponen una autoridad distante”",
+      "imagen": "",
+      "video": "",
+      "año": "2025-2026"
+    },
+    {
+      "id": "catalyst-testimonios-5",
+      "categoria": "testimonios",
+      "titulo": "",
+      "descripcion": "“A mi me motivó ver que a los demás les estaba yendo bien y me esforcé más. Creo que si compartes ciertas motivaciones con las personas con las que te rodeas”",
+      "imagen": "",
+      "video": "",
+      "año": "2025-2026"
     }
   ]
 }
-

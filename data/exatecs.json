@@ -7,7 +7,8 @@
     "puestoActual": "Líder de Ingeniería de Producto",
     "empresa": "Asteria Labs",
     "descripcion": "Dirige equipos que convierten prototipos mecánicos en soluciones escalables.",
-    "foto": "assets/images/exatecs/exatec-001.jpg",
+    "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
+    "logoEmpresa": "",
     "linkedinUrl": "https://www.linkedin.com/"
   },
   {
@@ -18,7 +19,8 @@
     "puestoActual": "Consultora Senior",
     "empresa": "Bright Systems",
     "descripcion": "Acompaña a organizaciones en transformación, mejora continua y adopción tecnológica.",
-    "foto": "assets/images/exatecs/exatec-001.jpg",
+    "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
+    "logoEmpresa": "",
     "linkedinUrl": "https://www.linkedin.com/"
   },
   {
@@ -29,7 +31,8 @@
     "puestoActual": "Coordinadora de Proyectos Urbanos",
     "empresa": "Urbis Infraestructura",
     "descripcion": "Lidera proyectos de infraestructura resiliente y movilidad urbana.",
-    "foto": "assets/images/exatecs/exatec-001.jpg",
+    "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
+    "logoEmpresa": "",
     "linkedinUrl": "https://www.linkedin.com/"
   },
   {
@@ -40,7 +43,8 @@
     "puestoActual": "Especialista en Impacto Ambiental",
     "empresa": "Verde Circular",
     "descripcion": "Diseña estrategias de sostenibilidad, economía circular y medición de impacto.",
-    "foto": "assets/images/exatecs/exatec-001.jpg",
+    "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
+    "logoEmpresa": "",
     "linkedinUrl": "https://www.linkedin.com/"
   },
   {
@@ -51,7 +55,8 @@
     "puestoActual": "Innovation Lead",
     "empresa": "Nexa Mobility Lab",
     "descripcion": "Lidera validación de ideas, diseño de servicios y lanzamientos de producto.",
-    "foto": "assets/images/exatecs/exatec-001.jpg",
+    "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
+    "logoEmpresa": "",
     "linkedinUrl": "https://www.linkedin.com/"
   },
   {
@@ -62,7 +67,8 @@
     "puestoActual": "Software Engineer",
     "empresa": "Pacific Computing Institute",
     "descripcion": "Construye plataformas de IA aplicada para educación, datos y colaboración.",
-    "foto": "assets/images/exatecs/exatec-001.jpg",
+    "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
+    "logoEmpresa": "",
     "linkedinUrl": "https://www.linkedin.com/"
   },
   {
@@ -73,7 +79,8 @@
     "puestoActual": "Digital Transformation Consultant",
     "empresa": "Digital Business University",
     "descripcion": "Diseña rutas de automatización, datos y experiencia para organizaciones de servicios.",
-    "foto": "assets/images/exatecs/exatec-001.jpg",
+    "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
+    "logoEmpresa": "",
     "linkedinUrl": "https://www.linkedin.com/"
   },
   {
@@ -84,7 +91,8 @@
     "puestoActual": "Software Engineer",
     "empresa": "CERN",
     "descripcion": "",
-    "foto": "assets/images/exatecs/RicardoAmpudia.jpg",
+    "fotoAlumno": "assets/images/exatecs/RicardoAmpudia.jpg",
+    "logoEmpresa": "assets/images/socios/CERN.jpg",
     "linkedinUrl": "https://www.linkedin.com/in/ricardo-ampudia-h/"
   },
   {
@@ -95,7 +103,8 @@
     "puestoActual": "Electronics Engineer",
     "empresa": "Red Bull Powertrains",
     "descripcion": "",
-    "foto": "assets/images/exatecs/RicardoEstevez.jpg",
+    "fotoAlumno": "assets/images/exatecs/RicardoEstevez.jpg",
+    "logoEmpresa": "assets/images/socios/RedBullPowertrains.jpg",
     "linkedinUrl": "https://www.linkedin.com/in/ricardo-estevez/"
   },
   {
@@ -106,7 +115,8 @@
     "puestoActual": "Technical Project Management",
     "empresa": "Daimler Truck North America",
     "descripcion": "",
-    "foto": "assets/images/exatecs/BrendaVelazquez.jpg",
+    "fotoAlumno": "assets/images/exatecs/BrendaVelazquez.jpg",
+    "logoEmpresa": "assets/images/socios/daimler.jpg",
     "linkedinUrl": "https://www.linkedin.com/in/brenda-velazquez-9b451486/"
   },
   {
@@ -115,9 +125,10 @@
     "nombre": "Gustavo Palacio",
     "generacion": "Generación 2017",
     "puestoActual": "Project Manager",
-    "empresa": "Robert Bosch",
+    "empresa": "Bosch",
     "descripcion": "",
-    "foto": "assets/images/exatecs/GustavoPalacio.jpg",
+    "fotoAlumno": "assets/images/exatecs/GustavoPalacio.jpg",
+    "logoEmpresa": "assets/images/socios/bosch.jpg",
     "linkedinUrl": "https://www.linkedin.com/in/gustavopalacio/?locale=en"
   },
   {
@@ -128,7 +139,44 @@
     "puestoActual": "Sr Software Validation Engineer",
     "empresa": "Tesla",
     "descripcion": "",
-    "foto": "assets/images/exatecs/DanielaRecio.jpg",
+    "fotoAlumno": "assets/images/exatecs/DanielaRecio.jpg",
+    "logoEmpresa": "assets/images/socios/tesla.jpg",
     "linkedinUrl": "https://www.linkedin.com/in/daniela-recio-l%C3%B3pez-884131128/"
+  },
+  {
+    "id": "mecatronica-exatec-6",
+    "carreraId": "mecatronica",
+    "nombre": "Joaquín Amaya",
+    "generacion": "6to Semestre",
+    "puestoActual": "Offer Administrator",
+    "empresa": "Schneider Electric",
+    "descripcion": "",
+    "fotoAlumno": "assets/images/exatecs/JoaquinAmaya.jpg",
+    "logoEmpresa": "assets/images/socios/SchneiderElectric.jpg",
+    "linkedinUrl": "https://www.linkedin.com/in/joaqu%C3%ADn-amaya/"
+  },
+  {
+    "id": "financial-engineering-exatec-1",
+    "carreraId": "financial-engineering",
+    "fotoAlumno": "",
+    "logoEmpresa": "",
+    "nombre": "Perfil de empleabilidad de ejemplo",
+    "generacion": "Generación de ejemplo",
+    "puestoActual": "Puesto de ejemplo",
+    "empresa": "Empresa de ejemplo",
+    "descripcion": "Contenido de ejemplo — sustituir.",
+    "linkedinUrl": ""
+  },
+  {
+    "id": "ai-data-science-exatec-1",
+    "carreraId": "ai-data-science",
+    "fotoAlumno": "",
+    "logoEmpresa": "",
+    "nombre": "Perfil de empleabilidad de ejemplo",
+    "generacion": "Generación de ejemplo",
+    "puestoActual": "Puesto de ejemplo",
+    "empresa": "Empresa de ejemplo",
+    "descripcion": "Contenido de ejemplo — sustituir.",
+    "linkedinUrl": ""
   }
 ]

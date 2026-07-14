@@ -103,11 +103,22 @@ Para reemplazar una imagen sin tocar codigo:
 1. Usa el mismo nombre de archivo.
 2. Usa la misma carpeta.
 3. Sobrescribe la imagen anterior.
-4. Recarga el sitio.
+4. Si mantuviste exactamente el mismo nombre, incrementa `assetsVersion` en `data/site.json`, por ejemplo de `20260713-1` a `20260713-2`.
+5. Recarga el sitio con `Ctrl + F5`.
 
 La guia de tamanos y nombres esta en:
 
 `assets/images/README.md`
+
+## Banderas
+
+Las banderas de `Experiencias en el extranjero` usan SVG locales de `lipis/flag-icons`:
+
+- Archivos SVG: `assets/flags/4x3`
+- Indice de la coleccion: `assets/flags/country.json`
+- Licencia MIT conservada en: `assets/flags/LICENSE`
+
+La aplicacion no carga banderas desde CDN ni servicios externos. La relacion entre nombre de pais e ISO alpha-2 esta centralizada en `js/app.js` dentro de `countryIsoCodes`.
 
 ## Favicon
 

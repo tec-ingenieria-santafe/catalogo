@@ -3,12 +3,19 @@
   "subtitulo": "Tecnológico de Monterrey · Campus Santa Fe",
   "textoBienvenida": "Catálogo de Ingeniería Campus Santa Fe",
   "descripcion": "Explora carreras, proyectos de estudiantes, socios formadores y experiencias internacionales que conectan la ingeniería con retos reales.",
+  "assetsVersion": "20260714-17",
   "logos": {
     "escuelaIngenieriaCiencias": "assets/logos/escuela-ingenieria-ciencias.png",
     "hechoEnSantaFe": "assets/logos/hecho-en-santa-fe.png"
   },
+  "heroImage": {
+    "src": "assets/images/hero/santafe-ranking-hero-2400.jpg",
+    "srcset": "assets/images/hero/santafe-ranking-hero-1600.jpg 1600w, assets/images/hero/santafe-ranking-hero-2400.jpg 2400w",
+    "original": "assets/images/hero/santafe-ranking-original.png",
+    "alt": "Campus Santa Fe con bandera de México y pantalla del ranking QS"
+  },
   "footer": {
-    "texto": "Datos de ejemplo para prototipo de catálogo académico.",
+    "texto": "",
     "institucion": "Tecnológico de Monterrey · Escuela de Ingeniería y Ciencias",
     "campus": "Campus Santa Fe"
   },

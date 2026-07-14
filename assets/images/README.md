@@ -11,6 +11,7 @@ Esta carpeta centraliza las imagenes editables del sitio. Para cambiar una image
 - `exatecs/`: fotos de perfiles de Empleabilidad.
 - `catalyst/`: imagenes de actividades CATALYST.
 - `vivencia/`: imagenes de experiencias generales del campus.
+- `hero/`: imagen principal de la portada del catalogo.
 
 ## Tamaños recomendados
 
@@ -21,6 +22,17 @@ Esta carpeta centraliza las imagenes editables del sitio. Para cambiar una image
 - Empleabilidad: 900 x 900 px, cuadrada.
 - CATALYST actividades: 1200 x 800 px, horizontal.
 - Vivencia: 1600 x 1000 px, horizontal.
+- Hero principal: conserva la imagen original y usa versiones optimizadas de 1600 a 2400 px de ancho.
+
+## Imagen principal del catalogo
+
+La portada principal usa:
+
+- `hero/santafe-ranking-original.png`: fotografia original en alta resolucion.
+- `hero/santafe-ranking-hero-2400.jpg`: version optimizada para desktop.
+- `hero/santafe-ranking-hero-1600.jpg`: version optimizada para pantallas medianas.
+
+Estas rutas se editan desde `data/site.json`, en el campo `heroImage`.
 
 ## Imagenes por carrera
 

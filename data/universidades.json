@@ -17,23 +17,6 @@
     "imagen": "assets/images/universidades/universidad-001.jpg"
   },
   {
-    "id": "north-valley-mecatronica",
-    "carreraId": "mecatronica",
-    "nombre": "North Valley Institute",
-    "pais": "Canadá",
-    "ciudad": "Vancouver",
-    "alumno": "Andrea Benítez Moreno",
-    "tipoExperiencia": "Verano",
-    "año": 2026,
-    "descripcion": "Cursos de robótica, sistemas inteligentes y proyectos con profesores visitantes.",
-    "areasRelacionadas": [
-      "Robótica",
-      "Control",
-      "Sistemas inteligentes"
-    ],
-    "imagen": "assets/images/universidades/universidad-001.jpg"
-  },
-  {
     "id": "universite-horizon-industrial",
     "carreraId": "industrial",
     "nombre": "Université Horizon",
@@ -162,7 +145,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/swinburne-university-of-technology.webp"
   },
   {
     "id": "mecatronica-universidad-3",
@@ -175,7 +158,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/mci-management-center-innsbruck.webp"
   },
   {
     "id": "mecatronica-universidad-4",
@@ -188,7 +171,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/universidad-antonio-de-nebrija.webp"
   },
   {
     "id": "mecatronica-universidad-5",
@@ -201,7 +184,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/university-of-technology-sydney.webp"
   },
   {
     "id": "mecatronica-universidad-6",
@@ -214,7 +197,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/rmit-university.webp"
   },
   {
     "id": "mecatronica-universidad-7",
@@ -227,7 +210,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/universidad-de-castilla-la-mancha.webp"
   },
   {
     "id": "mecatronica-universidad-8",
@@ -240,7 +223,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/TechnischeHochschuleWürzburg-Schweinfurt.webp"
   },
   {
     "id": "mecatronica-universidad-9",
@@ -253,7 +236,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/universidad-antonio-de-nebrija.webp"
   },
   {
     "id": "mecatronica-universidad-10",
@@ -266,7 +249,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/TechnischeHochschuleWürzburg-Schweinfurt.webp"
   },
   {
     "id": "mecatronica-universidad-11",
@@ -279,7 +262,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/universidad-rey-juan-carlos.webp"
   },
   {
     "id": "mecatronica-universidad-12",
@@ -292,7 +275,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/university-of-melbourne.webp"
   },
   {
     "id": "mecatronica-universidad-13",
@@ -305,7 +288,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/hochschule-karlsruhe.webp"
   },
   {
     "id": "mecatronica-universidad-14",
@@ -318,7 +301,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/TechnischeUniversitätGraz.webp"
   },
   {
     "id": "mecatronica-universidad-15",
@@ -331,7 +314,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/hochschule-karlsruhe.webp"
   },
   {
     "id": "mecatronica-universidad-16",
@@ -344,7 +327,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/ESEI.webp"
   },
   {
     "id": "mecatronica-universidad-17",
@@ -357,7 +340,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/university-of-tasmania.webp"
   },
   {
     "id": "mecatronica-universidad-18",
@@ -370,7 +353,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/ESEI.webp"
   },
   {
     "id": "mecatronica-universidad-19",
@@ -383,7 +366,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/IstitutoLorenzoMedici.webp"
   },
   {
     "id": "mecatronica-universidad-20",
@@ -396,7 +379,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/ESEI.webp"
   },
   {
     "id": "mecatronica-universidad-21",
@@ -409,7 +392,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/universidad-rey-juan-carlos.webp"
   },
   {
     "id": "mecatronica-universidad-22",
@@ -422,7 +405,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/ESEI.webp"
   },
   {
     "id": "mecatronica-universidad-23",
@@ -448,7 +431,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/IstitutoLorenzoMedici.webp"
   },
   {
     "id": "mecatronica-universidad-25",
@@ -461,7 +444,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/TechnischeHochschuleKöln.webp"
   },
   {
     "id": "mecatronica-universidad-26",
@@ -474,7 +457,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/TechnischeHochschuleWürzburg-Schweinfurt.webp"
   },
   {
     "id": "mecatronica-universidad-27",
@@ -487,7 +470,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/university-of-essex.webp"
   },
   {
     "id": "mecatronica-universidad-28",
@@ -500,7 +483,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/HochschuleZittauGörlitz.webp"
   },
   {
     "id": "mecatronica-universidad-29",
@@ -513,7 +496,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/university-of-sydney.webp"
   },
   {
     "id": "mecatronica-universidad-30",
@@ -526,7 +509,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/AalborgUniversitet.webp"
   },
   {
     "id": "mecatronica-universidad-31",
@@ -539,7 +522,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/rmit-university.webp"
   },
   {
     "id": "mecatronica-universidad-32",
@@ -552,7 +535,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/rmit-university.webp"
   },
   {
     "id": "mecatronica-universidad-33",
@@ -578,7 +561,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/university-of-melbourne.webp"
   },
   {
     "id": "mecatronica-universidad-35",
@@ -591,7 +574,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/university-of-melbourne.webp"
   },
   {
     "id": "mecatronica-universidad-36",
@@ -604,7 +587,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/linnaeus-university.webp"
   },
   {
     "id": "mecatronica-universidad-37",
@@ -617,7 +600,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/university-of-melbourne.webp"
   },
   {
     "id": "mecatronica-universidad-38",
@@ -630,7 +613,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/rmit-university.webp"
   },
   {
     "id": "mecatronica-universidad-39",
@@ -643,7 +626,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/UniversidadPolitécnicaMadrid.webp"
   },
   {
     "id": "mecatronica-universidad-40",
@@ -656,7 +639,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/rmit-university.webp"
   },
   {
     "id": "mecatronica-universidad-41",
@@ -669,7 +652,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/rmit-university.webp"
   },
   {
     "id": "mecatronica-universidad-42",
@@ -682,7 +665,7 @@
     "año": 2025,
     "descripcion": "General Management",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/IPAG-ÉcoleSupérieureCommerce.webp"
   },
   {
     "id": "mecatronica-universidad-43",
@@ -695,7 +678,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/university-of-southampton.webp"
   },
   {
     "id": "mecatronica-universidad-44",
@@ -708,7 +691,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/university-of-technology-sydney.webp"
   },
   {
     "id": "mecatronica-universidad-45",
@@ -721,7 +704,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/HochschuleAngewandteWissenschaftenPforzheim.webp"
   },
   {
     "id": "mecatronica-universidad-46",
@@ -734,7 +717,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/UniversidadCEUSanPablo.webp"
   },
   {
     "id": "mecatronica-universidad-47",
@@ -747,7 +730,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/university-of-sydney.webp"
   },
   {
     "id": "mecatronica-universidad-48",
@@ -773,7 +756,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/rmit-university.webp"
   },
   {
     "id": "mecatronica-universidad-50",
@@ -786,7 +769,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/monash-university.webp"
   },
   {
     "id": "mecanica-universidad-1",
@@ -799,7 +782,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/monash-university.webp"
   },
   {
     "id": "mecanica-universidad-2",
@@ -812,7 +795,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/IPAG-ÉcoleSupérieureCommerce.webp"
   },
   {
     "id": "mecanica-universidad-3",
@@ -825,7 +808,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/IPAG-ÉcoleSupérieureCommerce.webp"
   },
   {
     "id": "mecanica-universidad-4",
@@ -838,7 +821,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/IPAG-ÉcoleSupérieureCommerce.webp"
   },
   {
     "id": "mecanica-universidad-5",
@@ -851,7 +834,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/ostfalia-hochschule.webp"
   },
   {
     "id": "mecanica-universidad-6",
@@ -864,7 +847,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/university-of-sydney.webp"
   },
   {
     "id": "mecanica-universidad-7",
@@ -877,7 +860,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/university-of-tasmania.webp"
   },
   {
     "id": "mecanica-universidad-8",
@@ -890,7 +873,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/rmit-university.webp"
   },
   {
     "id": "mecanica-universidad-9",
@@ -903,7 +886,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/HochschuleAngewandteWissenschaftenPforzheim.webp"
   },
   {
     "id": "mecanica-universidad-10",
@@ -916,7 +899,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/universita-cattolica-del-sacro-cuore.webp"
   },
   {
     "id": "mecanica-universidad-11",
@@ -929,7 +912,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/universidad-carlos-iii-de-madrid.webp"
   },
   {
     "id": "mecanica-universidad-12",
@@ -942,7 +925,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/universidade-do-porto.webp"
   },
   {
     "id": "mecanica-universidad-13",
@@ -955,7 +938,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/universita-cattolica-del-sacro-cuore.webp"
   },
   {
     "id": "mecanica-universidad-14",
@@ -968,7 +951,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/monash-university.webp"
   },
   {
     "id": "mecanica-universidad-15",
@@ -981,7 +964,7 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/universita-cattolica-del-sacro-cuore.webp"
   },
   {
     "id": "mecanica-universidad-16",
@@ -994,6 +977,36 @@
     "año": 2025,
     "descripcion": "",
     "areasRelacionadas": [],
-    "imagen": ""
+    "imagen": "assets/images/universidades/universita-cattolica-del-sacro-cuore.webp"
+  },
+  {
+    "id": "financial-engineering-universidad-1",
+    "carreraId": "financial-engineering",
+    "nombre": "Experiencia internacional de ejemplo",
+    "pais": "México",
+    "ciudad": "Ciudad de ejemplo",
+    "alumno": "Alumno de ejemplo",
+    "tipoExperiencia": "Contenido temporal",
+    "descripcion": "Contenido de ejemplo — sustituir.",
+    "areasRelacionadas": [
+      "Contenido temporal"
+    ],
+    "imagen": "",
+    "año": 2026
+  },
+  {
+    "id": "ai-data-science-universidad-1",
+    "carreraId": "ai-data-science",
+    "nombre": "Experiencia internacional de ejemplo",
+    "pais": "México",
+    "ciudad": "Ciudad de ejemplo",
+    "alumno": "Alumno de ejemplo",
+    "tipoExperiencia": "Contenido temporal",
+    "descripcion": "Contenido de ejemplo — sustituir.",
+    "areasRelacionadas": [
+      "Contenido temporal"
+    ],
+    "imagen": "",
+    "año": 2026
   }
 ]
