@@ -39,6 +39,57 @@ const sectionMeta = {
   },
 };
 
+const catalogLayout = {
+  catalystId: "catalyst",
+  groups: [
+    {
+      id: "computacion",
+      title: "Entrada Computación",
+      cardLabel: "Entrada Computación",
+      careerIds: ["financial-engineering", "ai-data-science", "computacionales"],
+    },
+    {
+      id: "ingenieria",
+      title: "Entrada Ingeniería",
+      cardLabel: "Entrada Ingeniería",
+      careerIds: ["mecanica", "mecatronica", "industrial", "civil", "desarrollo-sustentable"],
+    },
+  ],
+  otherCareerEntries: {
+    "innovacion-desarrollo": { id: "ingenieria", cardLabel: "Entrada Ingeniería" },
+    "transformacion-digital": { id: "computacion", cardLabel: "Entrada Computación" },
+  },
+};
+
+const breadcrumbLabels = {
+  careers: {
+    "financial-engineering": "Financial Engineering",
+    "ai-data-science": "AI & Data Science",
+    computacionales: "Tecnologías Computacionales",
+    mecanica: "Mecánica",
+    mecatronica: "Mecatrónica",
+    industrial: "Industrial y Sistemas",
+    civil: "Civil",
+    "desarrollo-sustentable": "Desarrollo Sustentable",
+    "innovacion-desarrollo": "Innovación y Desarrollo",
+    "transformacion-digital": "Transformación Digital",
+    catalyst: "CATALYST",
+  },
+  sections: {
+    proyectos: "Proyectos",
+    socios: "Socios",
+    universidades: "Experiencias",
+    exatecs: "Empleabilidad",
+    "santa-fe": "¿Por qué Santa Fe?",
+    vivencia: "Vivencia",
+  },
+  catalyst: {
+    comunidad: "Comunidad",
+    actividades: "Actividades opcionales",
+    testimonios: "Testimonios",
+  },
+};
+
 let siteData = null;
 let adminState = null;
 let pendingUniversityMap = null;
@@ -71,12 +122,68 @@ function careerShortName(career) {
   return String(career?.nombreCorto || career?.nombre || "").replace(/\s*\([^)]*\)\s*/g, "").trim();
 }
 
-function mainCatalogPrograms() {
-  return siteData.carreras.filter((program) => program.tipo === "catalyst" || program.catalogGroup !== "otras");
-}
-
 function otherCatalogCareers() {
   return siteData.carreras.filter((program) => program.tipo === "career" && program.catalogGroup === "otras");
+}
+
+function programById(id) {
+  return siteData.carreras.find((program) => program.id === id) ?? null;
+}
+
+function programsByIds(ids) {
+  return ids.map(programById).filter(Boolean);
+}
+
+function careerBreadcrumbLabel(career) {
+  return breadcrumbLabels.careers[career?.id] || careerShortName(career);
+}
+
+function careerBreadcrumbItems(career, sectionSlug = "") {
+  const items = [{ label: "Catálogo", href: "#inicio" }];
+  if (career?.catalogGroup === "otras") {
+    items.push({ label: "Otras", href: "#otras" });
+  }
+  items.push({
+    label: careerBreadcrumbLabel(career),
+    href: sectionSlug ? `#programa/${career.id}` : "",
+  });
+  if (sectionSlug) {
+    items.push({ label: breadcrumbLabels.sections[sectionSlug] || sectionMeta[sectionSlug]?.title || sectionSlug });
+  }
+  return items;
+}
+
+function catalystBreadcrumbItems(category = "") {
+  const items = [
+    { label: "Catálogo", href: "#inicio" },
+    { label: "CATALYST", href: category ? "#programa/catalyst" : "" },
+  ];
+  if (category) {
+    items.push({ label: breadcrumbLabels.catalyst[category] || sectionLabelForCatalyst(category) });
+  }
+  return items;
+}
+
+function renderBreadcrumb(items, options = {}) {
+  const validItems = (items || []).filter((item) => item?.label);
+  if (!validItems.length) return "";
+  const style = options.neutral ? ' style="--breadcrumb-accent: #465568"' : "";
+  return `
+    <nav class="page-breadcrumb" aria-label="Ruta de navegación"${style}>
+      <ol>
+        ${validItems
+          .map((item, index) => {
+            const isCurrent = index === validItems.length - 1;
+            return `<li>${
+              isCurrent
+                ? `<span aria-current="page">${escapeHTML(item.label)}</span>`
+                : `<a href="${escapeAttr(item.href)}">${escapeHTML(item.label)}</a>`
+            }</li>`;
+          })
+          .join("")}
+      </ol>
+    </nav>
+  `;
 }
 
 function heroTitleClass(title) {
@@ -825,7 +932,7 @@ function renderFooter() {
 
 function renderHome() {
   const site = siteData.site;
-  const programs = mainCatalogPrograms();
+  const catalyst = programById(catalogLayout.catalystId);
   const heroImage = site.heroImage ?? {};
   app.innerHTML = `
     <section class="hero">
@@ -851,23 +958,32 @@ function renderHome() {
       </div>
     </section>
 
-    <section class="catalog-section" id="catalogo">
-      <div class="section-heading catalog-heading">
-        <div>
-          <h2>Catálogo de programas</h2>
+    <section class="catalog-section catalog-section--programs" id="catalogo">
+      <div class="catalog-programs-stack">
+        <div class="program-grid catalog-program-grid">
+          ${catalyst ? renderProgramCard(catalyst) : ""}
+          ${catalogLayout.groups
+            .flatMap((group) =>
+              programsByIds(group.careerIds).map((program) =>
+                renderProgramCard(program, { entryId: group.id, entryLabel: group.cardLabel }),
+              ),
+            )
+            .join("")}
         </div>
-      </div>
-      <div class="program-grid">
-        ${programs.map(renderProgramCard).join("")}
-        ${renderOtherProgramsEntry()}
+        <div class="catalog-other-entry">
+          ${renderOtherProgramsEntry()}
+        </div>
       </div>
     </section>
   `;
 }
 
-function renderProgramCard(program) {
+function renderProgramCard(program, options = {}) {
   const isCatalyst = program.tipo === "catalyst";
-  const actionText = isCatalyst ? "Explorar programa" : "Explorar carrera";
+  const actionText = isCatalyst ? "Explorar CATALYST" : "Explorar carrera";
+  const entryLabel = options.entryLabel || "";
+  const entryId = ["computacion", "ingenieria"].includes(options.entryId) ? options.entryId : "";
+  const showSantaFe = options.showSantaFe !== false;
   const catalystRequirements =
     isCatalyst && Array.isArray(program.requisitos) && program.requisitos.length
       ? `<div class="card-requirements">
@@ -880,19 +996,28 @@ function renderProgramCard(program) {
   const body = isCatalyst
     ? `<div><strong>¿Qué es?</strong>${escapeHTML(program.queEs)}</div>${catalystRequirements}`
     : `<div><strong>¿Es para ti?</strong>${escapeHTML(program.esParaTi)}</div>
-       <div><strong>¿Por qué Santa Fe?</strong>${escapeHTML(program.porQueSantaFe)}</div>`;
+       ${showSantaFe ? `<div><strong>¿Por qué Santa Fe?</strong>${escapeHTML(program.porQueSantaFe)}</div>` : ""}`;
 
   return `
-    <article class="program-card" style="${styleVars(program)}">
+    <a
+      class="program-card program-card-link${isCatalyst ? " program-card--catalyst" : ""}${entryLabel ? " program-card--entry" : ""}${entryId ? ` program-card--entry-${entryId}` : ""}"
+      href="#programa/${program.id}"
+      aria-label="${escapeAttr(actionText)}: ${escapeAttr(fullName(program))}"
+      style="${styleVars(program)}">
+      ${
+        entryLabel
+          ? `<div class="program-card-topline"><span class="entry-badge">${escapeHTML(entryLabel)}</span></div>`
+          : ""
+      }
       <h3>${escapeHTML(fullName(program))}</h3>
       <div class="tag-row">
         ${program.highlights.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}
       </div>
       <div class="card-copy">${body}</div>
       <div class="card-footer">
-        <a class="button" href="#programa/${program.id}">${actionText}</a>
+        <span class="card-nav-hint">${escapeHTML(actionText)} <span aria-hidden="true">→</span></span>
       </div>
-    </article>
+    </a>
   `;
 }
 
@@ -900,7 +1025,8 @@ function renderOtherProgramsEntry() {
   if (!otherCatalogCareers().length) return "";
   return `
     <a class="other-program-entry" href="#otras" aria-label="Ver otras carreras">
-      <span>Otras</span>
+      <strong>Otras</strong>
+      <span class="card-nav-hint">Ver otras carreras <span aria-hidden="true">→</span></span>
     </a>
   `;
 }
@@ -908,6 +1034,13 @@ function renderOtherProgramsEntry() {
 function renderOtherProgramsPage() {
   const careers = otherCatalogCareers();
   app.innerHTML = `
+    ${renderBreadcrumb(
+      [
+        { label: "Catálogo", href: "#inicio" },
+        { label: "Otras" },
+      ],
+      { neutral: true },
+    )}
     <section class="catalog-section other-programs-page">
       <div class="section-heading catalog-heading">
         <div>
@@ -916,22 +1049,19 @@ function renderOtherProgramsPage() {
         </div>
         <a class="button secondary" href="#catalogo">Volver al catálogo principal</a>
       </div>
-      <div class="other-career-grid">
-        ${careers.map(renderOtherCareerCard).join("")}
+      <div class="program-grid other-career-grid">
+        ${careers
+          .map((career) => {
+            const entry = catalogLayout.otherCareerEntries[career.id] || {};
+            return renderProgramCard(career, {
+              entryId: entry.id,
+              entryLabel: entry.cardLabel,
+              showSantaFe: false,
+            });
+          })
+          .join("")}
       </div>
     </section>
-  `;
-}
-
-function renderOtherCareerCard(career) {
-  return `
-    <a class="other-career-card" href="#programa/${career.id}" aria-label="Explorar ${escapeAttr(career.nombre)}">
-      <h2>${escapeHTML(fullName(career))}</h2>
-      <div class="tag-row">
-        ${career.highlights.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}
-      </div>
-      <p>${escapeHTML(career.tagline || career.porQueSantaFe || "")}</p>
-    </a>
   `;
 }
 
@@ -942,7 +1072,13 @@ function renderCareerHub(career) {
 
   app.innerHTML = `
     <div class="theme-scope" style="${styleVars(career)}">
-      ${renderDetailHero(career, "INGENIERÍA - SANTA FE", "Explora proyectos, aliados, movilidad internacional, empleabilidad y ventajas del campus.")}
+      ${renderDetailHero(
+        career,
+        "INGENIERÍA - SANTA FE",
+        "Explora proyectos, aliados, movilidad internacional, empleabilidad y ventajas del campus.",
+        "",
+        { breadcrumbItems: careerBreadcrumbItems(career) },
+      )}
       <section class="detail-shell career-sections-shell">
         <div class="section-grid section-nav-grid clickable-grid">
           ${availableSections.map((section) => renderSectionLink(career, section)).join("")}
@@ -958,6 +1094,7 @@ function renderSectionLink(career, section) {
     <a class="info-panel section-link-card" href="${href}">
       <h2><span class="section-dot" aria-hidden="true"></span>${escapeHTML(section.title)}</h2>
       <p>${escapeHTML(section.short)}</p>
+      <span class="card-nav-hint">Ver sección <span aria-hidden="true">→</span></span>
     </a>
   `;
 }
@@ -976,7 +1113,20 @@ function renderVivenciaPage(fromCareer = null) {
 
   app.innerHTML = `
     <div class="theme-scope" style="${styleVars(theme)}">
-      ${renderDetailHero(theme, fromCareer ? careerShortName(fromCareer) : "VIVENCIA - SANTA FE", theme.tagline)}
+      ${renderDetailHero(
+        theme,
+        fromCareer ? careerShortName(fromCareer) : "VIVENCIA - SANTA FE",
+        theme.tagline,
+        "",
+        {
+          breadcrumbItems: fromCareer
+            ? careerBreadcrumbItems(fromCareer, "vivencia")
+            : [
+                { label: "Catálogo", href: "#inicio" },
+                { label: "Vivencia" },
+              ],
+        },
+      )}
       <section class="detail-shell" data-listing-region>
         ${renderListingControls({
           filters: [
@@ -1061,15 +1211,10 @@ function renderVivenciaNav(fromCareer) {
 
 function renderDetailHero(career, eyebrow, copy, sectionTitle = "", options = {}) {
   const title = sectionTitle || (career?.tipo === "career" ? careerShortName(career) : fullName(career));
-  const primaryBackHref = options.primaryBackHref || "#inicio";
-  const primaryBackLabel = options.primaryBackLabel || "\u2190 Cat\u00e1logo";
   return `
+    ${renderBreadcrumb(options.breadcrumbItems || [])}
     <section class="detail-hero">
       <div class="detail-hero-inner">
-        <div class="breadcrumb-row">
-          <a class="back-link" href="${escapeAttr(primaryBackHref)}">${escapeHTML(primaryBackLabel)}</a>
-          ${career.tipo === "career" && sectionTitle ? `<a class="back-link" href="#programa/${career.id}">\u2190 Carrera</a>` : ""}
-        </div>
         <p class="eyebrow">${escapeHTML(eyebrow)}</p>
         <h1 class="${heroTitleClass(title)}">${escapeHTML(title)}</h1>
         <p>${escapeHTML(copy || career.tagline)}</p>
@@ -1095,7 +1240,9 @@ function renderSubpage(career, slug, pathParts = []) {
 
   app.innerHTML = `
     <div class="theme-scope" style="${styleVars(career)}">
-      ${renderDetailHero(career, careerShortName(career), section.short, section.title)}
+      ${renderDetailHero(career, careerShortName(career), section.short, section.title, {
+        breadcrumbItems: careerBreadcrumbItems(career, slug),
+      })}
       ${renderers[slug](career, pathParts)}
     </div>
   `;
@@ -1763,7 +1910,9 @@ function renderEmptyState(collection, label) {
 function renderCatalystDetail(program) {
   app.innerHTML = `
     <div class="theme-scope" style="${styleVars(program)}">
-      ${renderDetailHero(program, "PROGRAMA DE ALTO RENDIMIENTO", program.tagline)}
+      ${renderDetailHero(program, "PROGRAMA DE ALTO RENDIMIENTO", program.tagline, "", {
+        breadcrumbItems: catalystBreadcrumbItems(),
+      })}
       <section class="detail-shell">
         <div class="section-grid section-nav-grid">
           ${siteData.catalyst.secciones.map((section) => renderCatalystPanel(section)).join("")}
@@ -1780,6 +1929,7 @@ function renderCatalystPanel(section) {
       <a class="info-panel section-link-card catalyst-panel-link" href="${escapeAttr(section.ruta)}">
         <h2><span class="section-dot" aria-hidden="true"></span>${escapeHTML(section.titulo)}</h2>
         ${body}
+        <span class="card-nav-hint">Ver sección <span aria-hidden="true">→</span></span>
       </a>
     `;
   }
@@ -1836,7 +1986,7 @@ function renderCatalystCategoryPage(program, category) {
         section.titulo,
         section.descripcion,
         "CATALYST",
-        { primaryBackHref: "#programa/catalyst", primaryBackLabel: "\u2190 CATALYST" },
+        { breadcrumbItems: catalystBreadcrumbItems(category) },
       )}
       <section class="detail-shell" data-listing-region>
         ${
@@ -2828,6 +2978,13 @@ function route() {
 function resetScroll() {
   app.focus({ preventScroll: true });
   window.scrollTo({ top: 0, behavior: "auto" });
+  requestAnimationFrame(() => {
+    const breadcrumb = document.querySelector(".page-breadcrumb");
+    const current = breadcrumb?.querySelector('[aria-current="page"]');
+    if (!breadcrumb || !current || breadcrumb.scrollWidth <= breadcrumb.clientWidth) return;
+    const target = current.offsetLeft + current.offsetWidth - breadcrumb.clientWidth + 18;
+    breadcrumb.scrollTo({ left: Math.max(0, target), behavior: "auto" });
+  });
 }
 
 async function init() {
