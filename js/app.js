@@ -725,7 +725,7 @@ function semesterOptionSort(a, b) {
   return semesterRank(a) - semesterRank(b);
 }
 
-function renderListingControls({ filters = [], resultLabel = "registros", singularLabel = "registro" }) {
+function renderListingControls({ filters = [], resultLabel = "registros", singularLabel = "registro", defaultSort = "recent" }) {
   return `
     <div class="listing-tools" data-result-label="${escapeAttr(resultLabel)}" data-result-singular="${escapeAttr(singularLabel)}">
       <div class="listing-controls">
@@ -733,6 +733,7 @@ function renderListingControls({ filters = [], resultLabel = "registros", singul
         <label class="listing-label">
           Ordenar por
           <select class="listing-select" data-sort-control>
+            ${defaultSort === "recommended" ? `<option value="recommended">Orden recomendado</option>` : ""}
             <option value="recent">Más recientes</option>
             <option value="oldest">Más antiguos</option>
             <option value="alpha">Alfabético (A-Z)</option>
@@ -796,6 +797,11 @@ function applyListingControls(region) {
 }
 
 function compareFilterableCards(a, b, sortMode) {
+  if (sortMode === "recommended") {
+    const rankResult = numericValue(a.dataset.defaultRank) - numericValue(b.dataset.defaultRank);
+    if (rankResult !== 0) return rankResult;
+    return numericValue(a.dataset.sourceIndex) - numericValue(b.dataset.sourceIndex);
+  }
   if (sortMode === "alpha") {
     return (a.dataset.title ?? "").localeCompare(b.dataset.title ?? "", "es", { sensitivity: "base" });
   }
@@ -1112,7 +1118,7 @@ function renderVivenciaPage(fromCareer = null) {
   };
 
   app.innerHTML = `
-    <div class="theme-scope" style="${styleVars(theme)}">
+    <div class="theme-scope" style="${styleVars(theme)}; --vivencia-link-accent: ${escapeAttr(fromCareer?.colorPrincipal || theme.colorPrincipal)}">
       ${renderDetailHero(
         theme,
         fromCareer ? careerShortName(fromCareer) : "VIVENCIA - SANTA FE",
@@ -1138,6 +1144,7 @@ function renderVivenciaPage(fromCareer = null) {
           ],
           resultLabel: "experiencias",
           singularLabel: "experiencia",
+          defaultSort: "recommended",
         })}
         <div class="content-grid project-grid" data-listing-grid>
           ${experiences.map((experience, index) => renderVivenciaCard(experience, index)).join("")}
@@ -1152,6 +1159,10 @@ function renderVivenciaPage(fromCareer = null) {
 function renderVivenciaCard(experience, index) {
   const embedUrl = vivenciaVideoEmbedUrl(experience);
   const imagePath = vivenciaImagePath(experience);
+  const hasExternalLink = hasContent(experience.enlace);
+  const hasQrCode = hasExternalLink && Boolean(validMediaPath(experience.codigoQR));
+  const defaultRank = normalizedText(experience.categoria) === normalizedText("Escudería") ? 0 : hasQrCode ? 1 : 2;
+  const year = experience["año"] ?? experience.ano ?? "";
   const media = embedUrl
     ? `
       <div class="video-frame project-media">
@@ -1171,6 +1182,17 @@ function renderVivenciaCard(experience, index) {
         </div>
       `
       : "";
+  const yearDetails = hasContent(year)
+    ? `<dl class="meta-list"><div><dt>Año</dt><dd>${escapeHTML(year)}</dd></div></dl>`
+    : "";
+  const externalActions = hasExternalLink
+    ? `
+      <div class="external-link-wrapper vivencia-external-actions">
+        <a class="button compact-button vivencia-resource-button" href="${escapeAttr(experience.enlace)}" target="_blank" rel="noreferrer">Abrir recurso</a>
+        ${renderQrCode(experience.codigoQR, `Código QR de ${experience.titulo}`)}
+      </div>
+    `
+    : "";
 
   return `
     <article
@@ -1178,6 +1200,8 @@ function renderVivenciaCard(experience, index) {
       data-filterable-card
       data-category="${escapeAttr(experience.categoria)}"
       data-date-sort="${yearValue(experience)}"
+      data-default-rank="${defaultRank}"
+      data-source-index="${index}"
       data-title="${escapeAttr(experience.titulo)}">
       ${media}
       <div class="feature-body">
@@ -1187,16 +1211,25 @@ function renderVivenciaCard(experience, index) {
         <div class="tag-row">
           ${(experience.etiquetas ?? []).map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}
         </div>
-        <dl class="meta-list">
-          <div><dt>Año</dt><dd>${escapeHTML(experience["año"] ?? experience.ano ?? "")}</dd></div>
-          ${
-            experience.enlace
-              ? `<div><dt>Enlace</dt><dd><a class="text-link" href="${escapeAttr(experience.enlace)}" target="_blank" rel="noreferrer">Abrir recurso</a></dd></div>`
-              : ""
-          }
-        </dl>
+        ${yearDetails}
+        ${externalActions}
       </div>
     </article>
+  `;
+}
+
+function renderQrCode(path, alt) {
+  const qrPath = validMediaPath(path);
+  if (!qrPath) return "";
+  return `
+    <div class="qr-code-wrapper">
+      <img
+        class="qr-code-image"
+        src="${escapeAttr(assetUrl(qrPath, { version: true }))}"
+        alt="${escapeAttr(alt)}"
+        loading="lazy"
+        onerror="this.closest('.qr-code-wrapper')?.remove()" />
+    </div>
   `;
 }
 
@@ -1779,10 +1812,14 @@ function renderExatec(profile, index) {
   const photo = profilePhotoPath(profile);
   const companyLogo = validMediaPath(profile.logoEmpresa);
   const description = hasContent(profile.descripcion) ? `<p>${escapeHTML(profile.descripcion)}</p>` : "";
-  const linkedin = hasContent(profile.linkedinUrl)
+  const hasLinkedin = hasContent(profile.linkedinUrl);
+  const linkedin = hasLinkedin
     ? `
-      <div class="linkedin-button-wrapper">
-        <a class="button ghost compact-button linkedin-button" href="${escapeAttr(profile.linkedinUrl)}" target="_blank" rel="noreferrer">LinkedIn</a>
+      <div class="external-link-wrapper employability-actions">
+        <div class="linkedin-button-wrapper">
+          <a class="button ghost compact-button linkedin-button" href="${escapeAttr(profile.linkedinUrl)}" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+        ${renderQrCode(profile.codigoQR, `Código QR de LinkedIn de ${profile.nombre}`)}
       </div>
     `
     : "";
@@ -2298,9 +2335,9 @@ function orderedAdminEntries(object, key, prefix) {
   const preferred = key === "universidades"
     ? ["carreraId", "id", "pais", "ciudad", "nombre", "alumno", "tipoExperiencia", "año"]
     : key === "exatecs"
-      ? ["carreraId", "id", "fotoAlumno", "logoEmpresa", "nombre", "generacion", "puestoActual", "empresa", "descripcion", "linkedinUrl"]
+      ? ["carreraId", "id", "fotoAlumno", "logoEmpresa", "nombre", "generacion", "puestoActual", "empresa", "descripcion", "linkedinUrl", "codigoQR"]
     : key === "vivencia"
-      ? ["id", "categoria", "titulo", "descripcion", "año", "media", "videoUrl", "enlace", "etiquetas"]
+      ? ["id", "categoria", "titulo", "descripcion", "año", "media", "videoUrl", "enlace", "codigoQR", "etiquetas"]
     : key === "catalystDetails"
       ? ["id", "categoria", "titulo", "año", "etiquetas", "descripcion", "imagen", "video"]
     : isCareerScopedAdminKey(key) ? ["carreraId", "id"] : ["id"];
@@ -2329,6 +2366,7 @@ function adminFieldLabel(field, key) {
     generacion: "Generación",
     fotoAlumno: "Foto del alumno",
     logoEmpresa: "Logo de la empresa",
+    codigoQR: "Imagen del código QR",
     foto: "Foto del alumno",
     media: key === "vivencia" ? "Imagen" : "Media",
     videoUrl: "Enlace de video",
@@ -2353,11 +2391,17 @@ function normalizeAdminItem(key, item) {
     if (!Object.hasOwn(item, "logoEmpresa")) {
       item.logoEmpresa = "";
     }
+    if (!Object.hasOwn(item, "codigoQR")) {
+      item.codigoQR = "";
+    }
   }
   if (key === "vivencia") {
     migrateLegacyVivenciaMedia(item);
     if (!Object.hasOwn(item, "videoUrl")) {
       item.videoUrl = "";
+    }
+    if (!Object.hasOwn(item, "codigoQR")) {
+      item.codigoQR = "";
     }
     delete item.mediaType;
   }
@@ -2753,6 +2797,7 @@ const adminBlankTemplates = {
     empresa: "",
     descripcion: "",
     linkedinUrl: "",
+    codigoQR: "",
   },
   catalystDetails: {
     id: "",
@@ -2773,6 +2818,7 @@ const adminBlankTemplates = {
     media: "",
     videoUrl: "",
     enlace: "",
+    codigoQR: "",
     etiquetas: [],
   },
 };

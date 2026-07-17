@@ -12,7 +12,8 @@
       "Mujeres",
       "Liderazgo"
     ],
-    "videoUrl": ""
+    "videoUrl": "",
+    "codigoQR": ""
   },
   {
     "id": "vivencia-2",
@@ -72,7 +73,8 @@
       "Proyectos",
       "Concurso"
     ],
-    "videoUrl": ""
+    "videoUrl": "",
+    "codigoQR": "assets/images/vivencia/qrcode_expoingenierias.jpg"
   },
   {
     "id": "vivencia-6",
@@ -87,7 +89,8 @@
       "Liderazgo",
       "Comunidad"
     ],
-    "videoUrl": ""
+    "videoUrl": "",
+    "codigoQR": "assets/images/vivencia/qr_steamnata.jpg"
   },
   {
     "id": "vivencia-7",
@@ -102,7 +105,8 @@
       "Racing",
       "Diseño"
     ],
-    "videoUrl": ""
+    "videoUrl": "",
+    "codigoQR": "assets/images/vivencia/qr_omega.jpg"
   },
   {
     "id": "vivencia-8",
@@ -117,7 +121,8 @@
       "Aprendizaje",
       "Recursos"
     ],
-    "videoUrl": ""
+    "videoUrl": "",
+    "codigoQR": "assets/images/vivencia/qrcode_biblioteca.jpg"
   },
   {
     "id": "vivencia-9",
@@ -132,7 +137,8 @@
       "Vuelo",
       "Diseño mecánico"
     ],
-    "videoUrl": ""
+    "videoUrl": "",
+    "codigoQR": "assets/images/vivencia/qr_silverwings.jpg"
   },
   {
     "id": "vivencia-10",
@@ -147,7 +153,8 @@
       "Manufactura",
       "Competencia"
     ],
-    "videoUrl": ""
+    "videoUrl": "",
+    "codigoQR": "assets/images/vivencia/qr_tmracing.jpg"
   },
   {
     "id": "vivencia-11",
@@ -162,7 +169,8 @@
       "Conferencias",
       "Voluntariado"
     ],
-    "videoUrl": ""
+    "videoUrl": "",
+    "codigoQR": "assets/images/vivencia/qr_sades.jpg"
   },
   {
     "id": "vivencia-12",
@@ -177,7 +185,8 @@
       "Mecánica",
       "Proyectos"
     ],
-    "videoUrl": ""
+    "videoUrl": "",
+    "codigoQR": "assets/images/vivencia/qr_saimt.jpg"
   },
   {
     "id": "vivencia-13",
@@ -192,7 +201,8 @@
       "Visitas industriales",
       "Páneles"
     ],
-    "videoUrl": ""
+    "videoUrl": "",
+    "codigoQR": "assets/images/vivencia/qr_zenith.jpg"
   },
   {
     "id": "vivencia-14",
@@ -207,7 +217,8 @@
       "Torneos",
       "Hiking"
     ],
-    "videoUrl": ""
+    "videoUrl": "",
+    "codigoQR": "assets/images/vivencia/qr_seic.jpg"
   },
   {
     "id": "vivencia-15",
@@ -222,7 +233,8 @@
       "Capacitaciones",
       "Integraciones"
     ],
-    "videoUrl": ""
+    "videoUrl": "",
+    "codigoQR": "assets/images/vivencia/qr_sati.jpg"
   },
   {
     "id": "vivencia-16",

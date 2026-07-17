@@ -1137,6 +1137,46 @@ h1 {
   flex: 1;
 }
 
+.external-link-wrapper {
+  width: 100%;
+  margin-top: auto;
+}
+
+.vivencia-external-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.vivencia-resource-button {
+  width: 100%;
+  color: #ffffff;
+  background: var(--vivencia-link-accent, var(--accent, var(--blue)));
+  text-align: center;
+}
+
+.vivencia-resource-button:hover {
+  box-shadow: 0 12px 22px color-mix(in srgb, var(--vivencia-link-accent, var(--accent, var(--blue))) 28%, transparent);
+}
+
+.qr-code-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.qr-code-image {
+  display: block;
+  width: 50%;
+  min-width: min(130px, 50%);
+  max-width: 220px;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
 .mini-label {
   margin: 0;
   color: var(--accent, var(--blue));
@@ -1669,7 +1709,7 @@ h1 {
 
 .linkedin-button-wrapper {
   width: 100%;
-  margin-top: auto;
+  margin-top: 0;
 }
 
 .exatec-card .linkedin-button {

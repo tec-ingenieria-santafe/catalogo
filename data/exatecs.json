@@ -9,7 +9,8 @@
     "descripcion": "Dirige equipos que convierten prototipos mecánicos en soluciones escalables.",
     "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
     "logoEmpresa": "",
-    "linkedinUrl": "https://www.linkedin.com/"
+    "linkedinUrl": "https://www.linkedin.com/",
+    "codigoQR": "assets/images/exatecs/qrcode_linkedin_BrendaVelazquez.jpg"
   },
   {
     "id": "sofia-industrial",
@@ -21,7 +22,8 @@
     "descripcion": "Acompaña a organizaciones en transformación, mejora continua y adopción tecnológica.",
     "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
     "logoEmpresa": "",
-    "linkedinUrl": "https://www.linkedin.com/"
+    "linkedinUrl": "https://www.linkedin.com/",
+    "codigoQR": "assets/images/exatecs/qrcode_linkedin_BrendaVelazquez.jpg"
   },
   {
     "id": "andrea-civil",
@@ -33,7 +35,8 @@
     "descripcion": "Lidera proyectos de infraestructura resiliente y movilidad urbana.",
     "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
     "logoEmpresa": "",
-    "linkedinUrl": "https://www.linkedin.com/"
+    "linkedinUrl": "https://www.linkedin.com/",
+    "codigoQR": "assets/images/exatecs/qrcode_linkedin_BrendaVelazquez.jpg"
   },
   {
     "id": "natalia-sustentable",
@@ -45,7 +48,8 @@
     "descripcion": "Diseña estrategias de sostenibilidad, economía circular y medición de impacto.",
     "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
     "logoEmpresa": "",
-    "linkedinUrl": "https://www.linkedin.com/"
+    "linkedinUrl": "https://www.linkedin.com/",
+    "codigoQR": "assets/images/exatecs/qrcode_linkedin_BrendaVelazquez.jpg"
   },
   {
     "id": "fernanda-innovacion",
@@ -57,7 +61,8 @@
     "descripcion": "Lidera validación de ideas, diseño de servicios y lanzamientos de producto.",
     "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
     "logoEmpresa": "",
-    "linkedinUrl": "https://www.linkedin.com/"
+    "linkedinUrl": "https://www.linkedin.com/",
+    "codigoQR": "assets/images/exatecs/qrcode_linkedin_BrendaVelazquez.jpg"
   },
   {
     "id": "lucia-computacionales",
@@ -69,7 +74,8 @@
     "descripcion": "Construye plataformas de IA aplicada para educación, datos y colaboración.",
     "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
     "logoEmpresa": "",
-    "linkedinUrl": "https://www.linkedin.com/"
+    "linkedinUrl": "https://www.linkedin.com/",
+    "codigoQR": "assets/images/exatecs/qrcode_linkedin_BrendaVelazquez.jpg"
   },
   {
     "id": "mariana-transformacion",
@@ -81,7 +87,8 @@
     "descripcion": "Diseña rutas de automatización, datos y experiencia para organizaciones de servicios.",
     "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
     "logoEmpresa": "",
-    "linkedinUrl": "https://www.linkedin.com/"
+    "linkedinUrl": "https://www.linkedin.com/",
+    "codigoQR": "assets/images/exatecs/qrcode_linkedin_BrendaVelazquez.jpg"
   },
   {
     "id": "mecatronica-exatec-1",
@@ -93,7 +100,8 @@
     "descripcion": "",
     "fotoAlumno": "assets/images/exatecs/RicardoAmpudia.jpg",
     "logoEmpresa": "assets/images/socios/CERN.jpg",
-    "linkedinUrl": "https://www.linkedin.com/in/ricardo-ampudia-h/"
+    "linkedinUrl": "https://www.linkedin.com/in/ricardo-ampudia-h/",
+    "codigoQR": "assets/images/exatecs/qrcode_linkedin_RicardoAmpudia.jpg"
   },
   {
     "id": "mecatronica-exatec-2",
@@ -105,7 +113,8 @@
     "descripcion": "",
     "fotoAlumno": "assets/images/exatecs/RicardoEstevez.jpg",
     "logoEmpresa": "assets/images/socios/RedBullPowertrains.jpg",
-    "linkedinUrl": "https://www.linkedin.com/in/ricardo-estevez/"
+    "linkedinUrl": "https://www.linkedin.com/in/ricardo-estevez/",
+    "codigoQR": "assets/images/exatecs/qrcode_linkedin_RicardoEstevez.jpg"
   },
   {
     "id": "mecatronica-exatec-3",
@@ -117,7 +126,8 @@
     "descripcion": "",
     "fotoAlumno": "assets/images/exatecs/BrendaVelazquez.jpg",
     "logoEmpresa": "assets/images/socios/daimler.jpg",
-    "linkedinUrl": "https://www.linkedin.com/in/brenda-velazquez-9b451486/"
+    "linkedinUrl": "https://www.linkedin.com/in/brenda-velazquez-9b451486/",
+    "codigoQR": "assets/images/exatecs/qrcode_linkedin_BrendaVelazquez.jpg"
   },
   {
     "id": "mecatronica-exatec-4",
@@ -129,7 +139,8 @@
     "descripcion": "",
     "fotoAlumno": "assets/images/exatecs/GustavoPalacio.jpg",
     "logoEmpresa": "assets/images/socios/bosch.jpg",
-    "linkedinUrl": "https://www.linkedin.com/in/gustavopalacio/?locale=en"
+    "linkedinUrl": "https://www.linkedin.com/in/gustavopalacio/?locale=en",
+    "codigoQR": "assets/images/exatecs/qrcode_linkedin_GustavoPalacio.jpg"
   },
   {
     "id": "mecatronica-exatec-5",
@@ -141,7 +152,8 @@
     "descripcion": "",
     "fotoAlumno": "assets/images/exatecs/DanielaRecio.jpg",
     "logoEmpresa": "assets/images/socios/tesla.jpg",
-    "linkedinUrl": "https://www.linkedin.com/in/daniela-recio-l%C3%B3pez-884131128/"
+    "linkedinUrl": "https://www.linkedin.com/in/daniela-recio-l%C3%B3pez-884131128/",
+    "codigoQR": "assets/images/exatecs/qrcode_linkedin_DanielaRecio.jpg"
   },
   {
     "id": "mecatronica-exatec-6",
@@ -153,7 +165,8 @@
     "descripcion": "",
     "fotoAlumno": "assets/images/exatecs/JoaquinAmaya.jpg",
     "logoEmpresa": "assets/images/socios/SchneiderElectric.jpg",
-    "linkedinUrl": "https://www.linkedin.com/in/joaqu%C3%ADn-amaya/"
+    "linkedinUrl": "https://www.linkedin.com/in/joaqu%C3%ADn-amaya/",
+    "codigoQR": "assets/images/exatecs/qrcode_linkedin_JoaquinAmaya.jpg"
   },
   {
     "id": "financial-engineering-exatec-1",
