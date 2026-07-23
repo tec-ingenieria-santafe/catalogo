@@ -240,7 +240,7 @@
     "id": "vivencia-16",
     "categoria": "Premios",
     "titulo": "Formula Student",
-    "descripcion": "Premio Formula Student para escudería TM Racing.",
+    "descripcion": "TM Racing. Primer equipo mexicano y latinoamericano en ganar la competencia de Concept Class en Formula Student UK frente a 120 equipos de las mejores universidades del mundo.\n- 1er lugar. Concept Class Overall SUK 2025\n- 4to lugar. Business Plan Presentation\n- 5to lugar. Lap Time Simulation\n- 7mo lugar. Concept Class Costs\n- Mención especial: Racing Pride Aston Martin Award for Diversity & Inclusion",
     "año": 2025,
     "media": "assets/images/vivencia/formulastudent.jpg",
     "enlace": "",
@@ -249,7 +249,8 @@
       "Concurso",
       "Diseño"
     ],
-    "videoUrl": ""
+    "videoUrl": "",
+    "codigoQR": ""
   },
   {
     "id": "vivencia-17",

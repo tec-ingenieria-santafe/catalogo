@@ -1020,6 +1020,33 @@ h1 {
   gap: 12px;
 }
 
+.formatted-description {
+  width: 100%;
+  color: var(--muted);
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.formatted-description p,
+.formatted-description ul {
+  margin: 0;
+}
+
+.formatted-description p + p,
+.formatted-description p + ul,
+.formatted-description ul + p,
+.formatted-description ul + ul {
+  margin-top: 0.75rem;
+}
+
+.formatted-description ul {
+  padding-left: 1.25rem;
+}
+
+.formatted-description li + li {
+  margin-top: 0.35rem;
+}
+
 .activity-grid {
   align-items: stretch;
 }

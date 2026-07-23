@@ -235,6 +235,49 @@ function hasContent(value) {
   return value !== undefined && value !== null && String(value).trim() !== "";
 }
 
+function renderFormattedDescription(value) {
+  if (!hasContent(value)) return "";
+
+  const lines = String(value).replace(/\r\n?/g, "\n").split("\n");
+  const blocks = [];
+  let paragraphLines = [];
+  let listItems = [];
+
+  const flushParagraph = () => {
+    if (!paragraphLines.length) return;
+    blocks.push(`<p>${paragraphLines.map(escapeHTML).join("<br>")}</p>`);
+    paragraphLines = [];
+  };
+  const flushList = () => {
+    if (!listItems.length) return;
+    blocks.push(`<ul>${listItems.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul>`);
+    listItems = [];
+  };
+
+  lines.forEach((line) => {
+    const bullet = line.match(/^[-*]\s+(.+?)\s*$/);
+    if (bullet && bullet[1].trim()) {
+      flushParagraph();
+      listItems.push(bullet[1].trim());
+      return;
+    }
+
+    const text = line.trim();
+    if (!text) {
+      flushParagraph();
+      flushList();
+      return;
+    }
+
+    flushList();
+    paragraphLines.push(text);
+  });
+
+  flushParagraph();
+  flushList();
+  return blocks.length ? `<div class="formatted-description">${blocks.join("")}</div>` : "";
+}
+
 function assetVersion() {
   return String(siteData?.site?.assetsVersion || siteData?.site?.assetVersion || "").trim();
 }
@@ -1159,6 +1202,7 @@ function renderVivenciaPage(fromCareer = null) {
 function renderVivenciaCard(experience, index) {
   const embedUrl = vivenciaVideoEmbedUrl(experience);
   const imagePath = vivenciaImagePath(experience);
+  const tags = Array.isArray(experience.etiquetas) ? experience.etiquetas.filter(hasContent) : [];
   const hasExternalLink = hasContent(experience.enlace);
   const hasQrCode = hasExternalLink && Boolean(validMediaPath(experience.codigoQR));
   const defaultRank = normalizedText(experience.categoria) === normalizedText("Escudería") ? 0 : hasQrCode ? 1 : 2;
@@ -1207,10 +1251,8 @@ function renderVivenciaCard(experience, index) {
       <div class="feature-body">
         <p class="mini-label">${escapeHTML(experience.categoria)}</p>
         <h2>${escapeHTML(experience.titulo)}</h2>
-        <p>${escapeHTML(experience.descripcion)}</p>
-        <div class="tag-row">
-          ${(experience.etiquetas ?? []).map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}
-        </div>
+        ${tags.length ? `<div class="tag-row">${tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div>` : ""}
+        ${renderFormattedDescription(experience.descripcion)}
         ${yearDetails}
         ${externalActions}
       </div>
@@ -1316,6 +1358,7 @@ function renderProjectsPage(career) {
 function renderProject(project, index, career) {
   const embedUrl = youtubeEmbedUrl(project.youtubeUrl);
   const thumbnail = validMediaPath(project.thumbnail);
+  const tags = Array.isArray(project.tecnologias) ? project.tecnologias.filter(hasContent) : [];
   const media = embedUrl
     ? `
       <div class="video-frame project-media">
@@ -1344,10 +1387,8 @@ function renderProject(project, index, career) {
       <div class="feature-body">
         <p class="mini-label">${escapeHTML(project.año)} - ${escapeHTML(project.semestre)}</p>
         <h2>${escapeHTML(project.titulo)}</h2>
-        <p>${escapeHTML(project.descripcion)}</p>
-        <div class="tag-row">
-          ${project.tecnologias.map((tech) => `<span class="tag">${escapeHTML(tech)}</span>`).join("")}
-        </div>
+        ${tags.length ? `<div class="tag-row">${tags.map((tech) => `<span class="tag">${escapeHTML(tech)}</span>`).join("")}</div>` : ""}
+        ${renderFormattedDescription(project.descripcion)}
         <dl class="meta-list">
           <div><dt>Alumnos</dt><dd>${project.alumnos.map(escapeHTML).join(", ")}</dd></div>
           ${project.socioFormador ? `<div><dt>Socio formador</dt><dd>${escapeHTML(project.socioFormador)}</dd></div>` : ""}
@@ -1388,7 +1429,7 @@ function renderPartner(partner, index) {
         </div>
       </div>
       ${interactionTypes.length ? `<div class="tag-row partner-tags">${interactionTypes.map((type) => `<span class="tag">${escapeHTML(type)}</span>`).join("")}</div>` : ""}
-      ${hasContent(partner.descripcion) ? `<p>${escapeHTML(partner.descripcion)}</p>` : ""}
+      ${renderFormattedDescription(partner.descripcion)}
       ${media}
     </article>
   `;
@@ -1735,9 +1776,9 @@ function renderUniversity(university, index) {
       <div class="feature-body">
         <p class="mini-label">${escapeHTML(university.ciudad)}, ${escapeHTML(university.pais)}</p>
         <h2>${escapeHTML(university.nombre)}</h2>
-        ${hasContent(university.descripcion) ? `<p>${escapeHTML(university.descripcion)}</p>` : ""}
-        ${experienceMeta ? `<dl class="meta-list">${experienceMeta}</dl>` : ""}
         ${tags.length ? `<div class="tag-row">${tags.map((area) => `<span class="tag">${escapeHTML(area)}</span>`).join("")}</div>` : ""}
+        ${renderFormattedDescription(university.descripcion)}
+        ${experienceMeta ? `<dl class="meta-list">${experienceMeta}</dl>` : ""}
       </div>
     </article>
   `;
@@ -1811,7 +1852,7 @@ function renderExatecsPage(career) {
 function renderExatec(profile, index) {
   const photo = profilePhotoPath(profile);
   const companyLogo = validMediaPath(profile.logoEmpresa);
-  const description = hasContent(profile.descripcion) ? `<p>${escapeHTML(profile.descripcion)}</p>` : "";
+  const description = renderFormattedDescription(profile.descripcion);
   const hasLinkedin = hasContent(profile.linkedinUrl);
   const linkedin = hasLinkedin
     ? `
@@ -1914,7 +1955,7 @@ function renderSantaFePage(career) {
             (item) => `
               <article class="advantage-card">
                 <h3><span class="section-dot" aria-hidden="true"></span>${escapeHTML(item.titulo)}</h3>
-                ${hasContent(item.descripcion) ? `<p>${escapeHTML(item.descripcion)}</p>` : ""}
+                ${renderFormattedDescription(item.descripcion)}
               </article>
             `,
           )
@@ -2118,35 +2159,6 @@ function catalystHasMedia(item) {
   return Boolean(image && !youtubeEmbedUrl(image) && !vimeoEmbedUrl(image));
 }
 
-function renderCatalystBody(body) {
-  if (!hasContent(body)) return "";
-  const lines = String(body).split(/\r?\n/);
-  const blocks = [];
-  let listItems = [];
-  const flushList = () => {
-    if (!listItems.length) return;
-    blocks.push(`<ul class="catalyst-detail-list">${listItems.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul>`);
-    listItems = [];
-  };
-
-  lines.forEach((line) => {
-    const trimmed = line.trim();
-    if (!trimmed) {
-      flushList();
-      return;
-    }
-    const bullet = trimmed.match(/^[*-]\s+(.+)$/);
-    if (bullet) {
-      listItems.push(bullet[1].trim());
-      return;
-    }
-    flushList();
-    blocks.push(`<p>${escapeHTML(trimmed)}</p>`);
-  });
-  flushList();
-  return blocks.join("");
-}
-
 function renderCatalystDetailCard(item, category, index, filterable = false) {
   const title = item.titulo || item.nombre || "";
   const label = sectionLabelForCatalyst(category);
@@ -2173,7 +2185,7 @@ function renderCatalystDetailCard(item, category, index, filterable = false) {
               </div>`
             : ""
         }
-        ${renderCatalystBody(body)}
+        ${renderFormattedDescription(body)}
       </div>
     </article>
   `;
@@ -2700,7 +2712,10 @@ function renderAdminFields(object, prefix = "", key = "", isNew = false) {
       const control = isLong
         ? `<textarea class="admin-control" data-path="${escapeAttr(path)}" data-kind="string"${readonly}>${escapeHTML(value)}</textarea>`
         : `<input class="admin-control" type="${typeof value === "number" ? "number" : "text"}" data-path="${escapeAttr(path)}" data-kind="${typeof value === "number" ? "number" : "string"}" value="${escapeAttr(value)}"${readonly}${numberAttrs} />`;
-      return `<label class="admin-label">${escapeHTML(label)}${control}</label>`;
+      const descriptionHelp = field === "descripcion"
+        ? `<small class="admin-help">Los saltos de línea se respetarán. Escribe “- ” o “* ” al inicio de una línea para crear una viñeta.</small>`
+        : "";
+      return `<label class="admin-label">${escapeHTML(label)}${descriptionHelp}${control}</label>`;
     })
     .join("");
 }
