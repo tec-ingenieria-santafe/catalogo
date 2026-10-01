@@ -1,0 +1,89 @@
+{
+  "programaId": "quantum",
+  "secciones": [
+    {
+      "id": "que-es",
+      "titulo": {
+        "es": "¿Qué es QUANTUM?",
+        "en": "What Is QUANTUM?"
+      },
+      "descripcion": {
+        "es": "Contenido de QUANTUM pendiente de actualización.",
+        "en": "QUANTUM content pending update."
+      },
+      "items": [],
+      "bullets": {
+        "es": [
+          "Contenido de QUANTUM pendiente de actualización."
+        ],
+        "en": [
+          "QUANTUM content pending update."
+        ]
+      }
+    },
+    {
+      "id": "comunidad",
+      "titulo": {
+        "es": "Comunidad motivada",
+        "en": "Motivated Community"
+      },
+      "descripcion": {
+        "es": "Contenido de QUANTUM pendiente de actualización.",
+        "en": "QUANTUM content pending update."
+      },
+      "ruta": "#programa/quantum/comunidad",
+      "items": [],
+      "bullets": {
+        "es": [
+          "Contenido de QUANTUM pendiente de actualización."
+        ],
+        "en": [
+          "QUANTUM content pending update."
+        ]
+      }
+    },
+    {
+      "id": "actividades",
+      "titulo": {
+        "es": "Actividades opcionales",
+        "en": "Optional Activities"
+      },
+      "descripcion": {
+        "es": "Contenido de QUANTUM pendiente de actualización.",
+        "en": "QUANTUM content pending update."
+      },
+      "ruta": "#programa/quantum/actividades",
+      "items": [],
+      "bullets": {
+        "es": [
+          "Contenido de QUANTUM pendiente de actualización."
+        ],
+        "en": [
+          "QUANTUM content pending update."
+        ]
+      }
+    },
+    {
+      "id": "testimonios",
+      "titulo": {
+        "es": "Testimonios de estudiantes",
+        "en": "Student Testimonials"
+      },
+      "descripcion": {
+        "es": "Contenido de QUANTUM pendiente de actualización.",
+        "en": "QUANTUM content pending update."
+      },
+      "ruta": "#programa/quantum/testimonios",
+      "items": [],
+      "bullets": {
+        "es": [
+          "Contenido de QUANTUM pendiente de actualización."
+        ],
+        "en": [
+          "QUANTUM content pending update."
+        ]
+      }
+    }
+  ],
+  "detalles": []
+}

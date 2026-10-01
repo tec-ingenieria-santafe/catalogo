@@ -2,284 +2,518 @@
   {
     "id": "vivencia-1",
     "categoria": "Bootcamps",
-    "titulo": "Women for the future",
-    "descripcion": "Bootcamp para mujeres sobre liderazgo en Ingeniería.",
+    "titulo": {
+      "es": "Women for the future",
+      "en": "Women for the future"
+    },
+    "descripcion": {
+      "es": "Bootcamp para mujeres sobre liderazgo en Ingeniería.",
+      "en": "Bootcamp for women on leadership in Engineering."
+    },
     "año": 2024,
     "media": "assets/images/vivencia/bootcamp_women.jpg",
     "enlace": "",
-    "etiquetas": [
-      "Ingeniería",
-      "Mujeres",
-      "Liderazgo"
-    ],
+    "etiquetas": {
+      "es": [
+        "Ingeniería",
+        "Mujeres",
+        "Liderazgo"
+      ],
+      "en": [
+        "Engineering",
+        "Women",
+        "Leadership"
+      ]
+    },
     "videoUrl": "",
     "codigoQR": ""
   },
   {
     "id": "vivencia-2",
     "categoria": "Certificaciones",
-    "titulo": "Siemens NX",
-    "descripcion": "Certificación de software de diseño mecánico Siemens NX.",
+    "titulo": {
+      "es": "Siemens NX",
+      "en": "Siemens NX"
+    },
+    "descripcion": {
+      "es": "Certificación de software de diseño mecánico Siemens NX.",
+      "en": "Siemens NX mechanical design software certification."
+    },
     "año": 2026,
     "media": "assets/images/vivencia/siemensnx.jpg",
     "enlace": "",
-    "etiquetas": [
-      "Certificación",
-      "Diseño mecánico",
-      "Cursos"
-    ],
+    "etiquetas": {
+      "es": [
+        "Certificación",
+        "Diseño mecánico",
+        "Cursos"
+      ],
+      "en": [
+        "Certification",
+        "Mechanical design",
+        "Courses"
+      ]
+    },
     "videoUrl": ""
   },
   {
     "id": "vivencia-3",
     "categoria": "Arte y cultura",
-    "titulo": "Visita Google",
-    "descripcion": "Visita a Google en Silicon Valley.",
+    "titulo": {
+      "es": "Visita Google",
+      "en": "Visit Google"
+    },
+    "descripcion": {
+      "es": "Visita a Google en Silicon Valley.",
+      "en": "Visit Google in Silicon Valley."
+    },
     "año": 2024,
     "media": "assets/images/vivencia/visita_google.jpg",
     "enlace": "",
-    "etiquetas": [
-      "Visitas industriales",
-      "Networking",
-      "Viaje"
-    ],
+    "etiquetas": {
+      "es": [
+        "Visitas industriales",
+        "Networking",
+        "Viaje"
+      ],
+      "en": [
+        "Industrial visits",
+        "Networking",
+        "Journey"
+      ]
+    },
     "videoUrl": ""
   },
   {
     "id": "vivencia-4",
     "categoria": "Deportes",
-    "titulo": "Salsa",
-    "descripcion": "Compañía de Salsa que participa en eventos y presentaciones.",
+    "titulo": {
+      "es": "Salsa",
+      "en": "Dip"
+    },
+    "descripcion": {
+      "es": "Compañía de Salsa que participa en eventos y presentaciones.",
+      "en": "Salsa company that participates in events and presentations."
+    },
     "año": 2025,
     "media": "assets/images/vivencia/salsa.jpg",
     "enlace": "",
-    "etiquetas": [
-      "Entrenamiento",
-      "Presentaciones",
-      "Eventos"
-    ],
+    "etiquetas": {
+      "es": [
+        "Entrenamiento",
+        "Presentaciones",
+        "Eventos"
+      ],
+      "en": [
+        "Training",
+        "Presentations",
+        "Events"
+      ]
+    },
     "videoUrl": ""
   },
   {
     "id": "vivencia-5",
     "categoria": "Premios",
-    "titulo": "Expo Ingenierías 2026",
-    "descripcion": "Exposición anual de proyectos de los alumnos de Ingeniería en campus Santa Fe.",
+    "titulo": {
+      "es": "Expo Ingenierías 2026",
+      "en": "Engineering Expo 2026"
+    },
+    "descripcion": {
+      "es": "Exposición anual de proyectos de los alumnos de Ingeniería en campus Santa Fe.",
+      "en": "Annual exhibition of engineering students' projects on the Santa Fe campus."
+    },
     "año": 2026,
     "media": "assets/images/vivencia/expoingenierias.jpg",
     "enlace": "https://expoingenierias.eicsantafe.com/",
-    "etiquetas": [
-      "Innovación",
-      "Proyectos",
-      "Concurso"
-    ],
+    "etiquetas": {
+      "es": [
+        "Innovación",
+        "Proyectos",
+        "Concurso"
+      ],
+      "en": [
+        "Innovation",
+        "Projects",
+        "Contest"
+      ]
+    },
     "videoUrl": "",
     "codigoQR": "assets/images/vivencia/qrcode_expoingenierias.jpg"
   },
   {
     "id": "vivencia-6",
     "categoria": "Grupo estudiantil",
-    "titulo": "Steam Nata CSF",
-    "descripcion": "Grupo estudiantil que busca impulsar la ingeniería y ciencias a través del STEAM en mujeres y niñas para generar un cambio positivo en la comunidad.",
+    "titulo": {
+      "es": "Steam Nata CSF",
+      "en": "Steam Cream CSF"
+    },
+    "descripcion": {
+      "es": "Grupo estudiantil que busca impulsar la ingeniería y ciencias a través del STEAM en mujeres y niñas para generar un cambio positivo en la comunidad.",
+      "en": "Student group that seeks to promote engineering and science through STEAM in women and girls to generate positive change in the community."
+    },
     "año": 2026,
     "media": "assets/images/vivencia/steamnata.jpg",
     "enlace": "https://www.instagram.com/steamnatacsf/",
-    "etiquetas": [
-      "Ingeniería",
-      "Liderazgo",
-      "Comunidad"
-    ],
+    "etiquetas": {
+      "es": [
+        "Ingeniería",
+        "Liderazgo",
+        "Comunidad"
+      ],
+      "en": [
+        "Engineering",
+        "Leadership",
+        "Community"
+      ]
+    },
     "videoUrl": "",
     "codigoQR": "assets/images/vivencia/qr_steamnata.jpg"
   },
   {
     "id": "vivencia-7",
     "categoria": "Escudería",
-    "titulo": "Omega Lightning",
-    "descripcion": "Representando al Campus Santa Fe en el Campeonato Nacional de Electratón. Ingeniería, adrenalina y movilidad eléctrica.",
+    "titulo": {
+      "es": "Omega Lightning",
+      "en": "Omega Lightning"
+    },
+    "descripcion": {
+      "es": "Representando al Campus Santa Fe en el Campeonato Nacional de Electratón. Ingeniería, adrenalina y movilidad eléctrica.",
+      "en": "Representing the Santa Fe Campus in the National Electrathon Championship. Engineering, adrenaline and electric mobility."
+    },
     "año": 2026,
     "media": "assets/images/vivencia/omega.jpg",
     "enlace": "https://www.instagram.com/omega.lt/",
-    "etiquetas": [
-      "Carro eléctrico",
-      "Racing",
-      "Diseño"
-    ],
+    "etiquetas": {
+      "es": [
+        "Carro eléctrico",
+        "Racing",
+        "Diseño"
+      ],
+      "en": [
+        "electric cart",
+        "racing",
+        "Design"
+      ]
+    },
     "videoUrl": "",
     "codigoQR": "assets/images/vivencia/qr_omega.jpg"
   },
   {
     "id": "vivencia-8",
     "categoria": "Biblioteca",
-    "titulo": "Colecciones Digitales con IA",
-    "descripcion": "Colecciones que integran herramientas o funcionalidades basadas en inteligencia artificial, diseñadas para facilitar la recuperación de información mediante características especializadas que cada recurso ofrece.",
+    "titulo": {
+      "es": "Colecciones Digitales con IA",
+      "en": "Digital Collections with AI"
+    },
+    "descripcion": {
+      "es": "Colecciones que integran herramientas o funcionalidades basadas en inteligencia artificial, diseñadas para facilitar la recuperación de información mediante características especializadas que cada recurso ofrece.",
+      "en": "Collections that integrate tools or functionalities based on artificial intelligence, designed to facilitate the retrieval of information through specialized features that each resource offers."
+    },
     "año": 2026,
     "media": "assets/images/vivencia/biblioteca.jpg",
     "enlace": "https://biblioteca.tec.mx/az/ia",
-    "etiquetas": [
-      "Investigación",
-      "Aprendizaje",
-      "Recursos"
-    ],
+    "etiquetas": {
+      "es": [
+        "Investigación",
+        "Aprendizaje",
+        "Recursos"
+      ],
+      "en": [
+        "Investigation",
+        "Learning",
+        "Resources"
+      ]
+    },
     "videoUrl": "",
     "codigoQR": "assets/images/vivencia/qrcode_biblioteca.jpg"
   },
   {
     "id": "vivencia-9",
     "categoria": "Escudería",
-    "titulo": "Silver Wings SF",
-    "descripcion": "Escudería del campus, expertos en aerodiseño.",
+    "titulo": {
+      "es": "Silver Wings SF",
+      "en": "Silver Wings SF"
+    },
+    "descripcion": {
+      "es": "Escudería del campus, expertos en aerodiseño.",
+      "en": "Campus team, aerodesign experts."
+    },
     "año": 2026,
     "media": "assets/images/vivencia/silverwings.jpg",
     "enlace": "https://www.instagram.com/silverwings.sf/",
-    "etiquetas": [
-      "Aerodiseño",
-      "Vuelo",
-      "Diseño mecánico"
-    ],
+    "etiquetas": {
+      "es": [
+        "Aerodiseño",
+        "Vuelo",
+        "Diseño mecánico"
+      ],
+      "en": [
+        "Aerodesign",
+        "Flight",
+        "Mechanical design"
+      ]
+    },
     "videoUrl": "",
     "codigoQR": "assets/images/vivencia/qr_silverwings.jpg"
   },
   {
     "id": "vivencia-10",
     "categoria": "Escudería",
-    "titulo": "TM Racing",
-    "descripcion": "Único equipo mexicano en Formula Student.",
+    "titulo": {
+      "es": "TM Racing",
+      "en": "TM Racing"
+    },
+    "descripcion": {
+      "es": "Único equipo mexicano en Formula Student.",
+      "en": "Only Mexican team in Formula Student."
+    },
     "año": 2026,
     "media": "assets/images/vivencia/tmracing.jpg",
     "enlace": "https://www.instagram.com/tmracingteam/",
-    "etiquetas": [
-      "Racing",
-      "Manufactura",
-      "Competencia"
-    ],
+    "etiquetas": {
+      "es": [
+        "Racing",
+        "Manufactura",
+        "Competencia"
+      ],
+      "en": [
+        "racing",
+        "Manufacturing",
+        "Competence"
+      ]
+    },
     "videoUrl": "",
     "codigoQR": "assets/images/vivencia/qr_tmracing.jpg"
   },
   {
     "id": "vivencia-11",
     "categoria": "Grupo estudiantil",
-    "titulo": "SADES",
-    "descripcion": "Sociedad de alumnos de Ingeniería en Desarrollo Sustentable.",
+    "titulo": {
+      "es": "SADES",
+      "en": "SADES"
+    },
+    "descripcion": {
+      "es": "Sociedad de alumnos de Ingeniería en Desarrollo Sustentable.",
+      "en": "Society of Sustainable Development Engineering students."
+    },
     "año": 2026,
     "media": "assets/images/vivencia/sades.jpg",
     "enlace": "https://www.instagram.com/sades.csf/",
-    "etiquetas": [
-      "Sustentabilidad",
-      "Conferencias",
-      "Voluntariado"
-    ],
+    "etiquetas": {
+      "es": [
+        "Sustentabilidad",
+        "Conferencias",
+        "Voluntariado"
+      ],
+      "en": [
+        "Sustainability",
+        "Conferences",
+        "Volunteering"
+      ]
+    },
     "videoUrl": "",
     "codigoQR": "assets/images/vivencia/qr_sades.jpg"
   },
   {
     "id": "vivencia-12",
     "categoria": "Grupo estudiantil",
-    "titulo": "SAIMT",
-    "descripcion": "Sociedad de alumnos de Ingeniería Mecatrónica e Ingeniería Mecánica.",
+    "titulo": {
+      "es": "SAIMT",
+      "en": "SAIMT"
+    },
+    "descripcion": {
+      "es": "Sociedad de alumnos de Ingeniería Mecatrónica e Ingeniería Mecánica.",
+      "en": "Society of Mechatronic Engineering and Mechanical Engineering students."
+    },
     "año": 2026,
     "media": "assets/images/vivencia/saimt.jpg",
     "enlace": "https://www.instagram.com/saimt_csf/",
-    "etiquetas": [
-      "Mecatrónica",
-      "Mecánica",
-      "Proyectos"
-    ],
+    "etiquetas": {
+      "es": [
+        "Mecatrónica",
+        "Mecánica",
+        "Proyectos"
+      ],
+      "en": [
+        "Mechatronics",
+        "Mechanics",
+        "Projects"
+      ]
+    },
     "videoUrl": "",
     "codigoQR": "assets/images/vivencia/qr_saimt.jpg"
   },
   {
     "id": "vivencia-13",
     "categoria": "Grupo estudiantil",
-    "titulo": "ZENITH",
-    "descripcion": "Sociedad de alumnos del Bachelor of Science in Industrial Engineering.",
+    "titulo": {
+      "es": "ZENITH",
+      "en": "ZENITH"
+    },
+    "descripcion": {
+      "es": "Sociedad de alumnos del Bachelor of Science in Industrial Engineering.",
+      "en": "Society of students of the Bachelor of Science in Industrial Engineering."
+    },
     "año": 2026,
     "media": "assets/images/vivencia/zenith.jpg",
     "enlace": "https://www.instagram.com/zenith.csf/",
-    "etiquetas": [
-      "Conferencias",
-      "Visitas industriales",
-      "Páneles"
-    ],
+    "etiquetas": {
+      "es": [
+        "Conferencias",
+        "Visitas industriales",
+        "Páneles"
+      ],
+      "en": [
+        "Conferences",
+        "Industrial visits",
+        "Panels"
+      ]
+    },
     "videoUrl": "",
     "codigoQR": "assets/images/vivencia/qr_zenith.jpg"
   },
   {
     "id": "vivencia-14",
     "categoria": "Grupo estudiantil",
-    "titulo": "SEIC",
-    "descripcion": "Sociedad de alumnos de Ingeniería Civil.",
+    "titulo": {
+      "es": "SEIC",
+      "en": "SSSI"
+    },
+    "descripcion": {
+      "es": "Sociedad de alumnos de Ingeniería Civil.",
+      "en": "Society of Civil Engineering students."
+    },
     "año": 2026,
     "media": "assets/images/vivencia/seic.jpg",
     "enlace": "https://www.instagram.com/seic.csf/",
-    "etiquetas": [
-      "Visitas industriales",
-      "Torneos",
-      "Hiking"
-    ],
+    "etiquetas": {
+      "es": [
+        "Visitas industriales",
+        "Torneos",
+        "Hiking"
+      ],
+      "en": [
+        "Industrial visits",
+        "Tournaments",
+        "Hiking"
+      ]
+    },
     "videoUrl": "",
     "codigoQR": "assets/images/vivencia/qr_seic.jpg"
   },
   {
     "id": "vivencia-15",
     "categoria": "Grupo estudiantil",
-    "titulo": "SATI",
-    "descripcion": "Sociedad de alumnos de Ingeniería en Tecnologías Computacionales.",
+    "titulo": {
+      "es": "SATI",
+      "en": "SATI"
+    },
+    "descripcion": {
+      "es": "Sociedad de alumnos de Ingeniería en Tecnologías Computacionales.",
+      "en": "Society of Computer Technology Engineering students."
+    },
     "año": 2026,
     "media": "assets/images/vivencia/sati.jpg",
     "enlace": "https://www.instagram.com/sati_csf/",
-    "etiquetas": [
-      "Conferencias",
-      "Capacitaciones",
-      "Integraciones"
-    ],
+    "etiquetas": {
+      "es": [
+        "Conferencias",
+        "Capacitaciones",
+        "Integraciones"
+      ],
+      "en": [
+        "Conferences",
+        "Trainings",
+        "Integrations"
+      ]
+    },
     "videoUrl": "",
     "codigoQR": "assets/images/vivencia/qr_sati.jpg"
   },
   {
     "id": "vivencia-16",
     "categoria": "Premios",
-    "titulo": "Formula Student",
-    "descripcion": "TM Racing. Primer equipo mexicano y latinoamericano en ganar la competencia de Concept Class en Formula Student UK frente a 120 equipos de las mejores universidades del mundo.\n- 1er lugar. Concept Class Overall SUK 2025\n- 4to lugar. Business Plan Presentation\n- 5to lugar. Lap Time Simulation\n- 7mo lugar. Concept Class Costs\n- Mención especial: Racing Pride Aston Martin Award for Diversity & Inclusion",
+    "titulo": {
+      "es": "Formula Student",
+      "en": "Formula Student"
+    },
+    "descripcion": {
+      "es": "TM Racing. Primer equipo mexicano y latinoamericano en ganar la competencia de Concept Class en Formula Student UK frente a 120 equipos de las mejores universidades del mundo.\n- 1er lugar. Concept Class Overall SUK 2025\n- 4to lugar. Business Plan Presentation\n- 5to lugar. Lap Time Simulation\n- 7mo lugar. Concept Class Costs\n- Mención especial: Racing Pride Aston Martin Award for Diversity & Inclusion",
+      "en": "TM Racing. First Mexican and Latin American team to win the Concept Class competition in Formula Student UK against 120 teams from the best universities in the world.\n- 1st place. Concept Class Overall SUK 2025\n- 4th place. Business Plan Presentation\n- 5th place. Lap Time Simulation\n- 7th place. Concept Class Costs\n- Special Mention: Racing Pride Aston Martin Award for Diversity & Inclusion"
+    },
     "año": 2025,
     "media": "assets/images/vivencia/formulastudent.jpg",
     "enlace": "",
-    "etiquetas": [
-      "Racing",
-      "Concurso",
-      "Diseño"
-    ],
+    "etiquetas": {
+      "es": [
+        "Racing",
+        "Concurso",
+        "Diseño"
+      ],
+      "en": [
+        "racing",
+        "Contest",
+        "Design"
+      ]
+    },
     "videoUrl": "",
     "codigoQR": ""
   },
   {
     "id": "vivencia-17",
     "categoria": "Deportes",
-    "titulo": "Danza",
-    "descripcion": "Compañía de Danza que participa en eventos y presentaciones.",
+    "titulo": {
+      "es": "Danza",
+      "en": "Dance"
+    },
+    "descripcion": {
+      "es": "Compañía de Danza que participa en eventos y presentaciones.",
+      "en": "Dance company that participates in events and presentations."
+    },
     "año": 2026,
     "media": "assets/images/vivencia/danza.jpg",
     "enlace": "",
-    "etiquetas": [
-      "Entrenamiento",
-      "Presentaciones",
-      "Eventos"
-    ],
+    "etiquetas": {
+      "es": [
+        "Entrenamiento",
+        "Presentaciones",
+        "Eventos"
+      ],
+      "en": [
+        "Training",
+        "Presentations",
+        "Events"
+      ]
+    },
     "videoUrl": ""
   },
   {
     "id": "vivencia-18",
     "categoria": "Certificaciones",
-    "titulo": "Solidworks",
-    "descripcion": "Certificación de software de diseño mecánico Solidworks.",
+    "titulo": {
+      "es": "Solidworks",
+      "en": "Solidworks"
+    },
+    "descripcion": {
+      "es": "Certificación de software de diseño mecánico Solidworks.",
+      "en": "Solidworks mechanical design software certification."
+    },
     "año": 2026,
     "media": "assets/images/vivencia/solidworks.jpg",
     "enlace": "",
-    "etiquetas": [
-      "Certificación",
-      "Diseño mecánico",
-      "Cursos"
-    ],
+    "etiquetas": {
+      "es": [
+        "Certificación",
+        "Diseño mecánico",
+        "Cursos"
+      ],
+      "en": [
+        "Certification",
+        "Mechanical design",
+        "Courses"
+      ]
+    },
     "videoUrl": ""
   }
 ]

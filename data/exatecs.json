@@ -4,10 +4,16 @@
     "carreraId": "mecanica",
     "nombre": "Mariana López",
     "generacion": "Generación 2018",
-    "puestoActual": "Líder de Ingeniería de Producto",
+    "puestoActual": {
+      "es": "Líder de Ingeniería de Producto",
+      "en": "Product Engineering Leader"
+    },
     "empresa": "Asteria Labs",
-    "descripcion": "Dirige equipos que convierten prototipos mecánicos en soluciones escalables.",
-    "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
+    "descripcion": {
+      "es": "Dirige equipos que convierten prototipos mecánicos en soluciones escalables.",
+      "en": "Lead teams that turn mechanical prototypes into scalable solutions."
+    },
+    "fotoAlumno": "",
     "logoEmpresa": "",
     "linkedinUrl": "https://www.linkedin.com/",
     "codigoQR": "assets/images/exatecs/qrcode_linkedin_BrendaVelazquez.jpg"
@@ -17,10 +23,16 @@
     "carreraId": "industrial",
     "nombre": "Sofía Herrera",
     "generacion": "Generación 2016",
-    "puestoActual": "Consultora Senior",
+    "puestoActual": {
+      "es": "Consultora Senior",
+      "en": "Senior Consultant"
+    },
     "empresa": "Bright Systems",
-    "descripcion": "Acompaña a organizaciones en transformación, mejora continua y adopción tecnológica.",
-    "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
+    "descripcion": {
+      "es": "Acompaña a organizaciones en transformación, mejora continua y adopción tecnológica.",
+      "en": "Accompany organizations in transformation, continuous improvement and technological adoption."
+    },
+    "fotoAlumno": "",
     "logoEmpresa": "",
     "linkedinUrl": "https://www.linkedin.com/",
     "codigoQR": "assets/images/exatecs/qrcode_linkedin_BrendaVelazquez.jpg"
@@ -30,10 +42,16 @@
     "carreraId": "civil",
     "nombre": "Andrea Salgado",
     "generacion": "Generación 2017",
-    "puestoActual": "Coordinadora de Proyectos Urbanos",
+    "puestoActual": {
+      "es": "Coordinadora de Proyectos Urbanos",
+      "en": "Urban Projects Coordinator"
+    },
     "empresa": "Urbis Infraestructura",
-    "descripcion": "Lidera proyectos de infraestructura resiliente y movilidad urbana.",
-    "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
+    "descripcion": {
+      "es": "Lidera proyectos de infraestructura resiliente y movilidad urbana.",
+      "en": "Leads resilient infrastructure and urban mobility projects."
+    },
+    "fotoAlumno": "",
     "logoEmpresa": "",
     "linkedinUrl": "https://www.linkedin.com/",
     "codigoQR": "assets/images/exatecs/qrcode_linkedin_BrendaVelazquez.jpg"
@@ -43,10 +61,16 @@
     "carreraId": "desarrollo-sustentable",
     "nombre": "Natalia Ponce",
     "generacion": "Generación 2019",
-    "puestoActual": "Especialista en Impacto Ambiental",
+    "puestoActual": {
+      "es": "Especialista en Impacto Ambiental",
+      "en": "Environmental Impact Specialist"
+    },
     "empresa": "Verde Circular",
-    "descripcion": "Diseña estrategias de sostenibilidad, economía circular y medición de impacto.",
-    "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
+    "descripcion": {
+      "es": "Diseña estrategias de sostenibilidad, economía circular y medición de impacto.",
+      "en": "Design sustainability, circular economy and impact measurement strategies."
+    },
+    "fotoAlumno": "",
     "logoEmpresa": "",
     "linkedinUrl": "https://www.linkedin.com/",
     "codigoQR": "assets/images/exatecs/qrcode_linkedin_BrendaVelazquez.jpg"
@@ -56,10 +80,16 @@
     "carreraId": "innovacion-desarrollo",
     "nombre": "Fernanda León",
     "generacion": "Generación 2021",
-    "puestoActual": "Innovation Lead",
+    "puestoActual": {
+      "es": "Innovation Lead",
+      "en": "Innovation Lead"
+    },
     "empresa": "Nexa Mobility Lab",
-    "descripcion": "Lidera validación de ideas, diseño de servicios y lanzamientos de producto.",
-    "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
+    "descripcion": {
+      "es": "Lidera validación de ideas, diseño de servicios y lanzamientos de producto.",
+      "en": "Leads idea validation, service design and product launches."
+    },
+    "fotoAlumno": "",
     "logoEmpresa": "",
     "linkedinUrl": "https://www.linkedin.com/",
     "codigoQR": "assets/images/exatecs/qrcode_linkedin_BrendaVelazquez.jpg"
@@ -69,10 +99,16 @@
     "carreraId": "computacionales",
     "nombre": "Lucía Méndez",
     "generacion": "Generación 2022",
-    "puestoActual": "Software Engineer",
+    "puestoActual": {
+      "es": "Software Engineer",
+      "en": "Software Engineer"
+    },
     "empresa": "Pacific Computing Institute",
-    "descripcion": "Construye plataformas de IA aplicada para educación, datos y colaboración.",
-    "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
+    "descripcion": {
+      "es": "Construye plataformas de IA aplicada para educación, datos y colaboración.",
+      "en": "Build applied AI platforms for education, data and collaboration."
+    },
+    "fotoAlumno": "",
     "logoEmpresa": "",
     "linkedinUrl": "https://www.linkedin.com/",
     "codigoQR": "assets/images/exatecs/qrcode_linkedin_BrendaVelazquez.jpg"
@@ -82,10 +118,16 @@
     "carreraId": "transformacion-digital",
     "nombre": "Mariana Solís",
     "generacion": "Generación 2020",
-    "puestoActual": "Digital Transformation Consultant",
+    "puestoActual": {
+      "es": "Digital Transformation Consultant",
+      "en": "Digital Transformation Consultant"
+    },
     "empresa": "Digital Business University",
-    "descripcion": "Diseña rutas de automatización, datos y experiencia para organizaciones de servicios.",
-    "fotoAlumno": "assets/images/exatecs/exatec-001.jpg",
+    "descripcion": {
+      "es": "Diseña rutas de automatización, datos y experiencia para organizaciones de servicios.",
+      "en": "Design automation, data and experience paths for service organizations."
+    },
+    "fotoAlumno": "",
     "logoEmpresa": "",
     "linkedinUrl": "https://www.linkedin.com/",
     "codigoQR": "assets/images/exatecs/qrcode_linkedin_BrendaVelazquez.jpg"
@@ -95,9 +137,15 @@
     "carreraId": "mecatronica",
     "nombre": "Ricardo Ampudia",
     "generacion": "Generación 2017",
-    "puestoActual": "Software Engineer",
+    "puestoActual": {
+      "es": "Software Engineer",
+      "en": "Software Engineer"
+    },
     "empresa": "CERN",
-    "descripcion": "",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
     "fotoAlumno": "assets/images/exatecs/RicardoAmpudia.jpg",
     "logoEmpresa": "assets/images/socios/CERN.jpg",
     "linkedinUrl": "https://www.linkedin.com/in/ricardo-ampudia-h/",
@@ -108,9 +156,15 @@
     "carreraId": "mecatronica",
     "nombre": "Ricardo Estévez Andrade",
     "generacion": "Generación 2017",
-    "puestoActual": "Electronics Engineer",
+    "puestoActual": {
+      "es": "Electronics Engineer",
+      "en": "Electronics Engineer"
+    },
     "empresa": "Red Bull Powertrains",
-    "descripcion": "",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
     "fotoAlumno": "assets/images/exatecs/RicardoEstevez.jpg",
     "logoEmpresa": "assets/images/socios/RedBullPowertrains.jpg",
     "linkedinUrl": "https://www.linkedin.com/in/ricardo-estevez/",
@@ -121,9 +175,15 @@
     "carreraId": "mecatronica",
     "nombre": "Brenda Velazquez",
     "generacion": "Generación 2017",
-    "puestoActual": "Technical Project Management",
+    "puestoActual": {
+      "es": "Technical Project Management",
+      "en": "Technical Project Management"
+    },
     "empresa": "Daimler Truck North America",
-    "descripcion": "",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
     "fotoAlumno": "assets/images/exatecs/BrendaVelazquez.jpg",
     "logoEmpresa": "assets/images/socios/daimler.jpg",
     "linkedinUrl": "https://www.linkedin.com/in/brenda-velazquez-9b451486/",
@@ -134,9 +194,15 @@
     "carreraId": "mecatronica",
     "nombre": "Gustavo Palacio",
     "generacion": "Generación 2017",
-    "puestoActual": "Project Manager",
+    "puestoActual": {
+      "es": "Project Manager",
+      "en": "Project Manager"
+    },
     "empresa": "Bosch",
-    "descripcion": "",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
     "fotoAlumno": "assets/images/exatecs/GustavoPalacio.jpg",
     "logoEmpresa": "assets/images/socios/bosch.jpg",
     "linkedinUrl": "https://www.linkedin.com/in/gustavopalacio/?locale=en",
@@ -147,9 +213,15 @@
     "carreraId": "mecatronica",
     "nombre": "Daniela Recio López",
     "generacion": "Generación 2020",
-    "puestoActual": "Sr Software Validation Engineer",
+    "puestoActual": {
+      "es": "Sr Software Validation Engineer",
+      "en": "Sr Software Validation Engineer"
+    },
     "empresa": "Tesla",
-    "descripcion": "",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
     "fotoAlumno": "assets/images/exatecs/DanielaRecio.jpg",
     "logoEmpresa": "assets/images/socios/tesla.jpg",
     "linkedinUrl": "https://www.linkedin.com/in/daniela-recio-l%C3%B3pez-884131128/",
@@ -160,9 +232,15 @@
     "carreraId": "mecatronica",
     "nombre": "Joaquín Amaya",
     "generacion": "6to Semestre",
-    "puestoActual": "Offer Administrator",
+    "puestoActual": {
+      "es": "Offer Administrator",
+      "en": "Offer Administrator"
+    },
     "empresa": "Schneider Electric",
-    "descripcion": "",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
     "fotoAlumno": "assets/images/exatecs/JoaquinAmaya.jpg",
     "logoEmpresa": "assets/images/socios/SchneiderElectric.jpg",
     "linkedinUrl": "https://www.linkedin.com/in/joaqu%C3%ADn-amaya/",
@@ -175,9 +253,15 @@
     "logoEmpresa": "",
     "nombre": "Perfil de empleabilidad de ejemplo",
     "generacion": "Generación de ejemplo",
-    "puestoActual": "Puesto de ejemplo",
+    "puestoActual": {
+      "es": "Puesto de ejemplo",
+      "en": "Example position"
+    },
     "empresa": "Empresa de ejemplo",
-    "descripcion": "Contenido de ejemplo — sustituir.",
+    "descripcion": {
+      "es": "Contenido de ejemplo — sustituir.",
+      "en": "Example content — replace."
+    },
     "linkedinUrl": ""
   },
   {
@@ -187,9 +271,15 @@
     "logoEmpresa": "",
     "nombre": "Perfil de empleabilidad de ejemplo",
     "generacion": "Generación de ejemplo",
-    "puestoActual": "Puesto de ejemplo",
+    "puestoActual": {
+      "es": "Puesto de ejemplo",
+      "en": "Example position"
+    },
     "empresa": "Empresa de ejemplo",
-    "descripcion": "Contenido de ejemplo — sustituir.",
+    "descripcion": {
+      "es": "Contenido de ejemplo — sustituir.",
+      "en": "Example content — replace."
+    },
     "linkedinUrl": ""
   }
 ]

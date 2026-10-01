@@ -1,0 +1,87 @@
+[
+  {
+    "id": "talento-academico",
+    "titulo": {
+      "es": "Beca al Talento Académico",
+      "en": "Academic Talent Scholarship"
+    },
+    "descripcion": {
+      "es": "Destacado desempeño académico durante los estudios de preparatoria.",
+      "en": "Outstanding academic performance during high school."
+    },
+    "orden": 1
+  },
+  {
+    "id": "talento-estudiantil",
+    "titulo": {
+      "es": "Beca al Talento Estudiantil",
+      "en": "Student Talent Scholarship"
+    },
+    "descripcion": {
+      "es": "Trayectoria artística, atlética o de liderazgo de alto rendimiento.",
+      "en": "A high-performance track record in the arts, athletics, or leadership."
+    },
+    "orden": 2
+  },
+  {
+    "id": "talento-emprendedor",
+    "titulo": {
+      "es": "Beca al Talento Emprendedor",
+      "en": "Entrepreneurial Talent Scholarship"
+    },
+    "descripcion": {
+      "es": "Perfil emprendedor con un proyecto que cuente al menos con un prototipo.",
+      "en": "An entrepreneurial profile with a project that includes at least a prototype."
+    },
+    "orden": 3
+  },
+  {
+    "id": "socioeconomica",
+    "titulo": {
+      "es": "Beca Socioeconómica",
+      "en": "Socioeconomic Scholarship"
+    },
+    "descripcion": {
+      "es": "Para estudiantes con el perfil para estudiar en el Tec que requieren apoyo económico.",
+      "en": "For students with the profile to study at Tec who require financial support."
+    },
+    "orden": 4
+  },
+  {
+    "id": "prestamo-educativo",
+    "titulo": {
+      "es": "Préstamo Educativo",
+      "en": "Educational Loan"
+    },
+    "descripcion": {
+      "es": "Apoyo que permite postergar una parte del pago de la colegiatura hasta después de concluir los estudios.",
+      "en": "Financial support that allows part of the tuition payment to be deferred until after graduation."
+    },
+    "orden": 5
+  },
+  {
+    "id": "lideres-del-manana",
+    "titulo": {
+      "es": "Líderes del Mañana",
+      "en": "Leaders of Tomorrow"
+    },
+    "descripcion": {
+      "es": "Para estudiantes brillantes con gran impacto social y una alta necesidad económica.",
+      "en": "For outstanding students with significant social impact and substantial financial need."
+    },
+    "orden": 6
+  },
+  {
+    "id": "mas-informacion",
+    "titulo": {
+      "es": "Más información de becas",
+      "en": "More Scholarship Information"
+    },
+    "descripcion": {
+      "es": "Oferta de becas del año pasado. Las becas actualizadas estarán disponibles en septiembre de 2026.",
+      "en": "Scholarship offerings from the previous year. Updated scholarships will be available in September 2026."
+    },
+    "orden": 7,
+    "codigoQR": "assets/images/becas/qrcode_tec.becas.jpg"
+  }
+]

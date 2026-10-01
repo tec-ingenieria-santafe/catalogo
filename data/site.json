@@ -1,9 +1,21 @@
 {
-  "tituloSitio": "Descubre tu futuro en Ingeniería",
-  "subtitulo": "Tecnológico de Monterrey · Campus Santa Fe",
-  "textoBienvenida": "Catálogo de Ingeniería Campus Santa Fe",
-  "descripcion": "Explora carreras, proyectos de estudiantes, socios formadores y experiencias internacionales que conectan la ingeniería con retos reales.",
-  "assetsVersion": "20260722-30",
+  "tituloSitio": {
+    "es": "Descubre tu futuro en Ingeniería",
+    "en": "Discover your future in Engineering"
+  },
+  "subtitulo": {
+    "es": "Tecnológico de Monterrey · Campus Santa Fe",
+    "en": "Tecnológico de Monterrey · Santa Fe Campus"
+  },
+  "textoBienvenida": {
+    "es": "Catálogo de Ingeniería Campus Santa Fe",
+    "en": "Santa Fe Campus Engineering Catalog"
+  },
+  "descripcion": {
+    "es": "Explora carreras, proyectos de estudiantes, socios formadores y experiencias internacionales que conectan la ingeniería con retos reales.",
+    "en": "Explore careers, student projects, industry partners and international experiences that connect engineering with real challenges."
+  },
+  "assetsVersion": "20260724-33",
   "logos": {
     "escuelaIngenieriaCiencias": "assets/logos/escuela-ingenieria-ciencias.png",
     "hechoEnSantaFe": "assets/logos/hecho-en-santa-fe.png"
@@ -12,24 +24,39 @@
     "src": "assets/images/hero/santafe-ranking-hero-2400.jpg",
     "srcset": "assets/images/hero/santafe-ranking-hero-1600.jpg 1600w, assets/images/hero/santafe-ranking-hero-2400.jpg 2400w",
     "original": "assets/images/hero/santafe-ranking-original.png",
-    "alt": "Campus Santa Fe con bandera de México y pantalla del ranking QS"
+    "alt": {
+      "es": "Campus Santa Fe con bandera de México y pantalla del ranking QS",
+      "en": "Santa Fe Campus with Mexican flag and QS ranking screen"
+    }
   },
   "footer": {
-    "texto": "",
+    "texto": {
+      "es": "",
+      "en": ""
+    },
     "institucion": "Tecnológico de Monterrey · Escuela de Ingeniería y Ciencias",
     "campus": "Campus Santa Fe"
   },
   "redesSociales": [
     {
-      "nombre": "Instagram",
+      "nombre": {
+        "es": "Instagram",
+        "en": "instagram"
+      },
       "url": "https://www.instagram.com/hechoensf/"
     },
     {
-      "nombre": "TikTok",
+      "nombre": {
+        "es": "TikTok",
+        "en": "TikTok"
+      },
       "url": "https://www.tiktok.com/@hechoensf"
     },
     {
-      "nombre": "Sitio Tec",
+      "nombre": {
+        "es": "Sitio Tec",
+        "en": "Tec Site"
+      },
       "url": "https://tec.mx/es/profesional/oferta-educativa#ingenieria-y-ciencias"
     }
   ]

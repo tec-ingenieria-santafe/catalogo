@@ -2,8 +2,14 @@
   {
     "id": "mecanica-proyecto-1",
     "carreraId": "mecanica",
-    "titulo": "Banco de pruebas para energía regenerativa",
-    "descripcion": "Prototipo para medir eficiencia de un sistema mecánico de recuperación de energía.",
+    "titulo": {
+      "es": "Banco de pruebas para energía regenerativa",
+      "en": "Testbed for regenerative energy"
+    },
+    "descripcion": {
+      "es": "Prototipo para medir eficiencia de un sistema mecánico de recuperación de energía.",
+      "en": "Prototype to measure efficiency of a mechanical energy recovery system."
+    },
     "año": 2026,
     "semestre": "4to semestre",
     "alumnos": [
@@ -13,18 +19,31 @@
     ],
     "thumbnail": "assets/images/proyectos/proyecto-001.jpg",
     "youtubeUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "tecnologias": [
-      "CAD",
-      "Sensores",
-      "Manufactura"
-    ],
+    "tecnologias": {
+      "es": [
+        "CAD",
+        "Sensores",
+        "Manufactura"
+      ],
+      "en": [
+        "CAD",
+        "Sensors",
+        "Manufacturing"
+      ]
+    },
     "socioFormador": "Nexa Mobility Lab"
   },
   {
     "id": "mecanica-proyecto-2",
     "carreraId": "mecanica",
-    "titulo": "Sistema modular de ventilación eficiente",
-    "descripcion": "Solución mecánica para optimizar flujo de aire en espacios académicos.",
+    "titulo": {
+      "es": "Sistema modular de ventilación eficiente",
+      "en": "Modular efficient ventilation system"
+    },
+    "descripcion": {
+      "es": "Solución mecánica para optimizar flujo de aire en espacios académicos.",
+      "en": "Mechanical solution to optimize air flow in academic spaces."
+    },
     "año": 2025,
     "semestre": "6to semestre",
     "alumnos": [
@@ -33,17 +52,30 @@
     ],
     "thumbnail": "assets/images/proyectos/proyecto-002.jpg",
     "youtubeUrl": "https://www.youtube.com/embed/ysz5S6PUM-U",
-    "tecnologias": [
-      "CFD",
-      "Prototipado",
-      "Energía"
-    ]
+    "tecnologias": {
+      "es": [
+        "CFD",
+        "Prototipado",
+        "Energía"
+      ],
+      "en": [
+        "CFDs",
+        "Prototyping",
+        "Energy"
+      ]
+    }
   },
   {
     "id": "mecatronica-proyecto-1",
     "carreraId": "mecatronica",
-    "titulo": "Braille Refreshable Tactile Display",
-    "descripcion": "Dispositivo táctil refrescable que convierte texto en patrones Braille para apoyar la lectura de personas con discapacidad visual.",
+    "titulo": {
+      "es": "Braille Refreshable Tactile Display",
+      "en": "Braille Refreshable Tactile Display"
+    },
+    "descripcion": {
+      "es": "Dispositivo táctil refrescable que convierte texto en patrones Braille para apoyar la lectura de personas con discapacidad visual.",
+      "en": "Refreshable touch device that converts text into Braille patterns to support reading for visually impaired people."
+    },
     "año": 2026,
     "semestre": "8vo semestre",
     "alumnos": [
@@ -53,19 +85,33 @@
     ],
     "thumbnail": "assets/images/proyectos/braille-refreshable-tactile-display.jpg",
     "youtubeUrl": "https://youtu.be/lyb2tAA7MD0",
-    "tecnologias": [
-      "Braille",
-      "Actuadores",
-      "Diseño de PCB",
-      "Interfaz táctil"
-    ],
+    "tecnologias": {
+      "es": [
+        "Braille",
+        "Actuadores",
+        "Diseño de PCB",
+        "Interfaz táctil"
+      ],
+      "en": [
+        "Braille",
+        "Actuators",
+        "PCB design",
+        "Touch interface"
+      ]
+    },
     "socioFormador": "FOAL - Fundación ONCE América Latina"
   },
   {
     "id": "mecatronica-proyecto-2",
     "carreraId": "mecatronica",
-    "titulo": "Máquina tuneladora",
-    "descripcion": "Prototipo a escala de una tuneladora que excava materiales de baja cohesión, con sistemas mecánicos, de extracción y control automatizado.",
+    "titulo": {
+      "es": "Máquina tuneladora",
+      "en": "tunnel boring machine"
+    },
+    "descripcion": {
+      "es": "Prototipo a escala de una tuneladora que excava materiales de baja cohesión, con sistemas mecánicos, de extracción y control automatizado.",
+      "en": "Scale prototype of a tunnel boring machine that excavates low cohesion materials, with mechanical, extraction and automated control systems."
+    },
     "año": 2026,
     "semestre": "8vo semestre",
     "alumnos": [
@@ -75,17 +121,30 @@
     ],
     "thumbnail": "assets/images/proyectos/proyecto-002.jpg",
     "youtubeUrl": "https://youtu.be/1djKXZ9n7IE",
-    "tecnologias": [
-      "Impresión 3D",
-      "Control lazo abierto",
-      "Sistemas mecánicos"
-    ]
+    "tecnologias": {
+      "es": [
+        "Impresión 3D",
+        "Control lazo abierto",
+        "Sistemas mecánicos"
+      ],
+      "en": [
+        "3D printing",
+        "Open loop control",
+        "mechanical systems"
+      ]
+    }
   },
   {
     "id": "industrial-proyecto-1",
     "carreraId": "industrial",
-    "titulo": "Modelo de optimización para rutas internas",
-    "descripcion": "Análisis de flujos y simulación para reducir tiempos de traslado entre laboratorios.",
+    "titulo": {
+      "es": "Modelo de optimización para rutas internas",
+      "en": "Optimization model for internal routes"
+    },
+    "descripcion": {
+      "es": "Análisis de flujos y simulación para reducir tiempos de traslado entre laboratorios.",
+      "en": "Flow analysis and simulation to reduce transfer times between laboratories."
+    },
     "año": 2026,
     "semestre": "4to semestre",
     "alumnos": [
@@ -94,18 +153,31 @@
     ],
     "thumbnail": "assets/images/proyectos/proyecto-001.jpg",
     "youtubeUrl": "https://www.youtube.com/embed/ysz5S6PUM-U",
-    "tecnologias": [
-      "Simulación",
-      "Python",
-      "Lean"
-    ],
+    "tecnologias": {
+      "es": [
+        "Simulación",
+        "Python",
+        "Lean"
+      ],
+      "en": [
+        "Simulation",
+        "Python",
+        "Lean"
+      ]
+    },
     "socioFormador": "Horizonte Industrial"
   },
   {
     "id": "industrial-proyecto-2",
     "carreraId": "industrial",
-    "titulo": "Simulación de fila inteligente para servicios",
-    "descripcion": "Modelo de eventos discretos para balancear atención, capacidad y experiencia de usuarios.",
+    "titulo": {
+      "es": "Simulación de fila inteligente para servicios",
+      "en": "Intelligent queue simulation for services"
+    },
+    "descripcion": {
+      "es": "Modelo de eventos discretos para balancear atención, capacidad y experiencia de usuarios.",
+      "en": "Discrete event model to balance attention, capacity and user experience."
+    },
     "año": 2025,
     "semestre": "6to semestre",
     "alumnos": [
@@ -114,17 +186,30 @@
     ],
     "thumbnail": "assets/images/proyectos/proyecto-002.jpg",
     "youtubeUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "tecnologias": [
-      "Simulación",
-      "Datos",
-      "Experiencia"
-    ]
+    "tecnologias": {
+      "es": [
+        "Simulación",
+        "Datos",
+        "Experiencia"
+      ],
+      "en": [
+        "Simulation",
+        "Data",
+        "Experience"
+      ]
+    }
   },
   {
     "id": "civil-proyecto-1",
     "carreraId": "civil",
-    "titulo": "Microinfraestructura para captación pluvial",
-    "descripcion": "Diseño de intervención urbana para recolección, filtrado y uso de agua en campus.",
+    "titulo": {
+      "es": "Microinfraestructura para captación pluvial",
+      "en": "Microinfrastructure for rainwater collection"
+    },
+    "descripcion": {
+      "es": "Diseño de intervención urbana para recolección, filtrado y uso de agua en campus.",
+      "en": "Urban intervention design for collection, filtering and use of water on campus."
+    },
     "año": 2026,
     "semestre": "5to semestre",
     "alumnos": [
@@ -133,17 +218,30 @@
     ],
     "thumbnail": "assets/images/proyectos/proyecto-001.jpg",
     "youtubeUrl": "https://www.youtube.com/embed/ScMzIvxBSi4",
-    "tecnologias": [
-      "Hidráulica",
-      "BIM",
-      "Sostenibilidad"
-    ]
+    "tecnologias": {
+      "es": [
+        "Hidráulica",
+        "BIM",
+        "Sostenibilidad"
+      ],
+      "en": [
+        "Hydraulics",
+        "BIM",
+        "Sustainability"
+      ]
+    }
   },
   {
     "id": "civil-proyecto-2",
     "carreraId": "civil",
-    "titulo": "Modelo estructural para espacios flexibles",
-    "descripcion": "Propuesta de estructura ligera para habilitar aulas temporales y zonas de trabajo colaborativo.",
+    "titulo": {
+      "es": "Modelo estructural para espacios flexibles",
+      "en": "Structural model for flexible spaces"
+    },
+    "descripcion": {
+      "es": "Propuesta de estructura ligera para habilitar aulas temporales y zonas de trabajo colaborativo.",
+      "en": "Proposal for a light structure to enable temporary classrooms and collaborative work areas."
+    },
     "año": 2025,
     "semestre": "7mo semestre",
     "alumnos": [
@@ -152,17 +250,30 @@
     ],
     "thumbnail": "assets/images/proyectos/proyecto-002.jpg",
     "youtubeUrl": "https://www.youtube.com/embed/ysz5S6PUM-U",
-    "tecnologias": [
-      "Estructuras",
-      "BIM",
-      "Materiales"
-    ]
+    "tecnologias": {
+      "es": [
+        "Estructuras",
+        "BIM",
+        "Materiales"
+      ],
+      "en": [
+        "Structures",
+        "BIM",
+        "Materials"
+      ]
+    }
   },
   {
     "id": "desarrollo-sustentable-proyecto-1",
     "carreraId": "desarrollo-sustentable",
-    "titulo": "Diagnóstico de economía circular en campus",
-    "descripcion": "Mapeo de residuos, hábitos y oportunidades para rediseñar ciclos de materiales.",
+    "titulo": {
+      "es": "Diagnóstico de economía circular en campus",
+      "en": "Diagnosis of circular economy on campus"
+    },
+    "descripcion": {
+      "es": "Mapeo de residuos, hábitos y oportunidades para rediseñar ciclos de materiales.",
+      "en": "Mapping waste, habits and opportunities to redesign material cycles."
+    },
     "año": 2026,
     "semestre": "4to semestre",
     "alumnos": [
@@ -171,17 +282,30 @@
     ],
     "thumbnail": "assets/images/proyectos/proyecto-001.jpg",
     "youtubeUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "tecnologias": [
-      "LCA",
-      "Datos",
-      "Circularidad"
-    ]
+    "tecnologias": {
+      "es": [
+        "LCA",
+        "Datos",
+        "Circularidad"
+      ],
+      "en": [
+        "LCA",
+        "Data",
+        "Circularity"
+      ]
+    }
   },
   {
     "id": "desarrollo-sustentable-proyecto-2",
     "carreraId": "desarrollo-sustentable",
-    "titulo": "Mapa de energía limpia para edificios",
-    "descripcion": "Evaluación de consumo, horarios y oportunidades para integrar sistemas renovables.",
+    "titulo": {
+      "es": "Mapa de energía limpia para edificios",
+      "en": "Clean energy map for buildings"
+    },
+    "descripcion": {
+      "es": "Evaluación de consumo, horarios y oportunidades para integrar sistemas renovables.",
+      "en": "Evaluation of consumption, schedules and opportunities to integrate renewable systems."
+    },
     "año": 2025,
     "semestre": "6to semestre",
     "alumnos": [
@@ -190,17 +314,30 @@
     ],
     "thumbnail": "assets/images/proyectos/proyecto-002.jpg",
     "youtubeUrl": "https://www.youtube.com/embed/ScMzIvxBSi4",
-    "tecnologias": [
-      "Energía",
-      "Sostenibilidad",
-      "Visualización"
-    ]
+    "tecnologias": {
+      "es": [
+        "Energía",
+        "Sostenibilidad",
+        "Visualización"
+      ],
+      "en": [
+        "Energy",
+        "Sustainability",
+        "Display"
+      ]
+    }
   },
   {
     "id": "innovacion-desarrollo-proyecto-1",
     "carreraId": "innovacion-desarrollo",
-    "titulo": "Producto mínimo viable para bienestar estudiantil",
-    "descripcion": "Validación de una solución digital-física con entrevistas, prototipo y prueba piloto.",
+    "titulo": {
+      "es": "Producto mínimo viable para bienestar estudiantil",
+      "en": "Minimum Viable Product for Student Wellbeing"
+    },
+    "descripcion": {
+      "es": "Validación de una solución digital-física con entrevistas, prototipo y prueba piloto.",
+      "en": "Validation of a digital-physical solution with interviews, prototype and pilot test."
+    },
     "año": 2026,
     "semestre": "4to semestre",
     "alumnos": [
@@ -209,17 +346,30 @@
     ],
     "thumbnail": "assets/images/proyectos/proyecto-001.jpg",
     "youtubeUrl": "https://www.youtube.com/embed/ysz5S6PUM-U",
-    "tecnologias": [
-      "Design Thinking",
-      "UX",
-      "Prototipado"
-    ]
+    "tecnologias": {
+      "es": [
+        "Design Thinking",
+        "UX",
+        "Prototipado"
+      ],
+      "en": [
+        "Design Thinking",
+        "UX",
+        "Prototyping"
+      ]
+    }
   },
   {
     "id": "innovacion-desarrollo-proyecto-2",
     "carreraId": "innovacion-desarrollo",
-    "titulo": "Kit de validación rápida para productos",
-    "descripcion": "Herramienta para priorizar hipótesis, diseñar pruebas y documentar aprendizaje con usuarios.",
+    "titulo": {
+      "es": "Kit de validación rápida para productos",
+      "en": "Rapid Product Validation Kit"
+    },
+    "descripcion": {
+      "es": "Herramienta para priorizar hipótesis, diseñar pruebas y documentar aprendizaje con usuarios.",
+      "en": "Tool to prioritize hypotheses, design tests and document learning with users."
+    },
     "año": 2025,
     "semestre": "5to semestre",
     "alumnos": [
@@ -228,17 +378,30 @@
     ],
     "thumbnail": "assets/images/proyectos/proyecto-002.jpg",
     "youtubeUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "tecnologias": [
-      "Producto",
-      "Investigación",
-      "Prototipado"
-    ]
+    "tecnologias": {
+      "es": [
+        "Producto",
+        "Investigación",
+        "Prototipado"
+      ],
+      "en": [
+        "Product",
+        "Investigation",
+        "Prototyping"
+      ]
+    }
   },
   {
     "id": "computacionales-proyecto-1",
     "carreraId": "computacionales",
-    "titulo": "Panel de IA para análisis de proyectos",
-    "descripcion": "Aplicación web que clasifica evidencias de proyectos estudiantiles y genera resúmenes.",
+    "titulo": {
+      "es": "Panel de IA para análisis de proyectos",
+      "en": "AI dashboard for project analysis"
+    },
+    "descripcion": {
+      "es": "Aplicación web que clasifica evidencias de proyectos estudiantiles y genera resúmenes.",
+      "en": "Web application that classifies evidence from student projects and generates summaries."
+    },
     "año": 2026,
     "semestre": "4to semestre",
     "alumnos": [
@@ -247,17 +410,30 @@
     ],
     "thumbnail": "assets/images/proyectos/proyecto-001.jpg",
     "youtubeUrl": "https://www.youtube.com/embed/ScMzIvxBSi4",
-    "tecnologias": [
-      "React",
-      "IA",
-      "APIs"
-    ]
+    "tecnologias": {
+      "es": [
+        "React",
+        "IA",
+        "APIs"
+      ],
+      "en": [
+        "react",
+        "AI",
+        "APIs"
+      ]
+    }
   },
   {
     "id": "computacionales-proyecto-2",
     "carreraId": "computacionales",
-    "titulo": "Monitor de ciberseguridad para laboratorios",
-    "descripcion": "Sistema de alertas y visualización para registrar eventos de red en un entorno académico.",
+    "titulo": {
+      "es": "Monitor de ciberseguridad para laboratorios",
+      "en": "Cybersecurity monitor for laboratories"
+    },
+    "descripcion": {
+      "es": "Sistema de alertas y visualización para registrar eventos de red en un entorno académico.",
+      "en": "Alert and visualization system to record network events in an academic environment."
+    },
     "año": 2025,
     "semestre": "7mo semestre",
     "alumnos": [
@@ -266,17 +442,30 @@
     ],
     "thumbnail": "assets/images/proyectos/proyecto-002.jpg",
     "youtubeUrl": "https://www.youtube.com/embed/ysz5S6PUM-U",
-    "tecnologias": [
-      "Ciberseguridad",
-      "Node",
-      "Dashboards"
-    ]
+    "tecnologias": {
+      "es": [
+        "Ciberseguridad",
+        "Node",
+        "Dashboards"
+      ],
+      "en": [
+        "Cybersecurity",
+        "node",
+        "Dashboards"
+      ]
+    }
   },
   {
     "id": "transformacion-digital-proyecto-1",
     "carreraId": "transformacion-digital",
-    "titulo": "Dashboard para experiencia de servicios",
-    "descripcion": "Modelo de indicadores para visualizar procesos, satisfacción y oportunidades de automatización.",
+    "titulo": {
+      "es": "Dashboard para experiencia de servicios",
+      "en": "Dashboard for service experience"
+    },
+    "descripcion": {
+      "es": "Modelo de indicadores para visualizar procesos, satisfacción y oportunidades de automatización.",
+      "en": "Indicator model to visualize processes, satisfaction and automation opportunities."
+    },
     "año": 2026,
     "semestre": "4to semestre",
     "alumnos": [
@@ -285,17 +474,30 @@
     ],
     "thumbnail": "assets/images/proyectos/proyecto-001.jpg",
     "youtubeUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "tecnologias": [
-      "BI",
-      "Automatización",
-      "Procesos"
-    ]
+    "tecnologias": {
+      "es": [
+        "BI",
+        "Automatización",
+        "Procesos"
+      ],
+      "en": [
+        "BI",
+        "Automation",
+        "Processes"
+      ]
+    }
   },
   {
     "id": "transformacion-digital-proyecto-2",
     "carreraId": "transformacion-digital",
-    "titulo": "Automatización de onboarding estudiantil",
-    "descripcion": "Flujo digital para mapear tareas, reducir fricción y medir desempeño de servicios.",
+    "titulo": {
+      "es": "Automatización de onboarding estudiantil",
+      "en": "Student onboarding automation"
+    },
+    "descripcion": {
+      "es": "Flujo digital para mapear tareas, reducir fricción y medir desempeño de servicios.",
+      "en": "Digital flow to map tasks, reduce friction and measure service performance."
+    },
     "año": 2025,
     "semestre": "6to semestre",
     "alumnos": [
@@ -304,43 +506,72 @@
     ],
     "thumbnail": "assets/images/proyectos/proyecto-002.jpg",
     "youtubeUrl": "https://www.youtube.com/embed/ScMzIvxBSi4",
-    "tecnologias": [
-      "Automatización",
-      "CRM",
-      "Datos"
-    ]
+    "tecnologias": {
+      "es": [
+        "Automatización",
+        "CRM",
+        "Datos"
+      ],
+      "en": [
+        "Automation",
+        "CRM",
+        "Data"
+      ]
+    }
   },
   {
     "id": "financial-engineering-proyecto-1",
     "carreraId": "financial-engineering",
-    "titulo": "Proyecto de ejemplo — sustituir contenido",
-    "descripcion": "Contenido de ejemplo — sustituir. Proyecto temporal para documentar una solución de ingeniería financiera.",
+    "titulo": {
+      "es": "Proyecto de ejemplo — sustituir contenido",
+      "en": "Example project — replace content"
+    },
+    "descripcion": {
+      "es": "Contenido de ejemplo — sustituir. Proyecto temporal para documentar una solución de ingeniería financiera.",
+      "en": "Example content — replace. Temporary project to document a financial engineering solution."
+    },
     "semestre": "4to semestre",
     "alumnos": [
       "Alumno de ejemplo"
     ],
     "thumbnail": "",
     "youtubeUrl": "",
-    "tecnologias": [
-      "Contenido temporal"
-    ],
+    "tecnologias": {
+      "es": [
+        "Contenido temporal"
+      ],
+      "en": [
+        "Temporary content"
+      ]
+    },
     "socioFormador": "",
     "año": 2026
   },
   {
     "id": "ai-data-science-proyecto-1",
     "carreraId": "ai-data-science",
-    "titulo": "Proyecto de ejemplo — sustituir contenido",
-    "descripcion": "Contenido de ejemplo — sustituir. Proyecto temporal para documentar una solución de inteligencia artificial y datos.",
+    "titulo": {
+      "es": "Proyecto de ejemplo — sustituir contenido",
+      "en": "Example project — replace content"
+    },
+    "descripcion": {
+      "es": "Contenido de ejemplo — sustituir. Proyecto temporal para documentar una solución de inteligencia artificial y datos.",
+      "en": "Example content — replace. Temporary project to document an artificial intelligence and data solution."
+    },
     "semestre": "4to semestre",
     "alumnos": [
       "Alumno de ejemplo"
     ],
     "thumbnail": "",
     "youtubeUrl": "",
-    "tecnologias": [
-      "Contenido temporal"
-    ],
+    "tecnologias": {
+      "es": [
+        "Contenido temporal"
+      ],
+      "en": [
+        "Temporary content"
+      ]
+    },
     "socioFormador": "",
     "año": 2026
   }

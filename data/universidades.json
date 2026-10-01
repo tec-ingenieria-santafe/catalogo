@@ -6,15 +6,28 @@
     "pais": "Alemania",
     "ciudad": "Múnich",
     "alumno": "María González López",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "Intercambio con enfoque en laboratorios aplicados, manufactura avanzada y sostenibilidad.",
-    "areasRelacionadas": [
-      "Diseño mecánico",
-      "Investigación aplicada",
-      "Manufactura"
-    ],
-    "imagen": "assets/images/universidades/universidad-001.jpg"
+    "descripcion": {
+      "es": "Intercambio con enfoque en laboratorios aplicados, manufactura avanzada y sostenibilidad.",
+      "en": "Exchange with a focus on applied laboratories, advanced manufacturing and sustainability."
+    },
+    "areasRelacionadas": {
+      "es": [
+        "Diseño mecánico",
+        "Investigación aplicada",
+        "Manufactura"
+      ],
+      "en": [
+        "Mechanical design",
+        "Applied research",
+        "Manufacturing"
+      ]
+    },
+    "imagen": ""
   },
   {
     "id": "universite-horizon-industrial",
@@ -23,15 +36,28 @@
     "pais": "Francia",
     "ciudad": "Lyon",
     "alumno": "Sofía Herrera Martínez",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2024,
-    "descripcion": "Ruta internacional para analítica, innovación operativa y sistemas de servicio.",
-    "areasRelacionadas": [
-      "Optimización",
-      "Analítica",
-      "Operaciones"
-    ],
-    "imagen": "assets/images/universidades/universidad-001.jpg"
+    "descripcion": {
+      "es": "Ruta internacional para analítica, innovación operativa y sistemas de servicio.",
+      "en": "International route for analytics, operational innovation and service systems."
+    },
+    "areasRelacionadas": {
+      "es": [
+        "Optimización",
+        "Analítica",
+        "Operaciones"
+      ],
+      "en": [
+        "Optimization",
+        "Analytics",
+        "Operations"
+      ]
+    },
+    "imagen": ""
   },
   {
     "id": "urban-tech-civil",
@@ -40,15 +66,28 @@
     "pais": "Países Bajos",
     "ciudad": "Delft",
     "alumno": "Daniela Salgado Ruiz",
-    "tipoExperiencia": "Doble grado",
+    "tipoExperiencia": {
+      "es": "Doble grado",
+      "en": "Double degree"
+    },
     "año": 2025,
-    "descripcion": "Especialidad en infraestructura urbana, agua, movilidad y resiliencia.",
-    "areasRelacionadas": [
-      "Estructuras",
-      "Agua",
-      "Movilidad"
-    ],
-    "imagen": "assets/images/universidades/universidad-001.jpg"
+    "descripcion": {
+      "es": "Especialidad en infraestructura urbana, agua, movilidad y resiliencia.",
+      "en": "Specialty in urban infrastructure, water, mobility and resilience."
+    },
+    "areasRelacionadas": {
+      "es": [
+        "Estructuras",
+        "Agua",
+        "Movilidad"
+      ],
+      "en": [
+        "Structures",
+        "Water",
+        "Mobility"
+      ]
+    },
+    "imagen": ""
   },
   {
     "id": "green-futures-sustentable",
@@ -57,15 +96,28 @@
     "pais": "Dinamarca",
     "ciudad": "Copenhague",
     "alumno": "Natalia Ponce Rivera",
-    "tipoExperiencia": "Invierno",
+    "tipoExperiencia": {
+      "es": "Invierno",
+      "en": "Winter"
+    },
     "año": 2025,
-    "descripcion": "Experiencia de intercambio enfocada en energía limpia y ciudades sostenibles.",
-    "areasRelacionadas": [
-      "Energía limpia",
-      "Circularidad",
-      "Impacto ambiental"
-    ],
-    "imagen": "assets/images/universidades/universidad-001.jpg"
+    "descripcion": {
+      "es": "Experiencia de intercambio enfocada en energía limpia y ciudades sostenibles.",
+      "en": "Exchange experience focused on clean energy and sustainable cities."
+    },
+    "areasRelacionadas": {
+      "es": [
+        "Energía limpia",
+        "Circularidad",
+        "Impacto ambiental"
+      ],
+      "en": [
+        "clean energy",
+        "Circularity",
+        "Environmental impact"
+      ]
+    },
+    "imagen": ""
   },
   {
     "id": "product-school-innovacion",
@@ -74,15 +126,28 @@
     "pais": "España",
     "ciudad": "Barcelona",
     "alumno": "Fernanda León Vargas",
-    "tipoExperiencia": "Semana Tec",
+    "tipoExperiencia": {
+      "es": "Semana Tec",
+      "en": "Tech Week"
+    },
     "año": 2026,
-    "descripcion": "Cursos de innovación, diseño estratégico y lanzamiento de productos.",
-    "areasRelacionadas": [
-      "Producto",
-      "Emprendimiento",
-      "Diseño estratégico"
-    ],
-    "imagen": "assets/images/universidades/universidad-001.jpg"
+    "descripcion": {
+      "es": "Cursos de innovación, diseño estratégico y lanzamiento de productos.",
+      "en": "Innovation, strategic design and product launch courses."
+    },
+    "areasRelacionadas": {
+      "es": [
+        "Producto",
+        "Emprendimiento",
+        "Diseño estratégico"
+      ],
+      "en": [
+        "Product",
+        "Entrepreneurship",
+        "Strategic design"
+      ]
+    },
+    "imagen": ""
   },
   {
     "id": "pacific-computing",
@@ -91,15 +156,28 @@
     "pais": "Estados Unidos",
     "ciudad": "Seattle",
     "alumno": "Lucía Méndez Torres",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2024,
-    "descripcion": "Cursos de software, IA aplicada y arquitectura de plataformas.",
-    "areasRelacionadas": [
-      "Software",
-      "IA",
-      "Ciberseguridad"
-    ],
-    "imagen": "assets/images/universidades/universidad-001.jpg"
+    "descripcion": {
+      "es": "Cursos de software, IA aplicada y arquitectura de plataformas.",
+      "en": "Software courses, applied AI and platform architecture."
+    },
+    "areasRelacionadas": {
+      "es": [
+        "Software",
+        "IA",
+        "Ciberseguridad"
+      ],
+      "en": [
+        "Software",
+        "AI",
+        "Cybersecurity"
+      ]
+    },
+    "imagen": ""
   },
   {
     "id": "digital-business-transformacion",
@@ -108,15 +186,28 @@
     "pais": "Singapur",
     "ciudad": "Singapur",
     "alumno": "Mariana Solís Navarro",
-    "tipoExperiencia": "Doble titulación",
+    "tipoExperiencia": {
+      "es": "Doble titulación",
+      "en": "Double degree"
+    },
     "año": 2026,
-    "descripcion": "Ruta para estudiar negocios digitales, datos y automatización de procesos.",
-    "areasRelacionadas": [
-      "Negocio digital",
-      "Datos",
-      "Automatización"
-    ],
-    "imagen": "assets/images/universidades/universidad-001.jpg"
+    "descripcion": {
+      "es": "Ruta para estudiar negocios digitales, datos y automatización de procesos.",
+      "en": "Route to study digital business, data and process automation."
+    },
+    "areasRelacionadas": {
+      "es": [
+        "Negocio digital",
+        "Datos",
+        "Automatización"
+      ],
+      "en": [
+        "Digital business",
+        "Data",
+        "Automation"
+      ]
+    },
+    "imagen": ""
   },
   {
     "id": "mecatronica-universidad-1",
@@ -125,13 +216,25 @@
     "pais": "Japón",
     "ciudad": "Tokyo",
     "alumno": "Paola Nieto Garza",
-    "tipoExperiencia": "Semana Tec",
+    "tipoExperiencia": {
+      "es": "Semana Tec",
+      "en": "Tech Week"
+    },
     "año": 2026,
-    "descripcion": "Vinculación con la industria japonesa. Conocimiento de procesos de manufactura avanzada y la inmersión cultural en uno de los países líderes en innovación tecnológica.",
-    "areasRelacionadas": [
-      "Manufactura inteligente",
-      "Automatización industrial"
-    ],
+    "descripcion": {
+      "es": "Vinculación con la industria japonesa. Conocimiento de procesos de manufactura avanzada y la inmersión cultural en uno de los países líderes en innovación tecnológica.",
+      "en": "Link with Japanese industry. Knowledge of advanced manufacturing processes and cultural immersion in one of the leading countries in technological innovation."
+    },
+    "areasRelacionadas": {
+      "es": [
+        "Manufactura inteligente",
+        "Automatización industrial"
+      ],
+      "en": [
+        "Smart manufacturing",
+        "Industrial automation"
+      ]
+    },
     "imagen": "assets/images/universidades/mitsubishi2026.jpg"
   },
   {
@@ -141,10 +244,19 @@
     "pais": "Australia",
     "ciudad": "Melbourne",
     "alumno": "Jaime Dayán Askenazi",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/swinburne-university-of-technology.webp"
   },
   {
@@ -154,10 +266,19 @@
     "pais": "Austria",
     "ciudad": "Innsbruck",
     "alumno": "Regina Del Río Madero",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/mci-management-center-innsbruck.webp"
   },
   {
@@ -167,10 +288,19 @@
     "pais": "España",
     "ciudad": "Madrid",
     "alumno": "Mauricio Zonenszain G",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/universidad-antonio-de-nebrija.webp"
   },
   {
@@ -180,10 +310,19 @@
     "pais": "Australia",
     "ciudad": "Sídney",
     "alumno": "David Saade R",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/university-of-technology-sydney.webp"
   },
   {
@@ -193,10 +332,19 @@
     "pais": "Australia",
     "ciudad": "Melbourne",
     "alumno": "Juan Ignacio Rodríguez S",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/rmit-university.webp"
   },
   {
@@ -206,10 +354,19 @@
     "pais": "España",
     "ciudad": "Ciudad Real",
     "alumno": "Mauricio Huerta Carrillo",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/universidad-de-castilla-la-mancha.webp"
   },
   {
@@ -219,10 +376,19 @@
     "pais": "Alemania",
     "ciudad": "Würzburg",
     "alumno": "Diego Martín del Campo H",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/TechnischeHochschuleWürzburg-Schweinfurt.webp"
   },
   {
@@ -232,10 +398,19 @@
     "pais": "España",
     "ciudad": "Madrid",
     "alumno": "Alejandro Nestel Roizen",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/universidad-antonio-de-nebrija.webp"
   },
   {
@@ -245,10 +420,19 @@
     "pais": "Alemania",
     "ciudad": "Würzburg",
     "alumno": "Héctor Santiago Tregoning D",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/TechnischeHochschuleWürzburg-Schweinfurt.webp"
   },
   {
@@ -258,10 +442,19 @@
     "pais": "España",
     "ciudad": "Madrid",
     "alumno": "Moisés Mustri O",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/universidad-rey-juan-carlos.webp"
   },
   {
@@ -271,10 +464,19 @@
     "pais": "Australia",
     "ciudad": "Melbourne",
     "alumno": "Amir Shporen T",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/university-of-melbourne.webp"
   },
   {
@@ -284,10 +486,19 @@
     "pais": "Alemania",
     "ciudad": "Karlsruhe",
     "alumno": "Juan Pablo Meraz Q",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/hochschule-karlsruhe.webp"
   },
   {
@@ -297,10 +508,19 @@
     "pais": "Austria",
     "ciudad": "Graz",
     "alumno": "Santiago Velasco T",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/TechnischeUniversitätGraz.webp"
   },
   {
@@ -310,10 +530,19 @@
     "pais": "Alemania",
     "ciudad": "Karlsruhe",
     "alumno": "Danae Arrocena M",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/hochschule-karlsruhe.webp"
   },
   {
@@ -323,10 +552,19 @@
     "pais": "España",
     "ciudad": "Barcelona",
     "alumno": "José Alejandro Che M",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/ESEI.webp"
   },
   {
@@ -336,10 +574,19 @@
     "pais": "Australia",
     "ciudad": "Hobart",
     "alumno": "Emiliano Balseira M",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/university-of-tasmania.webp"
   },
   {
@@ -349,10 +596,19 @@
     "pais": "España",
     "ciudad": "Barcelona",
     "alumno": "Andrés Rebollar D",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/ESEI.webp"
   },
   {
@@ -362,10 +618,19 @@
     "pais": "Italia",
     "ciudad": "Florencia",
     "alumno": "Santiago Rivera Muñoz de Cote",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/IstitutoLorenzoMedici.webp"
   },
   {
@@ -375,10 +640,19 @@
     "pais": "España",
     "ciudad": "Barcelona",
     "alumno": "Álvaro Leonel López D",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/ESEI.webp"
   },
   {
@@ -388,10 +662,19 @@
     "pais": "España",
     "ciudad": "Madrid",
     "alumno": "Daniel Ceballos M",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/universidad-rey-juan-carlos.webp"
   },
   {
@@ -401,10 +684,19 @@
     "pais": "España",
     "ciudad": "Barcelona",
     "alumno": "Jaime Nicolás Espinosa de los Monteros G",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/ESEI.webp"
   },
   {
@@ -414,10 +706,19 @@
     "pais": "Italia",
     "ciudad": "Milán",
     "alumno": "Gregorio Pantoja G",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": ""
   },
   {
@@ -427,10 +728,19 @@
     "pais": "Italia",
     "ciudad": "Florencia",
     "alumno": "Adair Cecilio Rendón M",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/IstitutoLorenzoMedici.webp"
   },
   {
@@ -440,10 +750,19 @@
     "pais": "Alemania",
     "ciudad": "Colonia",
     "alumno": "Manuel Pablo Vázquez Angeles",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/TechnischeHochschuleKöln.webp"
   },
   {
@@ -453,10 +772,19 @@
     "pais": "Alemania",
     "ciudad": "Würzburg",
     "alumno": "Roberto Castillo Perez",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/TechnischeHochschuleWürzburg-Schweinfurt.webp"
   },
   {
@@ -466,10 +794,19 @@
     "pais": "Reino Unido",
     "ciudad": "Colchester",
     "alumno": "María Magdalena Núñez Castro",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/university-of-essex.webp"
   },
   {
@@ -479,10 +816,19 @@
     "pais": "Alemania",
     "ciudad": "Zittau / Görlitz",
     "alumno": "Ángel Alejandro Norzagaray H",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/HochschuleZittauGörlitz.webp"
   },
   {
@@ -492,10 +838,19 @@
     "pais": "Australia",
     "ciudad": "Sídney",
     "alumno": "Diego Arizmendi Sánchez",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/university-of-sydney.webp"
   },
   {
@@ -505,11 +860,20 @@
     "pais": "Dinamarca",
     "ciudad": "Aalborg",
     "alumno": "Julia Carmona García",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
-    "imagen": "assets/images/universidades/AalborgUniversitet.webp"
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
+    "imagen": "assets/images/universidades/Dinamarca_Julia.jpeg"
   },
   {
     "id": "mecatronica-universidad-31",
@@ -518,10 +882,19 @@
     "pais": "Australia",
     "ciudad": "Melbourne",
     "alumno": "José Manuel Alvarez Aranzabal",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/rmit-university.webp"
   },
   {
@@ -531,10 +904,19 @@
     "pais": "Australia",
     "ciudad": "Melbourne",
     "alumno": "Santiago Cantero Ishikawa",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/rmit-university.webp"
   },
   {
@@ -544,10 +926,19 @@
     "pais": "Irlanda",
     "ciudad": "Dublín",
     "alumno": "José Manuel Hernández Garduño",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/Dublin_garduño.jpeg"
   },
   {
@@ -557,10 +948,19 @@
     "pais": "Australia",
     "ciudad": "Melbourne",
     "alumno": "Sergio Zardoni Sánchez",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/university-of-melbourne.webp"
   },
   {
@@ -570,10 +970,19 @@
     "pais": "Australia",
     "ciudad": "Melbourne",
     "alumno": "Javier Pandal Casillas",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/university-of-melbourne.webp"
   },
   {
@@ -583,10 +992,19 @@
     "pais": "Suecia",
     "ciudad": "Växjö",
     "alumno": "Bruno Alejandro Cruz Arias",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/linnaeus-university.webp"
   },
   {
@@ -596,10 +1014,19 @@
     "pais": "Australia",
     "ciudad": "Melbourne",
     "alumno": "David Calderón Hamui",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/university-of-melbourne.webp"
   },
   {
@@ -609,10 +1036,19 @@
     "pais": "Australia",
     "ciudad": "Melbourne",
     "alumno": "Jonathan Shimon Khalifa",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/rmit-university.webp"
   },
   {
@@ -622,10 +1058,19 @@
     "pais": "España",
     "ciudad": "Madrid",
     "alumno": "Jorge Carlos Negrete Tellería",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/UniversidadPolitécnicaMadrid.webp"
   },
   {
@@ -635,10 +1080,19 @@
     "pais": "Australia",
     "ciudad": "Melbourne",
     "alumno": "Victoria Herrera Frías",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/rmit-university.webp"
   },
   {
@@ -648,10 +1102,19 @@
     "pais": "Australia",
     "ciudad": "Melbourne",
     "alumno": "Leonardo González Paredes",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/rmit-university.webp"
   },
   {
@@ -661,10 +1124,19 @@
     "pais": "Francia",
     "ciudad": "París",
     "alumno": "Sofía Rivera Muñoz de Cote",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "General Management",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "General Management",
+      "en": "General Management"
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/IPAG-ÉcoleSupérieureCommerce.webp"
   },
   {
@@ -674,10 +1146,19 @@
     "pais": "Reino Unido",
     "ciudad": "Southampton",
     "alumno": "Lola Freitas",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/university-of-southampton.webp"
   },
   {
@@ -687,10 +1168,19 @@
     "pais": "Australia",
     "ciudad": "Sídney",
     "alumno": "Emilio Martínez Buentello",
-    "tipoExperiencia": "Semana Tec",
+    "tipoExperiencia": {
+      "es": "Semana Tec",
+      "en": "Tech Week"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/university-of-technology-sydney.webp"
   },
   {
@@ -700,10 +1190,19 @@
     "pais": "Alemania",
     "ciudad": "Pforzheim",
     "alumno": "Carmen María Milke Díaz",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/HochschuleAngewandteWissenschaftenPforzheim.webp"
   },
   {
@@ -713,10 +1212,19 @@
     "pais": "España",
     "ciudad": "Madrid",
     "alumno": "Valentina Inostrosa Nieto",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/UniversidadCEUSanPablo.webp"
   },
   {
@@ -726,10 +1234,19 @@
     "pais": "Australia",
     "ciudad": "Sídney",
     "alumno": "Alexis Sebastián Díaz de la Vega Licona",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/university-of-sydney.webp"
   },
   {
@@ -739,10 +1256,19 @@
     "pais": "Irlanda",
     "ciudad": "Dublín",
     "alumno": "Andrea Tovar Ibarra",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/Dublin_andrea.jpeg"
   },
   {
@@ -752,10 +1278,19 @@
     "pais": "Australia",
     "ciudad": "Melbourne",
     "alumno": "Andrea Sofía Benítez Moreno",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/rmit-university.webp"
   },
   {
@@ -765,10 +1300,19 @@
     "pais": "Australia",
     "ciudad": "Melbourne",
     "alumno": "Héctor Sebastián Cervantes Osorio",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/monash-university.webp"
   },
   {
@@ -778,10 +1322,19 @@
     "pais": "Australia",
     "ciudad": "Melbourne",
     "alumno": "Miguel Ángel Galán P",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/monash-university.webp"
   },
   {
@@ -791,10 +1344,19 @@
     "pais": "Francia",
     "ciudad": "París",
     "alumno": "Patricio Ochoa M,",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/IPAG-ÉcoleSupérieureCommerce.webp"
   },
   {
@@ -804,10 +1366,19 @@
     "pais": "Francia",
     "ciudad": "París",
     "alumno": "Jesús Armando López O",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/IPAG-ÉcoleSupérieureCommerce.webp"
   },
   {
@@ -817,10 +1388,19 @@
     "pais": "Francia",
     "ciudad": "París",
     "alumno": "Daniel Godín Salazar",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/IPAG-ÉcoleSupérieureCommerce.webp"
   },
   {
@@ -830,10 +1410,19 @@
     "pais": "Alemania",
     "ciudad": "Wolfenbüttel",
     "alumno": "Adolfo Sánchez García Ramos",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/ostfalia-hochschule.webp"
   },
   {
@@ -843,10 +1432,19 @@
     "pais": "Australia",
     "ciudad": "Sídney",
     "alumno": "Javier Diego Álvarez Holden",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/university-of-sydney.webp"
   },
   {
@@ -856,10 +1454,19 @@
     "pais": "Australia",
     "ciudad": "Hobart",
     "alumno": "Natalia De la Torre Maya",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/university-of-tasmania.webp"
   },
   {
@@ -869,10 +1476,19 @@
     "pais": "Australia",
     "ciudad": "Melbourne",
     "alumno": "Javier Garza Suárez",
-    "tipoExperiencia": "Semana Tec",
+    "tipoExperiencia": {
+      "es": "Semana Tec",
+      "en": "Tech Week"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/rmit-university.webp"
   },
   {
@@ -882,10 +1498,19 @@
     "pais": "Alemania",
     "ciudad": "Pforzheim",
     "alumno": "Emilio Parra García",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/HochschuleAngewandteWissenschaftenPforzheim.webp"
   },
   {
@@ -895,10 +1520,19 @@
     "pais": "Italia",
     "ciudad": "Milán",
     "alumno": "Tomás Javier Frey Olcay",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/universita-cattolica-del-sacro-cuore.webp"
   },
   {
@@ -908,10 +1542,19 @@
     "pais": "España",
     "ciudad": "Madrid",
     "alumno": "Fernando Liceaga Gutiérrez",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/universidad-carlos-iii-de-madrid.webp"
   },
   {
@@ -921,10 +1564,19 @@
     "pais": "Portugal",
     "ciudad": "Oporto",
     "alumno": "Gerardo Raúl Vega Vázquez",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/universidade-do-porto.webp"
   },
   {
@@ -934,10 +1586,19 @@
     "pais": "Italia",
     "ciudad": "Milán",
     "alumno": "Sofía Cano Ugalde",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/universita-cattolica-del-sacro-cuore.webp"
   },
   {
@@ -947,10 +1608,19 @@
     "pais": "Australia",
     "ciudad": "Melbourne",
     "alumno": "Ricardo García Johnson",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/monash-university.webp"
   },
   {
@@ -960,10 +1630,19 @@
     "pais": "Italia",
     "ciudad": "Milán",
     "alumno": "Bosco Cué Galguera",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/universita-cattolica-del-sacro-cuore.webp"
   },
   {
@@ -973,10 +1652,19 @@
     "pais": "Italia",
     "ciudad": "Milán",
     "alumno": "Rodrigo González Delfín",
-    "tipoExperiencia": "Semestre Tec",
+    "tipoExperiencia": {
+      "es": "Semestre Tec",
+      "en": "Tec Semester"
+    },
     "año": 2025,
-    "descripcion": "",
-    "areasRelacionadas": [],
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "areasRelacionadas": {
+      "es": [],
+      "en": []
+    },
     "imagen": "assets/images/universidades/universita-cattolica-del-sacro-cuore.webp"
   },
   {
@@ -986,11 +1674,22 @@
     "pais": "México",
     "ciudad": "Ciudad de ejemplo",
     "alumno": "Alumno de ejemplo",
-    "tipoExperiencia": "Contenido temporal",
-    "descripcion": "Contenido de ejemplo — sustituir.",
-    "areasRelacionadas": [
-      "Contenido temporal"
-    ],
+    "tipoExperiencia": {
+      "es": "Contenido temporal",
+      "en": "Temporary content"
+    },
+    "descripcion": {
+      "es": "Contenido de ejemplo — sustituir.",
+      "en": "Example content — replace."
+    },
+    "areasRelacionadas": {
+      "es": [
+        "Contenido temporal"
+      ],
+      "en": [
+        "Temporary content"
+      ]
+    },
     "imagen": "",
     "año": 2026
   },
@@ -1001,11 +1700,22 @@
     "pais": "México",
     "ciudad": "Ciudad de ejemplo",
     "alumno": "Alumno de ejemplo",
-    "tipoExperiencia": "Contenido temporal",
-    "descripcion": "Contenido de ejemplo — sustituir.",
-    "areasRelacionadas": [
-      "Contenido temporal"
-    ],
+    "tipoExperiencia": {
+      "es": "Contenido temporal",
+      "en": "Temporary content"
+    },
+    "descripcion": {
+      "es": "Contenido de ejemplo — sustituir.",
+      "en": "Example content — replace."
+    },
+    "areasRelacionadas": {
+      "es": [
+        "Contenido temporal"
+      ],
+      "en": [
+        "Temporary content"
+      ]
+    },
     "imagen": "",
     "año": 2026
   }

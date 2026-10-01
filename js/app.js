@@ -1,5 +1,13 @@
 const app = document.querySelector("#app");
 const siteFooter = document.querySelector("#site-footer");
+const catalogI18n = window.CatalogI18n;
+let currentLanguage = catalogI18n?.getStoredLanguage() || "es";
+
+const localizedText = (value, language = currentLanguage) => catalogI18n?.text(value, language) ?? String(value ?? "");
+const localizedList = (value, language = currentLanguage) => catalogI18n?.list(value, language) ?? (Array.isArray(value) ? value : []);
+const t = (key, variables = {}, language = currentLanguage) => catalogI18n?.message(key, language, variables) ?? key;
+const localizedCategory = (group, value) => catalogI18n?.category(group, value, currentLanguage) ?? String(value ?? "");
+const localizedCountry = (value) => catalogI18n?.country(value, currentLanguage) ?? String(value ?? "");
 
 const dataFiles = {
   site: "data/site.json",
@@ -9,38 +17,70 @@ const dataFiles = {
   universidades: "data/universidades.json",
   exatecs: "data/exatecs.json",
   catalyst: "data/catalyst.json",
+  quantum: "data/quantum.json",
   vivencia: "data/vivencia.json",
+  becas: "data/becas.json",
 };
 
 const sectionMeta = {
+  proyectos: {},
+  socios: {},
+  universidades: {},
+  exatecs: {},
+  "santa-fe": {},
+  vivencia: {},
+  becas: {},
+};
+
+const sectionMessageKeys = {
+  proyectos: "studentProjects",
+  socios: "industryPartners",
+  universidades: "internationalExperiences",
+  exatecs: "careerOutcomes",
+  "santa-fe": "whyStudySantaFe",
+  vivencia: "studentLife",
+  becas: "scholarships",
+};
+
+const sectionDescriptions = {
   proyectos: {
-    title: "Proyectos de estudiantes",
-    short: "Galería de prototipos, soluciones y retos desarrollados por estudiantes.",
+    es: "Galería de prototipos, soluciones y retos desarrollados por estudiantes.",
+    en: "A gallery of prototypes, solutions, and challenges developed by students.",
   },
   socios: {
-    title: "Socios formadores",
-    short: "Empresas e instituciones que colaboran con retos, mentoría y experiencias.",
+    es: "Empresas e instituciones que colaboran con retos, mentoría y experiencias.",
+    en: "Companies and institutions that collaborate through challenges, mentoring, and experiences.",
   },
   universidades: {
-    title: "Experiencias en el extranjero",
-    short: "Experiencias internacionales en universidades, ciudades y países alrededor del mundo.",
+    es: "Experiencias internacionales en universidades, ciudades y países alrededor del mundo.",
+    en: "International experiences at universities, cities, and countries around the world.",
   },
   exatecs: {
-    title: "Empleabilidad",
-    short: "Conoce perfiles de estudiantes y EXATECs, sus prácticas y trayectorias profesionales vinculadas a la carrera.",
+    es: "Conoce perfiles de estudiantes y EXATECs, sus prácticas y trayectorias profesionales vinculadas a la carrera.",
+    en: "Meet students and alumni and learn about their internships and professional paths related to the program.",
   },
   "santa-fe": {
-    title: "¿Por qué estudiar esta carrera en Santa Fe?",
-    short: "Laboratorios, ubicación, CATALYST, comunidad y ventajas específicas del campus.",
+    es: "Laboratorios, ubicación, CATALYST, comunidad y ventajas específicas del campus.",
+    en: "Laboratories, location, CATALYST, community, and campus-specific advantages.",
   },
   vivencia: {
-    title: "Vivencia",
-    short: "Descubre grupos estudiantiles, escuderías, actividades y experiencias que complementan tu formación dentro y fuera de clases.",
+    es: "Descubre grupos estudiantiles, escuderías, actividades y experiencias que complementan tu formación dentro y fuera de clases.",
+    en: "Discover student organizations, racing teams, activities, and experiences that complement your education inside and outside the classroom.",
   },
+  becas: { es: "", en: "" },
 };
+
+function localizedSectionMeta(slug) {
+  return {
+    slug,
+    title: t(sectionMessageKeys[slug] || slug),
+    short: localizedText(sectionDescriptions[slug] || sectionMeta[slug]?.short),
+  };
+}
 
 const catalogLayout = {
   catalystId: "catalyst",
+  quantumId: "quantum",
   groups: [
     {
       id: "computacion",
@@ -63,30 +103,32 @@ const catalogLayout = {
 
 const breadcrumbLabels = {
   careers: {
-    "financial-engineering": "Financial Engineering",
-    "ai-data-science": "AI & Data Science",
-    computacionales: "Tecnologías Computacionales",
-    mecanica: "Mecánica",
-    mecatronica: "Mecatrónica",
-    industrial: "Industrial y Sistemas",
-    civil: "Civil",
-    "desarrollo-sustentable": "Desarrollo Sustentable",
-    "innovacion-desarrollo": "Innovación y Desarrollo",
-    "transformacion-digital": "Transformación Digital",
+    "financial-engineering": { es: "Financial Engineering", en: "Financial Engineering" },
+    "ai-data-science": { es: "AI & Data Science", en: "AI & Data Science" },
+    computacionales: { es: "Tecnologías Computacionales", en: "Computer Technologies" },
+    mecanica: { es: "Mecánica", en: "Mechanical Engineering" },
+    mecatronica: { es: "Mecatrónica", en: "Mechatronics" },
+    industrial: { es: "Industrial y Sistemas", en: "Industrial Engineering" },
+    civil: { es: "Civil", en: "Civil Engineering" },
+    "desarrollo-sustentable": { es: "Desarrollo Sustentable", en: "Sustainable Development" },
+    "innovacion-desarrollo": { es: "Innovación y Desarrollo", en: "Innovation and Development" },
+    "transformacion-digital": { es: "Transformación Digital", en: "Digital Transformation" },
     catalyst: "CATALYST",
+    quantum: "QUANTUM",
   },
   sections: {
-    proyectos: "Proyectos",
-    socios: "Socios",
-    universidades: "Experiencias",
-    exatecs: "Empleabilidad",
-    "santa-fe": "¿Por qué Santa Fe?",
-    vivencia: "Vivencia",
+    proyectos: { es: "Proyectos", en: "Projects" },
+    socios: { es: "Socios", en: "Partners" },
+    universidades: { es: "Experiencias", en: "Experiences" },
+    exatecs: { es: "Empleabilidad", en: "Career Outcomes" },
+    "santa-fe": { es: "¿Por qué Santa Fe?", en: "Why Santa Fe?" },
+    vivencia: { es: "Vivencia", en: "Student Life" },
+    becas: { es: "Becas", en: "Scholarships" },
   },
-  catalyst: {
-    comunidad: "Comunidad",
-    actividades: "Actividades opcionales",
-    testimonios: "Testimonios",
+  specialProgram: {
+    comunidad: { es: "Comunidad", en: "Community" },
+    actividades: { es: "Actividades opcionales", en: "Optional Activities" },
+    testimonios: { es: "Testimonios", en: "Testimonials" },
   },
 };
 
@@ -113,13 +155,53 @@ function escapeAttr(value) {
 }
 
 function fullName(career) {
-  if (career?.tipo === "catalyst") return career.nombre;
-  if (!career?.subtitulo) return career?.nombre ?? "";
-  return `${career.nombre} (${career.subtitulo})`;
+  if (career?.tipo !== "career") return localizedText(career?.nombre);
+  const name = localizedText(career?.nombre);
+  const subtitle = currentLanguage === "en" && career?.subtitulo && typeof career.subtitulo === "object"
+    ? String(career.subtitulo.en || "").trim()
+    : localizedText(career?.subtitulo);
+  const completeName = !subtitle || normalizedText(subtitle) === normalizedText(name) ? name : `${name} (${subtitle})`;
+  return withLanguageAvailability(completeName, career);
 }
 
 function careerShortName(career) {
-  return String(career?.nombreCorto || career?.nombre || "").replace(/\s*\([^)]*\)\s*/g, "").trim();
+  const name = localizedText(career?.nombreCorto || career?.nombre).replace(/\s*\([^)]*\)\s*/g, "").trim();
+  return withLanguageAvailability(name, career);
+}
+
+function withLanguageAvailability(name, career) {
+  if (currentLanguage !== "en" || !career?.onlyInSpanish || !name) return name;
+  return `${name} (${t("onlyInSpanish")})`;
+}
+
+function careerAcronymLines(career, language = currentLanguage) {
+  const source = career?.acronimo;
+  const localized = source && typeof source === "object" && !Array.isArray(source)
+    ? source[language] ?? source.es
+    : source;
+  const values = Array.isArray(localized)
+    ? localized
+    : String(localized ?? "").split(/\s+-\s+/);
+  return values.map((value) => String(value).trim()).filter(Boolean);
+}
+
+function careerAcronym(career, language = currentLanguage) {
+  return careerAcronymLines(career, language).join(" - ");
+}
+
+function careerAcronymSizeClass(lines) {
+  if (lines.length > 1) return "career-acronym-watermark--stacked";
+  const length = lines[0]?.replace(/\s/g, "").length || 0;
+  if (length <= 2) return "acronym--short";
+  if (length === 3) return "acronym--medium";
+  return "acronym--long";
+}
+
+function scholarshipPercentage(value) {
+  if (value === undefined || value === null || String(value).trim() === "") return "X";
+  const number = Number(value);
+  if (!Number.isFinite(number) || number < 0 || number > 100) return "X";
+  return Number.isInteger(number) ? String(number) : String(Number(number.toFixed(2)));
 }
 
 function otherCatalogCareers() {
@@ -135,31 +217,31 @@ function programsByIds(ids) {
 }
 
 function careerBreadcrumbLabel(career) {
-  return breadcrumbLabels.careers[career?.id] || careerShortName(career);
+  return localizedText(breadcrumbLabels.careers[career?.id]) || careerShortName(career);
 }
 
 function careerBreadcrumbItems(career, sectionSlug = "") {
-  const items = [{ label: "Catálogo", href: "#inicio" }];
+  const items = [{ label: t("catalog"), href: "#inicio" }];
   if (career?.catalogGroup === "otras") {
-    items.push({ label: "Otras", href: "#otras" });
+    items.push({ label: t("otherPrograms"), href: "#otras" });
   }
   items.push({
     label: careerBreadcrumbLabel(career),
     href: sectionSlug ? `#programa/${career.id}` : "",
   });
   if (sectionSlug) {
-    items.push({ label: breadcrumbLabels.sections[sectionSlug] || sectionMeta[sectionSlug]?.title || sectionSlug });
+    items.push({ label: localizedText(breadcrumbLabels.sections[sectionSlug]) || localizedText(sectionMeta[sectionSlug]?.title) || sectionSlug });
   }
   return items;
 }
 
-function catalystBreadcrumbItems(category = "") {
+function specialProgramBreadcrumbItems(program, category = "") {
   const items = [
-    { label: "Catálogo", href: "#inicio" },
-    { label: "CATALYST", href: category ? "#programa/catalyst" : "" },
+    { label: t("catalog"), href: "#inicio" },
+    { label: localizedText(program.nombre), href: category ? `#programa/${program.id}` : "" },
   ];
   if (category) {
-    items.push({ label: breadcrumbLabels.catalyst[category] || sectionLabelForCatalyst(category) });
+    items.push({ label: localizedText(breadcrumbLabels.specialProgram[category]) || sectionLabelForSpecialProgram(category, program) });
   }
   return items;
 }
@@ -169,7 +251,7 @@ function renderBreadcrumb(items, options = {}) {
   if (!validItems.length) return "";
   const style = options.neutral ? ' style="--breadcrumb-accent: #465568"' : "";
   return `
-    <nav class="page-breadcrumb" aria-label="Ruta de navegación"${style}>
+    <nav class="page-breadcrumb" aria-label="${escapeAttr(currentLanguage === "en" ? "Breadcrumb" : "Ruta de navegación")}"${style}>
       <ol>
         ${validItems
           .map((item, index) => {
@@ -214,7 +296,7 @@ function sectionImageKey(slug) {
 function sectionImageFor(career, slug) {
   const key = sectionImageKey(slug);
   if (slug === "vivencia") {
-    return career.sectionImages?.vivencia || "assets/images/vivencia/bootcamps.jpg";
+    return career.sectionImages?.vivencia || "assets/images/vivencia/bootcamp_women.jpg";
   }
   return career.sectionImages?.[key] || career.sectionImages?.[slug] || career.coverImage || career.imagenCover || career.imagen;
 }
@@ -232,10 +314,12 @@ function validMediaPath(path) {
 
 function hasContent(value) {
   if (Array.isArray(value)) return value.some((item) => hasContent(item));
+  if (value && typeof value === "object") return hasContent(localizedText(value)) || Object.values(value).some((item) => hasContent(item));
   return value !== undefined && value !== null && String(value).trim() !== "";
 }
 
 function renderFormattedDescription(value) {
+  value = localizedText(value);
   if (!hasContent(value)) return "";
 
   const lines = String(value).replace(/\r\n?/g, "\n").split("\n");
@@ -768,18 +852,28 @@ function semesterOptionSort(a, b) {
   return semesterRank(a) - semesterRank(b);
 }
 
+function localizedSemester(value) {
+  const text = String(value ?? "");
+  return currentLanguage === "en" ? text.replace(/^Semestre\b/i, "Semester") : text;
+}
+
+function localizedGeneration(value) {
+  const text = String(value ?? "");
+  return currentLanguage === "en" ? text.replace(/^Generaci[oó]n\b/i, "Class Year") : text;
+}
+
 function renderListingControls({ filters = [], resultLabel = "registros", singularLabel = "registro", defaultSort = "recent" }) {
   return `
     <div class="listing-tools" data-result-label="${escapeAttr(resultLabel)}" data-result-singular="${escapeAttr(singularLabel)}">
       <div class="listing-controls">
         ${filters.map(renderFilterSelect).join("")}
         <label class="listing-label">
-          Ordenar por
+          ${escapeHTML(t("sortBy"))}
           <select class="listing-select" data-sort-control>
-            ${defaultSort === "recommended" ? `<option value="recommended">Orden recomendado</option>` : ""}
-            <option value="recent">Más recientes</option>
-            <option value="oldest">Más antiguos</option>
-            <option value="alpha">Alfabético (A-Z)</option>
+            ${defaultSort === "recommended" ? `<option value="recommended">${escapeHTML(t("recommendedOrder"))}</option>` : ""}
+            <option value="recent">${escapeHTML(t("newest"))}</option>
+            <option value="oldest">${escapeHTML(t("oldest"))}</option>
+            <option value="alpha">${escapeHTML(t("alphabetical"))}</option>
           </select>
         </label>
       </div>
@@ -793,8 +887,12 @@ function renderFilterSelect(filter) {
     <label class="listing-label">
       ${escapeHTML(filter.label)}
       <select class="listing-select" data-filter="${escapeAttr(filter.id)}">
-        <option value="__all__">Todos</option>
-        ${filter.options.map((option) => `<option value="${escapeAttr(option)}">${escapeHTML(option)}</option>`).join("")}
+        <option value="__all__">${escapeHTML(t("all"))}</option>
+        ${filter.options.map((option) => {
+          const value = typeof option === "object" ? option.value : option;
+          const label = typeof option === "object" ? option.label : option;
+          return `<option value="${escapeAttr(value)}">${escapeHTML(label)}</option>`;
+        }).join("")}
       </select>
     </label>
   `;
@@ -834,9 +932,7 @@ function applyListingControls(region) {
   if (!counter) return;
   const labelSource = region.querySelector("[data-result-label]");
   const label = visibleCount === 1 ? labelSource?.dataset.resultSingular ?? "registro" : labelSource?.dataset.resultLabel ?? "registros";
-  counter.textContent = visibleCount
-    ? `Mostrando ${visibleCount} ${label}`
-    : "No hay registros que coincidan con los filtros seleccionados.";
+  counter.textContent = visibleCount ? t("showingResults", { count: visibleCount, label }) : t("noMatches");
 }
 
 function compareFilterableCards(a, b, sortMode) {
@@ -937,8 +1033,8 @@ function renderLoading() {
     <section class="catalog-section">
       <div class="section-heading">
         <div>
-          <h2>Cargando catálogo</h2>
-          <p>Preparando carreras, proyectos y datos editables.</p>
+          <h2>${escapeHTML(t("loadingTitle"))}</h2>
+          <p>${escapeHTML(t("loadingCopy"))}</p>
         </div>
       </div>
     </section>
@@ -950,8 +1046,8 @@ function renderLoadError(error) {
     <section class="catalog-section">
       <div class="section-heading">
         <div>
-          <h2>No se pudieron cargar los datos</h2>
-          <p>Los archivos JSON viven en <strong>data</strong>. Para leerlos, abre el sitio desde un servidor local en vez de abrir el HTML como archivo local.</p>
+          <h2>${escapeHTML(t("loadErrorTitle"))}</h2>
+          <p>${escapeHTML(t("loadErrorCopy"))}</p>
           <p class="error-text">${escapeHTML(error.message)}</p>
         </div>
       </div>
@@ -962,17 +1058,17 @@ function renderLoadError(error) {
 function renderFooter() {
   if (!siteFooter || !siteData?.site) return;
   const { footer, redesSociales } = siteData.site;
-  const footerText = hasContent(footer.texto) ? `<p>${escapeHTML(footer.texto)}</p>` : "";
-  const institutionLine = [footer.institucion, footer.campus].filter(hasContent).join(" · ");
+  const footerText = hasContent(footer.texto) ? `<p>${escapeHTML(localizedText(footer.texto))}</p>` : "";
+  const institutionLine = [localizedText(footer.institucion), localizedText(footer.campus)].filter(hasContent).join(" · ");
   siteFooter.innerHTML = `
     <div class="footer-inner">
       <div>
         ${footerText}
         <small>${escapeHTML(institutionLine)}</small>
       </div>
-      <nav class="footer-links" aria-label="Redes sociales">
+      <nav class="footer-links" aria-label="${escapeAttr(t("socialNetworks"))}">
         ${redesSociales
-          .map((link) => `<a href="${escapeAttr(link.url)}" target="_blank" rel="noreferrer">${escapeHTML(link.nombre)}</a>`)
+          .map((link) => `<a href="${escapeAttr(link.url)}" target="_blank" rel="noreferrer">${escapeHTML(localizedText(link.nombre))}</a>`)
           .join("")}
       </nav>
     </div>
@@ -982,6 +1078,7 @@ function renderFooter() {
 function renderHome() {
   const site = siteData.site;
   const catalyst = programById(catalogLayout.catalystId);
+  const quantum = programById(catalogLayout.quantumId);
   const heroImage = site.heroImage ?? {};
   app.innerHTML = `
     <section class="hero">
@@ -989,19 +1086,20 @@ function renderHome() {
         class="hero-image"
         src="${escapeAttr(heroImage.src || "assets/images/hero/santafe-ranking-hero-2400.jpg")}"
         ${heroImage.srcset ? `srcset="${escapeAttr(heroImage.srcset)}" sizes="100vw"` : ""}
-        alt="${escapeAttr(heroImage.alt || "")}"
+        alt="${escapeAttr(localizedText(heroImage.alt))}"
       />
       <div class="hero-content">
-        <p class="eyebrow">${escapeHTML(site.subtitulo)}</p>
-        <p class="welcome-line">${escapeHTML(site.textoBienvenida)}</p>
-        <h1>${escapeHTML(site.tituloSitio)}</h1>
-        <p class="hero-copy">${escapeHTML(site.descripcion)}</p>
+        <p class="eyebrow">${escapeHTML(localizedText(site.subtitulo))}</p>
+        <p class="welcome-line">${escapeHTML(localizedText(site.textoBienvenida))}</p>
+        <h1>${escapeHTML(localizedText(site.tituloSitio))}</h1>
+        <p class="hero-copy">${escapeHTML(localizedText(site.descripcion))}</p>
         <div class="hero-actions">
-          <a class="button secondary" href="#catalogo">Ver carreras</a>
-          <a class="button" href="#programa/catalyst">Explorar CATALYST</a>
+          <a class="button secondary" href="#catalogo">${escapeHTML(t("viewPrograms"))}</a>
+          <a class="button" href="#programa/catalyst">${escapeHTML(t("exploreCatalyst"))}</a>
+          <a class="button" href="#programa/quantum">${escapeHTML(t("exploreQuantum"))}</a>
         </div>
       </div>
-      <div class="hero-logo-stack" aria-label="Identidades del catálogo">
+      <div class="hero-logo-stack" aria-label="${escapeAttr(t("catalogIdentities"))}">
         <img class="hero-logo project-logo" src="${escapeAttr(site.logos.hechoEnSantaFe)}" alt="Hecho en Santa Fe" />
         <img class="hero-logo institutional-logo" src="${escapeAttr(site.logos.escuelaIngenieriaCiencias)}" alt="Escuela de Ingeniería y Ciencias" />
       </div>
@@ -1018,6 +1116,7 @@ function renderHome() {
               ),
             )
             .join("")}
+          ${quantum ? renderProgramCard(quantum) : ""}
         </div>
         <div class="catalog-other-entry">
           ${renderOtherProgramsEntry()}
@@ -1028,39 +1127,47 @@ function renderHome() {
 }
 
 function renderProgramCard(program, options = {}) {
-  const isCatalyst = program.tipo === "catalyst";
-  const actionText = isCatalyst ? "Explorar CATALYST" : "Explorar carrera";
-  const entryLabel = options.entryLabel || "";
+  const isSpecialProgram = ["catalyst", "quantum"].includes(program.tipo);
+  const actionText = program.tipo === "catalyst" ? t("exploreCatalyst") : program.tipo === "quantum" ? t("exploreQuantum") : t("exploreCareer");
+  const entryLabel = options.entryLabel ? t(options.entryId === "computacion" ? "computingEntry" : "engineeringEntry") : "";
   const entryId = ["computacion", "ingenieria"].includes(options.entryId) ? options.entryId : "";
   const showSantaFe = options.showSantaFe !== false;
+  const highlights = localizedList(program.highlights);
+  const acronymLines = isSpecialProgram ? [] : careerAcronymLines(program);
+  const acronymClass = careerAcronymSizeClass(acronymLines);
   const catalystRequirements =
-    isCatalyst && Array.isArray(program.requisitos) && program.requisitos.length
+    program.tipo === "catalyst" && localizedList(program.requisitos).length
       ? `<div class="card-requirements">
-          <strong>Requisitos</strong>
+          <strong>${escapeHTML(t("requirements"))}</strong>
           <ul>
-            ${program.requisitos.map((requirement) => `<li>${escapeHTML(requirement)}</li>`).join("")}
+            ${localizedList(program.requisitos).map((requirement) => `<li>${escapeHTML(requirement)}</li>`).join("")}
           </ul>
         </div>`
       : "";
-  const body = isCatalyst
-    ? `<div><strong>¿Qué es?</strong>${escapeHTML(program.queEs)}</div>${catalystRequirements}`
-    : `<div><strong>¿Es para ti?</strong>${escapeHTML(program.esParaTi)}</div>
-       ${showSantaFe ? `<div><strong>¿Por qué Santa Fe?</strong>${escapeHTML(program.porQueSantaFe)}</div>` : ""}`;
+  const body = isSpecialProgram
+    ? `<div><strong>${escapeHTML(t("whatIs"))}</strong>${escapeHTML(localizedText(program.queEs))}</div>${catalystRequirements}`
+    : `<div><strong>${escapeHTML(t("isForYou"))}</strong>${escapeHTML(localizedText(program.esParaTi))}</div>
+       ${showSantaFe ? `<div><strong>${escapeHTML(t("whySantaFe"))}</strong>${escapeHTML(localizedText(program.porQueSantaFe))}</div>` : ""}`;
 
   return `
     <a
-      class="program-card program-card-link${isCatalyst ? " program-card--catalyst" : ""}${entryLabel ? " program-card--entry" : ""}${entryId ? ` program-card--entry-${entryId}` : ""}"
+      class="program-card program-card-link${isSpecialProgram ? ` program-card--special program-card--${program.tipo}` : ""}${entryLabel ? " program-card--entry" : ""}${entryId ? ` program-card--entry-${entryId}` : ""}"
       href="#programa/${program.id}"
       aria-label="${escapeAttr(actionText)}: ${escapeAttr(fullName(program))}"
       style="${styleVars(program)}">
       ${
         entryLabel
-          ? `<div class="program-card-topline"><span class="entry-badge">${escapeHTML(entryLabel)}</span></div>`
+          ? `<div class="career-entry-lockup">
+              <div class="career-acronym-watermark ${acronymClass}" aria-hidden="true">
+                ${acronymLines.map((line) => `<span>${escapeHTML(line)}</span>`).join("")}
+              </div>
+              <span class="entry-badge career-entry-badge">${escapeHTML(entryLabel)}</span>
+            </div>`
           : ""
       }
       <h3>${escapeHTML(fullName(program))}</h3>
       <div class="tag-row">
-        ${program.highlights.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}
+        ${highlights.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}
       </div>
       <div class="card-copy">${body}</div>
       <div class="card-footer">
@@ -1073,9 +1180,9 @@ function renderProgramCard(program, options = {}) {
 function renderOtherProgramsEntry() {
   if (!otherCatalogCareers().length) return "";
   return `
-    <a class="other-program-entry" href="#otras" aria-label="Ver otras carreras">
-      <strong>Otras</strong>
-      <span class="card-nav-hint">Ver otras carreras <span aria-hidden="true">→</span></span>
+    <a class="other-program-entry" href="#otras" aria-label="${escapeAttr(t("viewOtherPrograms"))}">
+      <strong>${escapeHTML(t("otherPrograms"))}</strong>
+      <span class="card-nav-hint">${escapeHTML(t("viewOtherPrograms"))} <span aria-hidden="true">→</span></span>
     </a>
   `;
 }
@@ -1085,18 +1192,18 @@ function renderOtherProgramsPage() {
   app.innerHTML = `
     ${renderBreadcrumb(
       [
-        { label: "Catálogo", href: "#inicio" },
-        { label: "Otras" },
+        { label: t("catalog"), href: "#inicio" },
+        { label: t("otherPrograms") },
       ],
       { neutral: true },
     )}
     <section class="catalog-section other-programs-page">
       <div class="section-heading catalog-heading">
         <div>
-          <p class="eyebrow">Catálogo secundario</p>
-          <h1>Otras</h1>
+          <p class="eyebrow">${escapeHTML(t("secondaryCatalog"))}</p>
+          <h1>${escapeHTML(t("otherPrograms"))}</h1>
         </div>
-        <a class="button secondary" href="#catalogo">Volver al catálogo principal</a>
+        <a class="button secondary" href="#catalogo">${escapeHTML(t("backMainCatalog"))}</a>
       </div>
       <div class="program-grid other-career-grid">
         ${careers
@@ -1116,15 +1223,15 @@ function renderOtherProgramsPage() {
 
 function renderCareerHub(career) {
   const availableSections = career.seccionesDisponibles
-    .map((slug) => ({ slug, ...sectionMeta[slug] }))
+    .map((slug) => localizedSectionMeta(slug))
     .filter((section) => section.title);
 
   app.innerHTML = `
     <div class="theme-scope" style="${styleVars(career)}">
       ${renderDetailHero(
         career,
-        "INGENIERÍA - SANTA FE",
-        "Explora proyectos, aliados, movilidad internacional, empleabilidad y ventajas del campus.",
+        t("careerHubEyebrow"),
+        t("careerHubCopy"),
         "",
         { breadcrumbItems: careerBreadcrumbItems(career) },
       )}
@@ -1139,12 +1246,28 @@ function renderCareerHub(career) {
 
 function renderSectionLink(career, section) {
   const href = section.slug === "vivencia" ? `#vivencia/${career.id}` : `#programa/${career.id}/${section.slug}`;
+  const description = section.slug === "becas"
+    ? renderScholarshipNavigationSummary(career)
+    : `<p>${escapeHTML(section.short)}</p>`;
   return `
     <a class="info-panel section-link-card" href="${href}">
       <h2><span class="section-dot" aria-hidden="true"></span>${escapeHTML(section.title)}</h2>
-      <p>${escapeHTML(section.short)}</p>
-      <span class="card-nav-hint">Ver sección <span aria-hidden="true">→</span></span>
+      ${description}
+      <span class="card-nav-hint">${escapeHTML(t("viewSection"))} <span aria-hidden="true">→</span></span>
     </a>
+  `;
+}
+
+function renderScholarshipNavigationSummary(career) {
+  const percentages = career.becas || {};
+  const students = scholarshipPercentage(percentages.porcentajeAlumnosConBeca);
+  const average = scholarshipPercentage(percentages.porcentajePromedioBeca);
+  const acronym = careerAcronym(career);
+  return `
+    <div class="scholarship-nav-summary">
+      <p>${escapeHTML(t("scholarshipStudentsSummary", { percent: students, acronym }))}</p>
+      <p>${escapeHTML(t("scholarshipAverageSummary", { percent: average }))}</p>
+    </div>
   `;
 }
 
@@ -1152,27 +1275,27 @@ function renderVivenciaPage(fromCareer = null) {
   const experiences = siteData.vivencia ?? [];
   const theme = {
     tipo: "vivencia",
-    nombre: "Vivencia",
+    nombre: { es: "Vivencia", en: "Student Life" },
     colorPrincipal: "#0055a6",
     colorSecundario: "#00a3c7",
     degradado: "linear-gradient(135deg, rgba(0, 85, 166, 0.96), rgba(0, 163, 199, 0.88))",
-    coverImage: "assets/images/vivencia/bootcamps.jpg",
-    tagline: "Experiencias generales del campus que complementan la vida académica, profesional y comunitaria.",
+    coverImage: "assets/images/vivencia/bootcamp_women.jpg",
+    tagline: { es: "Experiencias generales del campus que complementan la vida académica, profesional y comunitaria.", en: "Campus-wide experiences that complement academic, professional, and community life." },
   };
 
   app.innerHTML = `
     <div class="theme-scope" style="${styleVars(theme)}; --vivencia-link-accent: ${escapeAttr(fromCareer?.colorPrincipal || theme.colorPrincipal)}">
       ${renderDetailHero(
         theme,
-        fromCareer ? careerShortName(fromCareer) : "VIVENCIA - SANTA FE",
-        theme.tagline,
+        fromCareer ? careerShortName(fromCareer) : t("vivenciaEyebrow"),
+        localizedText(theme.tagline),
         "",
         {
           breadcrumbItems: fromCareer
             ? careerBreadcrumbItems(fromCareer, "vivencia")
             : [
-                { label: "Catálogo", href: "#inicio" },
-                { label: "Vivencia" },
+                { label: t("catalog"), href: "#inicio" },
+                { label: t("studentLife") },
               ],
         },
       )}
@@ -1181,12 +1304,12 @@ function renderVivenciaPage(fromCareer = null) {
           filters: [
             {
               id: "category",
-              label: "Categoría",
-              options: uniqueOptions(experiences, (experience) => experience.categoria),
+              label: t("category"),
+              options: uniqueOptions(experiences, (experience) => experience.categoria).map((value) => ({ value, label: localizedCategory("vivencia", value) })),
             },
           ],
-          resultLabel: "experiencias",
-          singularLabel: "experiencia",
+          resultLabel: t("experiencesLabel"),
+          singularLabel: t("experienceLabel"),
           defaultSort: "recommended",
         })}
         <div class="content-grid project-grid" data-listing-grid>
@@ -1202,7 +1325,8 @@ function renderVivenciaPage(fromCareer = null) {
 function renderVivenciaCard(experience, index) {
   const embedUrl = vivenciaVideoEmbedUrl(experience);
   const imagePath = vivenciaImagePath(experience);
-  const tags = Array.isArray(experience.etiquetas) ? experience.etiquetas.filter(hasContent) : [];
+  const tags = localizedList(experience.etiquetas);
+  const title = localizedText(experience.titulo);
   const hasExternalLink = hasContent(experience.enlace);
   const hasQrCode = hasExternalLink && Boolean(validMediaPath(experience.codigoQR));
   const defaultRank = normalizedText(experience.categoria) === normalizedText("Escudería") ? 0 : hasQrCode ? 1 : 2;
@@ -1212,7 +1336,7 @@ function renderVivenciaCard(experience, index) {
       <div class="video-frame project-media">
         <iframe
           src="${escapeAttr(embedUrl)}"
-          title="Vivencia: ${escapeAttr(experience.titulo)}"
+          title="${escapeAttr(t("studentLife"))}: ${escapeAttr(title)}"
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
@@ -1227,13 +1351,13 @@ function renderVivenciaCard(experience, index) {
       `
       : "";
   const yearDetails = hasContent(year)
-    ? `<dl class="meta-list"><div><dt>Año</dt><dd>${escapeHTML(year)}</dd></div></dl>`
+    ? `<dl class="meta-list"><div><dt>${escapeHTML(t("year"))}</dt><dd>${escapeHTML(year)}</dd></div></dl>`
     : "";
   const externalActions = hasExternalLink
     ? `
       <div class="external-link-wrapper vivencia-external-actions">
-        <a class="button compact-button vivencia-resource-button" href="${escapeAttr(experience.enlace)}" target="_blank" rel="noreferrer">Abrir recurso</a>
-        ${renderQrCode(experience.codigoQR, `Código QR de ${experience.titulo}`)}
+        <a class="button compact-button vivencia-resource-button" href="${escapeAttr(experience.enlace)}" target="_blank" rel="noreferrer">${escapeHTML(t("openResource"))}</a>
+        ${renderQrCode(experience.codigoQR, `${currentLanguage === "en" ? "QR code for" : "Código QR de"} ${title}`)}
       </div>
     `
     : "";
@@ -1246,11 +1370,11 @@ function renderVivenciaCard(experience, index) {
       data-date-sort="${yearValue(experience)}"
       data-default-rank="${defaultRank}"
       data-source-index="${index}"
-      data-title="${escapeAttr(experience.titulo)}">
+      data-title="${escapeAttr(title)}">
       ${media}
       <div class="feature-body">
-        <p class="mini-label">${escapeHTML(experience.categoria)}</p>
-        <h2>${escapeHTML(experience.titulo)}</h2>
+        <p class="mini-label">${escapeHTML(localizedCategory("vivencia", experience.categoria))}</p>
+        <h2>${escapeHTML(title)}</h2>
         ${tags.length ? `<div class="tag-row">${tags.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div>` : ""}
         ${renderFormattedDescription(experience.descripcion)}
         ${yearDetails}
@@ -1278,28 +1402,29 @@ function renderQrCode(path, alt) {
 function renderVivenciaNav(fromCareer) {
   return `
     <nav class="page-nav" aria-label="Navegación de Vivencia">
-      ${fromCareer ? `<a class="button ghost" href="#programa/${fromCareer.id}">Volver a la carrera</a>` : ""}
-      <a class="button secondary" href="#inicio">Volver al catálogo principal</a>
+      ${fromCareer ? `<a class="button ghost" href="#programa/${fromCareer.id}">${escapeHTML(t("backToCareer"))}</a>` : ""}
+      <a class="button secondary" href="#inicio">${escapeHTML(t("backMainCatalog"))}</a>
     </nav>
   `;
 }
 
 function renderDetailHero(career, eyebrow, copy, sectionTitle = "", options = {}) {
-  const title = sectionTitle || (career?.tipo === "career" ? careerShortName(career) : fullName(career));
+  const title = localizedText(sectionTitle) || (career?.tipo === "career" ? careerShortName(career) : fullName(career));
+  const heroCopy = options.hideCopy ? "" : localizedText(copy || career.tagline);
   return `
     ${renderBreadcrumb(options.breadcrumbItems || [])}
     <section class="detail-hero">
       <div class="detail-hero-inner">
-        <p class="eyebrow">${escapeHTML(eyebrow)}</p>
+        <p class="eyebrow">${escapeHTML(localizedText(eyebrow))}</p>
         <h1 class="${heroTitleClass(title)}">${escapeHTML(title)}</h1>
-        <p>${escapeHTML(copy || career.tagline)}</p>
+        ${heroCopy ? `<p>${escapeHTML(heroCopy)}</p>` : ""}
       </div>
     </section>
   `;
 }
 
 function renderSubpage(career, slug, pathParts = []) {
-  const section = sectionMeta[slug];
+  const section = localizedSectionMeta(slug);
   if (!section || !career.seccionesDisponibles.includes(slug)) {
     renderCareerHub(career);
     return;
@@ -1311,12 +1436,14 @@ function renderSubpage(career, slug, pathParts = []) {
     universidades: renderUniversitiesPage,
     exatecs: renderExatecsPage,
     "santa-fe": renderSantaFePage,
+    becas: renderScholarshipsPage,
   };
 
   app.innerHTML = `
     <div class="theme-scope" style="${styleVars(career)}">
       ${renderDetailHero(career, careerShortName(career), section.short, section.title, {
         breadcrumbItems: careerBreadcrumbItems(career, slug),
+        hideCopy: slug === "becas",
       })}
       ${renderers[slug](career, pathParts)}
     </div>
@@ -1335,17 +1462,17 @@ function renderProjectsPage(career) {
         filters: [
           {
             id: "year",
-            label: "Año",
+            label: t("year"),
             options: uniqueOptions(projects, (project) => project["año"], numberOptionSort),
           },
           {
             id: "semester",
-            label: "Semestre",
-            options: uniqueOptions(projects, (project) => project.semestre, semesterOptionSort),
+            label: t("semester"),
+            options: uniqueOptions(projects, (project) => project.semestre, semesterOptionSort).map((value) => ({ value, label: localizedSemester(value) })),
           },
         ],
-        resultLabel: "proyectos",
-        singularLabel: "proyecto",
+        resultLabel: t("projectsLabel"),
+        singularLabel: t("projectLabel"),
       })}
       <div class="content-grid project-grid" data-listing-grid>
         ${projects.map((project, index) => renderProject(project, index, career)).join("")}
@@ -1358,13 +1485,14 @@ function renderProjectsPage(career) {
 function renderProject(project, index, career) {
   const embedUrl = youtubeEmbedUrl(project.youtubeUrl);
   const thumbnail = validMediaPath(project.thumbnail);
-  const tags = Array.isArray(project.tecnologias) ? project.tecnologias.filter(hasContent) : [];
+  const tags = localizedList(project.tecnologias);
+  const title = localizedText(project.titulo);
   const media = embedUrl
     ? `
       <div class="video-frame project-media">
         <iframe
           src="${escapeAttr(embedUrl)}"
-          title="Video de ejemplo: ${escapeAttr(project.titulo)}"
+          title="Video: ${escapeAttr(title)}"
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
@@ -1382,16 +1510,16 @@ function renderProject(project, index, career) {
       data-year="${escapeAttr(project["año"])}"
       data-semester="${escapeAttr(project.semestre)}"
       data-date-sort="${(yearValue(project) * 100) + semesterRank(project.semestre)}"
-      data-title="${escapeAttr(project.titulo)}">
+      data-title="${escapeAttr(title)}">
       ${media}
       <div class="feature-body">
-        <p class="mini-label">${escapeHTML(project.año)} - ${escapeHTML(project.semestre)}</p>
-        <h2>${escapeHTML(project.titulo)}</h2>
+        <p class="mini-label">${escapeHTML(project.año)} - ${escapeHTML(localizedSemester(project.semestre))}</p>
+        <h2>${escapeHTML(title)}</h2>
         ${tags.length ? `<div class="tag-row">${tags.map((tech) => `<span class="tag">${escapeHTML(tech)}</span>`).join("")}</div>` : ""}
         ${renderFormattedDescription(project.descripcion)}
         <dl class="meta-list">
-          <div><dt>Alumnos</dt><dd>${project.alumnos.map(escapeHTML).join(", ")}</dd></div>
-          ${project.socioFormador ? `<div><dt>Socio formador</dt><dd>${escapeHTML(project.socioFormador)}</dd></div>` : ""}
+          <div><dt>${escapeHTML(t("students"))}</dt><dd>${project.alumnos.map(escapeHTML).join(", ")}</dd></div>
+          ${project.socioFormador ? `<div><dt>${escapeHTML(t("partner"))}</dt><dd>${escapeHTML(project.socioFormador)}</dd></div>` : ""}
         </dl>
       </div>
     </article>
@@ -1436,10 +1564,9 @@ function renderPartner(partner, index) {
 }
 
 function partnerInteractionTypes(partner) {
-  if (Array.isArray(partner.tiposInteraccion)) {
-    return partner.tiposInteraccion.map((item) => String(item).trim()).filter(Boolean);
-  }
-  return hasContent(partner.tipoInteraccion) ? [String(partner.tipoInteraccion).trim()] : [];
+  const translated = localizedList(partner.tiposInteraccion);
+  if (translated.length) return translated;
+  return hasContent(partner.tipoInteraccion) ? [localizedText(partner.tipoInteraccion).trim()] : [];
 }
 
 function renderPartnerMedia(mediaPath, index) {
@@ -1449,7 +1576,7 @@ function renderPartnerMedia(mediaPath, index) {
   if (embedUrl) {
     return `
       <div class="video-frame project-media partner-media">
-        <iframe src="${escapeAttr(embedUrl)}" title="Interacción con estudiantes" allowfullscreen></iframe>
+        <iframe src="${escapeAttr(embedUrl)}" title="${escapeAttr(t("interactionWithStudents"))}" allowfullscreen></iframe>
       </div>
     `;
   }
@@ -1458,7 +1585,7 @@ function renderPartnerMedia(mediaPath, index) {
       class="image-tile media-crop-${(index % 5) + 2}"
       ${mediaStyle(media)}
       data-validate-image="${escapeAttr(assetUrl(media))}">
-      <span>Interacción con estudiantes</span>
+      <span>${escapeHTML(t("interactionWithStudents"))}</span>
     </div>
   `;
 }
@@ -1476,7 +1603,7 @@ function renderUniversitiesPage(career, pathParts = []) {
     pendingUniversityMap = null;
     return `
       <section class="detail-shell">
-        ${renderEmptyState(universities, "experiencias en el extranjero")}
+        ${renderEmptyState(universities, t("internationalExperiences").toLowerCase())}
         ${renderPageNav(career)}
       </section>
     `;
@@ -1486,7 +1613,7 @@ function renderUniversitiesPage(career, pathParts = []) {
   const selectedUniversities = hasSelectedCity ? grouped[selectedCountry][selectedCity] : [];
   return `
     <section class="detail-shell">
-      ${renderUniversityFlowHeader("Mapa de países", "Explora experiencias internacionales por país y ciudad.")}
+      ${renderUniversityFlowHeader(t("mapCountries"), t("mapCopy"))}
       <div class="university-map-card">
         <div class="university-map-column" data-university-map-column>
           ${renderWorldMap(career, countries, grouped)}
@@ -1497,8 +1624,8 @@ function renderUniversitiesPage(career, pathParts = []) {
         hasSelectedCity
           ? `
             <div class="university-action-row">
-              <a class="button ghost compact-button" href="${universityHash(career, selectedCountry)}" data-university-nav data-career-id="${escapeAttr(career.id)}" data-country="${escapeAttr(selectedCountry)}">Volver a ciudades</a>
-              <a class="button ghost compact-button" href="${universityHash(career)}" data-university-nav data-career-id="${escapeAttr(career.id)}">Volver al mapa</a>
+               <a class="button ghost compact-button" href="${universityHash(career, selectedCountry)}" data-university-nav data-career-id="${escapeAttr(career.id)}" data-country="${escapeAttr(selectedCountry)}">${escapeHTML(t("backToCities"))}</a>
+               <a class="button ghost compact-button" href="${universityHash(career)}" data-university-nav data-career-id="${escapeAttr(career.id)}">${escapeHTML(t("backToMap"))}</a>
             </div>
             <div class="content-grid university-grid" id="city-experience-results" data-city-experience-results>
               ${selectedUniversities.map((university, index) => renderUniversity(university, index)).join("")}
@@ -1538,7 +1665,7 @@ function decodeHashPart(value) {
 function renderUniversityFlowHeader(title, copy) {
   return `
     <div class="university-flow-heading">
-      <p class="mini-label">Experiencias en el extranjero</p>
+      <p class="mini-label">${escapeHTML(t("internationalExperiences"))}</p>
       <h2>${escapeHTML(title)}</h2>
       <p>${escapeHTML(copy)}</p>
     </div>
@@ -1548,10 +1675,10 @@ function renderUniversityFlowHeader(title, copy) {
 function renderWorldMap(career, countries, grouped) {
   return `
     <div class="world-map-panel">
-      <div id="university-world-map" class="world-map" aria-label="Mapa mundial con países disponibles">
-        <div class="map-loading">Cargando mapa mundial...</div>
+      <div id="university-world-map" class="world-map" aria-label="${escapeAttr(t("mapCountries"))}">
+        <div class="map-loading">${escapeHTML(t("mapLoading"))}</div>
       </div>
-      <div class="map-country-list" aria-label="Lista de países disponibles">
+      <div class="map-country-list" aria-label="${escapeAttr(t("availableCountries"))}">
         ${countries.map((country) => renderCountryListButton(career, country, grouped[country])).join("")}
       </div>
     </div>
@@ -1562,9 +1689,9 @@ function renderCountryInfoPanel(career, selectedCountry, selectedCity, grouped) 
   if (!selectedCountry || !grouped[selectedCountry]) {
     return `
       <aside class="map-info-panel" data-country-info-panel>
-        <p class="mini-label">Mapa de países</p>
-        <h2>Selecciona un país resaltado para ver sus ciudades disponibles.</h2>
-        <p>Los países con experiencias para esta carrera aparecen destacados con el color principal del programa.</p>
+        <p class="mini-label">${escapeHTML(t("mapCountries"))}</p>
+        <h2>${escapeHTML(t("selectHighlightedCountry"))}</h2>
+        <p>${escapeHTML(t("highlightedCountryCopy"))}</p>
       </aside>
     `;
   }
@@ -1578,19 +1705,19 @@ function renderCountryInfoPanel(career, selectedCountry, selectedCity, grouped) 
       <div class="country-panel-heading">
         ${flag ? `<span class="country-flag-wrapper">${flag}</span>` : ""}
         <div>
-          <p class="mini-label">País seleccionado</p>
-          <h2>${escapeHTML(selectedCountry)}</h2>
+          <p class="mini-label">${escapeHTML(t("selectedCountry"))}</p>
+          <h2>${escapeHTML(localizedCountry(selectedCountry))}</h2>
         </div>
       </div>
-      <p class="country-summary">${cityCount} ciudad${cityCount === 1 ? "" : "es"} disponible${cityCount === 1 ? "" : "s"} · ${universityCount} experiencia${universityCount === 1 ? "" : "s"}</p>
-      <p>Selecciona una ciudad:</p>
+      <p class="country-summary">${escapeHTML(cityCount === 1 ? t("cityAvailable", { count: cityCount }) : t("citiesAvailable", { count: cityCount }))} · ${escapeHTML(universityCount === 1 ? t("experienceAvailable", { count: universityCount }) : t("experiencesAvailable", { count: universityCount }))}</p>
+      <p>${escapeHTML(t("selectCity"))}</p>
       <div class="city-list">
         ${Object.keys(cities)
           .sort((a, b) => a.localeCompare(b, "es"))
           .map((city) => renderCityOption(career, selectedCountry, city, cities[city].length, city === selectedCity))
           .join("")}
       </div>
-      <a class="button ghost compact-button" href="${universityHash(career)}" data-university-nav data-career-id="${escapeAttr(career.id)}">Volver al mapa</a>
+      <a class="button ghost compact-button" href="${universityHash(career)}" data-university-nav data-career-id="${escapeAttr(career.id)}">${escapeHTML(t("backToMap"))}</a>
     </aside>
   `;
 }
@@ -1599,8 +1726,8 @@ function renderCountryListButton(career, country, cities) {
   const cityCount = Object.keys(cities).length;
   return `
     <a class="country-list-button" href="${universityHash(career, country)}" data-university-nav data-career-id="${escapeAttr(career.id)}" data-country="${escapeAttr(country)}">
-      <span>${escapeHTML(country)}</span>
-      <small>${cityCount} ciudad${cityCount === 1 ? "" : "es"}</small>
+      <span>${escapeHTML(localizedCountry(country))}</span>
+      <small>${escapeHTML(cityCount === 1 ? t("cityAvailable", { count: cityCount }) : t("citiesAvailable", { count: cityCount }))}</small>
     </a>
   `;
 }
@@ -1609,7 +1736,7 @@ function renderCityOption(career, country, city, count, isActive = false) {
   return `
     <a class="city-choice ${isActive ? "is-active" : ""}" href="${universityHash(career, country, city)}" data-university-nav data-career-id="${escapeAttr(career.id)}" data-country="${escapeAttr(country)}" data-city="${escapeAttr(city)}">
       <span>${escapeHTML(city)}</span>
-      <small>${count} experiencia${count === 1 ? "" : "s"}</small>
+      <small>${escapeHTML(count === 1 ? t("experienceAvailable", { count }) : t("experiencesAvailable", { count }))}</small>
     </a>
   `;
 }
@@ -1709,7 +1836,7 @@ function initializePendingUniversityMap() {
   destroyActiveUniversityMap();
 
   if (typeof jsVectorMap !== "function" || !highlightedCodes.length) {
-    mapElement.innerHTML = `<div class="map-loading">No se pudo cargar el mapa interactivo. Usa la lista de países disponibles.</div>`;
+    mapElement.innerHTML = `<div class="map-loading">${escapeHTML(t("mapUnavailable"))}</div>`;
     return;
   }
 
@@ -1746,7 +1873,7 @@ function initializePendingUniversityMap() {
       }
       const cities = Object.keys(grouped[country]).length;
       const universities = Object.values(grouped[country]).reduce((total, items) => total + items.length, 0);
-      tooltip.text(`${country}: ${cities} ciudad${cities === 1 ? "" : "es"} · ${universities} experiencia${universities === 1 ? "" : "s"}`);
+      tooltip.text(`${localizedCountry(country)}: ${cities} ${cities === 1 ? t("cityAvailable", { count: cities }).replace(`${cities} `, "") : t("citiesAvailable", { count: cities }).replace(`${cities} `, "")} · ${universities} ${universities === 1 ? t("experienceAvailable", { count: universities }).replace(`${universities} `, "") : t("experiencesAvailable", { count: universities }).replace(`${universities} `, "")}`);
     },
     onRegionClick(event, code) {
       hideMapTooltips();
@@ -1764,17 +1891,17 @@ function initializePendingUniversityMap() {
 function renderUniversity(university, index) {
   const overlayLabel = renderLocationBadge(university.pais, university.ciudad);
   const media = renderUniversityMedia(university, overlayLabel, index);
-  const tags = Array.isArray(university.areasRelacionadas) ? university.areasRelacionadas.filter(hasContent) : [];
+  const tags = localizedList(university.areasRelacionadas);
   const experienceMeta = [
-    hasContent(university.alumno) ? `<div><dt>Alumno</dt><dd>${escapeHTML(university.alumno)}</dd></div>` : "",
-    hasContent(university.tipoExperiencia) ? `<div><dt>Tipo de experiencia</dt><dd>${escapeHTML(university.tipoExperiencia)}</dd></div>` : "",
-    hasContent(university["año"]) ? `<div><dt>Año</dt><dd>${escapeHTML(university["año"])}</dd></div>` : "",
+    hasContent(university.alumno) ? `<div><dt>${escapeHTML(t("student"))}</dt><dd>${escapeHTML(university.alumno)}</dd></div>` : "",
+    hasContent(university.tipoExperiencia) ? `<div><dt>${escapeHTML(t("experienceType"))}</dt><dd>${escapeHTML(localizedText(university.tipoExperiencia))}</dd></div>` : "",
+    hasContent(university["año"]) ? `<div><dt>${escapeHTML(t("year"))}</dt><dd>${escapeHTML(university["año"])}</dd></div>` : "",
   ].filter(Boolean).join("");
   return `
     <article class="feature-card university-card">
       ${media}
       <div class="feature-body">
-        <p class="mini-label">${escapeHTML(university.ciudad)}, ${escapeHTML(university.pais)}</p>
+        <p class="mini-label">${escapeHTML(university.ciudad)}, ${escapeHTML(localizedCountry(university.pais))}</p>
         <h2>${escapeHTML(university.nombre)}</h2>
         ${tags.length ? `<div class="tag-row">${tags.map((area) => `<span class="tag">${escapeHTML(area)}</span>`).join("")}</div>` : ""}
         ${renderFormattedDescription(university.descripcion)}
@@ -1799,7 +1926,7 @@ function renderUniversityMedia(university, overlayLabel, index) {
 }
 
 function renderLocationBadge(country, city) {
-  const label = [country, city].filter(Boolean).join(" · ");
+  const label = [localizedCountry(country), city].filter(Boolean).join(" · ");
   return `
     <span class="location-badge experience-location-overlay">
       ${renderCountryFlag(country, "experience-location-flag")}
@@ -1834,12 +1961,12 @@ function renderExatecsPage(career) {
         filters: [
           {
             id: "generation",
-            label: "Generación",
-            options: uniqueOptions(profiles, (profile) => profile.generacion, (a, b) => generationRank(a) - generationRank(b)),
+            label: t("generation"),
+            options: uniqueOptions(profiles, (profile) => profile.generacion, (a, b) => generationRank(a) - generationRank(b)).map((value) => ({ value, label: localizedGeneration(value) })),
           },
         ],
-        resultLabel: "perfiles de empleabilidad",
-        singularLabel: "perfil de empleabilidad",
+        resultLabel: t("profilesLabel"),
+        singularLabel: t("profileLabel"),
       })}
       <div class="content-grid exatec-grid" data-listing-grid>
         ${profiles.map((profile, index) => renderExatec(profile, index)).join("")}
@@ -1891,9 +2018,9 @@ function renderExatec(profile, index) {
           </div>
         ` : ""}
         <div class="employability-profile-info">
-          ${hasContent(profile.generacion) ? `<p class="mini-label">${escapeHTML(profile.generacion)}</p>` : ""}
+          ${hasContent(profile.generacion) ? `<p class="mini-label">${escapeHTML(localizedGeneration(profile.generacion))}</p>` : ""}
           <h2>${escapeHTML(profile.nombre)}</h2>
-          ${hasContent(profile.puestoActual) ? `<p class="role-line">${escapeHTML(profile.puestoActual)}</p>` : ""}
+          ${hasContent(profile.puestoActual) ? `<p class="role-line">${escapeHTML(localizedText(profile.puestoActual))}</p>` : ""}
           ${company}
         </div>
       </div>
@@ -1914,28 +2041,28 @@ function renderSantaFePage(career) {
     ? excelAdvantages
     : [
         {
-          titulo: "Laboratorios",
-          descripcion: `Espacios para probar, medir y documentar soluciones vinculadas a ${career.highlights[0].toLowerCase()}.`,
+          titulo: { es: "Laboratorios", en: "Laboratories" },
+          descripcion: currentLanguage === "en" ? `Spaces to test, measure, and document solutions related to ${localizedList(career.highlights)[0]?.toLowerCase() || "the program"}.` : `Espacios para probar, medir y documentar soluciones vinculadas a ${localizedList(career.highlights)[0]?.toLowerCase() || "la carrera"}.`,
         },
         {
-          titulo: "Ubicación",
-          descripcion: "Santa Fe conecta el aula con corporativos, startups, movilidad urbana y retos de ciudad.",
+          titulo: { es: "Ubicación", en: "Location" },
+          descripcion: { es: "Santa Fe conecta el aula con corporativos, startups, movilidad urbana y retos de ciudad.", en: "Santa Fe connects the classroom with corporations, startups, urban mobility, and city challenges." },
         },
         {
-          titulo: "Proyectos",
-          descripcion: "Retos integradores, semanas intensivas y experiencias con socios formadores durante el semestre.",
+          titulo: { es: "Proyectos", en: "Projects" },
+          descripcion: { es: "Retos integradores, semanas intensivas y experiencias con socios formadores durante el semestre.", en: "Integrative challenges, intensive weeks, and experiences with industry partners throughout the semester." },
         },
         {
-          titulo: "Comunidad",
-          descripcion: "Equipos multidisciplinarios, profesores cercanos y actividades que impulsan colaboración entre carreras.",
+          titulo: { es: "Comunidad", en: "Community" },
+          descripcion: { es: "Equipos multidisciplinarios, profesores cercanos y actividades que impulsan colaboración entre carreras.", en: "Multidisciplinary teams, approachable faculty, and activities that foster collaboration across programs." },
         },
         {
           titulo: "CATALYST",
-          descripcion: "Experiencias para acelerar ideas, formar comunidad y conectar estudiantes con mentoría temprana.",
+          descripcion: { es: "Experiencias para acelerar ideas, formar comunidad y conectar estudiantes con mentoría temprana.", en: "Experiences that accelerate ideas, build community, and connect students with early mentoring." },
         },
         {
-          titulo: "Ventaja campus",
-          descripcion: career.porQueSantaFe,
+          titulo: { es: "Ventaja campus", en: "Campus Advantage" },
+          descripcion: localizedText(career.porQueSantaFe),
         },
       ];
 
@@ -1943,9 +2070,9 @@ function renderSantaFePage(career) {
     <section class="detail-shell">
       <div class="campus-feature">
         <div>
-          <p class="mini-label">Campus Santa Fe</p>
-          <h2>${escapeHTML(fullName(career))} en un entorno conectado con la ciudad</h2>
-          <p>Una ubicación estratégica, espacios de prototipado, laboratorios especializados y la cercanía con empresas hacen de Campus Santa Fe un entorno donde la ingeniería se aprende mediante experiencias y retos reales.</p>
+          <p class="mini-label">${escapeHTML(t("campusSantaFe"))}</p>
+          <h2>${escapeHTML(t("campusHeading", { program: fullName(career) }))}</h2>
+          <p>${escapeHTML(t("campusCopy"))}</p>
         </div>
         <div class="campus-photo" ${mediaStyle(santaFeImage, { version: true })}></div>
       </div>
@@ -1954,7 +2081,7 @@ function renderSantaFePage(career) {
           .map(
             (item) => `
               <article class="advantage-card">
-                <h3><span class="section-dot" aria-hidden="true"></span>${escapeHTML(item.titulo)}</h3>
+                <h3><span class="section-dot" aria-hidden="true"></span>${escapeHTML(localizedText(item.titulo))}</h3>
                 ${renderFormattedDescription(item.descripcion)}
               </article>
             `,
@@ -1966,11 +2093,37 @@ function renderSantaFePage(career) {
   `;
 }
 
+function renderScholarshipsPage(career) {
+  const scholarships = [...(siteData.becas || [])].sort((a, b) => Number(a.orden || 0) - Number(b.orden || 0));
+  return `
+    <section class="detail-shell scholarship-page">
+      <div class="content-grid scholarship-grid">
+        ${scholarships.map((scholarship) => renderScholarshipCard(scholarship)).join("")}
+      </div>
+      ${renderPageNav(career)}
+    </section>
+  `;
+}
+
+function renderScholarshipCard(scholarship) {
+  const title = localizedText(scholarship.titulo);
+  const qrCode = validMediaPath(scholarship.codigoQR);
+  return `
+    <article class="feature-card scholarship-card">
+      <div class="feature-body">
+        <h2>${escapeHTML(title)}</h2>
+        ${renderFormattedDescription(scholarship.descripcion)}
+        ${qrCode ? renderQrCode(qrCode, t("scholarshipQrAlt")) : ""}
+      </div>
+    </article>
+  `;
+}
+
 function renderPageNav(career) {
   return `
     <nav class="page-nav" aria-label="Navegación de carrera">
-      <a class="button ghost" href="#programa/${career.id}">Volver a la carrera</a>
-      <a class="button secondary" href="#inicio">Volver al catálogo principal</a>
+      <a class="button ghost" href="#programa/${career.id}">${escapeHTML(t("backToCareer"))}</a>
+      <a class="button secondary" href="#inicio">${escapeHTML(t("backMainCatalog"))}</a>
     </nav>
   `;
 }
@@ -1979,92 +2132,101 @@ function renderEmptyState(collection, label) {
   if (collection.length > 0) return "";
   return `
     <div class="empty-state">
-      <h2>Sin ${escapeHTML(label)} por ahora</h2>
-      <p>Agrega registros para esta carrera en el archivo JSON correspondiente.</p>
+      <h2>${escapeHTML(t("withoutItems", { label }))}</h2>
+      <p>${escapeHTML(t("addRecords"))}</p>
     </div>
   `;
 }
 
-function renderCatalystDetail(program) {
+function specialProgramData(program) {
+  return siteData?.[program?.id] || { secciones: [], detalles: [] };
+}
+
+function renderSpecialProgramDetail(program) {
+  const programData = specialProgramData(program);
+  const eyebrow = program.tipo === "catalyst" ? t("highPerformanceProgram") : localizedText(program.subtitulo);
   app.innerHTML = `
     <div class="theme-scope" style="${styleVars(program)}">
-      ${renderDetailHero(program, "PROGRAMA DE ALTO RENDIMIENTO", program.tagline, "", {
-        breadcrumbItems: catalystBreadcrumbItems(),
+      ${renderDetailHero(program, eyebrow, localizedText(program.tagline), "", {
+        breadcrumbItems: specialProgramBreadcrumbItems(program),
       })}
       <section class="detail-shell">
         <div class="section-grid section-nav-grid">
-          ${siteData.catalyst.secciones.map((section) => renderCatalystPanel(section)).join("")}
+          ${(programData.secciones || []).map((section) => renderSpecialProgramPanel(section)).join("")}
         </div>
       </section>
     </div>
   `;
 }
 
-function renderCatalystPanel(section) {
-  const body = renderCatalystPanelBody(section);
+function renderSpecialProgramPanel(section) {
+  const body = renderSpecialProgramPanelBody(section);
   if (section.ruta) {
     return `
       <a class="info-panel section-link-card catalyst-panel-link" href="${escapeAttr(section.ruta)}">
-        <h2><span class="section-dot" aria-hidden="true"></span>${escapeHTML(section.titulo)}</h2>
+        <h2><span class="section-dot" aria-hidden="true"></span>${escapeHTML(localizedText(section.titulo))}</h2>
         ${body}
-        <span class="card-nav-hint">Ver sección <span aria-hidden="true">→</span></span>
+        <span class="card-nav-hint">${escapeHTML(t("viewSection"))} <span aria-hidden="true">→</span></span>
       </a>
     `;
   }
 
   return `
     <article class="info-panel">
-      <h2><span class="section-dot" aria-hidden="true"></span>${escapeHTML(section.titulo)}</h2>
+      <h2><span class="section-dot" aria-hidden="true"></span>${escapeHTML(localizedText(section.titulo))}</h2>
       ${body}
     </article>
   `;
 }
 
-function renderCatalystPanelBody(section) {
-  if (Array.isArray(section.bullets) && section.bullets.length) {
+function renderSpecialProgramPanelBody(section) {
+  const bullets = localizedList(section.bullets);
+  if (bullets.length) {
     return `
       <ul class="catalyst-panel-bullets">
-        ${section.bullets.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}
+        ${bullets.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}
       </ul>
     `;
   }
-  return section.descripcion ? `<p>${escapeHTML(section.descripcion)}</p>` : "";
+  const description = localizedText(section.descripcion);
+  return description ? `<p>${escapeHTML(description)}</p>` : "";
 }
 
-function catalystDetailsFor(category) {
-  const details = Array.isArray(siteData.catalyst.detalles) ? siteData.catalyst.detalles : [];
+function specialProgramDetailsFor(program, category) {
+  const programData = specialProgramData(program);
+  const details = Array.isArray(programData.detalles) ? programData.detalles : [];
   if (details.length) return details.filter((item) => item.categoria === category);
-  if (category === "actividades") return siteData.catalyst.actividades ?? [];
+  if (category === "actividades") return programData.actividades ?? [];
   return [];
 }
 
-function catalystSectionById(category) {
-  return siteData.catalyst.secciones.find((section) => section.id === category) ?? null;
+function specialProgramSectionById(program, category) {
+  return specialProgramData(program).secciones.find((section) => section.id === category) ?? null;
 }
 
-function renderCatalystCategoryPage(program, category) {
-  const section = catalystSectionById(category);
+function renderSpecialProgramCategoryPage(program, category) {
+  const section = specialProgramSectionById(program, category);
   if (!section || section.id === "que-es") {
-    renderCatalystDetail(program);
+    renderSpecialProgramDetail(program);
     return;
   }
-  const items = catalystDetailsFor(category);
+  const items = specialProgramDetailsFor(program, category);
   const showActivityControls = false;
   const compactItems = items.filter((item) => !catalystHasMedia(item));
   const mediaItems = items.filter((item) => catalystHasMedia(item));
   const renderCatalystGrid = (gridItems, modifier) => gridItems.length
     ? `<div class="content-grid activity-grid ${modifier}" ${showActivityControls ? "data-listing-grid" : ""}>
-        ${gridItems.map((item, index) => renderCatalystDetailCard(item, category, index, showActivityControls)).join("")}
+        ${gridItems.map((item, index) => renderSpecialProgramDetailCard(item, category, index, showActivityControls, program)).join("")}
       </div>`
     : "";
   app.innerHTML = `
     <div class="theme-scope" style="${styleVars(program)}">
       ${renderDetailHero(
         program,
-        section.titulo,
-        section.descripcion,
-        "CATALYST",
-        { breadcrumbItems: catalystBreadcrumbItems(category) },
+        localizedText(section.titulo),
+        localizedText(section.descripcion),
+        localizedText(program.nombre),
+        { breadcrumbItems: specialProgramBreadcrumbItems(program, category) },
       )}
       <section class="detail-shell" data-listing-region>
         ${
@@ -2077,17 +2239,17 @@ function renderCatalystCategoryPage(program, category) {
                     options: uniqueOptions(items, catalystActivityCycle, (a, b) => generationRank(a) - generationRank(b)),
                   },
                 ],
-                resultLabel: "actividades CATALYST",
-                singularLabel: "actividad CATALYST",
+                resultLabel: `${t("activitiesLabel")} ${localizedText(program.nombre)}`,
+                singularLabel: `${t("activityLabel")} ${localizedText(program.nombre)}`,
               })
             : ""
         }
         ${renderCatalystGrid(compactItems, "activity-grid--compact")}
         ${renderCatalystGrid(mediaItems, "activity-grid--media")}
-        ${renderEmptyState(items, section.titulo.toLowerCase())}
-        <nav class="page-nav" aria-label="Navegación de CATALYST">
-          <a class="button ghost" href="#programa/catalyst">Volver a CATALYST</a>
-          <a class="button secondary" href="#inicio">Volver al catálogo principal</a>
+        ${renderEmptyState(items, localizedText(section.titulo).toLowerCase())}
+        <nav class="page-nav" aria-label="${escapeAttr(currentLanguage === "en" ? `${localizedText(program.nombre)} navigation` : `Navegación de ${localizedText(program.nombre)}`)}">
+          <a class="button ghost" href="#programa/${escapeAttr(program.id)}">${escapeHTML(program.id === "quantum" ? t("backToQuantum") : t("backToCatalyst"))}</a>
+          <a class="button secondary" href="#inicio">${escapeHTML(t("backMainCatalog"))}</a>
         </nav>
       </section>
     </div>
@@ -2117,7 +2279,7 @@ function normalizeTags(value) {
     });
 }
 
-function catalystMedia(item, index) {
+function catalystMedia(item, index, programName = "CATALYST") {
   const legacyMedia = validMediaPath(item.imagenOVideo || item.media || item.multimedia || item.recurso || item.urlMedia);
   const videoSource = validMediaPath(item.video || item.videoUrl || item.youtubeUrl);
   const mediaLooksVideo = youtubeEmbedUrl(legacyMedia) || vimeoEmbedUrl(legacyMedia);
@@ -2129,7 +2291,7 @@ function catalystMedia(item, index) {
       <div class="video-frame">
         <iframe
           src="${escapeAttr(video)}"
-          title="Video: ${escapeAttr(item.titulo || item.nombre || "CATALYST") }"
+          title="Video: ${escapeAttr(localizedText(item.titulo || item.nombre) || programName) }"
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
@@ -2138,7 +2300,7 @@ function catalystMedia(item, index) {
     `;
   }
   if (mediaCandidate) {
-    console.warn("CATALYST: enlace de video no compatible, se usará imagen o solo texto.", item.id || item.titulo);
+    console.warn(`${programName}: enlace de video no compatible, se usará imagen o solo texto.`, item.id || localizedText(item.titulo));
   }
   const image = validMediaPath(item.imagen || item.foto || (mediaType !== "video" && !mediaLooksVideo ? legacyMedia : ""));
   if (!image || youtubeEmbedUrl(image) || vimeoEmbedUrl(image)) return "";
@@ -2159,13 +2321,13 @@ function catalystHasMedia(item) {
   return Boolean(image && !youtubeEmbedUrl(image) && !vimeoEmbedUrl(image));
 }
 
-function renderCatalystDetailCard(item, category, index, filterable = false) {
-  const title = item.titulo || item.nombre || "";
-  const label = sectionLabelForCatalyst(category);
-  const body = item.descripcion || item.testimonio || "";
+function renderSpecialProgramDetailCard(item, category, index, filterable = false, program = { nombre: "CATALYST" }) {
+  const title = localizedText(item.titulo || item.nombre);
+  const label = sectionLabelForSpecialProgram(category, program);
+  const body = localizedText(item.descripcion || item.testimonio);
   const year = hasContent(item["a\u00f1o"] ?? item.anio ?? item.ano) ? String(item["a\u00f1o"] ?? item.anio ?? item.ano).trim() : "";
-  const media = catalystMedia(item, index);
-  const tags = category === "actividades" ? normalizeTags(item.etiquetas) : [];
+  const media = catalystMedia(item, index, localizedText(program.nombre));
+  const tags = category === "actividades" ? normalizeTags(localizedList(item.etiquetas)) : [];
   const mediaClass = media ? "activity-card--with-media" : "activity-card--compact";
   return `
     <article
@@ -2173,7 +2335,7 @@ function renderCatalystDetailCard(item, category, index, filterable = false) {
       ${filterable ? "data-filterable-card" : ""}
       data-cycle="${escapeAttr(label)}"
       data-date-sort="${generationRank(label)}"
-      data-title="${escapeAttr(title || body || item.id || "CATALYST")}">
+      data-title="${escapeAttr(title || body || item.id || localizedText(program.nombre))}">
       ${media}
       <div class="feature-body">
         ${year ? `<p class="mini-label">${escapeHTML(year)}</p>` : ""}
@@ -2191,13 +2353,13 @@ function renderCatalystDetailCard(item, category, index, filterable = false) {
   `;
 }
 
-function sectionLabelForCatalyst(category) {
+function sectionLabelForSpecialProgram(category, program = { nombre: "CATALYST" }) {
   const labels = {
-    comunidad: "Comunidad motivada",
-    actividades: "Actividades opcionales",
-    testimonios: "Testimonios de estudiantes",
+    comunidad: t("motivatedCommunity"),
+    actividades: t("optionalActivities"),
+    testimonios: t("studentTestimonials"),
   };
-  return labels[category] ?? "CATALYST";
+  return labels[category] ?? localizedText(program.nombre);
 }
 
 const adminResources = [
@@ -2205,7 +2367,10 @@ const adminResources = [
   { key: "socios", label: "Socios formadores", filename: "socios.json", type: "array" },
   { key: "universidades", label: "Experiencias en el extranjero", filename: "universidades.json", type: "array" },
   { key: "exatecs", label: "Empleabilidad", filename: "exatecs.json", type: "array" },
+  { key: "careerScholarships", label: "Porcentajes de Becas por carrera", filename: "carreras.json", type: "array", editableRecords: false },
+  { key: "becas", label: "Contenido compartido de Becas", filename: "becas.json", type: "array" },
   { key: "catalystDetails", label: "Contenido CATALYST", filename: "catalyst.json", type: "array" },
+  { key: "quantumDetails", label: "Contenido QUANTUM", filename: "quantum.json", type: "array" },
   { key: "vivencia", label: "Vivencia", filename: "vivencia.json", type: "array" },
 ];
 
@@ -2248,9 +2413,19 @@ const adminIdRules = {
     segment: "detalle",
     required: ["id", "categoria"],
   },
+  quantumDetails: {
+    fixedPrefix: "quantum",
+    segment: "detalle",
+    required: ["id", "categoria"],
+  },
   vivencia: {
     base: "vivencia-",
     required: ["id", "categoria", "titulo", "año"],
+  },
+  becas: {
+    fixedPrefix: "beca",
+    segment: "tipo",
+    required: ["id", "titulo", "descripcion", "orden"],
   },
 };
 
@@ -2260,13 +2435,27 @@ function cloneData(value) {
 
 function getAdminData(key) {
   if (key === "catalystDetails") return adminState.catalyst.detalles;
+  if (key === "quantumDetails") return adminState.quantum.detalles;
   return adminState[key];
 }
 
 function getAdminDownloadData(key) {
   if (key === "catalystDetails") return adminState.catalyst;
+  if (key === "quantumDetails") return adminState.quantum;
   if (key === "vivencia") return adminState.vivencia.map(cleanVivenciaRecord);
+  if (key === "careerScholarships") {
+    syncCareerScholarshipsToCareers();
+    return adminState.carreras;
+  }
   return getAdminData(key);
+}
+
+function syncCareerScholarshipsToCareers() {
+  const valuesByCareer = new Map((adminState.careerScholarships || []).map((item) => [item.id, item.becas]));
+  adminState.carreras.forEach((career) => {
+    if (career.tipo !== "career" || !valuesByCareer.has(career.id)) return;
+    career.becas = cloneData(valuesByCareer.get(career.id));
+  });
 }
 
 function cleanVivenciaRecord(record) {
@@ -2291,7 +2480,7 @@ function getAdminConfig(key) {
 }
 
 function adminCareers() {
-  return (adminState?.carreras ?? siteData.carreras).filter((career) => career.tipo !== "catalyst");
+  return (adminState?.carreras ?? siteData.carreras).filter((career) => career.tipo === "career");
 }
 
 function isCareerScopedAdminKey(key) {
@@ -2299,12 +2488,12 @@ function isCareerScopedAdminKey(key) {
 }
 
 function adminItemLabel(item, index) {
-  return item?.nombre || item?.titulo || item?.id || `Registro ${index + 1}`;
+  return localizedText(item?.nombre || item?.titulo, "es") || item?.id || `Registro ${index + 1}`;
 }
 
 function adminCareerOptions(selectedValue) {
   return adminCareers()
-    .map((career) => `<option value="${escapeAttr(career.id)}" ${career.id === selectedValue ? "selected" : ""}>${escapeHTML(career.nombre)}</option>`)
+    .map((career) => `<option value="${escapeAttr(career.id)}" ${career.id === selectedValue ? "selected" : ""}>${escapeHTML(localizedText(career.nombre, "es"))}</option>`)
     .join("");
 }
 
@@ -2350,8 +2539,12 @@ function orderedAdminEntries(object, key, prefix) {
       ? ["carreraId", "id", "fotoAlumno", "logoEmpresa", "nombre", "generacion", "puestoActual", "empresa", "descripcion", "linkedinUrl", "codigoQR"]
     : key === "vivencia"
       ? ["id", "categoria", "titulo", "descripcion", "año", "media", "videoUrl", "enlace", "codigoQR", "etiquetas"]
-    : key === "catalystDetails"
+    : ["catalystDetails", "quantumDetails"].includes(key)
       ? ["id", "categoria", "titulo", "año", "etiquetas", "descripcion", "imagen", "video"]
+    : key === "becas"
+      ? ["id", "titulo", "descripcion", "orden", "codigoQR"]
+    : key === "careerScholarships"
+      ? ["id", "nombre", "becas"]
     : isCareerScopedAdminKey(key) ? ["carreraId", "id"] : ["id"];
   return [
     ...preferred.filter((field) => Object.hasOwn(object, field)).map((field) => [field, object[field]]),
@@ -2383,15 +2576,38 @@ function adminFieldLabel(field, key) {
     media: key === "vivencia" ? "Imagen" : "Media",
     videoUrl: "Enlace de video",
     video: "Enlace de video",
+    orden: "Orden",
+    becas: "Becas",
+    porcentajeAlumnosConBeca: "Porcentaje de estudiantes con beca",
+    porcentajePromedioBeca: "Porcentaje promedio de beca",
   };
   return labels[field] ?? field.replace(/([A-Z])/g, " $1").replace(/^./, (char) => char.toUpperCase());
 }
 
 function normalizeAdminItem(key, item) {
   if (!item) return;
+  const translatedFields = {
+    proyectos: ["titulo", "descripcion", "tecnologias"],
+    socios: ["descripcion", "tiposInteraccion"],
+    universidades: ["tipoExperiencia", "descripcion", "areasRelacionadas"],
+    exatecs: ["puestoActual", "descripcion"],
+    vivencia: ["titulo", "descripcion", "etiquetas"],
+    catalystDetails: ["titulo", "descripcion", "etiquetas"],
+    quantumDetails: ["titulo", "descripcion", "etiquetas"],
+    becas: ["titulo", "descripcion"],
+  };
+  (translatedFields[key] || []).forEach((field) => {
+    if (!Object.hasOwn(item, field)) return;
+    const value = item[field];
+    if (value && typeof value === "object" && !Array.isArray(value) && Object.hasOwn(value, "es")) {
+      if (!Object.hasOwn(value, "en")) value.en = Array.isArray(value.es) ? [] : "";
+      return;
+    }
+    item[field] = { es: value ?? "", en: Array.isArray(value) ? [] : "" };
+  });
   if (key === "socios") {
-    if (!Array.isArray(item.tiposInteraccion)) {
-      item.tiposInteraccion = hasContent(item.tipoInteraccion) ? [String(item.tipoInteraccion).trim()] : [];
+    if (!hasContent(item.tiposInteraccion)) {
+      item.tiposInteraccion = { es: hasContent(item.tipoInteraccion) ? [String(item.tipoInteraccion).trim()] : [], en: [] };
     }
     delete item.tipoInteraccion;
   }
@@ -2417,7 +2633,7 @@ function normalizeAdminItem(key, item) {
     }
     delete item.mediaType;
   }
-  if (key === "catalystDetails") {
+  if (["catalystDetails", "quantumDetails"].includes(key)) {
     normalizeCatalystDetailItem(item);
   }
 }
@@ -2443,7 +2659,14 @@ function normalizeCatalystDetailItem(item) {
     if (isVideo) item.video = legacyMedia;
     else item.imagen = legacyMedia;
   }
-  item.etiquetas = item.categoria === "actividades" ? normalizeTags(item.etiquetas) : [];
+  if (item.categoria === "actividades") {
+    const tags = item.etiquetas;
+    item.etiquetas = tags && typeof tags === "object" && !Array.isArray(tags) && Object.hasOwn(tags, "es")
+      ? { es: normalizeTags(tags.es), en: normalizeTags(tags.en) }
+      : { es: normalizeTags(tags), en: [] };
+  } else {
+    item.etiquetas = { es: [], en: [] };
+  }
   [
     "destacado",
     "textoDestacado",
@@ -2477,12 +2700,23 @@ function normalizeCatalystDetailItem(item) {
 
 function renderAdminDashboard() {
   adminState = cloneData(siteData);
+  adminState.careerScholarships = adminState.carreras
+    .filter((career) => career.tipo === "career")
+    .map((career) => ({
+      id: career.id,
+      nombre: cloneData(career.nombre),
+      becas: cloneData(career.becas || {
+        porcentajeAlumnosConBeca: null,
+        porcentajePromedioBeca: null,
+      }),
+    }));
   app.innerHTML = `
     <section class="admin-shell">
       <div class="admin-hero">
         <p class="eyebrow">Administrador local</p>
         <h1>Editar catálogo</h1>
         <p>Modifica los datos en formularios, revisa el JSON generado y descarga el archivo actualizado. Después reemplaza manualmente el archivo correspondiente en <strong>data</strong>.</p>
+        <div class="admin-language-note"><strong>Contenido bilingüe</strong><span>Toda la información debe registrarse primero en español. La traducción al inglés es opcional. Cuando un campo no tenga traducción, el catálogo mostrará automáticamente su versión en español.</span></div>
       </div>
       <div class="admin-layout">
         <aside class="admin-panel">
@@ -2515,6 +2749,7 @@ function renderAdminEditor(key, selectedCareerId = null) {
   const data = getAdminData(key);
   const editor = document.querySelector("#admin-editor");
   const isArray = Array.isArray(data);
+  const canEditRecords = config.editableRecords !== false;
   const careerId = selectedCareerId || defaultAdminCareerId(key);
   const filteredEntries = isArray ? adminFilteredEntries(key, careerId) : [];
   const selectedIndex = isArray && filteredEntries.length > 0 ? filteredEntries[0].index : adminNewItemValue;
@@ -2526,7 +2761,7 @@ function renderAdminEditor(key, selectedCareerId = null) {
         <h2>${escapeHTML(config.label)}</h2>
       </div>
       ${
-        isArray
+        isArray && canEditRecords
           ? `<div class="admin-actions">
               <button class="button ghost compact-button" type="button" id="admin-add">Agregar</button>
               <button class="button ghost compact-button danger-button" type="button" id="admin-delete">Eliminar</button>
@@ -2547,7 +2782,7 @@ function renderAdminEditor(key, selectedCareerId = null) {
           }
           <label class="admin-label" for="admin-item">Registro</label>
            <select id="admin-item" class="admin-control">
-             <option value="${adminNewItemValue}">+ Agregar nuevo registro</option>
+             ${canEditRecords ? `<option value="${adminNewItemValue}">+ Agregar nuevo registro</option>` : ""}
              ${filteredEntries.map(({ item, index }) => `<option value="${index}">${escapeHTML(adminItemLabel(item, index))}</option>`).join("")}
            </select>
         </div>`
@@ -2568,8 +2803,8 @@ function renderAdminEditor(key, selectedCareerId = null) {
   if (isArray) {
     document.querySelector("#admin-career")?.addEventListener("change", (event) => renderAdminEditor(key, event.target.value));
     document.querySelector("#admin-item").addEventListener("change", () => renderAdminForm(key));
-    document.querySelector("#admin-add").addEventListener("click", () => addAdminItem(key));
-    document.querySelector("#admin-delete").addEventListener("click", () => deleteAdminItem(key));
+    document.querySelector("#admin-add")?.addEventListener("click", () => addAdminItem(key));
+    document.querySelector("#admin-delete")?.addEventListener("click", () => deleteAdminItem(key));
   }
   document.querySelector("#admin-download").addEventListener("click", () => downloadAdminJson(key));
   renderAdminForm(key, selectedIndex);
@@ -2603,7 +2838,7 @@ function renderAdminForm(key, selectedValue = null) {
       } else {
         refreshAdminItemLabel(key);
       }
-      if (key === "catalystDetails" && field.dataset.path === "categoria") {
+      if (["catalystDetails", "quantumDetails"].includes(key) && field.dataset.path === "categoria") {
         toggleCatalystAdminFields(form, target);
       }
       updateAdminOutput(key);
@@ -2629,11 +2864,29 @@ function renderAdminFields(object, prefix = "", key = "", isNew = false) {
       const path = prefix ? `${prefix}.${field}` : field;
       const label = adminFieldLabel(field, key);
 
+      if (!prefix && key === "careerScholarships" && field === "id") {
+        return "";
+      }
+
+      if (!prefix && key === "careerScholarships" && field === "nombre") {
+        return `<div class="admin-record-title"><span class="mini-label">Carrera</span><strong>${escapeHTML(localizedText(value, "es"))}</strong></div>`;
+      }
+
+      if (["porcentajeAlumnosConBeca", "porcentajePromedioBeca"].includes(field)) {
+        const inputValue = value === null || value === undefined ? "" : value;
+        return `
+          <label class="admin-label">
+            ${escapeHTML(label)} <span class="admin-optional">Opcional</span>
+            <input class="admin-control" type="number" min="0" max="100" step="0.1" data-path="${escapeAttr(path)}" data-kind="optional-percentage" value="${escapeAttr(inputValue)}" />
+          </label>
+        `;
+      }
+
       if (!prefix && field === "carreraId" && isCareerScopedAdminKey(key)) {
         return "";
       }
 
-      if (!prefix && key === "catalystDetails" && field === "categoria") {
+      if (!prefix && ["catalystDetails", "quantumDetails"].includes(key) && field === "categoria") {
         const categories = [
           ["comunidad", "Comunidad motivada"],
           ["actividades", "Actividades opcionales"],
@@ -2672,14 +2925,29 @@ function renderAdminFields(object, prefix = "", key = "", isNew = false) {
         `;
       }
 
-      if (!prefix && key === "catalystDetails" && field === "etiquetas") {
-        const hidden = object.categoria !== "actividades" ? " hidden" : "";
+      if (value && typeof value === "object" && !Array.isArray(value) && Object.hasOwn(value, "es")) {
+        const spanish = value.es ?? "";
+        const english = value.en ?? (Array.isArray(spanish) ? [] : "");
+        const isArray = Array.isArray(spanish) || Array.isArray(english);
+        const isConditionalTags = !prefix && ["catalystDetails", "quantumDetails"].includes(key) && field === "etiquetas";
+        const hidden = isConditionalTags && object.categoria !== "actividades" ? " hidden" : "";
+        const descriptionHelp = field === "descripcion"
+          ? `<small class="admin-help">Los saltos de línea se respetarán. Escribe “- ” o “* ” al inicio de una línea para crear una viñeta.</small>`
+          : isArray ? `<small class="admin-help">Escribe un elemento por línea.</small>` : "";
+        const fieldKind = isArray ? "array" : "string";
+        const spanishValue = isArray ? normalizeTags(spanish).join("\n") : spanish;
+        const englishValue = isArray ? normalizeTags(english).join("\n") : english;
         return `
-          <label class="admin-label" data-catalyst-tags-field${hidden}>
-            ${escapeHTML(label)}
-            <small class="admin-help">Escribe una etiqueta por línea.</small>
-            <textarea class="admin-control" data-path="${escapeAttr(path)}" data-kind="array">${escapeHTML(normalizeTags(value).join("\n"))}</textarea>
-          </label>
+          <fieldset class="admin-fieldset admin-bilingual-field" ${isConditionalTags ? "data-catalyst-tags-field" : ""}${hidden}>
+            <legend>${escapeHTML(label)}</legend>
+            ${descriptionHelp}
+            <label class="admin-label">${escapeHTML(label)} — Español
+              <textarea class="admin-control" data-path="${escapeAttr(`${path}.es`)}" data-kind="${fieldKind}">${escapeHTML(spanishValue)}</textarea>
+            </label>
+            <label class="admin-label">${escapeHTML(label)} — Inglés <span class="admin-optional">Opcional</span>
+              <textarea class="admin-control" data-path="${escapeAttr(`${path}.en`)}" data-kind="${fieldKind}">${escapeHTML(englishValue)}</textarea>
+            </label>
+          </fieldset>
         `;
       }
 
@@ -2708,7 +2976,9 @@ function renderAdminFields(object, prefix = "", key = "", isNew = false) {
 
       const isLong = String(value ?? "").length > 90 || /descripcion|texto|tagline|bienvenida/i.test(field);
       const readonly = !prefix && field === "id" && isNew && adminIdRules[key] ? " readonly" : "";
-      const numberAttrs = typeof value === "number" ? " min=\"1000\" max=\"9999\" step=\"1\"" : "";
+      const numberAttrs = typeof value === "number"
+        ? field === "orden" ? " min=\"1\" max=\"99\" step=\"1\"" : " min=\"1000\" max=\"9999\" step=\"1\""
+        : "";
       const control = isLong
         ? `<textarea class="admin-control" data-path="${escapeAttr(path)}" data-kind="string"${readonly}>${escapeHTML(value)}</textarea>`
         : `<input class="admin-control" type="${typeof value === "number" ? "number" : "text"}" data-path="${escapeAttr(path)}" data-kind="${typeof value === "number" ? "number" : "string"}" value="${escapeAttr(value)}"${readonly}${numberAttrs} />`;
@@ -2724,6 +2994,22 @@ function applyAdminForm(target, form, key = "") {
   form.querySelectorAll("[data-path]").forEach((field) => {
     const kind = field.dataset.kind;
     let value = field.value;
+    if (kind === "optional-percentage") {
+      const trimmed = String(value).trim();
+      if (!trimmed) {
+        field.classList.remove("field-error");
+        setPathValue(target, field.dataset.path, null);
+        return;
+      }
+      const percentage = Number(trimmed);
+      if (!Number.isFinite(percentage) || percentage < 0 || percentage > 100) {
+        field.classList.add("field-error");
+        return;
+      }
+      field.classList.remove("field-error");
+      setPathValue(target, field.dataset.path, percentage);
+      return;
+    }
     if (kind === "number") value = Number(value);
     if (kind === "country") {
       const canonicalCountry = canonicalAdminCountryName(value);
@@ -2769,14 +3055,14 @@ const adminBlankTemplates = {
   proyectos: {
     carreraId: "",
     id: "",
-    titulo: "",
-    descripcion: "",
+    titulo: { es: "", en: "" },
+    descripcion: { es: "", en: "" },
     año: new Date().getFullYear(),
     semestre: "",
     alumnos: [],
     thumbnail: "",
     youtubeUrl: "",
-    tecnologias: [],
+    tecnologias: { es: [], en: [] },
     socioFormador: "",
   },
   socios: {
@@ -2784,8 +3070,8 @@ const adminBlankTemplates = {
     id: "",
     nombre: "",
     logo: "",
-    descripcion: "",
-    tiposInteraccion: [],
+    descripcion: { es: "", en: "" },
+    tiposInteraccion: { es: [], en: [] },
     imagenOVideo: "",
   },
   universidades: {
@@ -2795,10 +3081,10 @@ const adminBlankTemplates = {
     ciudad: "",
     nombre: "",
     alumno: "",
-    tipoExperiencia: "",
+    tipoExperiencia: { es: "", en: "" },
     año: new Date().getFullYear(),
-    descripcion: "",
-    areasRelacionadas: [],
+    descripcion: { es: "", en: "" },
+    areasRelacionadas: { es: [], en: [] },
     imagen: "",
   },
   exatecs: {
@@ -2808,33 +3094,50 @@ const adminBlankTemplates = {
     logoEmpresa: "",
     nombre: "",
     generacion: "",
-    puestoActual: "",
+    puestoActual: { es: "", en: "" },
     empresa: "",
-    descripcion: "",
+    descripcion: { es: "", en: "" },
     linkedinUrl: "",
     codigoQR: "",
   },
   catalystDetails: {
     id: "",
     categoria: "comunidad",
-    titulo: "",
+    titulo: { es: "", en: "" },
     "año": "",
-    etiquetas: [],
-    descripcion: "",
+    etiquetas: { es: [], en: [] },
+    descripcion: { es: "", en: "" },
     imagen: "",
     video: "",
   },
   vivencia: {
     id: "",
     categoria: "Bootcamps",
-    titulo: "",
-    descripcion: "",
+    titulo: { es: "", en: "" },
+    descripcion: { es: "", en: "" },
     "año": new Date().getFullYear(),
     media: "",
     videoUrl: "",
     enlace: "",
     codigoQR: "",
-    etiquetas: [],
+    etiquetas: { es: [], en: [] },
+  },
+  quantumDetails: {
+    id: "",
+    categoria: "comunidad",
+    titulo: { es: "", en: "" },
+    "año": "",
+    etiquetas: { es: [], en: [] },
+    descripcion: { es: "", en: "" },
+    imagen: "",
+    video: "",
+  },
+  becas: {
+    id: "",
+    titulo: { es: "", en: "" },
+    descripcion: { es: "", en: "" },
+    orden: 1,
+    codigoQR: "",
   },
 };
 
@@ -2843,7 +3146,7 @@ function createBlankFromTemplate(template, key) {
   Object.keys(blank).forEach((field) => {
     if (Array.isArray(blank[field])) blank[field] = [];
     else if (blank[field] && typeof blank[field] === "object") blank[field] = createBlankFromTemplate(blank[field], key);
-    else if (typeof blank[field] === "number") blank[field] = new Date().getFullYear();
+    else if (typeof blank[field] === "number") blank[field] = field === "orden" ? 1 : new Date().getFullYear();
     else blank[field] = adminBlankTemplates[key]?.[field] ?? "";
   });
   return blank;
@@ -2884,7 +3187,8 @@ function adminRequiredLabel(field) {
 function validateAdminItem(key, item) {
   const required = adminIdRules[key]?.required ?? [];
   const missing = required.filter((field) => {
-    const value = item[field];
+    const rawValue = item[field];
+    const value = rawValue && typeof rawValue === "object" && !Array.isArray(rawValue) && Object.hasOwn(rawValue, "es") ? rawValue.es : rawValue;
     if (typeof value === "number") return !Number.isFinite(value) || value <= 0;
     return String(value ?? "").trim() === "";
   });
@@ -2977,8 +3281,70 @@ function downloadAdminJson(key) {
   URL.revokeObjectURL(url);
 }
 
+function updateGlobalChrome() {
+  document.documentElement.lang = currentLanguage;
+  if (siteData?.site) {
+    document.title = `${localizedText(siteData.site.tituloSitio)} | ${localizedText(siteData.site.textoBienvenida)}`;
+  }
+  const isAdmin = (window.location.hash || "#inicio") === "#admin";
+  const languageSwitcher = document.querySelector("[data-language-switcher]");
+  if (languageSwitcher) {
+    languageSwitcher.hidden = isAdmin;
+    languageSwitcher.setAttribute("aria-label", t("languageSelector"));
+    languageSwitcher.querySelectorAll("[data-language]").forEach((button) => {
+      const active = button.dataset.language === currentLanguage;
+      button.setAttribute("aria-pressed", String(active));
+      button.setAttribute("aria-label", button.dataset.language === "es" ? t("spanish") : t("english"));
+    });
+  }
+  const topNav = document.querySelector("[data-top-nav]");
+  topNav?.setAttribute("aria-label", t("mainNavigation"));
+  const home = document.querySelector("[data-header-home]");
+  home?.setAttribute("aria-label", t("backHome"));
+  const brandTitle = document.querySelector("[data-brand-title]");
+  if (brandTitle) brandTitle.textContent = t("engineering");
+  const catalogLink = document.querySelector("[data-nav-catalog]");
+  if (catalogLink) catalogLink.textContent = t("catalog");
+  const adminLink = document.querySelector("[data-nav-admin]");
+  if (adminLink) adminLink.textContent = t("admin");
+}
+
+function listingStateSnapshot() {
+  return [...document.querySelectorAll("[data-filter], [data-sort-control]")].map((control) => ({
+    selector: control.hasAttribute("data-sort-control") ? "sort" : control.dataset.filter,
+    value: control.value,
+  }));
+}
+
+function restoreListingState(snapshot) {
+  snapshot.forEach(({ selector, value }) => {
+    const control = selector === "sort"
+      ? document.querySelector("[data-sort-control]")
+      : document.querySelector(`[data-filter="${CSS.escape(selector)}"]`);
+    if (control && [...control.options].some((option) => option.value === value)) control.value = value;
+  });
+  document.querySelectorAll("[data-listing-region]").forEach(applyListingControls);
+}
+
+function installLanguageSwitcher() {
+  document.querySelector("[data-language-switcher]")?.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-language]");
+    if (!button || button.dataset.language === currentLanguage) return;
+    const scrollPosition = window.scrollY;
+    const listingState = listingStateSnapshot();
+    currentLanguage = catalogI18n.setStoredLanguage(button.dataset.language);
+    renderFooter();
+    route();
+    requestAnimationFrame(() => {
+      restoreListingState(listingState);
+      window.scrollTo({ top: scrollPosition, behavior: "auto" });
+    });
+  });
+}
+
 function route() {
   const hash = window.location.hash || "#inicio";
+  updateGlobalChrome();
   if (!hash.includes("/universidades")) {
     destroyActiveUniversityMap();
   }
@@ -3006,13 +3372,13 @@ function route() {
   if (hash.startsWith("#programa/")) {
     const [, programId, sectionSlug, ...sectionPath] = hash.replace("#", "").split("/");
     const program = siteData.carreras.find((item) => item.id === programId);
-    if (program?.tipo === "catalyst") {
+    if (["catalyst", "quantum"].includes(program?.tipo)) {
       if (["comunidad", "actividades", "testimonios"].includes(sectionSlug)) {
-        renderCatalystCategoryPage(program, sectionSlug);
+        renderSpecialProgramCategoryPage(program, sectionSlug);
         resetScroll();
         return;
       }
-      renderCatalystDetail(program);
+      renderSpecialProgramDetail(program);
       resetScroll();
       return;
     }
@@ -3052,8 +3418,9 @@ async function init() {
   renderLoading();
   try {
     siteData = await loadData();
-    document.title = `${siteData.site.tituloSitio} | ${siteData.site.textoBienvenida}`;
+    document.title = `${localizedText(siteData.site.tituloSitio)} | ${localizedText(siteData.site.textoBienvenida)}`;
     renderFooter();
+    installLanguageSwitcher();
     route();
     window.addEventListener("hashchange", route);
     window.addEventListener("popstate", route);

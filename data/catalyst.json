@@ -3,53 +3,106 @@
   "secciones": [
     {
       "id": "que-es",
-      "titulo": "¿Qué es CATALYST?",
-      "descripcion": "Es una comunidad para estudiantes de alto rendimiento que inician su carrera en Ingeniería y quieren ir más allá desde sus primeros semestres. Además, ofrece actividades opcionales de mentoría y oportunidades para desarrollar proyectos de emprendimiento, investigación o vinculación con la industria.",
+      "titulo": {
+        "es": "¿Qué es CATALYST?",
+        "en": "What is CATALYST?"
+      },
+      "descripcion": {
+        "es": "Es una comunidad para estudiantes de alto rendimiento que inician su carrera en Ingeniería y quieren ir más allá desde sus primeros semestres. Además, ofrece actividades opcionales de mentoría y oportunidades para desarrollar proyectos de emprendimiento, investigación o vinculación con la industria.",
+        "en": "It is a community for high-achieving students who are starting their Engineering program and want to go further from their first semesters. In addition, it offers optional mentoring activities and opportunities to develop entrepreneurship, research or industry engagement projects."
+      },
       "items": [],
-      "bullets": [
-        "Es una comunidad para estudiantes de alto rendimiento que inician su carrera en Ingeniería y quieren ir más allá desde sus primeros semestres.",
-        "Además, ofrece actividades opcionales de mentoría y oportunidades para desarrollar proyectos de emprendimiento, investigación o vinculación con la industria."
-      ]
+      "bullets": {
+        "es": [
+          "Es una comunidad para estudiantes de alto rendimiento que inician su carrera en Ingeniería y quieren ir más allá desde sus primeros semestres.",
+          "Además, ofrece actividades opcionales de mentoría y oportunidades para desarrollar proyectos de emprendimiento, investigación o vinculación con la industria."
+        ],
+        "en": [
+          "It is a community for high-achieving students who are starting their Engineering program and want to go further from their first semesters.",
+          "In addition, it offers optional mentoring activities and opportunities to develop entrepreneurship, research or industry engagement projects."
+        ]
+      }
     },
     {
       "id": "comunidad",
-      "titulo": "Comunidad motivada",
-      "descripcion": "El programa está dirigido a estudiantes destacados, quienes pueden aplicar para cursar sus materias junto con compañeros igualmente comprometidos, favoreciendo clases más fluidas y equipos de trabajo colaborativos. El plan de estudios es el mismo que el de los demás estudiantes de Ingeniería.",
+      "titulo": {
+        "es": "Comunidad motivada",
+        "en": "Motivated Community"
+      },
+      "descripcion": {
+        "es": "El programa está dirigido a estudiantes destacados, quienes pueden aplicar para cursar sus materias junto con compañeros igualmente comprometidos, favoreciendo clases más fluidas y equipos de trabajo colaborativos. El plan de estudios es el mismo que el de los demás estudiantes de Ingeniería.",
+        "en": "The program is aimed at outstanding students, who can apply to take their subjects together with equally committed classmates, favoring more fluid classes and collaborative work teams. The study plan is the same as that of other Engineering students."
+      },
       "ruta": "#programa/catalyst/comunidad",
       "items": [],
-      "bullets": [
-        "El programa está dirigido a estudiantes destacados, quienes pueden aplicar para cursar sus materias junto con compañeros igualmente comprometidos, favoreciendo clases más fluidas y equipos de trabajo colaborativos.",
-        "El plan de estudios es el mismo que el de los demás estudiantes de Ingeniería."
-      ]
+      "bullets": {
+        "es": [
+          "El programa está dirigido a estudiantes destacados, quienes pueden aplicar para cursar sus materias junto con compañeros igualmente comprometidos, favoreciendo clases más fluidas y equipos de trabajo colaborativos.",
+          "El plan de estudios es el mismo que el de los demás estudiantes de Ingeniería."
+        ],
+        "en": [
+          "The program is aimed at outstanding students, who can apply to take their subjects together with equally committed classmates, favoring more fluid classes and collaborative work teams.",
+          "The study plan is the same as that of other Engineering students."
+        ]
+      }
     },
     {
       "id": "actividades",
-      "titulo": "Actividades opcionales",
-      "descripcion": "Participa en actividades exclusivas de mentoría, talleres, visitas, conferencias y experiencias vinculadas con emprendimiento, investigación, industria y liderazgo. Tú decides cuáles aprovechar de acuerdo con tus intereses y proyectos.",
+      "titulo": {
+        "es": "Actividades opcionales",
+        "en": "Optional Activities"
+      },
+      "descripcion": {
+        "es": "Participa en actividades exclusivas de mentoría, talleres, visitas, conferencias y experiencias vinculadas con emprendimiento, investigación, industria y liderazgo. Tú decides cuáles aprovechar de acuerdo con tus intereses y proyectos.",
+        "en": "Participate in exclusive mentoring activities, workshops, visits, conferences and experiences linked to entrepreneurship, research, industry and leadership. You decide which ones to take advantage of according to your interests and projects."
+      },
       "ruta": "#programa/catalyst/actividades",
       "items": [],
-      "bullets": [
-        "Participa en actividades exclusivas de mentoría, talleres, visitas, conferencias y experiencias vinculadas con emprendimiento, investigación, industria y liderazgo.",
-        "Tú decides cuáles aprovechar de acuerdo con tus intereses y proyectos."
-      ]
+      "bullets": {
+        "es": [
+          "Participa en actividades exclusivas de mentoría, talleres, visitas, conferencias y experiencias vinculadas con emprendimiento, investigación, industria y liderazgo.",
+          "Tú decides cuáles aprovechar de acuerdo con tus intereses y proyectos."
+        ],
+        "en": [
+          "Participate in exclusive mentoring activities, workshops, visits, conferences and experiences linked to entrepreneurship, research, industry and leadership.",
+          "You decide which ones to take advantage of according to your interests and projects."
+        ]
+      }
     },
     {
       "id": "testimonios",
-      "titulo": "Testimonios de estudiantes",
-      "descripcion": "Conoce las experiencias de estudiantes que ya formaron parte del programa y descubre cómo CATALYST fortaleció su comunidad, sus proyectos y su trayectoria universitaria desde los primeros semestres.",
+      "titulo": {
+        "es": "Testimonios de estudiantes",
+        "en": "Student Testimonials"
+      },
+      "descripcion": {
+        "es": "Conoce las experiencias de estudiantes que ya formaron parte del programa y descubre cómo CATALYST fortaleció su comunidad, sus proyectos y su trayectoria universitaria desde los primeros semestres.",
+        "en": "Learn about the experiences of students who have already been part of the program and discover how CATALYST strengthened their community, their projects, and their university journey from the first semesters."
+      },
       "ruta": "#programa/catalyst/testimonios",
       "items": [],
-      "bullets": [
-        "Conoce las experiencias de estudiantes que ya formaron parte del programa y descubre cómo CATALYST fortaleció su comunidad, sus proyectos y su trayectoria universitaria desde los primeros semestres."
-      ]
+      "bullets": {
+        "es": [
+          "Conoce las experiencias de estudiantes que ya formaron parte del programa y descubre cómo CATALYST fortaleció su comunidad, sus proyectos y su trayectoria universitaria desde los primeros semestres."
+        ],
+        "en": [
+          "Learn about the experiences of students who have already been part of the program and discover how CATALYST strengthened their community, their projects, and their university journey from the first semesters."
+        ]
+      }
     }
   ],
   "detalles": [
     {
       "id": "catalyst-comunidad-1",
       "categoria": "comunidad",
-      "titulo": "Comunidad de aprendizaje",
-      "descripcion": "CATALYST está inspirado en los programas del MIT (Concurse, Terrascope, ESG, Design Plus) que son comunidades de aprendizaje de primer año que comparten intereses.",
+      "titulo": {
+        "es": "Comunidad de aprendizaje",
+        "en": "Learning community"
+      },
+      "descripcion": {
+        "es": "CATALYST está inspirado en los programas del MIT (Concurse, Terrascope, ESG, Design Plus) que son comunidades de aprendizaje de primer año que comparten intereses.",
+        "en": "CATALYST is inspired by MIT programs (Concurse, Terrascope, ESG, Design Plus) that are first-year learning communities that share interests."
+      },
       "imagen": "",
       "video": "",
       "año": ""
@@ -57,8 +110,14 @@
     {
       "id": "catalyst-comunidad-2",
       "categoria": "comunidad",
-      "titulo": "Perfil de alumn@s invitados",
-      "descripcion": "Alumn@s de la entrada de Ingeniería que han destacado en su trayectoria académica.",
+      "titulo": {
+        "es": "Perfil de alumn@s invitados",
+        "en": "Profile of invited students"
+      },
+      "descripcion": {
+        "es": "Alumn@s de la entrada de Ingeniería que han destacado en su trayectoria académica.",
+        "en": "Students from the Engineering Entry who have stood out in their academic career."
+      },
       "imagen": "",
       "video": "",
       "año": ""
@@ -66,8 +125,14 @@
     {
       "id": "catalyst-comunidad-3",
       "categoria": "comunidad",
-      "titulo": "Requisitos",
-      "descripcion": "* Promedio de ingreso de 90 o superior.\n* Examen de admisión de 1360 puntos o superior.\n* Presentar tu solicitud con tu carta de motivos una vez que estés inscrito.",
+      "titulo": {
+        "es": "Requisitos",
+        "en": "Requirements"
+      },
+      "descripcion": {
+        "es": "* Promedio de ingreso de 90 o superior.\n* Examen de admisión de 1360 puntos o superior.\n* Presentar tu solicitud con tu carta de motivos una vez que estés inscrito.",
+        "en": "* Average GPA of 90 or higher.\n* Admission exam of 1360 points or higher.\n* Submit your application with your letter of reasons once you are registered."
+      },
       "imagen": "",
       "video": "",
       "año": ""
@@ -75,8 +140,14 @@
     {
       "id": "catalyst-comunidad-4",
       "categoria": "comunidad",
-      "titulo": "Plan de estudios",
-      "descripcion": "El plan de estudios, número de actividades, reto y nivel de dificultad de exámenes no cambia.\nLa diferencia la hacen los estudiantes que forman parte del grupo.",
+      "titulo": {
+        "es": "Plan de estudios",
+        "en": "Curriculum"
+      },
+      "descripcion": {
+        "es": "El plan de estudios, número de actividades, reto y nivel de dificultad de exámenes no cambia.\nLa diferencia la hacen los estudiantes que forman parte del grupo.",
+        "en": "The study plan, number of activities, challenge and difficulty level of exams do not change.\nThe difference is made by the students who are part of the group."
+      },
       "imagen": "",
       "video": "",
       "año": ""
@@ -84,8 +155,14 @@
     {
       "id": "catalyst-comunidad-5",
       "categoria": "comunidad",
-      "titulo": "2 Grupos",
-      "descripcion": "* Inglés\n* Español",
+      "titulo": {
+        "es": "2 Grupos",
+        "en": "2 Groups"
+      },
+      "descripcion": {
+        "es": "* Inglés\n* Español",
+        "en": "* English\n* Spanish"
+      },
       "imagen": "",
       "video": "",
       "año": ""
@@ -93,8 +170,14 @@
     {
       "id": "catalyst-comunidad-6",
       "categoria": "comunidad",
-      "titulo": "Proyecto Bomba de Agua",
-      "descripcion": "Proyecto colaborativo en el que los estudiantes aplicaron conocimientos de diseño, física y construcción de prototipos para desarrollar una bomba de agua funcional para comunidades de bajos recursos.",
+      "titulo": {
+        "es": "Proyecto Bomba de Agua",
+        "en": "Water Pump Project"
+      },
+      "descripcion": {
+        "es": "Proyecto colaborativo en el que los estudiantes aplicaron conocimientos de diseño, física y construcción de prototipos para desarrollar una bomba de agua funcional para comunidades de bajos recursos.",
+        "en": "Collaborative project in which students applied knowledge of design, physics, and prototyping to develop a functional water pump for low-income communities."
+      },
       "imagen": "assets/images/catalyst/bomba.jpg",
       "video": "",
       "año": "2025"
@@ -102,8 +185,14 @@
     {
       "id": "catalyst-comunidad-7",
       "categoria": "comunidad",
-      "titulo": "Proyecto Horno Solar",
-      "descripcion": "Los estudiantes diseñaron, construyeron y probaron prototipos de hornos solares para explorar el aprovechamiento de la energía térmica. Uno de los equipos se encuentra en proceso de publicar un artículo científico sobre su diseño y los resultados obtenidos.",
+      "titulo": {
+        "es": "Proyecto Horno Solar",
+        "en": "Solar Oven Project"
+      },
+      "descripcion": {
+        "es": "Los estudiantes diseñaron, construyeron y probaron prototipos de hornos solares para explorar el aprovechamiento de la energía térmica. Uno de los equipos se encuentra en proceso de publicar un artículo científico sobre su diseño y los resultados obtenidos.",
+        "en": "Students designed, built and tested prototypes of solar ovens to explore the use of thermal energy. One of the teams is in the process of publishing a scientific article about its design and the results obtained."
+      },
       "imagen": "assets/images/catalyst/horno.jpg",
       "video": "",
       "año": "2025"
@@ -111,82 +200,156 @@
     {
       "id": "catalyst-actividades-1",
       "categoria": "actividades",
-      "titulo": "Convivencias entre estudiantes, profesores y directores",
-      "descripcion": "Espacios para fortalecer la comunidad CATALYST y facilitar la convivencia entre estudiantes, profesores y directores. Estas actividades permiten conocerse fuera de clases, compartir experiencias y crear relaciones de confianza que favorecen la colaboración y el acompañamiento durante la carrera.",
+      "titulo": {
+        "es": "Convivencias entre estudiantes, profesores y directores",
+        "en": "Coexistences between students, teachers and directors"
+      },
+      "descripcion": {
+        "es": "Espacios para fortalecer la comunidad CATALYST y facilitar la convivencia entre estudiantes, profesores y directores. Estas actividades permiten conocerse fuera de clases, compartir experiencias y crear relaciones de confianza que favorecen la colaboración y el acompañamiento durante la carrera.",
+        "en": "Spaces to strengthen the CATALYST community and facilitate coexistence between students, teachers and directors. These activities allow you to get to know each other outside of classes, share experiences and create relationships of trust that promote collaboration and support during the degree."
+      },
       "imagen": "assets/images/catalyst/convivio.jpg",
       "video": "",
       "año": "2025",
-      "etiquetas": []
+      "etiquetas": {
+        "es": [],
+        "en": []
+      }
     },
     {
       "id": "catalyst-actividades-2",
       "categoria": "actividades",
-      "titulo": "Bootcamp de cerveza",
-      "descripcion": "Experiencia práctica en la que los estudiantes conocieron las etapas del proceso de elaboración de cerveza y aplicaron conceptos de química, energía, instrumentación y control de procesos. El bootcamp incluyó todo el proceso desde la elección de ingredientes hasta el diseño de la botella.",
+      "titulo": {
+        "es": "Bootcamp de cerveza",
+        "en": "Beer Bootcamp"
+      },
+      "descripcion": {
+        "es": "Experiencia práctica en la que los estudiantes conocieron las etapas del proceso de elaboración de cerveza y aplicaron conceptos de química, energía, instrumentación y control de procesos. El bootcamp incluyó todo el proceso desde la elección de ingredientes hasta el diseño de la botella.",
+        "en": "Practical experience in which students learned about the stages of the beer brewing process and applied concepts of chemistry, energy, instrumentation and process control. The bootcamp included the entire process from choosing ingredients to designing the bottle."
+      },
       "imagen": "assets/images/catalyst/bootcamp_cerveza.jpeg",
       "video": "",
       "año": "2025",
-      "etiquetas": [
-        "Emprendimiento",
-        "Investigación"
-      ]
+      "etiquetas": {
+        "es": [
+          "Emprendimiento",
+          "Investigación"
+        ],
+        "en": [
+          "Entrepreneurship",
+          "Investigation"
+        ]
+      }
     },
     {
       "id": "catalyst-actividades-3",
       "categoria": "actividades",
-      "titulo": "Club de lectura de artículos científicos (Participación de Nvidia)",
-      "descripcion": "Sesión para aprender a leer, analizar y discutir artículos científicos sobre IA. La participación de la Dra. Brenda Olivas (Solution Architect de NVIDIA) permitió acercar a los estudiantes a la investigación, la inteligencia artificial y las tendencias actuales de la industria tecnológica.",
+      "titulo": {
+        "es": "Club de lectura de artículos científicos (Participación de Nvidia)",
+        "en": "Scientific Articles Reading Club (Nvidia Participation)"
+      },
+      "descripcion": {
+        "es": "Sesión para aprender a leer, analizar y discutir artículos científicos sobre IA. La participación de la Dra. Brenda Olivas (Solution Architect de NVIDIA) permitió acercar a los estudiantes a la investigación, la inteligencia artificial y las tendencias actuales de la industria tecnológica.",
+        "en": "Session to learn to read, analyze and discuss scientific articles about AI. The participation of Dr. Brenda Olivas (Solution Architect at NVIDIA) brought students closer to research, artificial intelligence and current trends in the technology industry."
+      },
       "imagen": "assets/images/catalyst/nvidia_clubLectura.jpg",
       "video": "",
       "año": "2025",
-      "etiquetas": [
-        "Investigación",
-        "Industria"
-      ]
+      "etiquetas": {
+        "es": [
+          "Investigación",
+          "Industria"
+        ],
+        "en": [
+          "Investigation",
+          "Industry"
+        ]
+      }
     },
     {
       "id": "catalyst-actividades-4",
       "categoria": "actividades",
-      "titulo": "Visita a la planta de Schneider Electric",
-      "descripcion": "Visita para conocer de cerca procesos, tecnologías y soluciones utilizadas en automatización, gestión de energía y manufactura. También Schneider Electric dio a conocer sus procesos para contratación, trabajos de medio tiempo y prácticas profesionales.",
+      "titulo": {
+        "es": "Visita a la planta de Schneider Electric",
+        "en": "Visit to the Schneider Electric plant"
+      },
+      "descripcion": {
+        "es": "Visita para conocer de cerca procesos, tecnologías y soluciones utilizadas en automatización, gestión de energía y manufactura. También Schneider Electric dio a conocer sus procesos para contratación, trabajos de medio tiempo y prácticas profesionales.",
+        "en": "Visit to learn more about processes, technologies and solutions used in automation, energy management and manufacturing. Schneider Electric also announced its processes for hiring, part-time jobs and professional internships."
+      },
       "imagen": "assets/images/catalyst/visita_schneider.jpg",
       "video": "",
       "año": "2025",
-      "etiquetas": [
-        "Industria"
-      ]
+      "etiquetas": {
+        "es": [
+          "Industria"
+        ],
+        "en": [
+          "Industry"
+        ]
+      }
     },
     {
       "id": "catalyst-actividades-5",
       "categoria": "actividades",
-      "titulo": "Viaje a campus Monterrey",
-      "descripcion": "Experiencia de integración y aprendizaje en la que los estudiantes conocieron a los grupos CATALYST y QUANTUM de Campus Monterrey.",
+      "titulo": {
+        "es": "Viaje a campus Monterrey",
+        "en": "Trip to Monterrey campus"
+      },
+      "descripcion": {
+        "es": "Experiencia de integración y aprendizaje en la que los estudiantes conocieron a los grupos CATALYST y QUANTUM de Campus Monterrey.",
+        "en": "Integration and learning experience in which students met the CATALYST and QUANTUM groups from Campus Monterrey."
+      },
       "imagen": "assets/images/catalyst/viaje_hackathon.jpg",
       "video": "",
       "año": "2026",
-      "etiquetas": [
-        "Liderazgo"
-      ]
+      "etiquetas": {
+        "es": [
+          "Liderazgo"
+        ],
+        "en": [
+          "Leadership"
+        ]
+      }
     },
     {
       "id": "catalyst-actividades-6",
       "categoria": "actividades",
-      "titulo": "Hackathon John Deere",
-      "descripcion": "Reto intensivo de innovación en el que los estudiantes trabajaron en equipos para proponer soluciones a una problemática planteada por John Deere.",
+      "titulo": {
+        "es": "Hackathon John Deere",
+        "en": "John Deere Hackathon"
+      },
+      "descripcion": {
+        "es": "Reto intensivo de innovación en el que los estudiantes trabajaron en equipos para proponer soluciones a una problemática planteada por John Deere.",
+        "en": "Intensive innovation challenge in which students worked in teams to propose solutions to a problem posed by John Deere."
+      },
       "imagen": "assets/images/catalyst/premio_hackathon.jpg",
       "video": "",
       "año": "2026",
-      "etiquetas": [
-        "Emprendimiento",
-        "Investigación",
-        "Industria"
-      ]
+      "etiquetas": {
+        "es": [
+          "Emprendimiento",
+          "Investigación",
+          "Industria"
+        ],
+        "en": [
+          "Entrepreneurship",
+          "Investigation",
+          "Industry"
+        ]
+      }
     },
     {
       "id": "catalyst-testimonios-1",
       "categoria": "testimonios",
-      "titulo": "",
-      "descripcion": "“SPARK me proporcionó situaciones que me retaron a dar lo mejor de mí pero más importante me permitió rodearme de personas las cuales me permitieron seguir adelante con los proyectos”",
+      "titulo": {
+        "es": "",
+        "en": ""
+      },
+      "descripcion": {
+        "es": "“SPARK me proporcionó situaciones que me retaron a dar lo mejor de mí pero más importante me permitió rodearme de personas las cuales me permitieron seguir adelante con los proyectos”",
+        "en": "“SPARK provided me with situations that challenged me to give my best, but more importantly, it allowed me to surround myself with people who allowed me to move forward with the projects.”"
+      },
       "imagen": "",
       "video": "",
       "año": "2025-2026"
@@ -194,8 +357,14 @@
     {
       "id": "catalyst-testimonios-2",
       "categoria": "testimonios",
-      "titulo": "",
-      "descripcion": "“A mí de spark me gustaron las oportunidades que se dieron gracias a que estuvimos rodeados de compañeros que nos impulsaban y estaban interesados en dar un poco más  y llegar a mejores resultados”",
+      "titulo": {
+        "es": "",
+        "en": ""
+      },
+      "descripcion": {
+        "es": "“A mí de spark me gustaron las oportunidades que se dieron gracias a que estuvimos rodeados de compañeros que nos impulsaban y estaban interesados en dar un poco más  y llegar a mejores resultados”",
+        "en": "“At Spark I liked the opportunities that were given thanks to the fact that we were surrounded by colleagues who encouraged us and were interested in giving a little more and achieving better results”"
+      },
       "imagen": "",
       "video": "",
       "año": "2025-2026"
@@ -203,8 +372,14 @@
     {
       "id": "catalyst-testimonios-3",
       "categoria": "testimonios",
-      "titulo": "",
-      "descripcion": "“Me gusta mucho lo fluidas que son las clases, sin tantas preguntas o preguntas que verdaderamente importan. Me gustaron los retos y los temas que pudimos llegar a ver además de lo que todos ven”",
+      "titulo": {
+        "es": "",
+        "en": ""
+      },
+      "descripcion": {
+        "es": "“Me gusta mucho lo fluidas que son las clases, sin tantas preguntas o preguntas que verdaderamente importan. Me gustaron los retos y los temas que pudimos llegar a ver además de lo que todos ven”",
+        "en": "\"I really like how fluid the classes are, without so many questions or questions that really matter. I liked the challenges and the topics that we were able to see in addition to what everyone sees\""
+      },
       "imagen": "",
       "video": "",
       "año": "2025-2026"
@@ -212,8 +387,14 @@
     {
       "id": "catalyst-testimonios-4",
       "categoria": "testimonios",
-      "titulo": "",
-      "descripcion": "“Lo que a mí más me gustó en lo personal fue que a lo largo del semestre pudimos tener esa sensación de cercanía con los profesores y no ponen una autoridad distante”",
+      "titulo": {
+        "es": "",
+        "en": ""
+      },
+      "descripcion": {
+        "es": "“Lo que a mí más me gustó en lo personal fue que a lo largo del semestre pudimos tener esa sensación de cercanía con los profesores y no ponen una autoridad distante”",
+        "en": "“What I liked most personally was that throughout the semester we were able to have that feeling of closeness with the professors and they did not put a distant authority”"
+      },
       "imagen": "",
       "video": "",
       "año": "2025-2026"
@@ -221,8 +402,14 @@
     {
       "id": "catalyst-testimonios-5",
       "categoria": "testimonios",
-      "titulo": "",
-      "descripcion": "“A mi me motivó ver que a los demás les estaba yendo bien y me esforcé más. Creo que si compartes ciertas motivaciones con las personas con las que te rodeas”",
+      "titulo": {
+        "es": "",
+        "en": ""
+      },
+      "descripcion": {
+        "es": "“A mi me motivó ver que a los demás les estaba yendo bien y me esforcé más. Creo que si compartes ciertas motivaciones con las personas con las que te rodeas”",
+        "en": "\"It motivated me to see that others were doing well and I tried harder. I think if you share certain motivations with the people you surround yourself with\""
+      },
       "imagen": "",
       "video": "",
       "año": "2025-2026"

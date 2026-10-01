@@ -350,6 +350,43 @@ h1 {
   margin: 0 auto;
 }
 
+.language-switcher {
+  display: inline-flex;
+  flex: 0 0 auto;
+  padding: 3px;
+  background: #eef2f5;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.language-switcher[hidden] {
+  display: none;
+}
+
+.language-switcher button {
+  min-width: 42px;
+  min-height: 34px;
+  padding: 6px 10px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 850;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.language-switcher button[aria-pressed="true"] {
+  color: #ffffff;
+  background: var(--blue);
+  box-shadow: 0 2px 8px rgba(0, 85, 166, 0.2);
+}
+
+.language-switcher button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--blue) 50%, #ffffff);
+  outline-offset: 2px;
+}
+
 .catalog-programs-stack {
   display: grid;
   gap: clamp(24px, 4vw, 40px);
@@ -393,7 +430,10 @@ h1 {
     transform 180ms ease;
 }
 
-.program-card--entry > h3,
+.program-card--entry > h3 {
+  padding-right: 88px;
+}
+
 .program-card--entry > .tag-row {
   padding-right: 34px;
 }
@@ -410,36 +450,84 @@ h1 {
   outline-offset: 3px;
 }
 
-.program-card-topline {
+.career-entry-lockup {
   position: absolute;
-  top: 80px;
-  right: -38px;
-  z-index: 2;
+  top: 18px;
+  right: 18px;
+  z-index: 3;
   display: flex;
-  width: 132px;
-  min-height: 26px;
-  justify-content: center;
+  max-width: calc(100% - 36px);
+  height: 132px;
+  align-items: center;
+  justify-content: flex-end;
   margin: 0;
-  transform: rotate(90deg);
-  transform-origin: center;
+  pointer-events: none;
 }
 
 .entry-badge {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
-  width: 100%;
-  min-height: 26px;
+  width: 28px;
+  min-height: 132px;
   justify-content: center;
-  padding: 5px 8px;
+  padding: 8px 5px;
   color: #ffffff;
   font-size: 0.7rem;
   font-weight: 850;
   line-height: 1.15;
   text-align: center;
   white-space: nowrap;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
   background: var(--entry-badge-color, #465568);
   border: 1px solid color-mix(in srgb, var(--entry-badge-color, #465568) 86%, #ffffff);
   border-radius: 999px;
+}
+
+.career-acronym-watermark {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 0;
+  margin-right: 8px;
+  transform: translateY(-21px);
+  color: var(--accent, var(--blue));
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: 0;
+  text-align: right;
+  white-space: nowrap;
+  opacity: 0.16;
+  pointer-events: none;
+  user-select: none;
+}
+
+.career-acronym-watermark span {
+  display: block;
+}
+
+.career-acronym-watermark.acronym--short {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+}
+
+.career-acronym-watermark.acronym--medium {
+  font-size: clamp(1.7rem, 2.5vw, 2.15rem);
+}
+
+.career-acronym-watermark.acronym--long {
+  font-size: clamp(1.45rem, 2vw, 1.75rem);
+}
+
+.career-acronym-watermark--stacked {
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0;
+  font-size: clamp(1.4rem, 2vw, 1.75rem);
 }
 
 .program-card--entry-computacion {
@@ -480,6 +568,7 @@ h1 {
   font-size: clamp(1.3rem, 2vw, 1.74rem);
   line-height: 1.12;
 }
+
 
 .other-program-entry {
   display: flex;
@@ -980,8 +1069,22 @@ h1 {
 .university-grid,
 .exatec-grid,
 .activity-grid,
-.advantage-grid {
+.advantage-grid,
+.scholarship-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.scholarship-grid {
+  align-items: stretch;
+}
+
+.scholarship-card {
+  height: 100%;
+  align-content: start;
+}
+
+.scholarship-card .qr-code-wrapper {
+  margin-top: 16px;
 }
 
 .exatec-grid {
@@ -1907,6 +2010,49 @@ h1 {
   line-height: 1.6;
 }
 
+.admin-language-note {
+  display: grid;
+  gap: 5px;
+  margin-top: 18px;
+  padding: 14px 16px;
+  color: #17324d;
+  background: #eef7fb;
+  border: 1px solid #b9dce9;
+  border-radius: 8px;
+}
+
+.admin-language-note span {
+  line-height: 1.5;
+}
+
+.admin-bilingual-field {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.admin-bilingual-field legend,
+.admin-bilingual-field > .admin-help {
+  grid-column: 1 / -1;
+}
+
+.admin-optional {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .admin-bilingual-field {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-bilingual-field legend,
+  .admin-bilingual-field > .admin-help {
+    grid-column: auto;
+  }
+}
+
 .admin-layout {
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
@@ -1973,6 +2119,20 @@ h1 {
   display: grid;
   gap: 14px;
   margin-top: 16px;
+}
+
+.admin-record-title {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.admin-record-title strong {
+  color: var(--ink);
+  font-size: 1.05rem;
 }
 
 .admin-message {
@@ -2075,7 +2235,8 @@ textarea.admin-control {
   .university-grid,
   .exatec-grid,
   .activity-grid,
-  .advantage-grid {
+  .advantage-grid,
+  .scholarship-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2173,7 +2334,8 @@ textarea.admin-control {
   .university-grid,
   .exatec-grid,
   .activity-grid,
-  .advantage-grid {
+  .advantage-grid,
+  .scholarship-grid {
     grid-template-columns: 1fr;
   }
 
@@ -2198,6 +2360,16 @@ textarea.admin-control {
 
   .program-card {
     min-height: 310px;
+  }
+
+  .language-switcher {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+  }
+
+  .brand {
+    max-width: calc(100% - 110px);
   }
 
   .catalog-other-entry {
