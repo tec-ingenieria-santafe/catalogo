@@ -13,6 +13,8 @@
   --violet: #6a5acd;
   --entry-computacion: #5b3f95;
   --entry-ingenieria: #2f6b57;
+  --high-performance-gold: #b38a3d;
+  --high-performance-dark: #11151c;
   --shadow: 0 18px 42px rgba(22, 32, 42, 0.12);
   --accent: var(--blue);
   --secondary-accent: var(--teal);
@@ -239,6 +241,19 @@ h1 {
   letter-spacing: 0;
 }
 
+.hero-title-en {
+  width: max-content;
+  max-width: 100%;
+  font-size: clamp(2.4rem, 5.4vw, 5.1rem);
+}
+
+.hero-title-en span {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
 .hero-copy {
   max-width: 660px;
   margin-bottom: 28px;
@@ -419,6 +434,62 @@ h1 {
   border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: 0 12px 26px rgba(22, 32, 42, 0.06);
+}
+
+.program-card--career,
+.high-performance-entry {
+  min-height: 285px;
+}
+
+.high-performance-entry {
+  color: #ffffff;
+  background: var(--high-performance-dark);
+  border-color: color-mix(in srgb, var(--high-performance-gold) 68%, #11151c);
+}
+
+.high-performance-entry::before {
+  background: var(--high-performance-gold);
+}
+
+.high-performance-entry::after {
+  opacity: 0.13;
+  background:
+    linear-gradient(90deg, var(--high-performance-gold) 1px, transparent 1px),
+    linear-gradient(var(--high-performance-gold) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.high-performance-entry h3 {
+  color: #ffffff;
+}
+
+.high-performance-entry .tag {
+  color: #f2dfb6;
+  background: rgba(179, 138, 61, 0.12);
+  border: 1px solid rgba(179, 138, 61, 0.46);
+}
+
+.high-performance-entry .card-nav-hint,
+.program-card--high-performance-context .card-nav-hint {
+  color: #f7e8c7;
+  background: #11151c;
+  border: 2px solid var(--high-performance-gold);
+}
+
+.high-performance-entry:focus-visible {
+  outline-color: color-mix(in srgb, var(--high-performance-gold) 72%, #ffffff);
+}
+
+.high-performance-programs-page .section-heading h1 {
+  max-width: none;
+  margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.05;
+}
+
+.high-performance-program-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 900px;
 }
 
 .program-card-link {
@@ -749,6 +820,15 @@ h1 {
   color: var(--ink);
 }
 
+.special-program-card-summary-block {
+  display: grid;
+  gap: 8px;
+}
+
+.special-program-card-summary {
+  margin: 0;
+}
+
 .card-requirements ul {
   margin: 6px 0 0;
   padding-left: 1.1rem;
@@ -954,6 +1034,10 @@ h1 {
     transform 180ms ease;
 }
 
+.clickable-grid .section-link-card {
+  min-height: 280px;
+}
+
 .section-link-card:hover {
   border-color: color-mix(in srgb, var(--accent, var(--blue)) 45%, var(--line));
   box-shadow: var(--shadow);
@@ -1006,6 +1090,49 @@ h1 {
   margin: 0;
 }
 
+.career-fit-panel,
+.special-program-primary {
+  grid-column: 1 / -1;
+}
+
+.career-fit-panel {
+  min-height: 150px;
+  justify-content: flex-start;
+  padding: clamp(22px, 3vw, 32px) !important;
+}
+
+.career-fit-panel .formatted-description {
+  max-width: 960px;
+  font-size: clamp(1rem, 1.45vw, 1.16rem);
+}
+
+.special-program-primary {
+  min-height: 170px;
+  padding: clamp(22px, 3vw, 32px) !important;
+}
+
+.special-program-primary p,
+.special-program-primary .catalyst-panel-bullets {
+  max-width: 960px;
+}
+
+.section-card-icon {
+  display: grid;
+  width: 100%;
+  min-height: 104px;
+  place-items: center;
+  color: var(--accent, var(--blue));
+  background: color-mix(in srgb, var(--accent, var(--blue)) 8%, #ffffff);
+  border: 1px solid color-mix(in srgb, var(--accent, var(--blue)) 15%, var(--line));
+  border-radius: 8px;
+}
+
+.section-card-icon-svg {
+  width: clamp(46px, 5vw, 62px);
+  height: clamp(46px, 5vw, 62px);
+  display: block;
+}
+
 .catalyst-panel-bullets {
   display: grid;
   gap: 8px;
@@ -1016,6 +1143,30 @@ h1 {
 }
 
 .catalyst-panel-bullets li::marker {
+  color: var(--accent, var(--blue));
+}
+
+.special-program-requirements {
+  display: grid;
+  gap: 8px;
+  max-width: 960px;
+  margin-top: 20px;
+  color: var(--muted);
+}
+
+.special-program-requirements strong {
+  color: var(--ink);
+}
+
+.special-program-requirements ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 1.1rem;
+  line-height: 1.48;
+}
+
+.special-program-requirements li::marker {
   color: var(--accent, var(--blue));
 }
 
@@ -1085,6 +1236,23 @@ h1 {
 
 .scholarship-card .qr-code-wrapper {
   margin-top: 16px;
+}
+
+.scholarship-icon-wrapper {
+  display: grid;
+  width: 100%;
+  min-height: 132px;
+  place-items: center;
+  padding: 10px;
+  background: color-mix(in srgb, var(--accent, var(--blue)) 6%, #ffffff);
+  border-radius: 8px;
+}
+
+.scholarship-icon-wrapper img {
+  width: min(52%, 150px);
+  height: 122px;
+  display: block;
+  object-fit: contain;
 }
 
 .exatec-grid {
@@ -2321,6 +2489,12 @@ textarea.admin-control {
     max-width: 9ch;
   }
 
+  .hero-title-en {
+    width: max-content;
+    max-width: 100%;
+    font-size: clamp(2rem, 10.5vw, 3rem);
+  }
+
   .section-heading {
     align-items: flex-start;
     flex-direction: column;
@@ -2360,6 +2534,24 @@ textarea.admin-control {
 
   .program-card {
     min-height: 310px;
+  }
+
+  .program-card--career,
+  .high-performance-entry {
+    min-height: 270px;
+  }
+
+  .career-fit-panel,
+  .special-program-primary {
+    min-height: 0;
+  }
+
+  .section-card-icon {
+    min-height: 92px;
+  }
+
+  .clickable-grid .section-link-card {
+    min-height: 260px;
   }
 
   .language-switcher {

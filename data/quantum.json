@@ -5,7 +5,7 @@
       "id": "que-es",
       "titulo": {
         "es": "¿Qué es QUANTUM?",
-        "en": "What Is QUANTUM?"
+        "en": "What is QUANTUM?"
       },
       "descripcion": {
         "es": "Contenido de QUANTUM pendiente de actualización.",
@@ -23,6 +23,7 @@
     },
     {
       "id": "comunidad",
+      "activo": false,
       "titulo": {
         "es": "Comunidad motivada",
         "en": "Motivated Community"
@@ -45,8 +46,8 @@
     {
       "id": "actividades",
       "titulo": {
-        "es": "Actividades opcionales",
-        "en": "Optional Activities"
+        "es": "Actividades",
+        "en": "Activities"
       },
       "descripcion": {
         "es": "Contenido de QUANTUM pendiente de actualización.",

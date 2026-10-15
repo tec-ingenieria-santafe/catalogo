@@ -649,10 +649,10 @@
     "tipo": "career",
     "acronimo": {
       "es": [
-        "BFE"
+        "BEF"
       ],
       "en": [
-        "BFE"
+        "BEF"
       ]
     },
     "becas": {
@@ -771,10 +771,10 @@
     "tipo": "career",
     "acronimo": {
       "es": [
-        "BIDM"
+        "BI"
       ],
       "en": [
-        "BIDM"
+        "BI"
       ]
     },
     "becas": {
@@ -782,18 +782,18 @@
       "porcentajePromedioBeca": null
     },
     "nombre": {
-      "es": "Bachelor in Artificial Intelligence and Data Science Engineering",
-      "en": "Bachelor in Artificial Intelligence and Data Science Engineering"
+      "es": "Bachelor in Artificial Intelligence and Data Science",
+      "en": "Bachelor in Artificial Intelligence and Data Science"
     },
     "nombreCorto": {
-      "es": "Artificial Intelligence and Data Science Engineering",
-      "en": "Artificial Intelligence and Data Science Engineering"
+      "es": "Artificial Intelligence and Data Science",
+      "en": "Artificial Intelligence and Data Science"
     },
     "subtitulo": {
       "es": "",
       "en": ""
     },
-    "bachelor": "Bachelor in Artificial Intelligence and Data Science Engineering",
+    "bachelor": "Bachelor in Artificial Intelligence and Data Science",
     "esParaTi": {
       "es": "Si quieres transformar grandes cantidades de datos en conocimiento y crear sistemas inteligentes capaces de aprender, predecir y apoyar decisiones.",
       "en": "If you want to transform large amounts of data into knowledge and create intelligent systems capable of learning, predicting and supporting decisions."
@@ -1144,6 +1144,31 @@
     "catalogGroup": "otras"
   },
   {
+    "id": "high-performance-programs",
+    "tipo": "program-group",
+    "nombre": {
+      "es": "Comunidades de alto rendimiento",
+      "en": "High-Performance Communities"
+    },
+    "colorPrincipal": "#B38A3D",
+    "colorSecundario": "#111827",
+    "degradado": "linear-gradient(135deg, rgba(17, 24, 39, 0.99), rgba(36, 31, 24, 0.96))",
+    "highlights": {
+      "es": [
+        "Mentoría",
+        "Networking",
+        "Vinculación",
+        "Investigación"
+      ],
+      "en": [
+        "Mentoring",
+        "Networking",
+        "Industry Engagement",
+        "Research"
+      ]
+    }
+  },
+  {
     "id": "catalyst",
     "tipo": "catalyst",
     "nombre": {
@@ -1166,6 +1191,18 @@
     "queEs": {
       "es": "CATALYST es una comunidad para estudiantes de alto rendimiento que quieren ir más allá desde el inicio de su carrera. Además, ofrece actividades opcionales de mentoría y oportunidades para desarrollar proyectos de emprendimiento, investigación o vinculación con la industria.",
       "en": "CATALYST is a community for high-achieving students who want to go further from the beginning of their program. In addition, it offers optional mentoring activities and opportunities to develop entrepreneurship, research or industry engagement projects."
+    },
+    "resumenFicha": {
+      "es": [
+        "Comunidad para estudiantes de alto rendimiento de primer año de Ingeniería.",
+        "Grupos exclusivos para cursar Ingeniería rodeado de estudiantes motivados.",
+        "Actividades opcionales exclusivas de mentoría, emprendimiento, investigación o vinculación con la industria."
+      ],
+      "en": [
+        "A community for high-achieving first-year Engineering students.",
+        "Exclusive groups to study Engineering alongside motivated students.",
+        "Exclusive optional activities in mentoring, entrepreneurship, research, or industry engagement."
+      ]
     },
     "tagline": {
       "es": "Un espacio para conectar talento, retos reales y experiencias formativas de alto impacto.",
@@ -1246,15 +1283,20 @@
     "imagen": "assets/images/hero/santafe-ranking-hero-1600.jpg",
     "highlights": {
       "es": [
-        "Contenido pendiente"
+        "Mentoría",
+        "Networking",
+        "Vinculación",
+        "Investigación"
       ],
       "en": [
-        "Content pending"
+        "Mentoring",
+        "Networking",
+        "Industry Engagement",
+        "Research"
       ]
     },
     "seccionesDisponibles": [
       "que-es",
-      "comunidad",
       "actividades",
       "testimonios"
     ],

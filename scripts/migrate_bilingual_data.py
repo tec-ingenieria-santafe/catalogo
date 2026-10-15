@@ -20,7 +20,7 @@ CAREER_NAMES = {
     "civil": "Civil Engineering",
     "desarrollo-sustentable": "Sustainable Development Engineering",
     "financial-engineering": "Bachelor in Financial Engineering",
-    "ai-data-science": "Bachelor in Artificial Intelligence and Data Science Engineering",
+    "ai-data-science": "Bachelor in Artificial Intelligence and Data Science",
     "computacionales": "Computer Technologies Engineering",
     "innovacion-desarrollo": "Innovation and Development Engineering",
     "transformacion-digital": "Digital Business Transformation Engineering",

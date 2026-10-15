@@ -70,6 +70,22 @@ const sectionDescriptions = {
   becas: { es: "", en: "" },
 };
 
+const sectionIconPaths = {
+  proyectos: '<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>',
+  socios: '<path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1.5 1.5 0 0 0 2.1-2.1L15 10.8"/><path d="m6 11 3.4-3.4a2 2 0 0 1 2.8 0l.8.8"/><path d="m2 15 4 4 3-3"/><path d="m22 15-4 4"/><path d="M2 9l4-4 3 3"/><path d="m22 9-4-4-3 3"/>',
+  universidades: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 0 20"/><path d="M12 2a15.3 15.3 0 0 0 0 20"/>',
+  exatecs: '<rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><path d="M2 12h20"/>',
+  "santa-fe": '<path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',
+  vivencia: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  becas: '<path d="m2 10 10-5 10 5-10 5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/><path d="M22 10v6"/>',
+};
+
+function renderSectionIcon(slug) {
+  const paths = sectionIconPaths[slug];
+  if (!paths) return "";
+  return `<svg class="section-card-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+}
+
 function localizedSectionMeta(slug) {
   return {
     slug,
@@ -79,6 +95,7 @@ function localizedSectionMeta(slug) {
 }
 
 const catalogLayout = {
+  highPerformanceId: "high-performance-programs",
   catalystId: "catalyst",
   quantumId: "quantum",
   groups: [
@@ -92,7 +109,7 @@ const catalogLayout = {
       id: "ingenieria",
       title: "Entrada Ingeniería",
       cardLabel: "Entrada Ingeniería",
-      careerIds: ["mecanica", "mecatronica", "industrial", "civil", "desarrollo-sustentable"],
+      careerIds: ["industrial", "mecatronica", "mecanica", "desarrollo-sustentable", "civil"],
     },
   ],
   otherCareerEntries: {
@@ -124,11 +141,6 @@ const breadcrumbLabels = {
     "santa-fe": { es: "¿Por qué Santa Fe?", en: "Why Santa Fe?" },
     vivencia: { es: "Vivencia", en: "Student Life" },
     becas: { es: "Becas", en: "Scholarships" },
-  },
-  specialProgram: {
-    comunidad: { es: "Comunidad", en: "Community" },
-    actividades: { es: "Actividades opcionales", en: "Optional Activities" },
-    testimonios: { es: "Testimonios", en: "Testimonials" },
   },
 };
 
@@ -185,23 +197,12 @@ function careerAcronymLines(career, language = currentLanguage) {
   return values.map((value) => String(value).trim()).filter(Boolean);
 }
 
-function careerAcronym(career, language = currentLanguage) {
-  return careerAcronymLines(career, language).join(" - ");
-}
-
 function careerAcronymSizeClass(lines) {
   if (lines.length > 1) return "career-acronym-watermark--stacked";
   const length = lines[0]?.replace(/\s/g, "").length || 0;
   if (length <= 2) return "acronym--short";
   if (length === 3) return "acronym--medium";
   return "acronym--long";
-}
-
-function scholarshipPercentage(value) {
-  if (value === undefined || value === null || String(value).trim() === "") return "X";
-  const number = Number(value);
-  if (!Number.isFinite(number) || number < 0 || number > 100) return "X";
-  return Number.isInteger(number) ? String(number) : String(Number(number.toFixed(2)));
 }
 
 function otherCatalogCareers() {
@@ -241,7 +242,7 @@ function specialProgramBreadcrumbItems(program, category = "") {
     { label: localizedText(program.nombre), href: category ? `#programa/${program.id}` : "" },
   ];
   if (category) {
-    items.push({ label: localizedText(breadcrumbLabels.specialProgram[category]) || sectionLabelForSpecialProgram(category, program) });
+    items.push({ label: sectionLabelForSpecialProgram(category, program) });
   }
   return items;
 }
@@ -274,6 +275,14 @@ function heroTitleClass(title) {
   if (length >= 38) return "hero-title hero-title-long";
   if (length >= 32) return "hero-title hero-title-medium";
   return "hero-title";
+}
+
+function renderHomeHeroTitle(value) {
+  const title = localizedText(value);
+  if (currentLanguage === "en" && normalizedText(title) === normalizedText("Discover your future in Engineering")) {
+    return `<h1 class="hero-title-en"><span>Discover your</span><span>future in</span><span>Engineering</span></h1>`;
+  }
+  return `<h1>${escapeHTML(title)}</h1>`;
 }
 
 function styleVars(career) {
@@ -854,7 +863,15 @@ function semesterOptionSort(a, b) {
 
 function localizedSemester(value) {
   const text = String(value ?? "");
-  return currentLanguage === "en" ? text.replace(/^Semestre\b/i, "Semester") : text;
+  if (currentLanguage !== "en") return text;
+  const match = text.match(/(\d+)\s*(?:ro|do|to|mo|vo|no)?\s*semestre/i);
+  if (!match) return text.replace(/^Semestre\b/i, "Semester");
+  const number = Number(match[1]);
+  const remainder = number % 100;
+  const suffix = remainder >= 11 && remainder <= 13
+    ? "th"
+    : ({ 1: "st", 2: "nd", 3: "rd" }[number % 10] || "th");
+  return `${number}${suffix} semester`;
 }
 
 function localizedGeneration(value) {
@@ -1077,8 +1094,7 @@ function renderFooter() {
 
 function renderHome() {
   const site = siteData.site;
-  const catalyst = programById(catalogLayout.catalystId);
-  const quantum = programById(catalogLayout.quantumId);
+  const highPerformancePrograms = programById(catalogLayout.highPerformanceId);
   const heroImage = site.heroImage ?? {};
   app.innerHTML = `
     <section class="hero">
@@ -1090,8 +1106,7 @@ function renderHome() {
       />
       <div class="hero-content">
         <p class="eyebrow">${escapeHTML(localizedText(site.subtitulo))}</p>
-        <p class="welcome-line">${escapeHTML(localizedText(site.textoBienvenida))}</p>
-        <h1>${escapeHTML(localizedText(site.tituloSitio))}</h1>
+        ${renderHomeHeroTitle(site.tituloSitio)}
         <p class="hero-copy">${escapeHTML(localizedText(site.descripcion))}</p>
         <div class="hero-actions">
           <a class="button secondary" href="#catalogo">${escapeHTML(t("viewPrograms"))}</a>
@@ -1108,7 +1123,6 @@ function renderHome() {
     <section class="catalog-section catalog-section--programs" id="catalogo">
       <div class="catalog-programs-stack">
         <div class="program-grid catalog-program-grid">
-          ${catalyst ? renderProgramCard(catalyst) : ""}
           ${catalogLayout.groups
             .flatMap((group) =>
               programsByIds(group.careerIds).map((program) =>
@@ -1116,7 +1130,7 @@ function renderHome() {
               ),
             )
             .join("")}
-          ${quantum ? renderProgramCard(quantum) : ""}
+          ${highPerformancePrograms ? renderHighPerformanceEntry(highPerformancePrograms) : ""}
         </div>
         <div class="catalog-other-entry">
           ${renderOtherProgramsEntry()}
@@ -1126,32 +1140,69 @@ function renderHome() {
   `;
 }
 
+function renderHighPerformanceEntry(program) {
+  const highlights = localizedList(program.highlights);
+  return `
+    <a
+      class="program-card program-card-link high-performance-entry"
+      href="#programas-alto-rendimiento"
+      aria-label="${escapeAttr(t("explore"))}: ${escapeAttr(localizedText(program.nombre))}"
+      style="${styleVars(program)}">
+      <h3>${escapeHTML(localizedText(program.nombre))}</h3>
+      ${highlights.length ? `<div class="tag-row">${highlights.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div>` : ""}
+      <div class="card-footer">
+        <span class="card-nav-hint">${escapeHTML(t("explore"))} <span aria-hidden="true">→</span></span>
+      </div>
+    </a>
+  `;
+}
+
+function renderHighPerformanceProgramsPage() {
+  const group = programById(catalogLayout.highPerformanceId);
+  const programs = programsByIds([catalogLayout.catalystId, catalogLayout.quantumId]);
+  app.innerHTML = `
+    <div class="theme-scope high-performance-page-scope" style="${styleVars(group)}">
+      ${renderBreadcrumb([
+        { label: t("catalog"), href: "#inicio" },
+        { label: localizedText(group.nombre) },
+      ])}
+      <section class="catalog-section high-performance-programs-page">
+        <div class="section-heading catalog-heading">
+          <div><h1>${escapeHTML(localizedText(group.nombre))}</h1></div>
+        </div>
+        <div class="program-grid high-performance-program-grid">
+          ${programs.map((program) => renderProgramCard(program, { highPerformanceContext: true })).join("")}
+        </div>
+      </section>
+    </div>
+  `;
+}
+
 function renderProgramCard(program, options = {}) {
   const isSpecialProgram = ["catalyst", "quantum"].includes(program.tipo);
+  const isCareer = program.tipo === "career";
   const actionText = program.tipo === "catalyst" ? t("exploreCatalyst") : program.tipo === "quantum" ? t("exploreQuantum") : t("exploreCareer");
   const entryLabel = options.entryLabel ? t(options.entryId === "computacion" ? "computingEntry" : "engineeringEntry") : "";
   const entryId = ["computacion", "ingenieria"].includes(options.entryId) ? options.entryId : "";
-  const showSantaFe = options.showSantaFe !== false;
   const highlights = localizedList(program.highlights);
   const acronymLines = isSpecialProgram ? [] : careerAcronymLines(program);
   const acronymClass = careerAcronymSizeClass(acronymLines);
-  const catalystRequirements =
-    program.tipo === "catalyst" && localizedList(program.requisitos).length
-      ? `<div class="card-requirements">
-          <strong>${escapeHTML(t("requirements"))}</strong>
-          <ul>
-            ${localizedList(program.requisitos).map((requirement) => `<li>${escapeHTML(requirement)}</li>`).join("")}
-          </ul>
-        </div>`
-      : "";
-  const body = isSpecialProgram
-    ? `<div><strong>${escapeHTML(t("whatIs"))}</strong>${escapeHTML(localizedText(program.queEs))}</div>${catalystRequirements}`
-    : `<div><strong>${escapeHTML(t("isForYou"))}</strong>${escapeHTML(localizedText(program.esParaTi))}</div>
-       ${showSantaFe ? `<div><strong>${escapeHTML(t("whySantaFe"))}</strong>${escapeHTML(localizedText(program.porQueSantaFe))}</div>` : ""}`;
+  const specialProgramSummary = localizedList(program.resumenFicha);
+  const specialProgramSummaryItems = specialProgramSummary.length
+    ? specialProgramSummary
+    : [localizedText(program.queEs)].filter(Boolean);
+  const body = isSpecialProgram && specialProgramSummaryItems.length
+    ? `<div class="special-program-card-summary-block">
+        <strong>${escapeHTML(t("whatIs"))}</strong>
+        <ul class="catalyst-panel-bullets special-program-card-summary">
+          ${specialProgramSummaryItems.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}
+        </ul>
+      </div>`
+    : "";
 
   return `
     <a
-      class="program-card program-card-link${isSpecialProgram ? ` program-card--special program-card--${program.tipo}` : ""}${entryLabel ? " program-card--entry" : ""}${entryId ? ` program-card--entry-${entryId}` : ""}"
+      class="program-card program-card-link${isCareer ? " program-card--career" : ""}${isSpecialProgram ? ` program-card--special program-card--${program.tipo}` : ""}${options.highPerformanceContext ? " program-card--high-performance-context" : ""}${entryLabel ? " program-card--entry" : ""}${entryId ? ` program-card--entry-${entryId}` : ""}"
       href="#programa/${program.id}"
       aria-label="${escapeAttr(actionText)}: ${escapeAttr(fullName(program))}"
       style="${styleVars(program)}">
@@ -1169,7 +1220,7 @@ function renderProgramCard(program, options = {}) {
       <div class="tag-row">
         ${highlights.map((tag) => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}
       </div>
-      <div class="card-copy">${body}</div>
+      ${body ? `<div class="card-copy">${body}</div>` : ""}
       <div class="card-footer">
         <span class="card-nav-hint">${escapeHTML(actionText)} <span aria-hidden="true">→</span></span>
       </div>
@@ -1237,6 +1288,10 @@ function renderCareerHub(career) {
       )}
       <section class="detail-shell career-sections-shell">
         <div class="section-grid section-nav-grid clickable-grid">
+          <article class="info-panel career-fit-panel">
+            <h2><span class="section-dot" aria-hidden="true"></span>${escapeHTML(t("isForYou"))}</h2>
+            ${renderFormattedDescription(career.esParaTi)}
+          </article>
           ${availableSections.map((section) => renderSectionLink(career, section)).join("")}
         </div>
       </section>
@@ -1246,28 +1301,12 @@ function renderCareerHub(career) {
 
 function renderSectionLink(career, section) {
   const href = section.slug === "vivencia" ? `#vivencia/${career.id}` : `#programa/${career.id}/${section.slug}`;
-  const description = section.slug === "becas"
-    ? renderScholarshipNavigationSummary(career)
-    : `<p>${escapeHTML(section.short)}</p>`;
   return `
     <a class="info-panel section-link-card" href="${href}">
+      <span class="section-card-icon" aria-hidden="true">${renderSectionIcon(section.slug)}</span>
       <h2><span class="section-dot" aria-hidden="true"></span>${escapeHTML(section.title)}</h2>
-      ${description}
       <span class="card-nav-hint">${escapeHTML(t("viewSection"))} <span aria-hidden="true">→</span></span>
     </a>
-  `;
-}
-
-function renderScholarshipNavigationSummary(career) {
-  const percentages = career.becas || {};
-  const students = scholarshipPercentage(percentages.porcentajeAlumnosConBeca);
-  const average = scholarshipPercentage(percentages.porcentajePromedioBeca);
-  const acronym = careerAcronym(career);
-  return `
-    <div class="scholarship-nav-summary">
-      <p>${escapeHTML(t("scholarshipStudentsSummary", { percent: students, acronym }))}</p>
-      <p>${escapeHTML(t("scholarshipAverageSummary", { percent: average }))}</p>
-    </div>
   `;
 }
 
@@ -1487,6 +1526,9 @@ function renderProject(project, index, career) {
   const thumbnail = validMediaPath(project.thumbnail);
   const tags = localizedList(project.tecnologias);
   const title = localizedText(project.titulo);
+  const summary = [project.año, hasContent(project.semestre) ? localizedSemester(project.semestre) : ""].filter(hasContent).join(" - ");
+  const students = Array.isArray(project.alumnos) ? project.alumnos.filter(hasContent) : [];
+  const hasMetadata = students.length || hasContent(project.socioFormador);
   const media = embedUrl
     ? `
       <div class="video-frame project-media">
@@ -1513,14 +1555,17 @@ function renderProject(project, index, career) {
       data-title="${escapeAttr(title)}">
       ${media}
       <div class="feature-body">
-        <p class="mini-label">${escapeHTML(project.año)} - ${escapeHTML(localizedSemester(project.semestre))}</p>
         <h2>${escapeHTML(title)}</h2>
+        ${summary ? `<p class="mini-label">${escapeHTML(summary)}</p>` : ""}
         ${tags.length ? `<div class="tag-row">${tags.map((tech) => `<span class="tag">${escapeHTML(tech)}</span>`).join("")}</div>` : ""}
-        ${renderFormattedDescription(project.descripcion)}
-        <dl class="meta-list">
-          <div><dt>${escapeHTML(t("students"))}</dt><dd>${project.alumnos.map(escapeHTML).join(", ")}</dd></div>
-          ${project.socioFormador ? `<div><dt>${escapeHTML(t("partner"))}</dt><dd>${escapeHTML(project.socioFormador)}</dd></div>` : ""}
-        </dl>
+        ${
+          hasMetadata
+            ? `<dl class="meta-list">
+                ${students.length ? `<div><dt>${escapeHTML(t("students"))}</dt><dd>${students.map(escapeHTML).join(", ")}</dd></div>` : ""}
+                ${hasContent(project.socioFormador) ? `<div><dt>${escapeHTML(t("partner"))}</dt><dd>${escapeHTML(project.socioFormador)}</dd></div>` : ""}
+              </dl>`
+            : ""
+        }
       </div>
     </article>
   `;
@@ -1539,11 +1584,10 @@ function renderPartnersPage(career) {
   `;
 }
 
-function renderPartner(partner, index) {
+function renderPartner(partner) {
   const logo = validMediaPath(partner.logo);
   const logoIsImage = /\.(png|jpg|jpeg|webp|svg)$/i.test(logo);
   const interactionTypes = partnerInteractionTypes(partner);
-  const media = renderPartnerMedia(partner.imagenOVideo, index);
   return `
     <article class="feature-card partner-card">
       <div class="logo-row">
@@ -1557,8 +1601,6 @@ function renderPartner(partner, index) {
         </div>
       </div>
       ${interactionTypes.length ? `<div class="tag-row partner-tags">${interactionTypes.map((type) => `<span class="tag">${escapeHTML(type)}</span>`).join("")}</div>` : ""}
-      ${renderFormattedDescription(partner.descripcion)}
-      ${media}
     </article>
   `;
 }
@@ -2108,11 +2150,19 @@ function renderScholarshipsPage(career) {
 function renderScholarshipCard(scholarship) {
   const title = localizedText(scholarship.titulo);
   const qrCode = validMediaPath(scholarship.codigoQR);
+  const image = qrCode ? "" : validMediaPath(scholarship.imagen);
   return `
     <article class="feature-card scholarship-card">
       <div class="feature-body">
+        ${
+          image
+            ? `<div class="scholarship-icon-wrapper">
+                <img src="${escapeAttr(assetUrl(image, { version: true }))}" alt="" loading="lazy" onerror="this.closest('.scholarship-icon-wrapper')?.remove()" />
+              </div>`
+            : ""
+        }
         <h2>${escapeHTML(title)}</h2>
-        ${renderFormattedDescription(scholarship.descripcion)}
+        ${qrCode ? "" : renderFormattedDescription(scholarship.descripcion)}
         ${qrCode ? renderQrCode(qrCode, t("scholarshipQrAlt")) : ""}
       </div>
     </article>
@@ -2144,6 +2194,7 @@ function specialProgramData(program) {
 
 function renderSpecialProgramDetail(program) {
   const programData = specialProgramData(program);
+  const sections = (programData.secciones || []).filter((section) => section.activo !== false);
   const eyebrow = program.tipo === "catalyst" ? t("highPerformanceProgram") : localizedText(program.subtitulo);
   app.innerHTML = `
     <div class="theme-scope" style="${styleVars(program)}">
@@ -2152,15 +2203,15 @@ function renderSpecialProgramDetail(program) {
       })}
       <section class="detail-shell">
         <div class="section-grid section-nav-grid">
-          ${(programData.secciones || []).map((section) => renderSpecialProgramPanel(section)).join("")}
+          ${sections.map((section) => renderSpecialProgramPanel(section, section.id === "que-es", program)).join("")}
         </div>
       </section>
     </div>
   `;
 }
 
-function renderSpecialProgramPanel(section) {
-  const body = renderSpecialProgramPanelBody(section);
+function renderSpecialProgramPanel(section, isPrimary = false, program = null) {
+  const body = isPrimary ? renderSpecialProgramPanelBody(section, program) : "";
   if (section.ruta) {
     return `
       <a class="info-panel section-link-card catalyst-panel-link" href="${escapeAttr(section.ruta)}">
@@ -2172,24 +2223,35 @@ function renderSpecialProgramPanel(section) {
   }
 
   return `
-    <article class="info-panel">
+    <article class="info-panel${isPrimary ? " special-program-primary" : ""}">
       <h2><span class="section-dot" aria-hidden="true"></span>${escapeHTML(localizedText(section.titulo))}</h2>
       ${body}
     </article>
   `;
 }
 
-function renderSpecialProgramPanelBody(section) {
+function renderSpecialProgramPanelBody(section, program = null) {
   const bullets = localizedList(section.bullets);
-  if (bullets.length) {
-    return `
+  const description = localizedText(section.descripcion);
+  const content = bullets.length
+    ? `
       <ul class="catalyst-panel-bullets">
         ${bullets.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}
       </ul>
-    `;
-  }
-  const description = localizedText(section.descripcion);
-  return description ? `<p>${escapeHTML(description)}</p>` : "";
+    `
+    : description
+      ? `<p>${escapeHTML(description)}</p>`
+      : "";
+  const requirements = program?.tipo === "catalyst" ? localizedList(program.requisitos) : [];
+  const requirementsBlock = requirements.length
+    ? `<div class="special-program-requirements">
+        <strong>${escapeHTML(t("requirements"))}</strong>
+        <ul>
+          ${requirements.map((requirement) => `<li>${escapeHTML(requirement)}</li>`).join("")}
+        </ul>
+      </div>`
+    : "";
+  return `${content}${requirementsBlock}`;
 }
 
 function specialProgramDetailsFor(program, category) {
@@ -2355,8 +2417,8 @@ function renderSpecialProgramDetailCard(item, category, index, filterable = fals
 
 function sectionLabelForSpecialProgram(category, program = { nombre: "CATALYST" }) {
   const labels = {
-    comunidad: t("motivatedCommunity"),
-    actividades: t("optionalActivities"),
+    comunidad: program.id === "catalyst" ? t("profileAndClasses") : t("motivatedCommunity"),
+    actividades: program.id === "quantum" ? t("activities") : t("optionalActivities"),
     testimonios: t("studentTestimonials"),
   };
   return labels[category] ?? localizedText(program.nombre);
@@ -2572,6 +2634,7 @@ function adminFieldLabel(field, key) {
     fotoAlumno: "Foto del alumno",
     logoEmpresa: "Logo de la empresa",
     codigoQR: "Imagen del código QR",
+    imagen: "Imagen",
     foto: "Foto del alumno",
     media: key === "vivencia" ? "Imagen" : "Media",
     videoUrl: "Enlace de video",
@@ -2887,11 +2950,16 @@ function renderAdminFields(object, prefix = "", key = "", isNew = false) {
       }
 
       if (!prefix && ["catalystDetails", "quantumDetails"].includes(key) && field === "categoria") {
-        const categories = [
-          ["comunidad", "Comunidad motivada"],
-          ["actividades", "Actividades opcionales"],
-          ["testimonios", "Testimonios de estudiantes"],
-        ];
+        const categories = key === "quantumDetails"
+          ? [
+              ["actividades", "Actividades"],
+              ["testimonios", "Testimonios de estudiantes"],
+            ]
+          : [
+              ["comunidad", "Perfil y clases"],
+              ["actividades", "Actividades opcionales"],
+              ["testimonios", "Testimonios de estudiantes"],
+            ];
         return `
           <label class="admin-label">
             ${escapeHTML(label)}
@@ -3124,7 +3192,7 @@ const adminBlankTemplates = {
   },
   quantumDetails: {
     id: "",
-    categoria: "comunidad",
+    categoria: "actividades",
     titulo: { es: "", en: "" },
     "año": "",
     etiquetas: { es: [], en: [] },
@@ -3136,6 +3204,7 @@ const adminBlankTemplates = {
     id: "",
     titulo: { es: "", en: "" },
     descripcion: { es: "", en: "" },
+    imagen: "",
     orden: 1,
     codigoQR: "",
   },
@@ -3351,6 +3420,12 @@ function route() {
 
   if (hash === "#admin") {
     renderAdminDashboard();
+    resetScroll();
+    return;
+  }
+
+  if (hash === "#programas-alto-rendimiento") {
+    renderHighPerformanceProgramsPage();
     resetScroll();
     return;
   }

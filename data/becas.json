@@ -9,6 +9,7 @@
       "es": "Destacado desempeño académico durante los estudios de preparatoria.",
       "en": "Outstanding academic performance during high school."
     },
+    "imagen": "assets/images/becas/TalentoAcademico.png",
     "orden": 1
   },
   {
@@ -21,6 +22,7 @@
       "es": "Trayectoria artística, atlética o de liderazgo de alto rendimiento.",
       "en": "A high-performance track record in the arts, athletics, or leadership."
     },
+    "imagen": "assets/images/becas/TalentoEstudiantil.png",
     "orden": 2
   },
   {
@@ -33,6 +35,7 @@
       "es": "Perfil emprendedor con un proyecto que cuente al menos con un prototipo.",
       "en": "An entrepreneurial profile with a project that includes at least a prototype."
     },
+    "imagen": "assets/images/becas/TalentoEmprendedor.png",
     "orden": 3
   },
   {
@@ -45,6 +48,7 @@
       "es": "Para estudiantes con el perfil para estudiar en el Tec que requieren apoyo económico.",
       "en": "For students with the profile to study at Tec who require financial support."
     },
+    "imagen": "assets/images/becas/Socioeconómica.png",
     "orden": 4
   },
   {
@@ -57,6 +61,7 @@
       "es": "Apoyo que permite postergar una parte del pago de la colegiatura hasta después de concluir los estudios.",
       "en": "Financial support that allows part of the tuition payment to be deferred until after graduation."
     },
+    "imagen": "assets/images/becas/Prestamo.png",
     "orden": 5
   },
   {
@@ -69,6 +74,7 @@
       "es": "Para estudiantes brillantes con gran impacto social y una alta necesidad económica.",
       "en": "For outstanding students with significant social impact and substantial financial need."
     },
+    "imagen": "assets/images/becas/LideresDelMañana.png",
     "orden": 6
   },
   {
