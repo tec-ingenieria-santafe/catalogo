@@ -70,20 +70,20 @@ const sectionDescriptions = {
   becas: { es: "", en: "" },
 };
 
-const sectionIconPaths = {
-  proyectos: '<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>',
-  socios: '<path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1.5 1.5 0 0 0 2.1-2.1L15 10.8"/><path d="m6 11 3.4-3.4a2 2 0 0 1 2.8 0l.8.8"/><path d="m2 15 4 4 3-3"/><path d="m22 15-4 4"/><path d="M2 9l4-4 3 3"/><path d="m22 9-4-4-3 3"/>',
-  universidades: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 0 20"/><path d="M12 2a15.3 15.3 0 0 0 0 20"/>',
-  exatecs: '<rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><path d="M2 12h20"/>',
-  "santa-fe": '<path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',
-  vivencia: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
-  becas: '<path d="m2 10 10-5 10 5-10 5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/><path d="M22 10v6"/>',
+const SECTION_ICONS = {
+  proyectos: "proyectos",
+  socios: "socios",
+  universidades: "experiencias",
+  exatecs: "empleabilidad",
+  "santa-fe": "santafe",
+  vivencia: "vivencia",
+  becas: "becas",
 };
 
 function renderSectionIcon(slug) {
-  const paths = sectionIconPaths[slug];
-  if (!paths) return "";
-  return `<svg class="section-card-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+  const iconName = SECTION_ICONS[slug];
+  if (!iconName) return "";
+  return `<span class="section-card-icon-graphic section-card-icon--${iconName}" aria-hidden="true"></span>`;
 }
 
 function localizedSectionMeta(slug) {
@@ -1478,12 +1478,17 @@ function renderSubpage(career, slug, pathParts = []) {
     becas: renderScholarshipsPage,
   };
 
+  const breadcrumbItems = careerBreadcrumbItems(career, slug);
+  const pageHeader = slug === "universidades"
+    ? renderBreadcrumb(breadcrumbItems)
+    : renderDetailHero(career, careerShortName(career), section.short, section.title, {
+        breadcrumbItems,
+        hideCopy: slug === "becas",
+      });
+
   app.innerHTML = `
     <div class="theme-scope" style="${styleVars(career)}">
-      ${renderDetailHero(career, careerShortName(career), section.short, section.title, {
-        breadcrumbItems: careerBreadcrumbItems(career, slug),
-        hideCopy: slug === "becas",
-      })}
+      ${pageHeader}
       ${renderers[slug](career, pathParts)}
     </div>
   `;
@@ -1491,6 +1496,7 @@ function renderSubpage(career, slug, pathParts = []) {
   attachUniversityNavigation();
   validateUniversityMedia();
   initializePendingUniversityMap();
+  applyScholarshipIconMasks();
 }
 
 function renderProjectsPage(career) {
@@ -1644,7 +1650,7 @@ function renderUniversitiesPage(career, pathParts = []) {
   if (!universities.length) {
     pendingUniversityMap = null;
     return `
-      <section class="detail-shell">
+      <section class="detail-shell university-page">
         ${renderEmptyState(universities, t("internationalExperiences").toLowerCase())}
         ${renderPageNav(career)}
       </section>
@@ -1654,8 +1660,8 @@ function renderUniversitiesPage(career, pathParts = []) {
   pendingUniversityMap = { career, countries, grouped };
   const selectedUniversities = hasSelectedCity ? grouped[selectedCountry][selectedCity] : [];
   return `
-    <section class="detail-shell">
-      ${renderUniversityFlowHeader(t("mapCountries"), t("mapCopy"))}
+    <section class="detail-shell university-page">
+      ${renderUniversityFlowHeader()}
       <div class="university-map-card">
         <div class="university-map-column" data-university-map-column>
           ${renderWorldMap(career, countries, grouped)}
@@ -1704,12 +1710,10 @@ function decodeHashPart(value) {
   }
 }
 
-function renderUniversityFlowHeader(title, copy) {
+function renderUniversityFlowHeader() {
   return `
     <div class="university-flow-heading">
-      <p class="mini-label">${escapeHTML(t("internationalExperiences"))}</p>
-      <h2>${escapeHTML(title)}</h2>
-      <p>${escapeHTML(copy)}</p>
+      <h1>${escapeHTML(t("internationalExperiences"))}</h1>
     </div>
   `;
 }
@@ -1730,10 +1734,8 @@ function renderWorldMap(career, countries, grouped) {
 function renderCountryInfoPanel(career, selectedCountry, selectedCity, grouped) {
   if (!selectedCountry || !grouped[selectedCountry]) {
     return `
-      <aside class="map-info-panel" data-country-info-panel>
-        <p class="mini-label">${escapeHTML(t("mapCountries"))}</p>
+      <aside class="map-info-panel map-info-panel--prompt" data-country-info-panel>
         <h2>${escapeHTML(t("selectHighlightedCountry"))}</h2>
-        <p>${escapeHTML(t("highlightedCountryCopy"))}</p>
       </aside>
     `;
   }
@@ -1746,10 +1748,7 @@ function renderCountryInfoPanel(career, selectedCountry, selectedCity, grouped) 
     <aside class="map-info-panel" data-country-info-panel>
       <div class="country-panel-heading">
         ${flag ? `<span class="country-flag-wrapper">${flag}</span>` : ""}
-        <div>
-          <p class="mini-label">${escapeHTML(t("selectedCountry"))}</p>
-          <h2>${escapeHTML(localizedCountry(selectedCountry))}</h2>
-        </div>
+        <h2>${escapeHTML(localizedCountry(selectedCountry))}</h2>
       </div>
       <p class="country-summary">${escapeHTML(cityCount === 1 ? t("cityAvailable", { count: cityCount }) : t("citiesAvailable", { count: cityCount }))} · ${escapeHTML(universityCount === 1 ? t("experienceAvailable", { count: universityCount }) : t("experiencesAvailable", { count: universityCount }))}</p>
       <p>${escapeHTML(t("selectCity"))}</p>
@@ -1768,8 +1767,8 @@ function renderCountryListButton(career, country, cities) {
   const cityCount = Object.keys(cities).length;
   return `
     <a class="country-list-button" href="${universityHash(career, country)}" data-university-nav data-career-id="${escapeAttr(career.id)}" data-country="${escapeAttr(country)}">
-      <span>${escapeHTML(localizedCountry(country))}</span>
-      <small>${escapeHTML(cityCount === 1 ? t("cityAvailable", { count: cityCount }) : t("citiesAvailable", { count: cityCount }))}</small>
+      <span class="country-name">${escapeHTML(localizedCountry(country))}</span>
+      <small class="country-count">(${escapeHTML(cityCount)})</small>
     </a>
   `;
 }
@@ -1829,9 +1828,10 @@ function scrollCountryInfoIfStacked() {
   const panelIsBelowMap = panelRect.top >= mapRect.bottom - 2;
   if (!panelIsBelowMap) return false;
 
+  const countryHeading = countryPanel.querySelector(".country-panel-heading") || countryPanel;
   const headerHeight = document.querySelector(".site-header")?.getBoundingClientRect().height ?? 80;
-  const scrollOffset = headerHeight + 22;
-  const targetTop = countryPanel.getBoundingClientRect().top + window.scrollY - scrollOffset;
+  const scrollOffset = headerHeight + 16;
+  const targetTop = countryHeading.getBoundingClientRect().top + window.scrollY - scrollOffset;
   window.scrollTo({
     top: Math.max(targetTop, 0),
     behavior: "smooth",
@@ -2152,12 +2152,12 @@ function renderScholarshipCard(scholarship) {
   const qrCode = validMediaPath(scholarship.codigoQR);
   const image = qrCode ? "" : validMediaPath(scholarship.imagen);
   return `
-    <article class="feature-card scholarship-card">
+    <article class="feature-card scholarship-card${qrCode ? " scholarship-card--qr" : ""}">
       <div class="feature-body">
         ${
           image
             ? `<div class="scholarship-icon-wrapper">
-                <img src="${escapeAttr(assetUrl(image, { version: true }))}" alt="" loading="lazy" onerror="this.closest('.scholarship-icon-wrapper')?.remove()" />
+                <span class="scholarship-icon" data-scholarship-icon="${escapeAttr(assetUrl(image, { version: true }))}" aria-hidden="true"></span>
               </div>`
             : ""
         }
@@ -2167,6 +2167,16 @@ function renderScholarshipCard(scholarship) {
       </div>
     </article>
   `;
+}
+
+function applyScholarshipIconMasks() {
+  document.querySelectorAll("[data-scholarship-icon]").forEach((icon) => {
+    const path = icon.dataset.scholarshipIcon?.trim();
+    if (!path) return;
+    const mask = `url(${JSON.stringify(path)})`;
+    icon.style.maskImage = mask;
+    icon.style.webkitMaskImage = mask;
+  });
 }
 
 function renderPageNav(career) {

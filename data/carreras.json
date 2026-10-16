@@ -1155,16 +1155,22 @@
     "degradado": "linear-gradient(135deg, rgba(17, 24, 39, 0.99), rgba(36, 31, 24, 0.96))",
     "highlights": {
       "es": [
+        "Comunidad",
         "Mentoría",
-        "Networking",
+        "Emprendimiento",
+        "Proyectos",
+        "Investigación",
         "Vinculación",
-        "Investigación"
+        "Networking"
       ],
       "en": [
+        "Community",
         "Mentoring",
-        "Networking",
+        "Entrepreneurship",
+        "Projects",
+        "Research",
         "Industry Engagement",
-        "Research"
+        "Networking"
       ]
     }
   },

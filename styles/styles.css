@@ -15,6 +15,7 @@
   --entry-ingenieria: #2f6b57;
   --high-performance-gold: #b38a3d;
   --high-performance-dark: #11151c;
+  --scholarship-icon-color: #021f80;
   --shadow: 0 18px 42px rgba(22, 32, 42, 0.12);
   --accent: var(--blue);
   --secondary-accent: var(--teal);
@@ -771,6 +772,7 @@ h1 {
 }
 
 .partner-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -778,6 +780,14 @@ h1 {
   align-self: stretch;
   height: 100%;
   gap: 14px;
+}
+
+.theme-scope .feature-card.partner-card::before {
+  position: absolute;
+  inset: 0 0 auto;
+  width: 100%;
+  height: 5px;
+  margin: 0;
 }
 
 .partner-card > * {
@@ -1034,8 +1044,10 @@ h1 {
     transform 180ms ease;
 }
 
-.clickable-grid .section-link-card {
-  min-height: 280px;
+.section-nav-grid.clickable-grid .section-link-card {
+  min-height: 250px;
+  gap: 6px;
+  padding: 6px 18px 10px;
 }
 
 .section-link-card:hover {
@@ -1117,20 +1129,63 @@ h1 {
 }
 
 .section-card-icon {
-  display: grid;
+  display: flex;
   width: 100%;
-  min-height: 104px;
-  place-items: center;
-  color: var(--accent, var(--blue));
-  background: color-mix(in srgb, var(--accent, var(--blue)) 8%, #ffffff);
-  border: 1px solid color-mix(in srgb, var(--accent, var(--blue)) 15%, var(--line));
-  border-radius: 8px;
+  min-height: clamp(115px, 9.6vw, 141px);
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
 }
 
-.section-card-icon-svg {
-  width: clamp(46px, 5vw, 62px);
-  height: clamp(46px, 5vw, 62px);
+.section-card-icon-graphic {
+  width: clamp(115px, 9.6vw, 141px);
+  height: clamp(115px, 9.6vw, 141px);
   display: block;
+  flex: 0 0 auto;
+  background-color: var(--accent, var(--blue));
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+.section-card-icon--proyectos {
+  mask-image: url("../assets/images/icons/sections/proyectos.png");
+  -webkit-mask-image: url("../assets/images/icons/sections/proyectos.png");
+}
+
+.section-card-icon--socios {
+  mask-image: url("../assets/images/icons/sections/socios.png");
+  -webkit-mask-image: url("../assets/images/icons/sections/socios.png");
+}
+
+.section-card-icon--experiencias {
+  mask-image: url("../assets/images/icons/sections/experiencias.png");
+  -webkit-mask-image: url("../assets/images/icons/sections/experiencias.png");
+}
+
+.section-card-icon--empleabilidad {
+  mask-image: url("../assets/images/icons/sections/empleabilidad.png");
+  -webkit-mask-image: url("../assets/images/icons/sections/empleabilidad.png");
+}
+
+.section-card-icon--santafe {
+  mask-image: url("../assets/images/icons/sections/santafe.png");
+  -webkit-mask-image: url("../assets/images/icons/sections/santafe.png");
+}
+
+.section-card-icon--vivencia {
+  mask-image: url("../assets/images/icons/sections/vivencia.png");
+  -webkit-mask-image: url("../assets/images/icons/sections/vivencia.png");
+}
+
+.section-card-icon--becas {
+  mask-image: url("../assets/images/icons/sections/becas.png");
+  -webkit-mask-image: url("../assets/images/icons/sections/becas.png");
 }
 
 .catalyst-panel-bullets {
@@ -1232,27 +1287,49 @@ h1 {
 .scholarship-card {
   height: 100%;
   align-content: start;
+  gap: 4px;
+}
+
+.scholarship-card .feature-body {
+  gap: 0;
+  margin-top: -20px;
+}
+
+.feature-card.scholarship-card h2 {
+  margin-bottom: 16px;
 }
 
 .scholarship-card .qr-code-wrapper {
   margin-top: 16px;
 }
 
+.feature-card.scholarship-card--qr h2 {
+  margin-bottom: 6px;
+}
+
+.scholarship-card--qr .qr-code-wrapper {
+  margin-top: 0;
+}
+
 .scholarship-icon-wrapper {
   display: grid;
   width: 100%;
-  min-height: 132px;
   place-items: center;
-  padding: 10px;
-  background: color-mix(in srgb, var(--accent, var(--blue)) 6%, #ffffff);
-  border-radius: 8px;
+  margin-bottom: 4px;
 }
 
-.scholarship-icon-wrapper img {
+.scholarship-icon {
   width: min(52%, 150px);
   height: 122px;
   display: block;
-  object-fit: contain;
+  background-color: var(--scholarship-icon-color);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  pointer-events: none;
 }
 
 .exatec-grid {
@@ -1573,16 +1650,15 @@ h1 {
   margin-bottom: 18px;
 }
 
-.university-flow-heading h2 {
-  margin: 4px 0 8px;
-  font-size: clamp(1.7rem, 3vw, 2.7rem);
-  line-height: 1.05;
+.university-page {
+  padding-top: clamp(20px, 2.2vw, 32px);
 }
 
-.university-flow-heading p:not(.mini-label) {
+.university-flow-heading h1 {
+  max-width: none;
   margin: 0;
-  color: var(--muted);
-  line-height: 1.6;
+  font-size: clamp(1.7rem, 3vw, 2.7rem);
+  line-height: 1.05;
 }
 
 .university-action-row {
@@ -1644,6 +1720,7 @@ h1 {
 
 .map-info-panel {
   display: grid;
+  align-self: start;
   align-content: start;
   gap: 14px;
   scroll-margin-top: 120px;
@@ -1657,6 +1734,12 @@ h1 {
   margin: 0;
   font-size: clamp(1.35rem, 2.2vw, 2rem);
   line-height: 1.08;
+}
+
+.map-info-panel--prompt h2 {
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 .map-info-panel p {
@@ -1747,8 +1830,10 @@ h1 {
 
 .country-list-button {
   display: flex;
-  justify-content: space-between;
-  gap: 12px;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 6px;
   padding: 14px 16px;
   color: var(--ink);
   font-weight: 900;
@@ -1761,14 +1846,20 @@ h1 {
     transform 180ms ease;
 }
 
+.country-list-button .country-name {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .country-list-button:hover,
 .city-choice:hover {
   transform: translateY(-2px);
 }
 
-.country-list-button small {
+.country-list-button .country-count {
+  flex: 0 0 auto;
   color: var(--muted);
-  font-weight: 800;
+  font-weight: 600;
   white-space: nowrap;
 }
 
@@ -2550,8 +2641,8 @@ textarea.admin-control {
     min-height: 92px;
   }
 
-  .clickable-grid .section-link-card {
-    min-height: 260px;
+  .section-nav-grid.clickable-grid .section-link-card {
+    min-height: 240px;
   }
 
   .language-switcher {
