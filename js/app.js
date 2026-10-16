@@ -1593,13 +1593,16 @@ function renderPartnersPage(career) {
 function renderPartner(partner) {
   const logo = validMediaPath(partner.logo);
   const logoIsImage = /\.(png|jpg|jpeg|webp|svg)$/i.test(logo);
+  const logoBackground = typeof partner.logoFondo === "string" && /^#[0-9a-f]{6}$/i.test(partner.logoFondo.trim())
+    ? partner.logoFondo.trim()
+    : "";
   const interactionTypes = partnerInteractionTypes(partner);
   return `
     <article class="feature-card partner-card">
       <div class="logo-row">
         ${
           logoIsImage
-            ? `<div class="logo-tile image-logo"><img src="${escapeAttr(assetUrl(logo))}" alt="Logo de ${escapeAttr(partner.nombre)}" /></div>`
+            ? `<div class="logo-tile image-logo"${logoBackground ? ` style="--partner-logo-background: ${escapeAttr(logoBackground)}"` : ""}><img src="${escapeAttr(assetUrl(logo))}" alt="Logo de ${escapeAttr(partner.nombre)}" /></div>`
             : hasContent(partner.logo) ? `<div class="logo-tile">${escapeHTML(partner.logo)}</div>` : ""
         }
         <div class="partner-heading-content">

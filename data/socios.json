@@ -1,22 +1,241 @@
 [
   {
-    "id": "nexa-mobility-mecanica",
+    "id": "mecanica-socio-1",
     "carreraId": "mecanica",
-    "nombre": "Nexa Mobility Lab",
-    "logo": "NM",
+    "nombre": "ZF",
+    "logo": "assets/images/socios/zf.jpg",
+    "logoFondo": "#F7F7F7",
     "descripcion": {
-      "es": "Colabora con retos de movilidad, prototipos de prueba y mentoría para equipos estudiantiles.",
-      "en": "Collaborate with mobility challenges, test prototypes and mentoring for student teams."
+      "es": "",
+      "en": ""
     },
-    "imagenOVideo": "assets/images/socios/socio-001.jpg",
+    "imagenOVideo": "",
     "tiposInteraccion": {
       "es": [
-        "Reto semestral",
-        "mentoría técnica"
+        "Proyectos"
       ],
       "en": [
-        "Semester Challenge",
-        "technical mentoring"
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecanica-socio-2",
+    "carreraId": "mecanica",
+    "nombre": "L'Oréal México",
+    "logo": "assets/images/socios/loreal-mexico.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecanica-socio-3",
+    "carreraId": "mecanica",
+    "nombre": "DEACERO",
+    "logo": "assets/images/socios/deacero.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecanica-socio-4",
+    "carreraId": "mecanica",
+    "nombre": "SOLIDWORKS",
+    "logo": "assets/images/socios/solidworks.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecanica-socio-5",
+    "carreraId": "mecanica",
+    "nombre": "Hisense",
+    "logo": "assets/images/socios/hisense.png",
+    "logoFondo": "#09ACAB",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecanica-socio-6",
+    "carreraId": "mecanica",
+    "nombre": "CFE Comisión Federal de Electricidad",
+    "logo": "assets/images/socios/cfe.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecanica-socio-7",
+    "carreraId": "mecanica",
+    "nombre": "ASSA ABLOY",
+    "logo": "assets/images/socios/assa-abloy.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecanica-socio-8",
+    "carreraId": "mecanica",
+    "nombre": "GENERAC",
+    "logo": "assets/images/socios/generac.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecanica-socio-9",
+    "carreraId": "mecanica",
+    "nombre": "3M",
+    "logo": "assets/images/socios/3m.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecanica-socio-10",
+    "carreraId": "mecanica",
+    "nombre": "Ford",
+    "logo": "assets/images/socios/ford.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecanica-socio-11",
+    "carreraId": "mecanica",
+    "nombre": "Universitat Politecnica De Catalunya",
+    "logo": "assets/images/socios/universitat-politecnica-catalunya.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecanica-socio-12",
+    "carreraId": "mecanica",
+    "nombre": "Politecnico Milano 1863",
+    "logo": "assets/images/socios/politecnico-milano.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
       ]
     }
   },
@@ -40,65 +259,362 @@
     }
   },
   {
-    "id": "horizonte-industrial",
+    "id": "industrial-socio-1",
     "carreraId": "industrial",
-    "nombre": "Horizonte Industrial",
-    "logo": "HI",
+    "nombre": "Georgia Tech",
+    "logo": "assets/images/socios/georgia-tech.png",
+    "logoFondo": "#FFFFFF",
     "descripcion": {
-      "es": "Comparte casos de mejora operativa, visitas guiadas y retroalimentación ejecutiva.",
-      "en": "Share operational improvement cases, guided tours and executive feedback."
+      "es": "",
+      "en": ""
     },
-    "imagenOVideo": "assets/images/socios/socio-001.jpg",
+    "imagenOVideo": "",
     "tiposInteraccion": {
       "es": [
-        "Caso aplicado",
-        "panel con líderes"
+        "Proyectos"
       ],
       "en": [
-        "Applied case",
-        "panel with leaders"
+        "Projects"
       ]
     }
   },
   {
-    "id": "urbis-civil",
+    "id": "industrial-socio-2",
+    "carreraId": "industrial",
+    "nombre": "PEPSICO",
+    "logo": "assets/images/socios/pepsico.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "industrial-socio-3",
+    "carreraId": "industrial",
+    "nombre": "KPMG",
+    "logo": "assets/images/socios/kpmg.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "industrial-socio-4",
+    "carreraId": "industrial",
+    "nombre": "MIT",
+    "logo": "assets/images/socios/mit.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "industrial-socio-5",
+    "carreraId": "industrial",
+    "nombre": "BIMBO",
+    "logo": "assets/images/socios/bimbo.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "industrial-socio-6",
+    "carreraId": "industrial",
+    "nombre": "Liverpool",
+    "logo": "assets/images/socios/liverpool.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "civil-socio-techint",
     "carreraId": "civil",
-    "nombre": "Urbis Infraestructura",
-    "logo": "UI",
+    "nombre": "TECHINT Ingeniería y Construcción",
+    "logo": "assets/images/socios/techint.jpg",
+    "logoFondo": "#FFFFFF",
     "descripcion": {
-      "es": "Aporta casos de movilidad, estructuras y planeación urbana para proyectos de aula.",
-      "en": "Provides cases of mobility, structures and urban planning for classroom projects."
+      "es": "",
+      "en": ""
     },
-    "imagenOVideo": "assets/images/socios/socio-001.jpg",
+    "imagenOVideo": "",
     "tiposInteraccion": {
       "es": [
-        "Visita técnica",
-        "reto de diseño"
+        "Proyectos"
       ],
       "en": [
-        "Technical visit",
-        "design challenge"
+        "Projects"
       ]
     }
   },
   {
-    "id": "verde-sustentable",
-    "carreraId": "desarrollo-sustentable",
-    "nombre": "Verde Circular",
-    "logo": "VC",
+    "id": "civil-socio-1",
+    "carreraId": "civil",
+    "nombre": "CFE GEIC",
+    "logo": "assets/images/socios/cfe-geic.jpg",
+    "logoFondo": "#FFFFFF",
     "descripcion": {
-      "es": "Acompaña diagnósticos de sostenibilidad, energía y economía circular.",
-      "en": "Accompanies sustainability, energy and circular economy diagnoses."
+      "es": "",
+      "en": ""
     },
-    "imagenOVideo": "assets/images/socios/socio-001.jpg",
+    "imagenOVideo": "",
     "tiposInteraccion": {
       "es": [
-        "Mentoría",
-        "validación de impacto"
+        "Proyectos"
       ],
       "en": [
-        "Mentoring",
-        "impact validation"
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "civil-socio-2",
+    "carreraId": "civil",
+    "nombre": "Grupo HYCSA",
+    "logo": "assets/images/socios/hycsa.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "civil-socio-3",
+    "carreraId": "civil",
+    "nombre": "RECSA",
+    "logo": "assets/images/socios/recsa.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "civil-socio-4",
+    "carreraId": "civil",
+    "nombre": "IDEAL",
+    "logo": "assets/images/socios/ideal.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "civil-socio-5",
+    "carreraId": "civil",
+    "nombre": "CEMEX",
+    "logo": "assets/images/socios/cemex.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "civil-socio-6",
+    "carreraId": "civil",
+    "nombre": "Carso Infraestructura y Construcción",
+    "logo": "assets/images/socios/carso.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "civil-socio-7",
+    "carreraId": "civil",
+    "nombre": "IDOM",
+    "logo": "assets/images/socios/idom.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "civil-socio-8",
+    "carreraId": "civil",
+    "nombre": "BECK",
+    "logo": "assets/images/socios/beck.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "civil-socio-9",
+    "carreraId": "civil",
+    "nombre": "Hermosillo",
+    "logo": "assets/images/socios/hermosillo.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "civil-socio-10",
+    "carreraId": "civil",
+    "nombre": "CIMESA",
+    "logo": "assets/images/socios/cimesa.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "civil-socio-11",
+    "carreraId": "civil",
+    "nombre": "ICA",
+    "logo": "assets/images/socios/ica.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
       ]
     }
   },
@@ -124,23 +640,202 @@
     }
   },
   {
-    "id": "vector-computacionales",
+    "id": "computacionales-socio-1",
     "carreraId": "computacionales",
-    "nombre": "Vector Digital",
-    "logo": "VD",
+    "nombre": "NVIDIA",
+    "logo": "assets/images/socios/nvidia.png",
+    "logoFondo": "#FFFFFF",
     "descripcion": {
-      "es": "Comparte retos de software, datos, ciberseguridad e inteligencia artificial.",
-      "en": "Share software, data, cybersecurity and artificial intelligence challenges."
+      "es": "",
+      "en": ""
     },
-    "imagenOVideo": "assets/images/socios/socio-001.jpg",
+    "imagenOVideo": "",
     "tiposInteraccion": {
       "es": [
-        "Hackathon",
-        "revisión técnica"
+        "Proyectos"
       ],
       "en": [
-        "Hackathon",
-        "technical review"
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "computacionales-socio-2",
+    "carreraId": "computacionales",
+    "nombre": "Intel",
+    "logo": "assets/images/socios/intel.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "computacionales-socio-3",
+    "carreraId": "computacionales",
+    "nombre": "Meta",
+    "logo": "assets/images/socios/meta.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "computacionales-socio-4",
+    "carreraId": "computacionales",
+    "nombre": "IBM",
+    "logo": "assets/images/socios/ibm.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "computacionales-socio-5",
+    "carreraId": "computacionales",
+    "nombre": "Citi",
+    "logo": "assets/images/socios/citi.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "computacionales-socio-6",
+    "carreraId": "computacionales",
+    "nombre": "Cisco",
+    "logo": "assets/images/socios/cisco.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "computacionales-socio-7",
+    "carreraId": "computacionales",
+    "nombre": "AWS",
+    "logo": "assets/images/socios/aws.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "computacionales-socio-8",
+    "carreraId": "computacionales",
+    "nombre": "Oracle",
+    "logo": "assets/images/socios/oracle.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "computacionales-socio-9",
+    "carreraId": "computacionales",
+    "nombre": "Google",
+    "logo": "assets/images/socios/google.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "computacionales-socio-10",
+    "carreraId": "computacionales",
+    "nombre": "Microsoft",
+    "logo": "assets/images/socios/microsoft.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
       ]
     }
   },
@@ -346,6 +1041,7 @@
     "carreraId": "mecatronica",
     "nombre": "Multion (MATLAB)",
     "logo": "assets/images/socios/matlab.jpg",
+    "logoFondo": "#000000",
     "descripcion": {
       "es": "MultiON Consulting (MultiON) es una empresa mexicana fundada en 1989, líder en la comercialización, soporte técnico y capacitación de software y hardware científico en México y Latinoamérica. Es el distribuidor autorizado oficial de MathWorks (creadores de MATLAB y Simulink) en la región, proveyendo soluciones para el ámbito académico, industrial y gubernamental.",
       "en": "MultiON Consulting (MultiON) is a Mexican company founded in 1989, a leader in the commercialization, technical support and training of scientific software and hardware in Mexico and Latin America. It is the official authorized distributor of MathWorks (creators of MATLAB and Simulink) in the region, providing solutions for the academic, industrial and government fields."
@@ -353,21 +1049,143 @@
     "imagenOVideo": "",
     "tiposInteraccion": {
       "es": [
+        "Proyectos",
         "Software"
       ],
       "en": [
+        "Projects",
         "Software"
       ]
     }
   },
   {
     "id": "mecatronica-socio-10",
-    "carreraId": "mecatronica",
+    "carreraId": "desarrollo-sustentable",
     "nombre": "CENACE",
     "logo": "assets/images/socios/cenace.jpg",
     "descripcion": {
       "es": "El CENACE (Centro Nacional de Control de Energía) es un organismo público descentralizado del Gobierno de México encargado de operar el Sistema Eléctrico Nacional y el Mercado Eléctrico Mayorista, garantizando el suministro continuo de electricidad con imparcialidad, eficiencia y seguridad.",
       "en": "CENACE (National Energy Control Center) is a decentralized public body of the Government of Mexico in charge of operating the National Electricity System and the Wholesale Electricity Market, guaranteeing the continuous supply of electricity with impartiality, efficiency and security."
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "desarrollo-sustentable-socio-1",
+    "carreraId": "desarrollo-sustentable",
+    "nombre": "Deloitte",
+    "logo": "assets/images/socios/deloitte.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "desarrollo-sustentable-socio-2",
+    "carreraId": "desarrollo-sustentable",
+    "nombre": "BCG",
+    "logo": "assets/images/socios/bcg.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "desarrollo-sustentable-socio-3",
+    "carreraId": "desarrollo-sustentable",
+    "nombre": "McKinsey & Company",
+    "logo": "assets/images/socios/mckinsey.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "desarrollo-sustentable-socio-4",
+    "carreraId": "desarrollo-sustentable",
+    "nombre": "World Resources Institute",
+    "logo": "assets/images/socios/world-resources-institute.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "desarrollo-sustentable-socio-5",
+    "carreraId": "desarrollo-sustentable",
+    "nombre": "Siemens Energy",
+    "logo": "assets/images/socios/siemens-energy.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "desarrollo-sustentable-socio-6",
+    "carreraId": "desarrollo-sustentable",
+    "nombre": "KPMG",
+    "logo": "assets/images/socios/kpmg.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
     },
     "imagenOVideo": "",
     "tiposInteraccion": {
@@ -437,41 +1255,549 @@
     }
   },
   {
-    "id": "financial-engineering-socio-1",
-    "carreraId": "financial-engineering",
-    "nombre": "Socio formador de ejemplo",
-    "logo": "",
+    "id": "mecatronica-socio-14",
+    "carreraId": "mecatronica",
+    "nombre": "L'Oréal México",
+    "logo": "assets/images/socios/loreal-mexico.jpg",
+    "logoFondo": "#FFFFFF",
     "descripcion": {
-      "es": "Contenido de ejemplo - sustituir. Registro temporal para capturar una colaboración futura.",
-      "en": "Example content - replace. Temporary registration to capture future collaboration."
+      "es": "",
+      "en": ""
     },
+    "imagenOVideo": "",
     "tiposInteraccion": {
       "es": [
-        "Contenido temporal"
+        "Proyectos"
       ],
       "en": [
-        "Temporary content"
+        "Projects"
       ]
+    }
+  },
+  {
+    "id": "mecatronica-socio-15",
+    "carreraId": "mecatronica",
+    "nombre": "TECHINT Ingeniería y Construcción",
+    "logo": "assets/images/socios/techint.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
     },
-    "imagenOVideo": ""
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecatronica-socio-16",
+    "carreraId": "mecatronica",
+    "nombre": "ZF",
+    "logo": "assets/images/socios/zf.jpg",
+    "logoFondo": "#F7F7F7",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecatronica-socio-17",
+    "carreraId": "mecatronica",
+    "nombre": "APAC",
+    "logo": "assets/images/socios/apac.jpg",
+    "logoFondo": "#0B5C5D",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecatronica-socio-18",
+    "carreraId": "mecatronica",
+    "nombre": "OMRON",
+    "logo": "assets/images/socios/omron.jpg",
+    "logoFondo": "#015FB9",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos",
+        "PLCs",
+        "Laboratorio de automatización",
+        "Software"
+      ],
+      "en": [
+        "Projects",
+        "PLCs",
+        "Automation laboratory",
+        "Software"
+      ]
+    }
+  },
+  {
+    "id": "mecatronica-socio-19",
+    "carreraId": "mecatronica",
+    "nombre": "Banco de Tapitas A.C.",
+    "logo": "assets/images/socios/banco-de-tapitas.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecatronica-socio-20",
+    "carreraId": "mecatronica",
+    "nombre": "MotorHub Movilidad Integral",
+    "logo": "assets/images/socios/motorhub.jpg",
+    "logoFondo": "#F7F7F7",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecatronica-socio-21",
+    "carreraId": "mecatronica",
+    "nombre": "CENAPRED",
+    "logo": "assets/images/socios/cenapred.jpg",
+    "logoFondo": "#F7F7F7",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecatronica-socio-22",
+    "carreraId": "mecatronica",
+    "nombre": "Forrajes \"El Corral\"",
+    "logo": "assets/images/socios/forrajes-el-corral.jpg",
+    "logoFondo": "#F7F7F7",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "mecatronica-socio-23",
+    "carreraId": "mecatronica",
+    "nombre": "MAGNA COSMA INTERNATIONAL",
+    "logo": "assets/images/socios/magna-cosma.jpg",
+    "logoFondo": "#F7F7F7",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "financial-engineering-socio-1",
+    "carreraId": "financial-engineering",
+    "nombre": "AWS",
+    "logo": "assets/images/socios/aws.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "financial-engineering-socio-2",
+    "carreraId": "financial-engineering",
+    "nombre": "Oracle",
+    "logo": "assets/images/socios/oracle.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "financial-engineering-socio-3",
+    "carreraId": "financial-engineering",
+    "nombre": "Google",
+    "logo": "assets/images/socios/google.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "financial-engineering-socio-4",
+    "carreraId": "financial-engineering",
+    "nombre": "Banorte",
+    "logo": "assets/images/socios/banorte.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "financial-engineering-socio-5",
+    "carreraId": "financial-engineering",
+    "nombre": "Microsoft",
+    "logo": "assets/images/socios/microsoft.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "financial-engineering-socio-6",
+    "carreraId": "financial-engineering",
+    "nombre": "BOCAR",
+    "logo": "assets/images/socios/bocar.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "financial-engineering-socio-7",
+    "carreraId": "financial-engineering",
+    "nombre": "McKinsey & Company",
+    "logo": "assets/images/socios/mckinsey.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "financial-engineering-socio-8",
+    "carreraId": "financial-engineering",
+    "nombre": "BIMBO",
+    "logo": "assets/images/socios/bimbo.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
   },
   {
     "id": "ai-data-science-socio-1",
     "carreraId": "ai-data-science",
-    "nombre": "Socio formador de ejemplo",
-    "logo": "",
+    "nombre": "Intel",
+    "logo": "assets/images/socios/intel.png",
+    "logoFondo": "#FFFFFF",
     "descripcion": {
-      "es": "Contenido de ejemplo - sustituir. Registro temporal para capturar una colaboración futura.",
-      "en": "Example content - replace. Temporary registration to capture future collaboration."
+      "es": "",
+      "en": ""
     },
+    "imagenOVideo": "",
     "tiposInteraccion": {
       "es": [
-        "Contenido temporal"
+        "Proyectos"
       ],
       "en": [
-        "Temporary content"
+        "Projects"
       ]
+    }
+  },
+  {
+    "id": "ai-data-science-socio-2",
+    "carreraId": "ai-data-science",
+    "nombre": "NVIDIA",
+    "logo": "assets/images/socios/nvidia.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
     },
-    "imagenOVideo": ""
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "ai-data-science-socio-3",
+    "carreraId": "ai-data-science",
+    "nombre": "Citi",
+    "logo": "assets/images/socios/citi.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "ai-data-science-socio-4",
+    "carreraId": "ai-data-science",
+    "nombre": "IBM",
+    "logo": "assets/images/socios/ibm.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "ai-data-science-socio-5",
+    "carreraId": "ai-data-science",
+    "nombre": "Meta",
+    "logo": "assets/images/socios/meta.jpg",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "ai-data-science-socio-6",
+    "carreraId": "ai-data-science",
+    "nombre": "Oracle",
+    "logo": "assets/images/socios/oracle.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "ai-data-science-socio-7",
+    "carreraId": "ai-data-science",
+    "nombre": "Google",
+    "logo": "assets/images/socios/google.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "ai-data-science-socio-8",
+    "carreraId": "ai-data-science",
+    "nombre": "AWS",
+    "logo": "assets/images/socios/aws.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
+  },
+  {
+    "id": "ai-data-science-socio-9",
+    "carreraId": "ai-data-science",
+    "nombre": "Microsoft",
+    "logo": "assets/images/socios/microsoft.png",
+    "logoFondo": "#FFFFFF",
+    "descripcion": {
+      "es": "",
+      "en": ""
+    },
+    "imagenOVideo": "",
+    "tiposInteraccion": {
+      "es": [
+        "Proyectos"
+      ],
+      "en": [
+        "Projects"
+      ]
+    }
   }
 ]
