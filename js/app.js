@@ -473,6 +473,7 @@ const countryIsoCodes = {
   "guinea ecuatorial": "gq",
   haiti: "ht",
   honduras: "hn",
+  "hong kong": "hk",
   hungria: "hu",
   india: "in",
   indonesia: "id",
@@ -686,6 +687,7 @@ const adminCountries = [
   "Guinea Ecuatorial",
   "Haití",
   "Honduras",
+  "Hong Kong",
   "Hungría",
   "India",
   "Indonesia",
@@ -1642,9 +1644,12 @@ function renderPartnerMedia(mediaPath, index) {
 }
 
 function renderUniversitiesPage(career, pathParts = []) {
-  const universities = byCareer(siteData.universidades, career.id);
+  const universities = byCareer(siteData.universidades, career.id)
+    .sort((a, b) => Number(b["año"] || 0) - Number(a["año"] || 0));
   const grouped = groupUniversitiesByCountryAndCity(universities);
-  const countries = Object.keys(grouped).sort((a, b) => a.localeCompare(b, "es"));
+  const countries = Object.keys(grouped)
+    .filter((country) => countryExperienceCount(grouped[country]) > 0)
+    .sort((a, b) => a.localeCompare(b, "es"));
   const selectedCountry = decodeHashPart(pathParts[0]);
   const selectedCity = decodeHashPart(pathParts[1]);
   const hasSelectedCountry = Boolean(selectedCountry && grouped[selectedCountry]);
@@ -1661,7 +1666,9 @@ function renderUniversitiesPage(career, pathParts = []) {
   }
 
   pendingUniversityMap = { career, countries, grouped };
-  const selectedUniversities = hasSelectedCity ? grouped[selectedCountry][selectedCity] : [];
+  const selectedUniversities = hasSelectedCity
+    ? grouped[selectedCountry][selectedCity]
+    : hasSelectedCountry ? grouped[selectedCountry][""] || [] : [];
   return `
     <section class="detail-shell university-page">
       ${renderUniversityFlowHeader()}
@@ -1672,10 +1679,10 @@ function renderUniversitiesPage(career, pathParts = []) {
         ${renderCountryInfoPanel(career, hasSelectedCountry ? selectedCountry : "", hasSelectedCity ? selectedCity : "", grouped)}
       </div>
       ${
-        hasSelectedCity
+        selectedUniversities.length
           ? `
             <div class="university-action-row">
-               <a class="button ghost compact-button" href="${universityHash(career, selectedCountry)}" data-university-nav data-career-id="${escapeAttr(career.id)}" data-country="${escapeAttr(selectedCountry)}">${escapeHTML(t("backToCities"))}</a>
+               ${hasSelectedCity ? `<a class="button ghost compact-button" href="${universityHash(career, selectedCountry)}" data-university-nav data-career-id="${escapeAttr(career.id)}" data-country="${escapeAttr(selectedCountry)}">${escapeHTML(t("backToCities"))}</a>` : ""}
                <a class="button ghost compact-button" href="${universityHash(career)}" data-university-nav data-career-id="${escapeAttr(career.id)}">${escapeHTML(t("backToMap"))}</a>
             </div>
             <div class="content-grid university-grid" id="city-experience-results" data-city-experience-results>
@@ -1692,12 +1699,16 @@ function renderUniversitiesPage(career, pathParts = []) {
 function groupUniversitiesByCountryAndCity(universities) {
   return universities.reduce((groups, university) => {
     const country = university.pais || "Sin país";
-    const city = university.ciudad || "Sin ciudad";
+    const city = String(university.ciudad || "").trim();
     groups[country] ??= {};
     groups[country][city] ??= [];
     groups[country][city].push(university);
     return groups;
   }, {});
+}
+
+function countryExperienceCount(cities) {
+  return Object.values(cities || {}).reduce((total, items) => total + items.length, 0);
 }
 
 function encodeHashPart(value) {
@@ -1744,34 +1755,39 @@ function renderCountryInfoPanel(career, selectedCountry, selectedCity, grouped) 
   }
 
   const cities = grouped[selectedCountry];
-  const cityCount = Object.keys(cities).length;
-  const universityCount = Object.values(cities).reduce((total, items) => total + items.length, 0);
+  const namedCities = Object.keys(cities).filter(Boolean);
+  const cityCount = namedCities.length;
+  const universityCount = countryExperienceCount(cities);
   const flag = renderCountryFlag(selectedCountry);
+  const summary = [
+    cityCount ? (cityCount === 1 ? t("cityAvailable", { count: cityCount }) : t("citiesAvailable", { count: cityCount })) : "",
+    universityCount === 1 ? t("experienceAvailable", { count: universityCount }) : t("experiencesAvailable", { count: universityCount }),
+  ].filter(Boolean).join(" · ");
   return `
     <aside class="map-info-panel" data-country-info-panel>
       <div class="country-panel-heading">
         ${flag ? `<span class="country-flag-wrapper">${flag}</span>` : ""}
         <h2>${escapeHTML(localizedCountry(selectedCountry))}</h2>
       </div>
-      <p class="country-summary">${escapeHTML(cityCount === 1 ? t("cityAvailable", { count: cityCount }) : t("citiesAvailable", { count: cityCount }))} · ${escapeHTML(universityCount === 1 ? t("experienceAvailable", { count: universityCount }) : t("experiencesAvailable", { count: universityCount }))}</p>
-      <p>${escapeHTML(t("selectCity"))}</p>
-      <div class="city-list">
-        ${Object.keys(cities)
+      <p class="country-summary">${escapeHTML(summary)}</p>
+      ${namedCities.length ? `<p>${escapeHTML(t("selectCity"))}</p>` : ""}
+      ${namedCities.length ? `<div class="city-list">
+        ${namedCities
           .sort((a, b) => a.localeCompare(b, "es"))
           .map((city) => renderCityOption(career, selectedCountry, city, cities[city].length, city === selectedCity))
           .join("")}
-      </div>
+      </div>` : ""}
       <a class="button ghost compact-button" href="${universityHash(career)}" data-university-nav data-career-id="${escapeAttr(career.id)}">${escapeHTML(t("backToMap"))}</a>
     </aside>
   `;
 }
 
 function renderCountryListButton(career, country, cities) {
-  const cityCount = Object.keys(cities).length;
+  const experienceCount = countryExperienceCount(cities);
   return `
     <a class="country-list-button" href="${universityHash(career, country)}" data-university-nav data-career-id="${escapeAttr(career.id)}" data-country="${escapeAttr(country)}">
       <span class="country-name">${escapeHTML(localizedCountry(country))}</span>
-      <small class="country-count">(${escapeHTML(cityCount)})</small>
+      <small class="country-count">(${escapeHTML(experienceCount)})</small>
     </a>
   `;
 }
@@ -1916,9 +1932,13 @@ function initializePendingUniversityMap() {
         event.preventDefault();
         return;
       }
-      const cities = Object.keys(grouped[country]).length;
-      const universities = Object.values(grouped[country]).reduce((total, items) => total + items.length, 0);
-      tooltip.text(`${localizedCountry(country)}: ${cities} ${cities === 1 ? t("cityAvailable", { count: cities }).replace(`${cities} `, "") : t("citiesAvailable", { count: cities }).replace(`${cities} `, "")} · ${universities} ${universities === 1 ? t("experienceAvailable", { count: universities }).replace(`${universities} `, "") : t("experiencesAvailable", { count: universities }).replace(`${universities} `, "")}`);
+      const cities = Object.keys(grouped[country]).filter(Boolean).length;
+      const universities = countryExperienceCount(grouped[country]);
+      const tooltipParts = [
+        cities ? `${cities} ${cities === 1 ? t("cityAvailable", { count: cities }).replace(`${cities} `, "") : t("citiesAvailable", { count: cities }).replace(`${cities} `, "")}` : "",
+        `${universities} ${universities === 1 ? t("experienceAvailable", { count: universities }).replace(`${universities} `, "") : t("experiencesAvailable", { count: universities }).replace(`${universities} `, "")}`,
+      ].filter(Boolean);
+      tooltip.text(`${localizedCountry(country)}: ${tooltipParts.join(" · ")}`);
     },
     onRegionClick(event, code) {
       hideMapTooltips();
@@ -1937,8 +1957,10 @@ function renderUniversity(university, index) {
   const overlayLabel = renderLocationBadge(university.pais, university.ciudad);
   const media = renderUniversityMedia(university, overlayLabel, index);
   const tags = localizedList(university.areasRelacionadas);
+  const locationLabel = [university.ciudad, localizedCountry(university.pais)].filter(Boolean).join(", ");
   const experienceMeta = [
     hasContent(university.alumno) ? `<div><dt>${escapeHTML(t("student"))}</dt><dd>${escapeHTML(university.alumno)}</dd></div>` : "",
+    hasContent(university.campus) ? `<div><dt>${escapeHTML(t("campus"))}</dt><dd>${escapeHTML(localizedText(university.campus))}</dd></div>` : "",
     hasContent(university.tipoExperiencia) ? `<div><dt>${escapeHTML(t("experienceType"))}</dt><dd>${escapeHTML(localizedText(university.tipoExperiencia))}</dd></div>` : "",
     hasContent(university["año"]) ? `<div><dt>${escapeHTML(t("year"))}</dt><dd>${escapeHTML(university["año"])}</dd></div>` : "",
   ].filter(Boolean).join("");
@@ -1946,7 +1968,7 @@ function renderUniversity(university, index) {
     <article class="feature-card university-card">
       ${media}
       <div class="feature-body">
-        <p class="mini-label">${escapeHTML(university.ciudad)}, ${escapeHTML(localizedCountry(university.pais))}</p>
+        ${locationLabel ? `<p class="mini-label">${escapeHTML(locationLabel)}</p>` : ""}
         <h2>${escapeHTML(university.nombre)}</h2>
         ${tags.length ? `<div class="tag-row">${tags.map((area) => `<span class="tag">${escapeHTML(area)}</span>`).join("")}</div>` : ""}
         ${renderFormattedDescription(university.descripcion)}
@@ -2609,7 +2631,7 @@ function orderedAdminEntries(object, key, prefix) {
   const entries = Object.entries(object);
   if (prefix) return entries;
   const preferred = key === "universidades"
-    ? ["carreraId", "id", "pais", "ciudad", "nombre", "alumno", "tipoExperiencia", "año"]
+    ? ["carreraId", "id", "pais", "ciudad", "campus", "nombre", "alumno", "tipoExperiencia", "año"]
     : key === "exatecs"
       ? ["carreraId", "id", "fotoAlumno", "logoEmpresa", "nombre", "generacion", "puestoActual", "empresa", "descripcion", "linkedinUrl", "codigoQR"]
     : key === "vivencia"
@@ -2636,6 +2658,7 @@ function adminFieldLabel(field, key) {
     alumno: "Alumno",
     pais: "País",
     ciudad: "Ciudad",
+    campus: "Campus",
     tipoExperiencia: "Tipo de experiencia",
     tipoInteraccion: "Tipos de interacción",
     tiposInteraccion: "Tipos de interacción",
@@ -2662,10 +2685,13 @@ function adminFieldLabel(field, key) {
 
 function normalizeAdminItem(key, item) {
   if (!item) return;
+  if (key === "universidades" && !Object.hasOwn(item, "campus")) {
+    item.campus = { es: "", en: "" };
+  }
   const translatedFields = {
     proyectos: ["titulo", "descripcion", "tecnologias"],
     socios: ["descripcion", "tiposInteraccion"],
-    universidades: ["tipoExperiencia", "descripcion", "areasRelacionadas"],
+    universidades: ["campus", "tipoExperiencia", "descripcion", "areasRelacionadas"],
     exatecs: ["puestoActual", "descripcion"],
     vivencia: ["titulo", "descripcion", "etiquetas"],
     catalystDetails: ["titulo", "descripcion", "etiquetas"],
@@ -3014,13 +3040,18 @@ function renderAdminFields(object, prefix = "", key = "", isNew = false) {
         const hidden = isConditionalTags && object.categoria !== "actividades" ? " hidden" : "";
         const descriptionHelp = field === "descripcion"
           ? `<small class="admin-help">Los saltos de línea se respetarán. Escribe “- ” o “* ” al inicio de una línea para crear una viñeta.</small>`
+          : key === "universidades" && field === "campus"
+            ? `<small class="admin-help">Dejar vacío para experiencias de Campus Santa Fe. Utilizar únicamente cuando sea necesario indicar otro campus de origen.</small>`
           : isArray ? `<small class="admin-help">Escribe un elemento por línea.</small>` : "";
         const fieldKind = isArray ? "array" : "string";
+        const optionalLegend = key === "universidades" && field === "campus"
+          ? ` <span class="admin-optional">Opcional</span>`
+          : "";
         const spanishValue = isArray ? normalizeTags(spanish).join("\n") : spanish;
         const englishValue = isArray ? normalizeTags(english).join("\n") : english;
         return `
           <fieldset class="admin-fieldset admin-bilingual-field" ${isConditionalTags ? "data-catalyst-tags-field" : ""}${hidden}>
-            <legend>${escapeHTML(label)}</legend>
+            <legend>${escapeHTML(label)}${optionalLegend}</legend>
             ${descriptionHelp}
             <label class="admin-label">${escapeHTML(label)} — Español
               <textarea class="admin-control" data-path="${escapeAttr(`${path}.es`)}" data-kind="${fieldKind}">${escapeHTML(spanishValue)}</textarea>
@@ -3066,7 +3097,10 @@ function renderAdminFields(object, prefix = "", key = "", isNew = false) {
       const descriptionHelp = field === "descripcion"
         ? `<small class="admin-help">Los saltos de línea se respetarán. Escribe “- ” o “* ” al inicio de una línea para crear una viñeta.</small>`
         : "";
-      return `<label class="admin-label">${escapeHTML(label)}${descriptionHelp}${control}</label>`;
+      const optionalLabel = !prefix && key === "universidades" && ["ciudad", "alumno"].includes(field)
+        ? ` <span class="admin-optional">Opcional</span>`
+        : "";
+      return `<label class="admin-label">${escapeHTML(label)}${optionalLabel}${descriptionHelp}${control}</label>`;
     })
     .join("");
 }
@@ -3160,6 +3194,7 @@ const adminBlankTemplates = {
     id: "",
     pais: "",
     ciudad: "",
+    campus: { es: "", en: "" },
     nombre: "",
     alumno: "",
     tipoExperiencia: { es: "", en: "" },

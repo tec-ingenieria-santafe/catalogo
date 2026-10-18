@@ -302,9 +302,9 @@
       "es": "Transforma operaciones complejas en sistemas medibles, eficientes y centrados en las personas.",
       "en": "Transform complex operations into measurable, efficient and people-centered systems."
     },
-    "colorPrincipal": "#2f9b72",
-    "colorSecundario": "#86b83d",
-    "degradado": "linear-gradient(135deg, rgba(47, 155, 114, 0.96), rgba(134, 184, 61, 0.88))",
+    "colorPrincipal": "#6f5f4f",
+    "colorSecundario": "#9a7b4f",
+    "degradado": "linear-gradient(135deg, rgba(111, 95, 79, 0.96), rgba(154, 123, 79, 0.88))",
     "imagen": "assets/images/carreras/industrial/cover.jpg",
     "highlights": {
       "es": [
@@ -1036,9 +1036,9 @@
       "es": "Lidera el ciclo completo de innovación: descubrimiento, prototipado, validación y lanzamiento.",
       "en": "Lead the complete innovation cycle: discovery, prototyping, validation and launch."
     },
-    "colorPrincipal": "#6f5f4f",
-    "colorSecundario": "#9a7b4f",
-    "degradado": "linear-gradient(135deg, rgba(111, 95, 79, 0.96), rgba(154, 123, 79, 0.88))",
+    "colorPrincipal": "#4F6D7A",
+    "colorSecundario": "#8AA8B0",
+    "degradado": "linear-gradient(135deg, rgba(79, 109, 122, 0.96), rgba(138, 168, 176, 0.88))",
     "imagen": "assets/images/carreras/innovacion/cover.jpg",
     "highlights": {
       "es": [
