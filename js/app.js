@@ -148,6 +148,11 @@ let siteData = null;
 let adminState = null;
 let pendingUniversityMap = null;
 let activeUniversityMap = null;
+let universityFilterState = {
+  careerId: "",
+  type: "__all__",
+  year: "__all__",
+};
 
 function escapeHTML(value) {
   return String(value ?? "").replace(/[&<>"']/g, (char) => {
@@ -1495,6 +1500,7 @@ function renderSubpage(career, slug, pathParts = []) {
     </div>
   `;
   attachListingControls();
+  attachUniversityFilters();
   attachUniversityNavigation();
   validateUniversityMedia();
   initializePendingUniversityMap();
@@ -1644,8 +1650,10 @@ function renderPartnerMedia(mediaPath, index) {
 }
 
 function renderUniversitiesPage(career, pathParts = []) {
-  const universities = byCareer(siteData.universidades, career.id)
+  const allUniversities = byCareer(siteData.universidades, career.id)
     .sort((a, b) => Number(b["año"] || 0) - Number(a["año"] || 0));
+  const filterState = universityFiltersForCareer(career.id);
+  const universities = filterUniversities(allUniversities, filterState);
   const grouped = groupUniversitiesByCountryAndCity(universities);
   const countries = Object.keys(grouped)
     .filter((country) => countryExperienceCount(grouped[country]) > 0)
@@ -1657,27 +1665,36 @@ function renderUniversitiesPage(career, pathParts = []) {
 
   if (!universities.length) {
     pendingUniversityMap = null;
+    destroyActiveUniversityMap();
+  }
+
+  if (!allUniversities.length) {
     return `
       <section class="detail-shell university-page">
-        ${renderEmptyState(universities, t("internationalExperiences").toLowerCase())}
+        ${renderEmptyState(allUniversities, t("internationalExperiences").toLowerCase())}
         ${renderPageNav(career)}
       </section>
     `;
   }
 
-  pendingUniversityMap = { career, countries, grouped };
+  pendingUniversityMap = universities.length ? { career, countries, grouped } : null;
   const selectedUniversities = hasSelectedCity
     ? grouped[selectedCountry][selectedCity]
     : hasSelectedCountry ? grouped[selectedCountry][""] || [] : [];
   return `
     <section class="detail-shell university-page">
       ${renderUniversityFlowHeader()}
-      <div class="university-map-card">
-        <div class="university-map-column" data-university-map-column>
-          ${renderWorldMap(career, countries, grouped)}
-        </div>
-        ${renderCountryInfoPanel(career, hasSelectedCountry ? selectedCountry : "", hasSelectedCity ? selectedCity : "", grouped)}
-      </div>
+      ${renderUniversityFilters(career, allUniversities, filterState, universities.length, hasSelectedCountry ? selectedCountry : "", hasSelectedCity ? selectedCity : "")}
+      ${
+        universities.length
+          ? `<div class="university-map-card">
+              <div class="university-map-column" data-university-map-column>
+                ${renderWorldMap(career, countries, grouped)}
+              </div>
+              ${renderCountryInfoPanel(career, hasSelectedCountry ? selectedCountry : "", hasSelectedCity ? selectedCity : "", grouped)}
+            </div>`
+          : ""
+      }
       ${
         selectedUniversities.length
           ? `
@@ -1694,6 +1711,118 @@ function renderUniversitiesPage(career, pathParts = []) {
       ${renderPageNav(career)}
     </section>
   `;
+}
+
+function universityFiltersForCareer(careerId) {
+  if (universityFilterState.careerId !== careerId) {
+    universityFilterState = {
+      careerId,
+      type: "__all__",
+      year: "__all__",
+    };
+  }
+  return universityFilterState;
+}
+
+function universityExperienceType(university) {
+  return localizedText(university.tipoExperiencia, "es").trim();
+}
+
+function filterUniversities(universities, filters) {
+  return universities.filter((university) => {
+    const matchesType = filters.type === "__all__" || universityExperienceType(university) === filters.type;
+    const matchesYear = filters.year === "__all__" || String(university["año"] ?? "") === filters.year;
+    return matchesType && matchesYear;
+  });
+}
+
+function universityTypeOptions(universities) {
+  const options = [];
+  const seen = new Set();
+  universities.forEach((university) => {
+    const value = universityExperienceType(university);
+    if (!value || seen.has(value)) return;
+    seen.add(value);
+    options.push({
+      value,
+      label: localizedText(university.tipoExperiencia).trim() || value,
+    });
+  });
+  return options.sort((a, b) => a.label.localeCompare(b.label, currentLanguage === "en" ? "en" : "es", { sensitivity: "base" }));
+}
+
+function renderUniversityFilters(career, universities, filters, resultCount, selectedCountry = "", selectedCity = "") {
+  const typeOptions = universityTypeOptions(universities);
+  const yearOptions = uniqueOptions(
+    universities,
+    (university) => university["año"],
+    (a, b) => numericValue(b) - numericValue(a),
+  );
+  const resultLabel = resultCount === 1 ? t("experienceLabel") : t("experiencesLabel");
+  return `
+    <div
+      class="listing-tools university-filter-tools"
+      data-university-filter-region
+      data-career-id="${escapeAttr(career.id)}"
+      data-selected-country="${escapeAttr(selectedCountry)}"
+      data-selected-city="${escapeAttr(selectedCity)}"
+      role="group"
+      aria-label="${escapeAttr(t("internationalExperienceFilters"))}">
+      <div class="listing-controls">
+        <label class="listing-label">
+          ${escapeHTML(t("experienceType"))}
+          <select class="listing-select" data-university-filter="type">
+            <option value="__all__">${escapeHTML(t("allExperienceTypes"))}</option>
+            ${typeOptions.map((option) => `<option value="${escapeAttr(option.value)}" ${filters.type === option.value ? "selected" : ""}>${escapeHTML(option.label)}</option>`).join("")}
+          </select>
+        </label>
+        <label class="listing-label">
+          ${escapeHTML(t("year"))}
+          <select class="listing-select" data-university-filter="year">
+            <option value="__all__">${escapeHTML(t("allYears"))}</option>
+            ${yearOptions.map((year) => `<option value="${escapeAttr(year)}" ${filters.year === year ? "selected" : ""}>${escapeHTML(year)}</option>`).join("")}
+          </select>
+        </label>
+      </div>
+      <p class="result-counter">${escapeHTML(resultCount ? t("showingResults", { count: resultCount, label: resultLabel }) : t("noMatches"))}</p>
+    </div>
+  `;
+}
+
+function attachUniversityFilters() {
+  document.querySelectorAll("[data-university-filter-region]").forEach((region) => {
+    region.querySelectorAll("[data-university-filter]").forEach((control) => {
+      control.addEventListener("change", () => applyUniversityFilters(region));
+    });
+  });
+}
+
+function applyUniversityFilters(region) {
+  const career = siteData.carreras.find((item) => item.id === region.dataset.careerId);
+  if (!career) return;
+
+  universityFilterState = {
+    careerId: career.id,
+    type: region.querySelector('[data-university-filter="type"]')?.value || "__all__",
+    year: region.querySelector('[data-university-filter="year"]')?.value || "__all__",
+  };
+
+  const grouped = groupUniversitiesByCountryAndCity(
+    filterUniversities(byCareer(siteData.universidades, career.id), universityFilterState),
+  );
+  let country = region.dataset.selectedCountry || "";
+  let city = region.dataset.selectedCity || "";
+  if (!grouped[country]) {
+    country = "";
+    city = "";
+  } else if (city && !grouped[country][city]) {
+    city = "";
+  }
+
+  const scrollY = window.scrollY;
+  history.replaceState(null, "", universityHash(career, country, city));
+  renderSubpage(career, "universidades", [country, city].filter(Boolean).map(encodeHashPart));
+  requestAnimationFrame(() => window.scrollTo({ top: scrollY, behavior: "auto" }));
 }
 
 function groupUniversitiesByCountryAndCity(universities) {
